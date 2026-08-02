@@ -3942,196 +3942,736 @@ window.DERS_TARIH = {
 };
 
 /* ===== vatandaslik.js ===== */
-/* KPSS On Lisans -- VATANDASLIK - 9 soru
-   Calisma formati: SEMA + SAYI KARTI.
-   Vatandaslikta yorum yok, madde var. Sayilar ve organ semalari ezberlenirse 9 soru garanti. */
+/* KPSS On Lisans -- VATANDASLIK BILGISI - 9 soru
+   Icerik, 2010-2024 arasi cikmis On Lisans sorularinin taranmasiyla hazirlandi.
+   Soru sayilari o taramadaki gercek dagilima gore belirlendi:
+   Idare Hukuku 23 - Temel Hukuk 18 - Yasama 10 - Anayasa 6 - Yurutme 5 - Yargi 5  */
 
 window.DERS_VATANDASLIK = {
-  id:'vatandaslik', ad:'Vatanda\u015fl\u0131k', bolum:'Genel K\u00fclt\u00fcr', soru:9, renk:'vat',
-  tanim:'En az konu, en y\u00fcksek verim. 9 sorunun tamam\u0131 bilgiye dayal\u0131d\u0131r; yorum gerektirmez.',
-  yontem:[
-    '**\u015eema** kutular\u0131 organlar\u0131n yap\u0131s\u0131n\u0131 ve birbirine ba\u011flan\u0131\u015f\u0131n\u0131 g\u00f6sterir.',
-    '**Say\u0131 kart\u0131** kutular\u0131 s\u0131navda do\u011frudan sorulan rakamlar\u0131 toplar \u2014 bunlar ezber.',
-    'Temel Hukuk ve \u0130dare Hukuku birlikte 5-6 soru: \u00f6nce bunlar\u0131 bitir.'
+  id: 'vatandaslik',
+  ad: 'Vatanda\u015fl\u0131k',
+  bolum: 'Genel K\u00fclt\u00fcr',
+  soru: 9,
+  renk: 'vat',
+  tanim: 'En az konu, en y\u00fcksek verim. Dokuz sorunun tamam\u0131 bilgiye dayal\u0131d\u0131r, yorum gerektirmez. \u00c7\u0131km\u0131\u015f soru taramas\u0131na g\u00f6re en \u00e7ok soru \u0130dare Hukuku ve Temel Hukuk\'tan gelmektedir.',
+  yontem: [
+    'Bu ders **ezber dersidir**: say\u0131lar, organlar ve yetki sahipleri sorulur. Anlamaya de\u011fil, **hat\u0131rlamaya** \u00e7al\u0131\u015f.',
+    'Her konuda **say\u0131 kartlar\u0131n\u0131** ayr\u0131ca \u00e7al\u0131\u015f \u2014 "ka\u00e7 \u00fcye", "ka\u00e7 g\u00fcn", "ka\u00e7 y\u0131l" sorular\u0131 sabit gelir.',
+    '**\u0130dare Hukuku ve 657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu** en \u00e7ok soru gelen aland\u0131r; buraya en fazla zaman\u0131 ay\u0131r.',
+    'Sorular \u00e7o\u011funlukla *"a\u015fa\u011f\u0131dakilerden hangisi ... de\u011fildir"* bi\u00e7imindedir. **Listeleri eksiksiz** ezberle, tek fazlal\u0131\u011f\u0131 yakala.'
   ],
-  konular:[
 
-{
-  id:'temel-hukuk', ad:'Temel Hukuk Kavramlar\u0131', soru:'3 soru \u2014 en \u00e7ok soru gelen konu', durum:'hazir',
-  ozet:'Her y\u0131l 3 soru. Hukuk dallar\u0131, yapt\u0131r\u0131m t\u00fcrleri ve kaynak s\u0131ralamas\u0131 sorulur.',
-  bloklar:[
-    {t:'sema', b:'Hukukun dallar\u0131', d:[
-      {b:'Kamu Hukuku', a:['Anayasa Hukuku','\u0130dare Hukuku','Ceza Hukuku','Vergi (Mali) Hukuku','Yarg\u0131lama Hukuklar\u0131','Devletler Genel Hukuku','\u0130\u015f Hukuku (karma)']},
-      {b:'\u00d6zel Hukuk', a:['Medeni Hukuk','Bor\u00e7lar Hukuku','Ticaret Hukuku','Devletler \u00d6zel Hukuku']}
+  konular: [
+
+  /* ============= 1 ============= */
+  { id:'temel-hukuk', ad:'Temel Hukuk Kavramlar\u0131', soru:'2\u20133 soru \u00b7 \u00e7ok sorulur', durum:'hazir',
+    ozet:'Hukukun kaynaklar\u0131, kural t\u00fcrleri, hukuk dallar\u0131, ki\u015filik ve Medeni Kanun. Dersin en geni\u015f konusu.',
+    bloklar:[
+      { t:'sema', b:'Hukukun kaynaklar\u0131', d:[
+        { b:'Asli (as\u0131l) kaynaklar', a:['**Yaz\u0131l\u0131**: Anayasa, kanun, Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi, y\u00f6netmelik','**Yaz\u0131s\u0131z**: \u00f6rf ve \u00e2det hukuku'] },
+        { b:'Yard\u0131mc\u0131 (tali) kaynaklar', a:['Yarg\u0131 kararlar\u0131 (i\u00e7tihatlar)','Bilimsel g\u00f6r\u00fc\u015fler (doktrin)'] },
+        { b:'H\u00e2kimin ba\u015fvuru s\u0131ras\u0131 (MK m.1)', a:['**1. Kanun**','**2. \u00d6rf ve \u00e2det hukuku**','**3. H\u00e2kimin hukuk yaratmas\u0131**'] }
+      ]},
+      { t:'ozet', b:'H\u00e2kimin hukuk yaratmas\u0131', i:[
+        'Medeni Kanun m.1: *"Kanunda uygulanabilir bir h\u00fck\u00fcm yoksa h\u00e2kim, \u00f6rf ve \u00e2det hukukuna g\u00f6re, bu da yoksa **kendisi kanun koyucu olsayd\u0131** nas\u0131l bir kural koyacak idiyse ona g\u00f6re karar verir."*',
+        'H\u00e2kim hukuk yarat\u0131rken \u00f6nce **k\u0131yas** yoluna ba\u015fvurur.',
+        'Koydu\u011fu kural **genel ve soyut** nitelikte olmal\u0131d\u0131r; yaln\u0131z o davaya \u00f6zg\u00fc olamaz.',
+        'Bu yetki ancak **hukuk bo\u015flu\u011fu** varsa kullan\u0131l\u0131r. Yaz\u0131l\u0131 ya da yaz\u0131s\u0131z uygulanabilir bir kural varsa h\u00e2kim hukuk yaratamaz.',
+        'Yarg\u0131 kararlar\u0131 kural olarak **ba\u011flay\u0131c\u0131 de\u011fildir**; istisnas\u0131 **i\u00e7tihad\u0131 birle\u015ftirme kararlar\u0131d\u0131r**.'
+      ]},
+      { t:'tablo', b:'Hukuk kurallar\u0131n\u0131n t\u00fcrleri', h:['T\u00fcr','Anlam\u0131','\u00d6rnek'], r:[
+        ['**Emredici**','Aksine hukuki i\u015flem yap\u0131lamaz; taraflar kendi iradeleriyle de\u011fi\u015ftiremez','Bir ki\u015fi sadece bir resm\u00ee nik\u00e2h yapabilir'],
+        ['**Tamamlay\u0131c\u0131**','Taraflar\u0131n d\u00fczenlemedi\u011fi noktalar\u0131 tamamlar','S\u00f6zle\u015fmede faiz oran\u0131 yoksa Bor\u00e7lar Kanunu h\u00fckm\u00fc uygulan\u0131r'],
+        ['**Yorumlay\u0131c\u0131**','Taraflar\u0131n kulland\u0131\u011f\u0131 belirsiz ifadeyi a\u00e7\u0131klar','"Ay ba\u015f\u0131" denmi\u015fse ay\u0131n ilk g\u00fcn\u00fc anla\u015f\u0131l\u0131r'],
+        ['**Tan\u0131mlay\u0131c\u0131**','Bir kavram\u0131n ne anlama geldi\u011fini a\u00e7\u0131klar','\u0130kametg\u00e2h, yerle\u015fmek niyetiyle oturulan yerdir']
+      ]},
+      { t:'tablo', b:'Hukuk dallar\u0131', h:['Kamu Hukuku','\u00d6zel Hukuk','Karma Hukuk'], r:[
+        ['Anayasa Hukuku','Medeni Hukuk','\u0130\u015f Hukuku'],
+        ['\u0130dare Hukuku','Bor\u00e7lar Hukuku','Toprak Hukuku'],
+        ['Ceza Hukuku','Ticaret Hukuku','\u00c7evre Hukuku'],
+        ['Vergi Hukuku','**Devletler \u00d6zel Hukuku**','Hava Hukuku'],
+        ['Yarg\u0131lama (Usul) Hukuku','\u2014','Fikir ve Sanat Eserleri Hukuku'],
+        ['**Devletler Umumi Hukuku**','\u2014','\u2014']
+      ]},
+      { t:'ozet', b:'S\u0131k sorulan hukuk dal\u0131 tan\u0131mlar\u0131', i:[
+        '**Devletler \u00d6zel Hukuku**: \u00d6zel hukuk alan\u0131nda **yabanc\u0131 unsur ta\u015f\u0131yan** ili\u015fki ve ihtilaflar\u0131n \u00e7\u00f6z\u00fcm\u00fcnde uygulanacak kurallar\u0131 belirler.',
+        '**\u0130dare Hukuku**: Kamu kurum ve kurulu\u015flar\u0131n\u0131, i\u015fleyi\u015flerini, bireylerle ili\u015fkilerini, idari eylem ve i\u015flemleri d\u00fczenler.',
+        '**Ceza Hukuku**: Su\u00e7 ve cezay\u0131 d\u00fczenler. 5237 say\u0131l\u0131 **T\u00fcrk Ceza Kanunu**\'nun amac\u0131; ki\u015fi hak ve \u00f6zg\u00fcrl\u00fcklerini, kamu d\u00fczen ve g\u00fcvenli\u011fini, hukuk devletini, kamu sa\u011fl\u0131\u011f\u0131n\u0131 ve \u00e7evreyi korumak, su\u00e7 i\u015flenmesini \u00f6nlemektir.',
+        '**K\u0131ta sahanl\u0131\u011f\u0131**: Bir k\u0131y\u0131 devletinin kara \u00fclkesinin **denizin alt\u0131nda s\u00fcren do\u011fal uzant\u0131s\u0131** \u2014 devletler umumi hukuku kavram\u0131d\u0131r.'
+      ]},
+      { t:'sayilar', b:'Medeni Kanun \u2014 say\u0131 kartlar\u0131', s:[
+        { n:'4721', a:'T\u00fcrk Medeni Kanunu\'nun numaras\u0131' },
+        { n:'4', a:'MK\'y\u0131 olu\u015fturan kitap say\u0131s\u0131: **\u015e**ah\u0131s \u2013 **E**\u015fya \u2013 **M**iras \u2013 **A**ile' },
+        { n:'3', a:'Evlenmenin yasak oldu\u011fu kan h\u0131s\u0131ml\u0131\u011f\u0131 derecesi (\u00fc\u00e7\u00fcnc\u00fc dereceye kadar)' },
+        { n:'17', a:'Normal evlenme ya\u015f\u0131' },
+        { n:'16', a:'Ola\u011fan\u00fcst\u00fc durumda h\u00e2kim izniyle evlenme ya\u015f\u0131' },
+        { n:'18', a:'Erginlik (r\u00fc\u015ft) ya\u015f\u0131' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'Medeni Kanun\'un d\u00f6rt kitab\u0131: **\u015eEMA** \u2192 **\u015e**ah\u0131s \u00b7 **E**\u015fya \u00b7 **M**iras \u00b7 **A**ile. "\u015eirketler Hukuku" bu listede **yoktur** \u2014 o Ticaret Kanunu\'nun konusudur ve tam da bu y\u00fczden s\u0131navda tuzak \u015f\u0131k olarak konur.' },
+      { t:'ozet', b:'H\u0131s\u0131ml\u0131k t\u00fcrleri', i:[
+        '**Kan h\u0131s\u0131ml\u0131\u011f\u0131**: Ortak atadan gelenler. *\u00dcstsoy\u2013altsoy* (anne-baba-\u00e7ocuk-torun) ve *yansoy* (karde\u015f, amca, day\u0131, hala, teyze).',
+        '**Kay\u0131n h\u0131s\u0131ml\u0131\u011f\u0131**: E\u015fin kan h\u0131s\u0131mlar\u0131yla kurulan ba\u011f. Evlilik sona erse bile **devam eder**.',
+        '**Evlatl\u0131k h\u0131s\u0131ml\u0131\u011f\u0131 (sun\'i h\u0131s\u0131ml\u0131k)**: Evlat edinme i\u015flemiyle do\u011fan h\u0131s\u0131ml\u0131kt\u0131r.',
+        '**Karde\u015fler aras\u0131ndaki h\u0131s\u0131ml\u0131k** ikinci derece **yansoy kan h\u0131s\u0131ml\u0131\u011f\u0131d\u0131r**.',
+        '**E\u015fler birbirinin h\u0131sm\u0131 de\u011fildir.** Ki\u015fi e\u015finin akrabalar\u0131yla h\u0131s\u0131md\u0131r, ama **e\u015flerin akrabalar\u0131 birbirleriyle h\u0131s\u0131m de\u011fildir** \u2014 \u00f6rne\u011fin iki e\u015fin anneleri birbirinin akrabas\u0131 say\u0131lmaz.'
+      ]},
+      { t:'ozet', b:'Ki\u015filik, ehliyet ve ayni hak', i:[
+        '**Ger\u00e7ek ki\u015filik**, \u00e7ocu\u011fun **tam ve sa\u011f do\u011fmas\u0131** ile ba\u015flar, **\u00f6l\u00fcmle** sona erer. \u00c7ocuk **sa\u011f do\u011fmak ko\u015fuluyla ana rahmine d\u00fc\u015ft\u00fc\u011f\u00fc andan** itibaren hak ehliyetine sahiptir.',
+        '**Fiil ehliyetinin \u00fc\u00e7 \u015fart\u0131**: ay\u0131rt etme g\u00fcc\u00fc (temyiz kudreti), **ergin olmak**, **k\u0131s\u0131tl\u0131 olmamak**.',
+        '**T\u00fczel ki\u015filer** \u2014 \u00d6zel hukuk: dernek, vak\u0131f, \u015firket, kooperatif. Kamu hukuku: **il \u00f6zel idaresi, belediye, k\u00f6y**, \u00fcniversite, TRT, meslek kurulu\u015flar\u0131.',
+        '**Ayni hak**: Ki\u015fiye e\u015fya \u00fczerinde **do\u011frudan do\u011fruya h\u00e2kimiyet** sa\u011flayan ve **herkese kar\u015f\u0131** ileri s\u00fcr\u00fclebilen hakt\u0131r (m\u00fclkiyet, irtifak, rehin). \u015eahsi hak ise yaln\u0131z bor\u00e7luya kar\u015f\u0131 ileri s\u00fcr\u00fcl\u00fcr.',
+        '**Hukuki i\u015flem (s\u00f6zle\u015fme)**: \u0130ki taraf\u0131n **kar\u015f\u0131l\u0131kl\u0131 ve birbirine uygun irade beyan\u0131**yla kurulur.',
+        '**Dernek kurma**: Fiil ehliyetine sahip ger\u00e7ek ve t\u00fczel ki\u015filer **\u00f6nceden izin almaks\u0131z\u0131n** dernek kurabilir.'
+      ]},
+      { t:'tablo', b:'Kanunlar\u0131m\u0131z hangi \u00fclkeden al\u0131nd\u0131?', h:['Kanun','Kaynak \u00fclke'], r:[
+        ['**Medeni Kanun**','**\u0130svi\u00e7re**'],
+        ['**Bor\u00e7lar Kanunu**','**\u0130svi\u00e7re**'],
+        ['**Ceza Kanunu** (1926)','**\u0130talya**'],
+        ['**Ticaret Kanunu**','**Almanya**'],
+        ['**Ceza Muhakemesi Kanunu**','Almanya']
+      ]},
+      { t:'tuzak', i:[
+        '**\u0130dare mahkemesi adli yarg\u0131 mahkemesi de\u011fildir**, idari yarg\u0131dad\u0131r. Adli yarg\u0131 ilk derece mahkemeleri: sulh hukuk, asliye hukuk, aile, i\u015f, ticaret, t\u00fcketici, asliye ceza, a\u011f\u0131r ceza, sulh ceza h\u00e2kimli\u011fi.',
+        '**Adli yarg\u0131da kanun yollar\u0131**: \u00f6nce **istinaf** (b\u00f6lge adliye mahkemesi), sonra **temyiz** (Yarg\u0131tay). "\u0130tiraz" bir kanun yolu olarak say\u0131lsa da temyiz ve istinaftan ayr\u0131 de\u011ferlendirilir.',
+        '**\u015eirketler Hukuku, Medeni Kanun\'un kitaplar\u0131ndan biri de\u011fildir.** MK d\u00f6rt kitapt\u0131r: \u015eah\u0131s, E\u015fya, Miras, Aile.',
+        '**Vergide artan oranl\u0131l\u0131k** (geliri fazla olandan y\u00fczdece daha \u00e7ok vergi al\u0131nmas\u0131) **vergi adaleti** ve **sosyal devlet** ilkesinin gere\u011fidir.',
+        '**Emredici kural**, taraflar\u0131n anla\u015fmas\u0131yla de\u011fi\u015ftirilemez; tamamlay\u0131c\u0131 kural ise ancak taraflar susmu\u015fsa devreye girer.',
+        '**\u00d6rf ve \u00e2det hukuku yaz\u0131s\u0131z asli kaynakt\u0131r**, yard\u0131mc\u0131 kaynak de\u011fildir. Yard\u0131mc\u0131 kaynaklar yarg\u0131 kararlar\u0131 ve bilimsel g\u00f6r\u00fc\u015flerdir.'
+      ]},
+      { t:'test', s:[
+        { q:'4721 say\u0131l\u0131 T\u00fcrk Medeni Kanunu\'na g\u00f6re bir uyu\u015fmazl\u0131\u011f\u0131 \u00e7\u00f6zerken h\u00e2kim a\u015fa\u011f\u0131daki kaynaklara hangi \u00f6ncelik s\u0131ras\u0131yla ba\u015fvurur?',
+          c:['\u00d6rf ve \u00e2det hukuku \u2013 Kanun \u2013 H\u00e2kimin hukuk yaratmas\u0131','Kanun \u2013 \u00d6rf ve \u00e2det hukuku \u2013 H\u00e2kimin hukuk yaratmas\u0131','H\u00e2kimin hukuk yaratmas\u0131 \u2013 Kanun \u2013 \u00d6rf ve \u00e2det hukuku','Kanun \u2013 H\u00e2kimin hukuk yaratmas\u0131 \u2013 \u00d6rf ve \u00e2det hukuku'],
+          d:1, a:'MK m.1\'e g\u00f6re h\u00e2kim \u00f6nce asli yaz\u0131l\u0131 kayna\u011fa (kanun), yoksa \u00f6rf ve \u00e2det hukukuna, o da yoksa kendisi kanun koyucu olsayd\u0131 koyaca\u011f\u0131 kurala g\u00f6re karar verir.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi 4721 say\u0131l\u0131 T\u00fcrk Medeni Kanunu\'nu olu\u015fturan kitaplardan biri **de\u011fildir**?',
+          c:['Aile Hukuku','\u015eirketler Hukuku','Ki\u015filer Hukuku','E\u015fya Hukuku'],
+          d:1, a:'Medeni Kanun d\u00f6rt kitaptan olu\u015fur: \u015eah\u0131s (Ki\u015filer), E\u015fya, Miras, Aile. \u015eirketler Hukuku T\u00fcrk Ticaret Kanunu\'nun konusudur.' },
+        { q:'A\u015fa\u011f\u0131da verilen ki\u015filerden hangilerinin aras\u0131nda herhangi bir h\u0131s\u0131ml\u0131k ba\u011f\u0131 **yoktur**?',
+          c:['Selin ile annesi Fatma','Berkay ile karde\u015fi \u0130smail','Do\u011fan\'\u0131n e\u015finin babas\u0131 Bekir ile Do\u011fan\'\u0131n teyzesi','Batuhan ile e\u015finin karde\u015fi Furkan'],
+          d:2, a:'Ki\u015fi e\u015finin akrabalar\u0131yla kay\u0131n h\u0131sm\u0131d\u0131r, ancak e\u015flerin akrabalar\u0131 birbirleriyle h\u0131s\u0131m de\u011fildir. Do\u011fan\'\u0131n e\u015finin babas\u0131 ile Do\u011fan\'\u0131n teyzesi aras\u0131nda h\u0131s\u0131ml\u0131k bulunmaz.' },
+        { q:'\u00dcstsoy\u2013altsoy kan h\u0131s\u0131mlar\u0131 aras\u0131nda a\u015fa\u011f\u0131dakilerden hangisi kesinlikle yasakt\u0131r?',
+          c:['Evlenme','Miras\u00e7\u0131l\u0131k','Nafaka \u00f6deme','Vasili\u011fe \u00f6ncelikle atanma'],
+          d:0, a:'Medeni Kanun\'a g\u00f6re \u00fc\u00e7\u00fcnc\u00fc dereceye kadar kan h\u0131s\u0131mlar\u0131 aras\u0131nda evlenme kesin evlenme yasa\u011f\u0131d\u0131r. Miras\u00e7\u0131l\u0131k, nafaka ve vasilik ise m\u00fcmk\u00fcnd\u00fcr.' },
+        { q:'Aksine bir hukuki i\u015flem yap\u0131lmas\u0131 m\u00fcmk\u00fcn olmayan, taraflar\u0131n kendi iradeleriyle de\u011fi\u015ftiremeyece\u011fi hukuk kurallar\u0131na ne ad verilir?',
+          c:['Tamamlay\u0131c\u0131 kurallar','Yorumlay\u0131c\u0131 kurallar','Emredici kurallar','Tan\u0131mlay\u0131c\u0131 kurallar'],
+          d:2, a:'Emredici kurallar kamu d\u00fczenini, ahlak kurallar\u0131n\u0131 ve zay\u0131flar\u0131 korumak i\u00e7in konur; taraflar bunlar\u0131 s\u00f6zle\u015fmeyle de\u011fi\u015ftiremez.' },
+        { q:'"Kanunda ikametg\u00e2h, yerle\u015fmek niyetiyle oturulan yer olarak tan\u0131mlanm\u0131\u015ft\u0131r." Bu h\u00fck\u00fcm hangi t\u00fcr hukuk kural\u0131na \u00f6rnektir?',
+          c:['Emredici','Tamamlay\u0131c\u0131','Yorumlay\u0131c\u0131','Tan\u0131mlay\u0131c\u0131'],
+          d:3, a:'Bir hukuki kavram\u0131n ne anlama geldi\u011fini a\u00e7\u0131klayan kurallara tan\u0131mlay\u0131c\u0131 kurallar denir.' },
+        { q:'\u00d6zel hukuk alan\u0131nda yabanc\u0131 unsur ta\u015f\u0131yan hukuki ili\u015fki ve ihtilaflar\u0131n \u00e7\u00f6z\u00fcm\u00fcnde uygulanacak kurallar\u0131 kapsayan hukuk dal\u0131 a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['Devletler \u00f6zel hukuku','\u0130dare hukuku','Medeni hukuk','Medeni usul hukuku'],
+          d:0, a:'Devletler \u00f6zel hukuku, farkl\u0131 uyruktaki ki\u015filer aras\u0131ndaki \u00f6zel hukuk ili\u015fkilerinde hangi devletin kanununun uygulanaca\u011f\u0131n\u0131 ve hangi mahkemenin yetkili oldu\u011funu d\u00fczenler.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi kamu hukuku dallar\u0131ndan biri **de\u011fildir**?',
+          c:['Vergi hukuku','Ceza hukuku','Bor\u00e7lar hukuku','\u0130dare hukuku'],
+          d:2, a:'Bor\u00e7lar hukuku \u00f6zel hukuk dal\u0131d\u0131r. Kamu hukuku dallar\u0131 aras\u0131nda anayasa, idare, ceza, vergi, yarg\u0131lama usul\u00fc ve devletler umumi hukuku yer al\u0131r.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi adli yarg\u0131 ilk derece mahkemelerinden biri **de\u011fildir**?',
+          c:['Sulh hukuk mahkemesi','\u0130dare mahkemesi','A\u011f\u0131r ceza mahkemesi','Aile mahkemesi'],
+          d:1, a:'\u0130dare mahkemesi idari yarg\u0131 koluna aittir. Di\u011fer \u00fc\u00e7\u00fc adli yarg\u0131 ilk derece mahkemeleridir.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi \u00f6zel hukuk t\u00fczel ki\u015fisi **de\u011fildir**?',
+          c:['Dernek','Vak\u0131f','Anonim \u015firket','\u0130l \u00f6zel idaresi'],
+          d:3, a:'\u0130l \u00f6zel idaresi, belediye ve k\u00f6y idaresi kamu t\u00fczel ki\u015fili\u011fine sahip kamu idareleridir. Dernek, vak\u0131f, \u015firket ve kooperatif ise \u00f6zel hukuk t\u00fczel ki\u015fileridir.' },
+        { q:'Ola\u011fan\u00fcst\u00fc durumlarda ve pek \u00f6nemli bir sebeple, h\u00e2kim izniyle en az ka\u00e7 ya\u015f\u0131n\u0131 dolduran erkek veya kad\u0131n\u0131n evlenmesi m\u00fcmk\u00fcnd\u00fcr?',
+          c:['14','15','16','17'],
+          d:2, a:'Normal evlenme ya\u015f\u0131 17\'dir. Ola\u011fan\u00fcst\u00fc durumlarda ve pek \u00f6nemli bir sebeple h\u00e2kim, 16 ya\u015f\u0131n\u0131 dolduranlar\u0131n evlenmesine izin verebilir.' },
+        { q:'Ki\u015fiye e\u015fya \u00fczerinde do\u011frudan do\u011fruya h\u00e2kimiyet sa\u011flayan ve herkese kar\u015f\u0131 ileri s\u00fcr\u00fclebilen hak t\u00fcr\u00fc hangisidir?',
+          c:['\u015eahsi hak','Ayni hak','Yenilik do\u011furan hak','Nispi hak'],
+          d:1, a:'Ayni haklar (m\u00fclkiyet, irtifak, rehin) mutlak haklardand\u0131r ve herkese kar\u015f\u0131 ileri s\u00fcr\u00fclebilir. \u015eahsi haklar yaln\u0131z bor\u00e7luya kar\u015f\u0131 ileri s\u00fcr\u00fcl\u00fcr.' },
+        { q:'1926 y\u0131l\u0131nda kabul edilen T\u00fcrk Ceza Kanunu hangi \u00fclkenin kanunu \u00f6rnek al\u0131narak haz\u0131rlanm\u0131\u015ft\u0131r?',
+          c:['\u0130svi\u00e7re','Almanya','\u0130talya','Fransa'],
+          d:2, a:'Ceza Kanunu \u0130talya\'dan; Medeni Kanun ve Bor\u00e7lar Kanunu \u0130svi\u00e7re\'den; Ticaret Kanunu Almanya\'dan al\u0131nm\u0131\u015ft\u0131r.' },
+        { q:'Karde\u015fler aras\u0131ndaki h\u0131s\u0131ml\u0131k a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['\u00dcstsoy kan h\u0131s\u0131ml\u0131\u011f\u0131','Yansoy kan h\u0131s\u0131ml\u0131\u011f\u0131','Kay\u0131n h\u0131s\u0131ml\u0131\u011f\u0131','Evlatl\u0131k h\u0131s\u0131ml\u0131\u011f\u0131'],
+          d:1, a:'Karde\u015fler ortak atadan gelir ancak biri di\u011ferinin soyundan gelmez; bu nedenle ikinci derece yansoy kan h\u0131sm\u0131d\u0131rlar.' },
+        { q:'Bir k\u0131y\u0131 devletinin kara \u00fclkesinin denizin alt\u0131nda s\u00fcren do\u011fal uzant\u0131s\u0131na ne ad verilir?',
+          c:['Karasular\u0131','K\u0131ta sahanl\u0131\u011f\u0131','Biti\u015fik b\u00f6lge','M\u00fcnhas\u0131r ekonomik b\u00f6lge'],
+          d:1, a:'K\u0131ta sahanl\u0131\u011f\u0131, k\u0131y\u0131 devletinin kara \u00fclkesinin deniz alt\u0131ndaki do\u011fal uzant\u0131s\u0131d\u0131r ve devletler umumi hukukunun konusudur.' },
+        { q:'Gelir vergisinin, geliri daha fazla olanlardan daha y\u00fcksek oranda tahsil edilmesi a\u015fa\u011f\u0131daki ilkelerden hangisiyle a\u00e7\u0131klan\u0131r?',
+          c:['Kanun \u00f6n\u00fcnde e\u015fitlik','Vergide adalet','Kanuni idare','Hukuki g\u00fcvenlik'],
+          d:1, a:'Artan oranl\u0131 vergilendirme, mali g\u00fcce g\u00f6re vergilendirmeyi yani vergi adaletini ve sosyal devlet ilkesini yans\u0131t\u0131r.' },
+        { q:'\u0130ki taraf\u0131n kar\u015f\u0131l\u0131kl\u0131 ve birbirine uygun irade beyan\u0131yla kurulan hukuki i\u015fleme ne ad verilir?',
+          c:['S\u00f6zle\u015fme','Vasiyet','Tek tarafl\u0131 i\u015flem','\u0130dari i\u015flem'],
+          d:0, a:'\u0130ki taraf\u0131n kar\u015f\u0131l\u0131kl\u0131 ve birbirine uygun irade a\u00e7\u0131klamas\u0131yla kurulan i\u015fleme s\u00f6zle\u015fme (akit) denir.' },
+        { q:'T\u00fcrk hukukunda yarg\u0131 kararlar\u0131 ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi do\u011frudur?',
+          c:['T\u00fcm yarg\u0131 kararlar\u0131 ba\u011flay\u0131c\u0131d\u0131r.','Yarg\u0131 kararlar\u0131 asli kaynakt\u0131r.','Kural olarak ba\u011flay\u0131c\u0131 de\u011fildir; i\u00e7tihad\u0131 birle\u015ftirme kararlar\u0131 istisnad\u0131r.','Yaln\u0131zca Anayasa Mahkemesi kararlar\u0131 ba\u011flay\u0131c\u0131d\u0131r.'],
+          d:2, a:'Yarg\u0131 kararlar\u0131 yard\u0131mc\u0131 kaynakt\u0131r ve kural olarak ba\u011flay\u0131c\u0131 de\u011fildir. Yarg\u0131tay ve Dan\u0131\u015ftay\'\u0131n i\u00e7tihad\u0131 birle\u015ftirme kararlar\u0131 bu kural\u0131n istisnas\u0131d\u0131r.' }
+      ]}
     ]},
-    {t:'sema', b:'Medeni Hukukun b\u00f6l\u00fcmleri', d:[
-      {b:'Medeni Hukuk', a:['Ki\u015filer Hukuku','Aile Hukuku','Miras Hukuku','E\u015fya Hukuku','Bor\u00e7lar Hukuku']}
+
+  /* ============= 2 ============= */
+  { id:'anayasal-kavramlar', ad:'Anayasa Hukuku ve Anayasal Kavramlar', soru:'1 soru', durum:'hazir',
+    ozet:'Cumhuriyetin nitelikleri, de\u011fi\u015ftirilemez maddeler, anayasa tarihi ve se\u00e7im ilkeleri.',
+    bloklar:[
+      { t:'ozet', b:'Cumhuriyetin nitelikleri (1982 Anayasas\u0131 m.2)', i:[
+        '*"T\u00fcrkiye Cumhuriyeti, toplumun huzuru, mill\u00ee dayan\u0131\u015fma ve adalet anlay\u0131\u015f\u0131 i\u00e7inde, **insan haklar\u0131na sayg\u0131l\u0131**, **Atat\u00fcrk milliyet\u00e7ili\u011fine ba\u011fl\u0131**, **ba\u015flang\u0131\u00e7ta belirtilen temel ilkelere dayanan**, **demokratik**, **l\u00e2ik** ve **sosyal** bir **hukuk devletidir**."*',
+        'Bu maddede say\u0131lmayan nitelikler tuzak \u015f\u0131k olur: **"liberal devlet", "federal devlet", "\u00fcniter devlet"** madde 2\'de ge\u00e7mez.',
+        '**Madde 1**: T\u00fcrkiye Devleti bir Cumhuriyettir.',
+        '**Madde 3**: Devlet, \u00fclkesi ve milletiyle b\u00f6l\u00fcnmez bir b\u00fct\u00fcnd\u00fcr. **Dili T\u00fcrk\u00e7edir. Bayra\u011f\u0131, mar\u015f\u0131 ve ba\u015fkenti (Ankara)** bu maddede d\u00fczenlenir.',
+        '**\u0130lk \u00fc\u00e7 madde de\u011fi\u015ftirilemez ve de\u011fi\u015ftirilmesi teklif edilemez.**'
+      ]},
+      { t:'zaman', b:'T\u00fcrkiye\'nin anayasalar\u0131', z:[
+        { y:'1921', o:'Te\u015fkilat-\u0131 Esasiye Kanunu', d:'Mill\u00ee M\u00fccadele d\u00f6nemi. **G\u00fc\u00e7ler birli\u011fi**, k\u0131sa ve esnek; yumu\u015fak anayasa.' },
+        { y:'1924', o:'1924 Anayasas\u0131', d:'Cumhuriyetin ilk kal\u0131c\u0131 anayasas\u0131. Tek meclis, g\u00fc\u00e7ler birli\u011fine yak\u0131n yap\u0131.' },
+        { y:'1961', o:'1961 Anayasas\u0131', d:'27 May\u0131s sonras\u0131. **Kuvvetler ayr\u0131l\u0131\u011f\u0131**, **Anayasa Mahkemesi**, Senato, geni\u015f hak ve \u00f6zg\u00fcrl\u00fckler.' },
+        { y:'1982', o:'1982 Anayasas\u0131', d:'12 Eyl\u00fcl sonras\u0131. Y\u00fcr\u00fctme g\u00fc\u00e7lendirildi. **H\u00e2len y\u00fcr\u00fcrl\u00fckte.**' },
+        { y:'2010', o:'Anayasa de\u011fi\u015fikli\u011fi', d:'**Bireysel ba\u015fvuru** hakk\u0131, HSYK\'n\u0131n yap\u0131s\u0131nda de\u011fi\u015fiklik, ki\u015fisel verilerin korunmas\u0131 hakk\u0131.' },
+        { y:'2017', o:'Anayasa de\u011fi\u015fikli\u011fi', d:'**Cumhurba\u015fkanl\u0131\u011f\u0131 h\u00fck\u00fcmet sistemi**. Milletvekili say\u0131s\u0131 600\'e, se\u00e7ilme ya\u015f\u0131 18\'e indi; **KHK kald\u0131r\u0131ld\u0131**.' }
+      ]},
+      { t:'sayilar', b:'Say\u0131 kartlar\u0131', s:[
+        { n:'1-2-3', a:'De\u011fi\u015ftirilemeyen ve de\u011fi\u015ftirilmesi teklif edilemeyen maddeler' },
+        { n:'177', a:'1982 Anayasas\u0131\'n\u0131n toplam madde say\u0131s\u0131' },
+        { n:'4', a:'T\u00fcrkiye\'nin bug\u00fcne kadarki anayasa say\u0131s\u0131 (1921, 1924, 1961, 1982)' },
+        { n:'18', a:'Se\u00e7me hakk\u0131 ya\u015f\u0131' },
+        { n:'400\u2192450\u2192550\u2192600', a:'Milletvekili say\u0131s\u0131n\u0131n tarihsel seyri (1982 \u2192 1987 \u2192 1995 \u2192 2017)' }
+      ]},
+      { t:'ozet', b:'Se\u00e7imlerin temel ilkeleri', i:[
+        'Se\u00e7imler ve halk oylamas\u0131 **serbest, e\u015fit, gizli, tek dereceli, genel oy, a\u00e7\u0131k say\u0131m ve d\u00f6k\u00fcm** esaslar\u0131na g\u00f6re, **yarg\u0131 y\u00f6netim ve denetimi** alt\u0131nda yap\u0131l\u0131r.',
+        '**18 ya\u015f\u0131n\u0131 dolduran** her T\u00fcrk vatanda\u015f\u0131 se\u00e7me ve halk oylamas\u0131na kat\u0131lma hakk\u0131na sahiptir.',
+        '**Oy kullanamayanlar**: silah alt\u0131ndaki er ve erba\u015flar, asker\u00ee \u00f6\u011frenciler, **taksirli su\u00e7lar hari\u00e7 ceza infaz kurumlar\u0131ndaki h\u00fck\u00fcml\u00fcler**.',
+        '**Oy kullanabilenler**: **tutuklular** ve **taksirli su\u00e7lardan h\u00fck\u00fcm giyenler** \u2014 bu ayr\u0131m s\u0131navda do\u011frudan sorulur.',
+        'Yurt d\u0131\u015f\u0131ndaki vatanda\u015flar\u0131n oy kullanmas\u0131 kanunla d\u00fczenlenir.'
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'Cumhuriyetin nitelikleri: **"\u0130nsan haklar\u0131 \u2013 Atat\u00fcrk \u2013 Ba\u015flang\u0131\u00e7 \u2013 Demokratik \u2013 Laik \u2013 Sosyal \u2013 Hukuk"**. \u015e\u0131kta **"liberal"**, **"federal"** ya da **"\u00fcniter"** g\u00f6r\u00fcrsen cevap odur; bunlar madde 2\'de ge\u00e7mez.' },
+      { t:'tuzak', i:[
+        '**\u00dcniter devlet T\u00fcrkiye\'nin bir \u00f6zelli\u011fidir ama madde 2\'deki "Cumhuriyetin nitelikleri" aras\u0131nda say\u0131lmaz.** Soru "niteliklerinden biri de\u011fildir" diye gelirse dikkat.',
+        '**Tutuklular oy kullanabilir**, h\u00fck\u00fcml\u00fcler kullanamaz. "Tutuklu" ile "h\u00fck\u00fcml\u00fc" ayr\u0131m\u0131 klasik tuzakt\u0131r.',
+        '**Ba\u015fkent Ankara madde 3\'te** d\u00fczenlenir, madde 1\'de de\u011fil.',
+        '**Anayasa Mahkemesi 1961 Anayasas\u0131 ile kurulmu\u015ftur**, 1982 ile de\u011fil.',
+        '**Bireysel ba\u015fvuru 2010** de\u011fi\u015fikli\u011fiyle gelmi\u015ftir.',
+        '**1921 Anayasas\u0131 yumu\u015fak (kolay de\u011fi\u015ftirilebilir) anayasad\u0131r**; di\u011ferleri kat\u0131 anayasad\u0131r.'
+      ]},
+      { t:'test', s:[
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi Cumhuriyetin niteliklerinden biri **de\u011fildir**?',
+          c:['Ba\u015flang\u0131\u00e7ta belirtilen temel ilkelere ba\u011fl\u0131l\u0131k','Demokratik devlet','Hukuk devleti','Liberal devlet'],
+          d:3, a:'Anayasa m.2\'de say\u0131lan nitelikler: insan haklar\u0131na sayg\u0131l\u0131, Atat\u00fcrk milliyet\u00e7ili\u011fine ba\u011fl\u0131, ba\u015flang\u0131\u00e7ta belirtilen ilkelere dayanan, demokratik, laik ve sosyal hukuk devleti. "Liberal devlet" bu maddede yer almaz.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi 1982 Anayasas\u0131\'nda de\u011fi\u015ftirilemez ve de\u011fi\u015ftirilmesi teklif edilemez h\u00fck\u00fcmler aras\u0131nda yer **almaz**?',
+          c:['Devlet \u015feklinin Cumhuriyet olmas\u0131','Devletin resm\u00ee dilinin T\u00fcrk\u00e7e olmas\u0131','Milletvekili say\u0131s\u0131n\u0131n 600 olmas\u0131','Ba\u015fkentin Ankara olmas\u0131'],
+          d:2, a:'De\u011fi\u015ftirilemez h\u00fck\u00fcmler ilk \u00fc\u00e7 maddedir. Milletvekili say\u0131s\u0131 Anayasa\'n\u0131n di\u011fer maddelerinde d\u00fczenlenir ve nitekim 2017\'de de\u011fi\u015ftirilmi\u015ftir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re se\u00e7me ve se\u00e7ilme hakk\u0131yla ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi **yanl\u0131\u015ft\u0131r**?',
+          c:['Kural olarak 18 ya\u015f\u0131n\u0131 dolduran her T\u00fcrk vatanda\u015f\u0131 oy kullanabilir.','Ceza infaz kurumlar\u0131ndaki tutuklular oy kullanamaz.','Silah alt\u0131nda bulunan er ve erba\u015flar ile asker\u00ee \u00f6\u011frenciler oy kullanamaz.','Se\u00e7imler yarg\u0131 y\u00f6netim ve denetimi alt\u0131nda yap\u0131l\u0131r.'],
+          d:1, a:'Tutuklular ve taksirli su\u00e7lardan h\u00fck\u00fcm giyenler oy kullanabilir. Oy kullanamayanlar; h\u00fck\u00fcml\u00fcler ile silah alt\u0131ndaki er, erba\u015f ve asker\u00ee \u00f6\u011frencilerdir.' },
+        { q:'Anayasa Mahkemesi ilk kez hangi anayasa ile kurulmu\u015ftur?',
+          c:['1921 Anayasas\u0131','1924 Anayasas\u0131','1961 Anayasas\u0131','1982 Anayasas\u0131'],
+          d:2, a:'Anayasa Mahkemesi, 27 May\u0131s 1960 sonras\u0131nda haz\u0131rlanan 1961 Anayasas\u0131 ile kurulmu\u015ftur.' },
+        { q:'Cumhurba\u015fkanl\u0131\u011f\u0131 h\u00fck\u00fcmet sistemine ge\u00e7i\u015f hangi y\u0131l yap\u0131lan anayasa de\u011fi\u015fikli\u011fiyle ger\u00e7ekle\u015fmi\u015ftir?',
+          c:['2007','2010','2017','2018'],
+          d:2, a:'2017 anayasa de\u011fi\u015fikli\u011fiyle Cumhurba\u015fkanl\u0131\u011f\u0131 h\u00fck\u00fcmet sistemine ge\u00e7ilmi\u015f, KHK kald\u0131r\u0131lm\u0131\u015f, milletvekili say\u0131s\u0131 600\'e \u00e7\u0131kar\u0131lm\u0131\u015ft\u0131r.' },
+        { q:'T\u00fcrkiye Cumhuriyeti\'nin resm\u00ee dili, bayra\u011f\u0131, mill\u00ee mar\u015f\u0131 ve ba\u015fkenti Anayasa\'n\u0131n hangi maddesinde d\u00fczenlenmi\u015ftir?',
+          c:['Madde 1','Madde 2','Madde 3','Madde 4'],
+          d:2, a:'Madde 3\'te devletin b\u00fct\u00fcnl\u00fc\u011f\u00fc, resm\u00ee dili, bayra\u011f\u0131, mill\u00ee mar\u015f\u0131 ve ba\u015fkenti d\u00fczenlenmi\u015ftir. Madde 4 ise ilk \u00fc\u00e7 maddenin de\u011fi\u015ftirilemeyece\u011fini belirtir.' },
+        { q:'Amac\u0131; ki\u015fi hak ve \u00f6zg\u00fcrl\u00fcklerini, kamu d\u00fczen ve g\u00fcvenli\u011fini, hukuk devletini, kamu sa\u011fl\u0131\u011f\u0131n\u0131 ve \u00e7evreyi korumak, su\u00e7 i\u015flenmesini \u00f6nlemek olan kanun a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['5237 say\u0131l\u0131 T\u00fcrk Ceza Kanunu','6098 say\u0131l\u0131 T\u00fcrk Bor\u00e7lar Kanunu','6102 say\u0131l\u0131 T\u00fcrk Ticaret Kanunu','4857 say\u0131l\u0131 \u0130\u015f Kanunu'],
+          d:0, a:'Su\u00e7 ve ceza kavramlar\u0131n\u0131, adli yapt\u0131r\u0131mlar\u0131 ve kamu d\u00fczenini d\u00fczenleyen kanun 5237 say\u0131l\u0131 T\u00fcrk Ceza Kanunu\'dur.' },
+        { q:'Mill\u00ee, etnik, \u0131rk\u00ee veya din\u00ee bir grubun tamamen yok edilmesi maksad\u0131yla bir plan\u0131n icras\u0131 suretiyle grup \u00fcyelerine kar\u015f\u0131 i\u015flenen fiiller hangi su\u00e7u olu\u015fturur?',
+          c:['\u0130nsan ticareti','Soyk\u0131r\u0131m','G\u00f6\u00e7men ka\u00e7ak\u00e7\u0131l\u0131\u011f\u0131','N\u00fcfuz ticareti'],
+          d:1, a:'Belirli bir grubun ulusu, etnik k\u00f6keni, \u0131rk\u0131 veya dini nedeniyle sistematik bi\u00e7imde ortadan kald\u0131r\u0131lmaya \u00e7al\u0131\u015f\u0131lmas\u0131 soyk\u0131r\u0131m su\u00e7unu olu\u015fturur.' },
+        { q:'T\u00fcrkiye Cumhuriyeti\'nin kabul etti\u011fi anayasalar kronolojik s\u0131rayla hangisinde do\u011fru verilmi\u015ftir?',
+          c:['1921 \u2013 1924 \u2013 1961 \u2013 1982','1924 \u2013 1921 \u2013 1961 \u2013 1982','1921 \u2013 1961 \u2013 1924 \u2013 1982','1924 \u2013 1961 \u2013 1921 \u2013 1982'],
+          d:0, a:'T\u00fcrkiye\'de s\u0131ras\u0131yla 1921 Te\u015fkilat-\u0131 Esasiye, 1924, 1961 ve 1982 anayasalar\u0131 y\u00fcr\u00fcrl\u00fc\u011fe girmi\u015ftir.' },
+        { q:'Anayasa Mahkemesine bireysel ba\u015fvuru yolu hangi y\u0131l yap\u0131lan anayasa de\u011fi\u015fikli\u011fiyle kabul edilmi\u015ftir?',
+          c:['2001','2004','2010','2017'],
+          d:2, a:'Bireysel ba\u015fvuru hakk\u0131, 2010 y\u0131l\u0131nda yap\u0131lan anayasa de\u011fi\u015fikli\u011fiyle kabul edilmi\u015ftir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re se\u00e7imlerin temel ilkeleri aras\u0131nda a\u015fa\u011f\u0131dakilerden hangisi yer **almaz**?',
+          c:['Gizli oy','A\u00e7\u0131k say\u0131m ve d\u00f6k\u00fcm','\u0130ki dereceli se\u00e7im','Genel oy'],
+          d:2, a:'Se\u00e7imler tek derecelidir. \u0130lkeler: serbest, e\u015fit, gizli, tek dereceli, genel oy, a\u00e7\u0131k say\u0131m ve d\u00f6k\u00fcm.' },
+        { q:'A\u015fa\u011f\u0131daki anayasalardan hangisi "yumu\u015fak anayasa" niteli\u011findedir?',
+          c:['1921 Anayasas\u0131','1924 Anayasas\u0131','1961 Anayasas\u0131','1982 Anayasas\u0131'],
+          d:0, a:'1921 Te\u015fkilat-\u0131 Esasiye Kanunu, adi kanunlarla ayn\u0131 usulle de\u011fi\u015ftirilebildi\u011fi i\u00e7in yumu\u015fak anayasa niteli\u011findedir.' }
+      ]}
     ]},
-    {t:'tablo', b:'Yapt\u0131r\u0131m t\u00fcrleri', h:['Yapt\u0131r\u0131m','Nerede','\u00d6rnek'], r:[
-      ['Ceza','Ceza hukuku','Hapis, adli para cezas\u0131'],
-      ['Cebri icra','Bor\u00e7lar/icra hukuku','Mal\u0131n haczedilip sat\u0131lmas\u0131'],
-      ['Tazminat','Bor\u00e7lar hukuku','Maddi ve manevi tazminat'],
-      ['H\u00fck\u00fcms\u00fczl\u00fck','Medeni/bor\u00e7lar hukuku','Yokluk, butlan, iptal edilebilirlik'],
-      ['\u0130ptal','\u0130dare hukuku','\u0130dari i\u015flemin mahkemece iptali']
+
+  /* ============= 3 ============= */
+  { id:'temel-haklar', ad:'Temel Hak ve \u00d6devler', soru:'0\u20131 soru', durum:'hazir',
+    ozet:'Haklar\u0131n \u00fc\u00e7l\u00fc tasnifi, s\u0131n\u0131rlama \u015fartlar\u0131 ve ola\u011fan\u00fcst\u00fc h\u00e2lde dokunulamayan \u00e7ekirdek alan.',
+    bloklar:[
+      { t:'sema', b:'Temel haklar\u0131n \u00fc\u00e7l\u00fc tasnifi', d:[
+        { b:'Ki\u015fi haklar\u0131 (negatif stat\u00fc)', a:['Devletin **kar\u0131\u015fmamas\u0131n\u0131** ister','Ya\u015fama hakk\u0131, ki\u015fi dokunulmazl\u0131\u011f\u0131, konut dokunulmazl\u0131\u011f\u0131','\u00d6zel hayat\u0131n gizlili\u011fi, d\u00fc\u015f\u00fcnce ve din \u00f6zg\u00fcrl\u00fc\u011f\u00fc','M\u00fclkiyet hakk\u0131, hak arama h\u00fcrriyeti'] },
+        { b:'Sosyal ve ekonomik haklar (pozitif stat\u00fc)', a:['Devletten **bir \u015fey yapmas\u0131n\u0131** ister','E\u011fitim, sa\u011fl\u0131k, konut, \u00e7al\u0131\u015fma hakk\u0131','Sosyal g\u00fcvenlik, sendika kurma','Ailenin korunmas\u0131, \u00e7evre hakk\u0131'] },
+        { b:'Siyasi haklar (aktif stat\u00fc)', a:['Y\u00f6netime **kat\u0131lma** hakk\u0131','Se\u00e7me ve se\u00e7ilme, siyasi parti kurma','Dilek\u00e7e hakk\u0131, kamu hizmetine girme','Vatanda\u015fl\u0131k hakk\u0131, bilgi edinme hakk\u0131'] }
+      ]},
+      { t:'ozet', b:'Temel haklar\u0131n s\u0131n\u0131rlanmas\u0131 (m.13)', i:[
+        'Temel hak ve h\u00fcrriyetler **ancak kanunla** s\u0131n\u0131rlanabilir.',
+        'S\u0131n\u0131rlama, **Anayasa\'n\u0131n s\u00f6z\u00fcne ve ruhuna**, **demokratik toplum d\u00fczeninin gereklerine** ve **l\u00e2ik Cumhuriyetin gereklerine** ayk\u0131r\u0131 olamaz.',
+        'S\u0131n\u0131rlama **\u00f6l\u00e7\u00fcl\u00fcl\u00fck ilkesine** uygun olmal\u0131d\u0131r (elveri\u015flilik \u2013 gereklilik \u2013 orant\u0131l\u0131l\u0131k).',
+        '**Hakk\u0131n \u00f6z\u00fcne dokunulamaz.**',
+        'S\u0131n\u0131rlama ancak **Anayasa\'n\u0131n ilgili maddesinde belirtilen sebeplere** ba\u011fl\u0131 olarak yap\u0131labilir.'
+      ]},
+      { t:'ozet', b:'Ola\u011fan\u00fcst\u00fc h\u00e2lde dokunulamayan \u00e7ekirdek alan (m.15)', i:[
+        'Sava\u015f, seferberlik veya ola\u011fan\u00fcst\u00fc h\u00e2llerde temel haklar k\u0131smen veya tamamen durdurulabilir. Ancak **\u015fu haklara dokunulamaz**:',
+        '**Ya\u015fama hakk\u0131** \u2014 sava\u015f hukukuna uygun fiiller sonucu meydana gelen \u00f6l\u00fcmler hari\u00e7',
+        '**Maddi ve manevi varl\u0131\u011f\u0131n b\u00fct\u00fcnl\u00fc\u011f\u00fc** \u2014 ki\u015fi t\u0131bbi ve bilimsel deneylere zorlanamaz',
+        '**Din, vicdan, d\u00fc\u015f\u00fcnce ve kanaat a\u00e7\u0131klamaya zorlanamama**',
+        '**Su\u00e7 ve cezalar\u0131n geriye y\u00fcr\u00fcmemesi**',
+        '**Masumiyet karinesi** \u2014 su\u00e7lulu\u011fu mahkeme karar\u0131yla saptanana kadar kimse su\u00e7lu say\u0131lamaz'
+      ]},
+      { t:'tablo', b:'Temel \u00f6devler', h:['\u00d6dev','Dayanak'], r:[
+        ['**Vergi \u00f6deme**','Herkes mal\u00ee g\u00fcc\u00fcne g\u00f6re vergi \u00f6demekle y\u00fck\u00fcml\u00fcd\u00fcr'],
+        ['**Askerlik**','Vatan hizmeti her T\u00fcrk\'\u00fcn hakk\u0131 ve \u00f6devidir'],
+        ['**Kanunlara uyma**','Herkes Anayasa ve kanunlara uymakla y\u00fck\u00fcml\u00fcd\u00fcr'],
+        ['**E\u011fitim**','\u0130lk\u00f6\u011fretim k\u0131z ve erkek b\u00fct\u00fcn vatanda\u015flar i\u00e7in zorunlu ve devlet okullar\u0131nda paras\u0131zd\u0131r']
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'\u00dc\u00e7l\u00fc tasnif i\u00e7in tek soru sor: **Devlet ne yaps\u0131n?** *Kar\u0131\u015fmas\u0131n* \u2192 **ki\u015fi hakk\u0131**. *Bir \u015fey versin/yaps\u0131n* \u2192 **sosyal hak**. *Beni y\u00f6netime als\u0131n* \u2192 **siyasi hak**.' },
+      { t:'tuzak', i:[
+        '**M\u00fclkiyet hakk\u0131 bir ki\u015fi hakk\u0131d\u0131r**, sosyal hak de\u011fil. S\u0131k kar\u0131\u015ft\u0131r\u0131l\u0131r.',
+        '**E\u011fitim hakk\u0131 sosyal hakt\u0131r**, ancak **kamu hizmetine girme hakk\u0131 siyasi hakt\u0131r**.',
+        '**Dilek\u00e7e hakk\u0131 siyasi hakt\u0131r** \u2014 dilek\u00e7e vermek y\u00f6netime kat\u0131lman\u0131n bir bi\u00e7imidir.',
+        '**Ola\u011fan\u00fcst\u00fc h\u00e2lde bile ya\u015fama hakk\u0131na dokunulamaz**; ancak sava\u015f hukukuna uygun fiiller sonucu \u00f6l\u00fcmler bu kural\u0131n d\u0131\u015f\u0131ndad\u0131r.',
+        '**Hakk\u0131n \u00f6z\u00fcne dokunma yasa\u011f\u0131**, s\u0131n\u0131rlaman\u0131n hakk\u0131 kullan\u0131lamaz h\u00e2le getirmemesi demektir.',
+        '**Temel haklar yaln\u0131z kanunla s\u0131n\u0131rlanabilir**; Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesiyle temel haklar d\u00fczenlenemez.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi "sosyal ve ekonomik haklar" grubunda yer al\u0131r?',
+          c:['Konut dokunulmazl\u0131\u011f\u0131','Sa\u011fl\u0131k hakk\u0131','Dilek\u00e7e hakk\u0131','Ki\u015fi \u00f6zg\u00fcrl\u00fc\u011f\u00fc'],
+          d:1, a:'Sa\u011fl\u0131k hakk\u0131, devletten olumlu bir edim isteyen pozitif stat\u00fc (sosyal) haklar\u0131ndand\u0131r. Konut dokunulmazl\u0131\u011f\u0131 ve ki\u015fi \u00f6zg\u00fcrl\u00fc\u011f\u00fc ki\u015fi hakk\u0131, dilek\u00e7e hakk\u0131 ise siyasi hakt\u0131r.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi siyasi haklardan biri **de\u011fildir**?',
+          c:['Se\u00e7me ve se\u00e7ilme hakk\u0131','Siyasi parti kurma hakk\u0131','M\u00fclkiyet hakk\u0131','Kamu hizmetine girme hakk\u0131'],
+          d:2, a:'M\u00fclkiyet hakk\u0131 negatif stat\u00fc haklar\u0131ndan, yani ki\u015fi haklar\u0131ndand\u0131r.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re temel hak ve h\u00fcrriyetler ancak neyle s\u0131n\u0131rlanabilir?',
+          c:['Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesiyle','Kanunla','Y\u00f6netmelikle','Mahkeme karar\u0131yla'],
+          d:1, a:'Anayasa m.13\'e g\u00f6re temel hak ve h\u00fcrriyetler ancak kanunla ve Anayasa\'n\u0131n ilgili maddelerinde belirtilen sebeplere ba\u011fl\u0131 olarak s\u0131n\u0131rlanabilir.' },
+        { q:'Ola\u011fan\u00fcst\u00fc h\u00e2llerde dahi dokunulamayacak haklar aras\u0131nda a\u015fa\u011f\u0131dakilerden hangisi yer **almaz**?',
+          c:['Masumiyet karinesi','Su\u00e7 ve cezalar\u0131n geriye y\u00fcr\u00fcmemesi','Toplant\u0131 ve g\u00f6steri y\u00fcr\u00fcy\u00fc\u015f\u00fc hakk\u0131','Din ve vicdan h\u00fcrriyeti'],
+          d:2, a:'Toplant\u0131 ve g\u00f6steri y\u00fcr\u00fcy\u00fc\u015f\u00fc hakk\u0131 ola\u011fan\u00fcst\u00fc h\u00e2lde s\u0131n\u0131rlanabilir veya durdurulabilir. Di\u011fer \u00fc\u00e7\u00fc \u00e7ekirdek alanda yer al\u0131r.' },
+        { q:'Temel haklar\u0131n s\u0131n\u0131rlanmas\u0131nda uyulmas\u0131 gereken ve "elveri\u015flilik, gereklilik ve orant\u0131l\u0131l\u0131k" alt ilkelerinden olu\u015fan ilke hangisidir?',
+          c:['Kanunilik','\u00d6l\u00e7\u00fcl\u00fcl\u00fck','E\u015fitlik','Hukuki g\u00fcvenlik'],
+          d:1, a:'\u00d6l\u00e7\u00fcl\u00fcl\u00fck ilkesi, s\u0131n\u0131rlaman\u0131n amaca elveri\u015fli, gerekli ve ama\u00e7la orant\u0131l\u0131 olmas\u0131n\u0131 gerektirir.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi Anayasa\'da d\u00fczenlenen temel \u00f6devlerden biri **de\u011fildir**?',
+          c:['Vergi \u00f6deme','Askerlik yapma','Kanunlara uyma','Siyasi partiye \u00fcye olma'],
+          d:3, a:'Siyasi partiye \u00fcye olmak bir hakt\u0131r, \u00f6dev de\u011fildir. Vergi \u00f6deme, askerlik ve kanunlara uyma temel \u00f6devlerdendir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re ilk\u00f6\u011fretimle ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi do\u011frudur?',
+          c:['Yaln\u0131z erkekler i\u00e7in zorunludur.','K\u0131z ve erkek b\u00fct\u00fcn vatanda\u015flar i\u00e7in zorunlu ve devlet okullar\u0131nda paras\u0131zd\u0131r.','\u0130ste\u011fe ba\u011fl\u0131d\u0131r.','Yaln\u0131z devlet okullar\u0131nda zorunludur.'],
+          d:1, a:'Anayasa\'ya g\u00f6re ilk\u00f6\u011fretim, k\u0131z ve erkek b\u00fct\u00fcn vatanda\u015flar i\u00e7in zorunludur ve devlet okullar\u0131nda paras\u0131zd\u0131r.' },
+        { q:'Devletin bireye kar\u0131\u015fmamas\u0131n\u0131 gerektiren haklara ne ad verilir?',
+          c:['Pozitif stat\u00fc haklar\u0131','Negatif stat\u00fc haklar\u0131','Aktif stat\u00fc haklar\u0131','Karma stat\u00fc haklar\u0131'],
+          d:1, a:'Ki\u015fi haklar\u0131, devletin m\u00fcdahale etmemesini gerektirdi\u011fi i\u00e7in negatif stat\u00fc haklar\u0131 olarak adland\u0131r\u0131l\u0131r.' },
+        { q:'"Su\u00e7lulu\u011fu mahkeme karar\u0131yla saptan\u0131ncaya kadar kimse su\u00e7lu say\u0131lamaz." ilkesi a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['Kanunilik ilkesi','Masumiyet karinesi','\u00d6l\u00e7\u00fcl\u00fcl\u00fck ilkesi','Hukuki dinlenilme hakk\u0131'],
+          d:1, a:'Bu ilke masumiyet (su\u00e7suzluk) karinesidir ve ola\u011fan\u00fcst\u00fc h\u00e2lde bile dokunulamayacak \u00e7ekirdek haklardand\u0131r.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi ki\u015fi haklar\u0131ndan biridir?',
+          c:['Sendika kurma hakk\u0131','Konut dokunulmazl\u0131\u011f\u0131','Sosyal g\u00fcvenlik hakk\u0131','\u00c7al\u0131\u015fma hakk\u0131'],
+          d:1, a:'Konut dokunulmazl\u0131\u011f\u0131 negatif stat\u00fc hakk\u0131 olan ki\u015fi haklar\u0131ndand\u0131r. Di\u011ferleri sosyal ve ekonomik haklard\u0131r.' },
+        { q:'Temel hak ve h\u00fcrriyetlerin s\u0131n\u0131rlanmas\u0131nda "hakk\u0131n \u00f6z\u00fcne dokunulamaz" ilkesi neyi ifade eder?',
+          c:['Hakk\u0131n hi\u00e7 s\u0131n\u0131rlanamayaca\u011f\u0131n\u0131','S\u0131n\u0131rlaman\u0131n hakk\u0131 kullan\u0131lamaz h\u00e2le getirememesini','S\u0131n\u0131rlaman\u0131n s\u00fcreli olmas\u0131n\u0131','S\u0131n\u0131rlaman\u0131n mahkeme karar\u0131 gerektirmesini'],
+          d:1, a:'\u00d6ze dokunma yasa\u011f\u0131, yap\u0131lan s\u0131n\u0131rlaman\u0131n hakk\u0131 tamamen anlams\u0131z veya kullan\u0131lamaz h\u00e2le getirmemesini ifade eder.' },
+        { q:'Bilgi edinme hakk\u0131 temel haklar\u0131n hangi grubunda yer al\u0131r?',
+          c:['Ki\u015fi haklar\u0131','Sosyal ve ekonomik haklar','Siyasi haklar','Ekonomik \u00f6devler'],
+          d:2, a:'Bilgi edinme hakk\u0131, y\u00f6netime kat\u0131lmay\u0131 sa\u011flayan aktif stat\u00fc (siyasi) haklar\u0131ndand\u0131r.' }
+      ]}
     ]},
-    {t:'sayilar', b:'Ezberlenecek say\u0131lar', s:[
-      {n:'18', a:'Erginlik (r\u00fc\u015ft) ya\u015f\u0131'},
-      {n:'17', a:'Ola\u011fan evlenme ya\u015f\u0131 (h\u00e2kim izniyle 16)'},
-      {n:'15', a:'Mahkeme karar\u0131yla ergin k\u0131l\u0131nma (kazai r\u00fc\u015ft) alt ya\u015f\u0131'},
-      {n:'12\u201315', a:'Ceza sorumlulu\u011fu s\u0131n\u0131rl\u0131 ya\u015f aral\u0131\u011f\u0131'},
-      {n:'15', a:'Ay\u0131rt etme g\u00fcc\u00fc olan k\u00fc\u00e7\u00fc\u011f\u00fcn kendi i\u015flemleri i\u00e7in s\u0131n\u0131r de\u011fil \u2014 dikkat: kural ay\u0131rt etme g\u00fcc\u00fcd\u00fcr, ya\u015f de\u011fil'}
+
+  /* ============= 4 ============= */
+  { id:'yasama', ad:'Yasama \u2014 TBMM', soru:'1\u20132 soru', durum:'hazir',
+    ozet:'Say\u0131lar konusu: 600, 200, 151, 7+4. Bir de dokunulmazl\u0131k ve d\u00fc\u015fme halleri.',
+    bloklar:[
+      { t:'sayilar', b:'Ezberlenmesi zorunlu say\u0131lar', s:[
+        { n:'600', a:'Milletvekili say\u0131s\u0131 (2017 de\u011fi\u015fikli\u011fiyle)' },
+        { n:'18', a:'Milletvekili se\u00e7ilme ya\u015f\u0131' },
+        { n:'5', a:'Se\u00e7im d\u00f6nemi (y\u0131l) \u2014 TBMM ve Cumhurba\u015fkan\u0131 se\u00e7imi birlikte' },
+        { n:'200', a:'**Toplant\u0131 yeter say\u0131s\u0131** = \u00fcye tam say\u0131s\u0131n\u0131n 1/3\'\u00fc' },
+        { n:'151', a:'**Karar yeter say\u0131s\u0131** en az bu kadard\u0131r = \u00fcye tam say\u0131s\u0131n\u0131n 1/4\'\u00fcn\u00fcn 1 fazlas\u0131' },
+        { n:'7 + 4', a:'YSK \u00fcye say\u0131s\u0131: 7 as\u0131l + 4 yedek' },
+        { n:'3 ay', a:'TBMM\'nin bir yasama y\u0131l\u0131nda yapabilece\u011fi en uzun tatil' },
+        { n:'1 Ekim', a:'Yasama y\u0131l\u0131n\u0131n ba\u015flang\u0131c\u0131 (30 Eyl\u00fcl\'de sona erer)' },
+        { n:'7 / 15 g\u00fcn', a:'Dokunulmazl\u0131\u011f\u0131 kald\u0131r\u0131lan vekilin AYM\'ye ba\u015fvuru s\u00fcresi / AYM\'nin karar s\u00fcresi' }
+      ]},
+      { t:'sema', b:'TBMM Ba\u015fkanl\u0131k Divan\u0131', d:[
+        { b:'Divanda yer alanlar', a:['**Meclis Ba\u015fkan\u0131**','**Meclis Ba\u015fkanvekilleri**','**K\u00e2tip \u00fcyeler**','**\u0130dare amirleri**'] },
+        { b:'Divanda yer ALMAYANLAR (tuzak \u015f\u0131klar)', a:['Adalet Bakan\u0131','Cumhurba\u015fkan\u0131 yard\u0131mc\u0131s\u0131','Grup ba\u015fkanvekilleri','Komisyon ba\u015fkanlar\u0131'] }
+      ]},
+      { t:'ozet', b:'Milletvekili se\u00e7ilme yeterlili\u011fi', i:[
+        '**T\u00fcrk vatanda\u015f\u0131 olmak**',
+        '**18 ya\u015f\u0131n\u0131 doldurmu\u015f olmak**',
+        '**En az ilkokul mezunu olmak** \u2014 *y\u00fcksek\u00f6\u011frenim \u015fart\u0131 YOKTUR*',
+        '**Askerlikle ili\u015fi\u011fi bulunmamak**',
+        '**Kamu hizmetlerinden yasakl\u0131 olmamak**',
+        '**K\u0131s\u0131tl\u0131 olmamak**',
+        '**Taksirli su\u00e7lar hari\u00e7, bir y\u0131ldan fazla hapis cezas\u0131 almam\u0131\u015f olmak**',
+        '**Y\u00fcz k\u0131zart\u0131c\u0131 su\u00e7lardan h\u00fck\u00fcm giymemi\u015f olmak**'
+      ]},
+      { t:'ozet', b:'Yasama sorumsuzlu\u011fu ve dokunulmazl\u0131\u011f\u0131', i:[
+        '**Yasama sorumsuzlu\u011fu**: Milletvekilleri Meclis \u00e7al\u0131\u015fmalar\u0131ndaki oy, s\u00f6z ve d\u00fc\u015f\u00fcnce a\u00e7\u0131klamalar\u0131ndan **sorumlu tutulamaz**. **Mutlakt\u0131r, s\u00fcresizdir, kald\u0131r\u0131lamaz**; vekillik bitse de devam eder.',
+        '**Yasama dokunulmazl\u0131\u011f\u0131**: Se\u00e7imden \u00f6nce veya sonra su\u00e7 i\u015fledi\u011fi ileri s\u00fcr\u00fclen vekil, **Meclisin karar\u0131 olmad\u0131k\u00e7a** tutulamaz, sorguya \u00e7ekilemez, tutuklanamaz, yarg\u0131lanamaz. **Ge\u00e7icidir ve kald\u0131r\u0131labilir.**',
+        'Dokunulmazl\u0131\u011f\u0131 **TBMM Genel Kurulu** kald\u0131r\u0131r (toplant\u0131ya kat\u0131lanlar\u0131n salt \u00e7o\u011funlu\u011fuyla).',
+        'Karar\u0131n ard\u0131ndan ilgili vekil **7 g\u00fcn i\u00e7inde Anayasa Mahkemesi**\'ne ba\u015fvurabilir; AYM **15 g\u00fcn i\u00e7inde** kesin karara ba\u011flar.',
+        '**\u0130stisna**: Anayasa m.14\'teki haller ve **a\u011f\u0131r cezay\u0131 gerektiren su\u00e7\u00fcst\u00fc** h\u00e2linde dokunulmazl\u0131k i\u015flemez.'
+      ]},
+      { t:'ozet', b:'Milletvekilli\u011finin sona ermesi', i:[
+        '**\u0130stifa (\u00e7ekilme)**','**Kesin h\u00fck\u00fcm giyme veya k\u0131s\u0131tlanma**','**Milletvekilli\u011fiyle ba\u011fda\u015fmayan bir g\u00f6rev ya da hizmeti kabul etme**',
+        '**Meclis \u00e7al\u0131\u015fmalar\u0131na \u00f6z\u00fcrs\u00fcz veya izinsiz olarak bir ay i\u00e7inde toplam be\u015f birle\u015fim g\u00fcn\u00fc kat\u0131lmama**',
+        '**\u00d6l\u00fcm** ve **TBMM se\u00e7imlerinin yenilenmesi**',
+        '*Sona erdirmeyen h\u00e2l \u00f6rne\u011fi: bakanl\u0131k g\u00f6revi almak \u2014 Cumhurba\u015fkanl\u0131\u011f\u0131 sisteminde bakan olan vekilin milletvekilli\u011fi d\u00fc\u015fer, bu ayr\u0131nt\u0131 sorulabilir.*'
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Toplant\u0131 200, karar 151.** S\u0131rayla k\u00fc\u00e7\u00fcl\u00fcr. Toplant\u0131 = 600 \u00f7 3; karar = (600 \u00f7 4) + 1. D\u00f6rtte birden bir fazla oldu\u011fu i\u00e7in 150 de\u011fil **151**\'dir.' },
+      { t:'tuzak', i:[
+        '**Milletvekili olmak i\u00e7in y\u00fcksek\u00f6\u011frenim \u015fart\u0131 yoktur**, en az ilkokul mezunu olmak yeterlidir. En s\u0131k sorulan tuzakt\u0131r.',
+        '**Adalet Bakan\u0131 Ba\u015fkanl\u0131k Divan\u0131 \u00fcyesi de\u011fildir**; ama **HSK\'n\u0131n ba\u015fkan\u0131d\u0131r**. \u0130ki kurumu kar\u0131\u015ft\u0131rma.',
+        '**TBMM kendi ba\u015fkan\u0131n\u0131 kendi \u00fcyeleri aras\u0131ndan, en \u00e7ok d\u00f6rt turlu gizli oylamayla se\u00e7er.** HSK ba\u015fkan\u0131 Adalet Bakan\u0131, DDK ba\u015fkan\u0131 Cumhurba\u015fkan\u0131, MGK ba\u015fkan\u0131 Cumhurba\u015fkan\u0131\'d\u0131r.',
+        '**Kanun teklifi verme yetkisi yaln\u0131z milletvekillerine aittir.** 2017 sonras\u0131 "kanun tasar\u0131s\u0131" kalkm\u0131\u015ft\u0131r; il, il\u00e7e ve b\u00fcy\u00fck\u015fehir belediyesi kurulmas\u0131 ancak kanunla olur.',
+        '**Dokunulmazl\u0131\u011f\u0131n kald\u0131r\u0131lmas\u0131 ve milletvekilli\u011finin d\u00fc\u015fmesi kararlar\u0131n\u0131n yarg\u0131sal denetimini Anayasa Mahkemesi yapar**, Dan\u0131\u015ftay veya Yarg\u0131tay de\u011fil.',
+        '**YSK kararlar\u0131na kar\u015f\u0131 ba\u015fka bir mercie ba\u015fvurulamaz**; yarg\u0131 yolu kapal\u0131d\u0131r.',
+        '**Say\u0131\u015ftay TBMM ad\u0131na denetim yapar**; \u00fcyelerini TBMM se\u00e7er, Cumhurba\u015fkan\u0131 de\u011fil.'
+      ]},
+      { t:'test', s:[
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi T\u00fcrkiye B\u00fcy\u00fck Millet Meclisi Ba\u015fkanl\u0131k Divan\u0131\'nda yer **almaz**?',
+          c:['Meclis Ba\u015fkan\u0131','Meclis Ba\u015fkanvekilleri','Adalet Bakan\u0131','K\u00e2tip \u00fcyeler'],
+          d:2, a:'Ba\u015fkanl\u0131k Divan\u0131; Meclis Ba\u015fkan\u0131, ba\u015fkanvekilleri, k\u00e2tip \u00fcyeler ve idare amirlerinden olu\u015fur. Adalet Bakan\u0131 Divan \u00fcyesi de\u011fildir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi milletvekili se\u00e7ilme yeterlili\u011fine ili\u015fkin ko\u015fullar aras\u0131nda yer **almaz**?',
+          c:['Y\u00fcksek\u00f6\u011frenim yapm\u0131\u015f olmak','18 ya\u015f\u0131n\u0131 doldurmu\u015f olmak','T\u00fcrk vatanda\u015f\u0131 olmak','Askerlikle ili\u015fi\u011fi olmamak'],
+          d:0, a:'Milletvekili se\u00e7ilebilmek i\u00e7in en az ilkokul mezunu olmak yeterlidir; y\u00fcksek\u00f6\u011frenim \u015fart\u0131 aranmaz.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re TBMM\'nin toplant\u0131 yeter say\u0131s\u0131 en az ka\u00e7t\u0131r?',
+          c:['151','184','200','276'],
+          d:2, a:'TBMM \u00fcye tam say\u0131s\u0131n\u0131n en az \u00fc\u00e7te biri ile toplan\u0131r: 600 \u00f7 3 = 200.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re TBMM\'nin karar yeter say\u0131s\u0131 en az ka\u00e7 olabilir?',
+          c:['150','151','200','301'],
+          d:1, a:'TBMM toplant\u0131ya kat\u0131lanlar\u0131n salt \u00e7o\u011funlu\u011fu ile karar verir; ancak kabul oylar\u0131 \u00fcye tam say\u0131s\u0131n\u0131n d\u00f6rtte birinin bir fazlas\u0131ndan, yani 151\'den az olamaz.' },
+        { q:'Bir milletvekilinin yasama dokunulmazl\u0131\u011f\u0131n\u0131n kald\u0131r\u0131lmas\u0131na a\u015fa\u011f\u0131dakilerden hangisi karar verir?',
+          c:['Anayasa Mahkemesi','TBMM Genel Kurulu','Cumhurba\u015fkan\u0131','Yarg\u0131tay'],
+          d:1, a:'Dokunulmazl\u0131\u011f\u0131n kald\u0131r\u0131lmas\u0131na TBMM Genel Kurulu karar verir. Karara kar\u015f\u0131 ilgili vekil 7 g\u00fcn i\u00e7inde Anayasa Mahkemesi\'ne ba\u015fvurabilir.' },
+        { q:'Yasama dokunulmazl\u0131\u011f\u0131n\u0131n kald\u0131r\u0131lmas\u0131 ve milletvekilli\u011finin d\u00fc\u015f\u00fcr\u00fclmesi kararlar\u0131n\u0131n yarg\u0131sal denetimini hangi merci yapar?',
+          c:['Yarg\u0131tay','Dan\u0131\u015ftay','Anayasa Mahkemesi','Uyu\u015fmazl\u0131k Mahkemesi'],
+          d:2, a:'Bu kararlar\u0131n iptali istemiyle Anayasa Mahkemesi\'ne ba\u015fvurulur; AYM 15 g\u00fcn i\u00e7inde kesin karar verir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi ba\u015fkan\u0131n\u0131 kendi \u00fcyeleri aras\u0131ndan se\u00e7en mercilerden biridir?',
+          c:['T\u00fcrkiye B\u00fcy\u00fck Millet Meclisi','H\u00e2kimler ve Savc\u0131lar Kurulu','Devlet Denetleme Kurulu','Mill\u00ee G\u00fcvenlik Kurulu'],
+          d:0, a:'TBMM ba\u015fkan\u0131n\u0131 kendi \u00fcyeleri aras\u0131ndan d\u00f6rt turlu gizli oylamayla se\u00e7er. HSK\'n\u0131n ba\u015fkan\u0131 Adalet Bakan\u0131, DDK ba\u015fkan\u0131 ve MGK ba\u015fkan\u0131 ise Cumhurba\u015fkan\u0131\'d\u0131r.' },
+        { q:'Mersin iline ba\u011fl\u0131 Anamur il\u00e7esinde il kurulmas\u0131na ili\u015fkin kanun teklifini a\u015fa\u011f\u0131dakilerden hangisi verebilir?',
+          c:['Mersin milletvekilleri','Anamur Belediye Meclisi \u00fcyeleri','\u0130\u00e7i\u015fleri Bakan\u0131','Mersin valisi'],
+          d:0, a:'\u0130l, il\u00e7e ve b\u00fcy\u00fck\u015fehir belediyesi ancak kanunla kurulur; kanun teklif etme yetkisi ise yaln\u0131zca milletvekillerine aittir.' },
+        { q:'TBMM\'nin bir yasama y\u0131l\u0131nda yapabilece\u011fi tatil en fazla ne kadard\u0131r?',
+          c:['1 ay','2 ay','3 ay','4 ay'],
+          d:2, a:'Yasama y\u0131l\u0131 1 Ekim\'de ba\u015flar, ertesi y\u0131l\u0131n 30 Eyl\u00fcl\'\u00fcnde sona erer. Meclis bir yasama y\u0131l\u0131nda en fazla \u00fc\u00e7 ay tatil yapabilir.' },
+        { q:'Y\u00fcksek Se\u00e7im Kurulu ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi **yanl\u0131\u015ft\u0131r**?',
+          c:['Yedi as\u0131l, d\u00f6rt yedek \u00fcyeden olu\u015fur.','\u00dcyeleri Yarg\u0131tay ve Dan\u0131\u015ftay Genel Kurullar\u0131nca kendi \u00fcyeleri aras\u0131ndan se\u00e7ilir.','Kararlar\u0131na kar\u015f\u0131 Anayasa Mahkemesi\'ne itiraz edilebilir.','Cumhurba\u015fkanl\u0131\u011f\u0131 se\u00e7im tutanaklar\u0131n\u0131 kabul etmekle g\u00f6revlidir.'],
+          d:2, a:'YSK kararlar\u0131na kar\u015f\u0131 ba\u015fka bir mercie ba\u015fvurulamaz; kararlar\u0131 kesindir ve yarg\u0131 yolu kapal\u0131d\u0131r.' },
+        { q:'Yasama sorumsuzlu\u011fu ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi do\u011frudur?',
+          c:['Meclis karar\u0131yla kald\u0131r\u0131labilir.','Ge\u00e7icidir, vekillik bitince sona erer.','Mutlakt\u0131r ve s\u00fcresizdir, kald\u0131r\u0131lamaz.','Yaln\u0131z su\u00e7\u00fcst\u00fc h\u00e2linde i\u015flemez.'],
+          d:2, a:'Yasama sorumsuzlu\u011fu Meclis \u00e7al\u0131\u015fmalar\u0131ndaki oy, s\u00f6z ve d\u00fc\u015f\u00fcnce a\u00e7\u0131klamalar\u0131n\u0131 kapsar; mutlak ve s\u00fcresizdir, kald\u0131r\u0131lamaz. Kald\u0131r\u0131labilen ise yasama dokunulmazl\u0131\u011f\u0131d\u0131r.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi milletvekilli\u011fini sona erdiren h\u00e2llerden biri **de\u011fildir**?',
+          c:['\u0130stifa','Kesin h\u00fck\u00fcm giyme','Yurt d\u0131\u015f\u0131na \u00e7\u0131kma','K\u0131s\u0131tlanma'],
+          d:2, a:'Yurt d\u0131\u015f\u0131na \u00e7\u0131kmak milletvekilli\u011fini sona erdirmez. Sona erdiren h\u00e2ller: istifa, kesin h\u00fck\u00fcm giyme, k\u0131s\u0131tlanma, ba\u011fda\u015fmayan g\u00f6rev kabul\u00fc, devams\u0131zl\u0131k, \u00f6l\u00fcm ve se\u00e7imlerin yenilenmesi.' },
+        { q:'TBMM\'nin yasama y\u0131l\u0131 hangi tarihte ba\u015flar?',
+          c:['1 Eyl\u00fcl','1 Ekim','1 Kas\u0131m','1 Ocak'],
+          d:1, a:'Yasama y\u0131l\u0131 1 Ekim\'de ba\u015flar ve ertesi y\u0131l\u0131n 30 Eyl\u00fcl\'\u00fcnde sona erer.' },
+        { q:'Say\u0131\u015ftay ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi do\u011frudur?',
+          c:['\u00dcyelerini Cumhurba\u015fkan\u0131 se\u00e7er.','TBMM ad\u0131na denetim yapar.','Bir y\u00fcksek mahkeme de\u011fildir ve yarg\u0131 yetkisi yoktur.','Yaln\u0131z yerel y\u00f6netimleri denetler.'],
+          d:1, a:'Say\u0131\u015ftay, merkez\u00ee y\u00f6netim b\u00fct\u00e7esi kapsam\u0131ndaki kamu idarelerinin gelir, gider ve mallar\u0131n\u0131 TBMM ad\u0131na denetler; \u00fcyelerini TBMM se\u00e7er.' },
+        { q:'Milletvekili say\u0131s\u0131n\u0131n 600\'e \u00e7\u0131kar\u0131lmas\u0131 hangi y\u0131l ger\u00e7ekle\u015fmi\u015ftir?',
+          c:['1987','1995','2007','2017'],
+          d:3, a:'Milletvekili say\u0131s\u0131 1982\'de 400, 1987\'de 450, 1995\'te 550 iken 2017 anayasa de\u011fi\u015fikli\u011fiyle 600\'e \u00e7\u0131kar\u0131lm\u0131\u015ft\u0131r.' },
+        { q:'Anayasa\'ya g\u00f6re bir milletvekili, a\u011f\u0131r cezay\u0131 gerektiren su\u00e7\u00fcst\u00fc h\u00e2linde a\u015fa\u011f\u0131dakilerden hangisinden yararlanamaz?',
+          c:['Yasama sorumsuzlu\u011fundan','Yasama dokunulmazl\u0131\u011f\u0131ndan','Se\u00e7ilme hakk\u0131ndan','Dilek\u00e7e hakk\u0131ndan'],
+          d:1, a:'Anayasa m.14\'teki haller ile a\u011f\u0131r cezay\u0131 gerektiren su\u00e7\u00fcst\u00fc h\u00e2linde yasama dokunulmazl\u0131\u011f\u0131 i\u015flemez.' }
+      ]}
     ]},
-    {t:'ozet', b:'Hukukun kaynaklar\u0131', i:[
-      '**Yaz\u0131l\u0131 kaynaklar (asli)**: Anayasa \u2192 Kanun \u2192 Cumhurba\u015fkanl\u0131\u011f\u0131 Kararnamesi \u2192 Y\u00f6netmelik.',
-      'Milletleraras\u0131 antla\u015fmalar kanun h\u00fckm\u00fcndedir; **temel hak ve \u00f6zg\u00fcrl\u00fcklere ili\u015fkin** olanlar \u00e7at\u0131\u015fma h\u00e2linde **\u00fcst\u00fcn**d\u00fcr.',
-      '**Yard\u0131mc\u0131 kaynaklar**: yarg\u0131 kararlar\u0131 (i\u00e7tihat), bilimsel g\u00f6r\u00fc\u015f (doktrin).',
-      '**Yaz\u0131s\u0131z kaynak**: \u00f6rf ve \u00e2det hukuku \u2014 kanunda h\u00fck\u00fcm yoksa uygulan\u0131r.'
+
+  /* ============= 5 ============= */
+  { id:'yurutme', ad:'Y\u00fcr\u00fctme \u2014 Cumhurba\u015fkan\u0131', soru:'1\u20132 soru', durum:'hazir',
+    ozet:'Kimi atar, kimi atamaz? Kararname ne zaman y\u00fcr\u00fcrl\u00fc\u011fe girer? Sorular bu iki eksende d\u00f6ner.',
+    bloklar:[
+      { t:'sayilar', b:'Say\u0131 kartlar\u0131', s:[
+        { n:'40', a:'Cumhurba\u015fkan\u0131 se\u00e7ilme ya\u015f\u0131 (+ y\u00fcksek\u00f6\u011frenim \u015fart\u0131)' },
+        { n:'5', a:'Cumhurba\u015fkan\u0131n\u0131n g\u00f6rev s\u00fcresi (y\u0131l)' },
+        { n:'2', a:'En fazla se\u00e7ilebilece\u011fi d\u00f6nem say\u0131s\u0131' },
+        { n:'8 + 1', a:'Devlet Denetleme Kurulu: 8 \u00fcye + ba\u015fkan \u00b7 \u00fcyeler 6 y\u0131ll\u0131\u011f\u0131na atan\u0131r' },
+        { n:'6 ay', a:'Ola\u011fan\u00fcst\u00fc h\u00e2lin en uzun s\u00fcresi' },
+        { n:'12', a:'Cumhurba\u015fkan\u0131n\u0131n Anayasa Mahkemesi\'ne atad\u0131\u011f\u0131 \u00fcye say\u0131s\u0131' }
+      ]},
+      { t:'tablo', b:'Cumhurba\u015fkan\u0131 kimi atar, kimi atamaz?', h:['ATAR','ATAMAZ (ba\u015fka merci se\u00e7er)'], r:[
+        ['Cumhurba\u015fkan\u0131 yard\u0131mc\u0131lar\u0131','**TBMM Ba\u015fkan\u0131** \u2192 TBMM Genel Kurulu se\u00e7er'],
+        ['Bakanlar','**Yarg\u0131tay \u00fcyeleri** \u2192 HSK se\u00e7er'],
+        ['\u00dcst kademe kamu y\u00f6neticileri','**Say\u0131\u015ftay \u00fcyeleri** \u2192 TBMM se\u00e7er'],
+        ['Genelkurmay Ba\u015fkan\u0131','**Kamu Ba\u015fdenet\u00e7isi (Ombudsman)** \u2192 TBMM se\u00e7er'],
+        ['**DDK ba\u015fkan\u0131 ve t\u00fcm \u00fcyeleri**','**RT\u00dcK \u00fcyeleri** \u2192 TBMM se\u00e7er'],
+        ['**AYM\'ye 12 \u00fcye**','**AYM Ba\u015fkan\u0131** \u2192 AYM kendi \u00fcyeleri aras\u0131ndan se\u00e7er'],
+        ['Dan\u0131\u015ftay \u00fcyelerinin 1/4\'\u00fc','Dan\u0131\u015ftay \u00fcyelerinin 3/4\'\u00fc \u2192 HSK se\u00e7er']
+      ]},
+      { t:'ozet', b:'Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi (CBK)', i:[
+        'Ayr\u0131ca bir tarih belirtilmemi\u015fse **Resm\u00ee Gazete\'de yay\u0131mland\u0131\u011f\u0131 g\u00fcn** y\u00fcr\u00fcrl\u00fc\u011fe girer.',
+        '**Y\u00fcr\u00fctme yetkisine ili\u015fkin konularda** \u00e7\u0131kar\u0131labilir.',
+        '**\u00c7\u0131kar\u0131lamayaca\u011f\u0131 alanlar**: temel haklar, ki\u015fi haklar\u0131 ve \u00f6devleri, siyasi haklar ve \u00f6devler.',
+        'Anayasa\'da **m\u00fcnhas\u0131ran kanunla d\u00fczenlenmesi \u00f6ng\u00f6r\u00fclen** konularda \u00e7\u0131kar\u0131lamaz.',
+        'Kanunda **a\u00e7\u0131k\u00e7a d\u00fczenlenen** konularda \u00e7\u0131kar\u0131lamaz. **Kanunla \u00e7eli\u015firse kanun h\u00fckm\u00fc uygulan\u0131r.**',
+        'Yarg\u0131sal denetimini **Anayasa Mahkemesi** yapar.'
+      ]},
+      { t:'ozet', b:'Y\u00fcr\u00fctmenin d\u00fczenleyici i\u015flemleri', i:[
+        '**Ola\u011fan d\u00f6nemde**: Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi, **y\u00f6netmelik**, **genelge**, **y\u00f6nerge**, **tebli\u011f**, emir.',
+        '**Kanun h\u00fckm\u00fcnde kararname (KHK) 2017 de\u011fi\u015fikli\u011fiyle kald\u0131r\u0131lm\u0131\u015ft\u0131r** \u2014 bug\u00fcn hi\u00e7bir \u015fekilde \u00e7\u0131kar\u0131lamaz. En s\u0131k sorulan ayr\u0131nt\u0131d\u0131r.',
+        '**OHAL ilan\u0131**: Cumhurba\u015fkan\u0131 ilan eder, **ayn\u0131 g\u00fcn Resm\u00ee Gazete\'de yay\u0131mlan\u0131r** ve **TBMM\'nin onay\u0131na** sunulur. En fazla **6 ay** i\u00e7in ilan edilir.',
+        '**OHAL sebepleri**: sava\u015f h\u00e2li, seferberlik, ayaklanma, tabii afet, tehlikeli salg\u0131n hastal\u0131k, a\u011f\u0131r ekonomik bunal\u0131m, \u015fiddet olaylar\u0131n\u0131n yayg\u0131nla\u015fmas\u0131.',
+        '**TSK\'n\u0131n kullan\u0131lmas\u0131**: TBMM tatilde veya ara vermede iken \u00fclke ani silahl\u0131 sald\u0131r\u0131ya u\u011frarsa ve derh\u00e2l karar verilmesi ka\u00e7\u0131n\u0131lmazsa **Cumhurba\u015fkan\u0131** karar verir.'
+      ]},
+      { t:'sema', b:'Cumhurba\u015fkan\u0131na ba\u011fl\u0131 / ilgili kurullar', d:[
+        { b:'Devlet Denetleme Kurulu (DDK)', a:['**Cumhurba\u015fkanl\u0131\u011f\u0131na ba\u011fl\u0131d\u0131r**','Ba\u015fkan + 8 \u00fcye, \u00fcyeler **6 y\u0131l**','Ama\u00e7: idarenin hukuka uygunlu\u011funun, d\u00fczenli ve verimli i\u015fleyi\u015finin sa\u011flanmas\u0131','Ba\u015fkan ve \u00fcyelerin tamam\u0131n\u0131 **Cumhurba\u015fkan\u0131** atar'] },
+        { b:'Mill\u00ee G\u00fcvenlik Kurulu (MGK)', a:['**Ba\u015fkan\u0131 Cumhurba\u015fkan\u0131**\'d\u0131r','Kararlar\u0131 **tavsiye niteli\u011findedir**, ba\u011flay\u0131c\u0131 de\u011fildir','\u0130ki ayda bir toplan\u0131r'] }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'Cumhurba\u015fkan\u0131n\u0131n atayamad\u0131klar\u0131: **"Yarg\u0131tay \u2013 RT\u00dcK \u2013 Say\u0131\u015ftay \u2013 Kamu Ba\u015fdenet\u00e7isi \u2013 TBMM Ba\u015fkan\u0131"**. Ba\u015f harfler: **Y-R-S-K-T**. Bir de **AYM Ba\u015fkan\u0131** \u2014 AYM\'ye 12 \u00fcye atar ama ba\u015fkan\u0131n\u0131 atayamaz.' },
+      { t:'tuzak', i:[
+        '**KHK art\u0131k \u00e7\u0131kar\u0131lamaz.** "A\u015fa\u011f\u0131daki d\u00fczenleyici i\u015flemlerden hangisi y\u00fcr\u00fcrl\u00fc\u011fe konulamaz?" sorusunun cevab\u0131 her zaman KHK\'d\u0131r.',
+        '**CBK tarih belirtilmemi\u015fse yay\u0131mland\u0131\u011f\u0131 g\u00fcn y\u00fcr\u00fcrl\u00fc\u011fe girer** \u2014 15, 30 veya 45 g\u00fcn sonra de\u011fil.',
+        '**Cumhurba\u015fkan\u0131 AYM\'ye 12 \u00fcye atar ama AYM Ba\u015fkan\u0131n\u0131 atayamaz**; ba\u015fkan\u0131 AYM kendi \u00fcyeleri aras\u0131ndan salt \u00e7o\u011funluk ve gizli oyla 4 y\u0131ll\u0131\u011f\u0131na se\u00e7er.',
+        '**DDK Cumhurba\u015fkanl\u0131\u011f\u0131na ba\u011fl\u0131d\u0131r**, TBMM\'ye veya \u0130\u00e7i\u015fleri Bakanl\u0131\u011f\u0131\'na de\u011fil.',
+        '**OHAL\'i Cumhurba\u015fkan\u0131 ilan eder** (2017 sonras\u0131). Eski sistemde "Cumhurba\u015fkan\u0131 ba\u015fkanl\u0131\u011f\u0131nda toplanan Bakanlar Kurulu" idi \u2014 eski bilgiye g\u00f6re i\u015faretleme.',
+        '**MGK kararlar\u0131 tavsiye niteli\u011findedir**, ba\u011flay\u0131c\u0131 de\u011fildir.',
+        '**Genelkurmay Ba\u015fkan\u0131n\u0131 Cumhurba\u015fkan\u0131 atar**; TBMM Ba\u015fkan\u0131n\u0131 ise TBMM Genel Kurulu se\u00e7er.'
+      ]},
+      { t:'test', s:[
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi Cumhurba\u015fkan\u0131nca atananlar aras\u0131nda yer al\u0131r?',
+          c:['Kamu ba\u015fdenet\u00e7isi','Yarg\u0131tay birinci ba\u015fkan\u0131','Devlet Denetleme Kurulu ba\u015fkan\u0131','Radyo ve Televizyon \u00dcst Kurulu \u00fcyeleri'],
+          d:2, a:'DDK\'n\u0131n ba\u015fkan ve \u00fcyelerinin tamam\u0131 Cumhurba\u015fkan\u0131 karar\u0131yla atan\u0131r. Kamu ba\u015fdenet\u00e7isi, Say\u0131\u015ftay ve RT\u00dcK \u00fcyelerini TBMM; Yarg\u0131tay \u00fcyelerini HSK se\u00e7er.' },
+        { q:'Ola\u011fan\u00fcst\u00fc h\u00e2ller d\u0131\u015f\u0131nda, a\u015fa\u011f\u0131daki d\u00fczenleyici i\u015flemlerden hangisinin g\u00fcn\u00fcm\u00fczde y\u00fcr\u00fcrl\u00fc\u011fe konulmas\u0131 m\u00fcmk\u00fcn **de\u011fildir**?',
+          c:['Cumhurba\u015fkanl\u0131\u011f\u0131 y\u00f6netmeli\u011fi','Kanun h\u00fckm\u00fcnde kararname','Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi','Bakanl\u0131k tebli\u011f ve genelgeleri'],
+          d:1, a:'KHK, 2017 anayasa de\u011fi\u015fikli\u011fiyle kald\u0131r\u0131lm\u0131\u015ft\u0131r. Ola\u011fan d\u00f6nemde y\u00fcr\u00fctmenin d\u00fczenleyici i\u015flemleri; CBK, y\u00f6netmelik, emir, genelge ve y\u00f6nergedir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re Cumhurba\u015fkanl\u0131\u011f\u0131 kararnameleri, ayr\u0131ca bir tarih belirtilmemi\u015fse ne zaman y\u00fcr\u00fcrl\u00fc\u011fe girer?',
+          c:['Resm\u00ee Gazete\'de yay\u0131mland\u0131klar\u0131 g\u00fcn','Yay\u0131m\u0131 takip eden 15. g\u00fcn','Yay\u0131m\u0131 takip eden 30. g\u00fcn','Yay\u0131m\u0131 takip eden 45. g\u00fcn'],
+          d:0, a:'CBK\'lar, ayr\u0131ca bir y\u00fcr\u00fcrl\u00fck tarihi belirtilmemi\u015fse Resm\u00ee Gazete\'de yay\u0131mland\u0131klar\u0131 g\u00fcn y\u00fcr\u00fcrl\u00fc\u011fe girer.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi Cumhurba\u015fkan\u0131 taraf\u0131ndan atan**maz**?',
+          c:['Genelkurmay ba\u015fkan\u0131','Cumhurba\u015fkan\u0131 yard\u0131mc\u0131lar\u0131','Bakanlar','T\u00fcrkiye B\u00fcy\u00fck Millet Meclisi ba\u015fkan\u0131'],
+          d:3, a:'TBMM Ba\u015fkan\u0131, milletvekilleri aras\u0131ndan en \u00e7ok d\u00f6rt turlu gizli oylamayla TBMM Genel Kurulunca se\u00e7ilir.' },
+        { q:'TBMM tatilde veya ara vermede iken \u00fclkenin ani bir silahl\u0131 sald\u0131r\u0131ya u\u011framas\u0131 ve silahl\u0131 kuvvet kullan\u0131lmas\u0131na derh\u00e2l karar verilmesinin ka\u00e7\u0131n\u0131lmaz olmas\u0131 h\u00e2linde, T\u00fcrk Silahl\u0131 Kuvvetlerinin kullan\u0131lmas\u0131na kim karar verir?',
+          c:['Mill\u00ee Savunma Bakanl\u0131\u011f\u0131','Genelkurmay Ba\u015fkan\u0131','Cumhurba\u015fkan\u0131','Mill\u00ee G\u00fcvenlik Kurulu'],
+          d:2, a:'Bu durumda Cumhurba\u015fkan\u0131, Meclisi beklemeksizin T\u00fcrk Silahl\u0131 Kuvvetlerinin kullan\u0131lmas\u0131na karar verebilir.' },
+        { q:'Tabii afet, tehlikeli salg\u0131n hastal\u0131k veya a\u011f\u0131r ekonomik bunal\u0131m h\u00e2llerinde ola\u011fan\u00fcst\u00fc h\u00e2l ilan etme yetkisi kime aittir?',
+          c:['Cumhurba\u015fkan\u0131','Mill\u00ee G\u00fcvenlik Kurulu','\u0130\u00e7i\u015fleri Bakan\u0131','T\u00fcrkiye B\u00fcy\u00fck Millet Meclisi'],
+          d:0, a:'2017 de\u011fi\u015fikli\u011finden sonra ola\u011fan\u00fcst\u00fc h\u00e2li Cumhurba\u015fkan\u0131 ilan eder; karar ayn\u0131 g\u00fcn Resm\u00ee Gazete\'de yay\u0131mlan\u0131r ve TBMM\'nin onay\u0131na sunulur.' },
+        { q:'Devlet Denetleme Kurulu a\u015fa\u011f\u0131dakilerden hangisine ba\u011fl\u0131d\u0131r?',
+          c:['Cumhurba\u015fkanl\u0131\u011f\u0131','\u0130\u00e7i\u015fleri Bakanl\u0131\u011f\u0131','T\u00fcrkiye B\u00fcy\u00fck Millet Meclisi','Adalet Bakanl\u0131\u011f\u0131'],
+          d:0, a:'DDK, idarenin hukuka uygunlu\u011funun ve verimli i\u015fleyi\u015finin sa\u011flanmas\u0131 amac\u0131yla Cumhurba\u015fkanl\u0131\u011f\u0131na ba\u011fl\u0131 olarak kurulmu\u015ftur.' },
+        { q:'Cumhurba\u015fkan\u0131 se\u00e7ilebilmek i\u00e7in gereken asgari ya\u015f ve \u00f6\u011frenim \u015fart\u0131 a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['35 ya\u015f \u2013 lise','40 ya\u015f \u2013 y\u00fcksek\u00f6\u011frenim','45 ya\u015f \u2013 y\u00fcksek\u00f6\u011frenim','40 ya\u015f \u2013 ilkokul'],
+          d:1, a:'Cumhurba\u015fkan\u0131 se\u00e7ilebilmek i\u00e7in k\u0131rk ya\u015f\u0131n\u0131 doldurmu\u015f ve y\u00fcksek\u00f6\u011frenim yapm\u0131\u015f olmak gerekir.' },
+        { q:'Ola\u011fan\u00fcst\u00fc h\u00e2l en fazla ne kadar s\u00fcre i\u00e7in ilan edilebilir?',
+          c:['3 ay','4 ay','6 ay','1 y\u0131l'],
+          d:2, a:'Ola\u011fan\u00fcst\u00fc h\u00e2l, yurdun bir b\u00f6lgesinde veya tamam\u0131nda en fazla alt\u0131 ay i\u00e7in ilan edilebilir.' },
+        { q:'Mill\u00ee G\u00fcvenlik Kurulu ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi do\u011frudur?',
+          c:['Ba\u015fkan\u0131 Genelkurmay Ba\u015fkan\u0131\'d\u0131r.','Kararlar\u0131 ba\u011flay\u0131c\u0131d\u0131r.','Ba\u015fkan\u0131 Cumhurba\u015fkan\u0131\'d\u0131r ve kararlar\u0131 tavsiye niteli\u011findedir.','Y\u0131lda bir kez toplan\u0131r.'],
+          d:2, a:'MGK\'n\u0131n ba\u015fkan\u0131 Cumhurba\u015fkan\u0131\'d\u0131r; ald\u0131\u011f\u0131 kararlar tavsiye niteli\u011finde olup ba\u011flay\u0131c\u0131 de\u011fildir.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesiyle d\u00fczenlene**mez**?',
+          c:['Bakanl\u0131klar\u0131n kurulu\u015fu','\u00dcst kademe kamu y\u00f6neticilerinin atanma usul\u00fc','Temel haklar ve ki\u015fi haklar\u0131','Kamu t\u00fczel ki\u015fili\u011finin kurulmas\u0131'],
+          d:2, a:'Temel haklar, ki\u015fi haklar\u0131 ve \u00f6devleri ile siyasi haklar ve \u00f6devler CBK ile d\u00fczenlenemez; bunlar ancak kanunla d\u00fczenlenir.' },
+        { q:'Cumhurba\u015fkan\u0131 Anayasa Mahkemesi\'ne ka\u00e7 \u00fcye atar?',
+          c:['3','7','12','15'],
+          d:2, a:'Anayasa Mahkemesi 15 \u00fcyeden olu\u015fur; bunlar\u0131n 12\'sini Cumhurba\u015fkan\u0131, 3\'\u00fcn\u00fc TBMM se\u00e7er.' },
+        { q:'Bir Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi ile kanun ayn\u0131 konuda farkl\u0131 h\u00fck\u00fcm i\u00e7eriyorsa hangisi uygulan\u0131r?',
+          c:['Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi','Kanun','Sonraki tarihli olan','Anayasa Mahkemesi karar verir'],
+          d:1, a:'CBK ile kanun ayn\u0131 konuda farkl\u0131 h\u00fck\u00fcm i\u00e7erirse kanun h\u00fckm\u00fc uygulan\u0131r; ayr\u0131ca kanunda a\u00e7\u0131k\u00e7a d\u00fczenlenen konularda CBK \u00e7\u0131kar\u0131lamaz.' },
+        { q:'Cumhurba\u015fkan\u0131 en fazla ka\u00e7 d\u00f6nem se\u00e7ilebilir?',
+          c:['Bir','\u0130ki','\u00dc\u00e7','S\u0131n\u0131rs\u0131z'],
+          d:1, a:'Cumhurba\u015fkan\u0131n\u0131n g\u00f6rev s\u00fcresi be\u015f y\u0131ld\u0131r ve bir ki\u015fi en fazla iki defa Cumhurba\u015fkan\u0131 se\u00e7ilebilir.' }
+      ]}
     ]},
-    {t:'tuzak', i:[
-      '**Kamu hukuku**nda taraflardan biri devlettir ve **e\u015fitlik yoktur**; \u00f6zel hukukta taraflar e\u015fittir.',
-      '\u0130\u015f hukuku hem kamu hem \u00f6zel hukuk \u00f6zelli\u011fi ta\u015f\u0131yan **karma** bir dald\u0131r.',
-      'Ceza yapt\u0131r\u0131m\u0131 sadece hapis de\u011fildir; **adli para cezas\u0131** da ceza yapt\u0131r\u0131m\u0131d\u0131r \u2014 idari para cezas\u0131yla kar\u0131\u015ft\u0131rma.',
-      '\u00d6rf ve \u00e2det hukuku kanunun **yerine ge\u00e7mez**, kanunda bo\u015fluk varsa devreye girer.'
+
+  /* ============= 6 ============= */
+  { id:'yargi', ad:'Yarg\u0131', soru:'0\u20131 soru', durum:'hazir',
+    ozet:'Hangi uyu\u015fmazl\u0131k hangi yarg\u0131 koluna gider, hangi merci temyiz yapar, Y\u00fcce Divan\'da kim yarg\u0131lan\u0131r.',
+    bloklar:[
+      { t:'sema', b:'Yarg\u0131 kollar\u0131', d:[
+        { b:'Adli yarg\u0131', a:['Ki\u015filer aras\u0131 uyu\u015fmazl\u0131klar ve su\u00e7lar','**\u0130lk derece**: sulh/asliye hukuk, aile, i\u015f, ticaret, t\u00fcketici, asliye ve a\u011f\u0131r ceza','**\u0130stinaf**: B\u00f6lge Adliye Mahkemesi','**Temyiz**: **Yarg\u0131tay**'] },
+        { b:'\u0130dari yarg\u0131', a:['\u0130darenin i\u015flem ve eylemlerinden do\u011fan uyu\u015fmazl\u0131klar','**\u0130lk derece**: idare ve vergi mahkemeleri','**\u0130stinaf**: B\u00f6lge \u0130dare Mahkemesi','**Temyiz**: **Dan\u0131\u015ftay**'] },
+        { b:'Anayasa yarg\u0131s\u0131', a:['**Anayasa Mahkemesi**','Norm denetimi, bireysel ba\u015fvuru, Y\u00fcce Divan'] },
+        { b:'Uyu\u015fmazl\u0131k yarg\u0131s\u0131', a:['**Uyu\u015fmazl\u0131k Mahkemesi**','Adli ve idari yarg\u0131 aras\u0131ndaki g\u00f6rev ve h\u00fck\u00fcm uyu\u015fmazl\u0131klar\u0131','Ba\u015fkan\u0131n\u0131 **Anayasa Mahkemesi** kendi \u00fcyeleri aras\u0131ndan atar'] }
+      ]},
+      { t:'sayilar', b:'Say\u0131 kartlar\u0131', s:[
+        { n:'15', a:'Anayasa Mahkemesi \u00fcye say\u0131s\u0131 (12 Cumhurba\u015fkan\u0131 + 3 TBMM)' },
+        { n:'12 y\u0131l', a:'AYM \u00fcyelerinin g\u00f6rev s\u00fcresi \u2014 bir ki\u015fi iki kez se\u00e7ilemez' },
+        { n:'65', a:'AYM ve di\u011fer y\u00fcksek yarg\u0131 \u00fcyelerinde emeklilik ya\u015f\u0131' },
+        { n:'4 y\u0131l', a:'AYM ve Dan\u0131\u015ftay ba\u015fkanlar\u0131n\u0131n g\u00f6rev s\u00fcresi (kendi \u00fcyelerince se\u00e7ilir)' },
+        { n:'13', a:'H\u00e2kimler ve Savc\u0131lar Kurulu \u00fcye say\u0131s\u0131 \u2014 **ba\u015fkan\u0131 Adalet Bakan\u0131**' },
+        { n:'3/4', a:'Dan\u0131\u015ftay \u00fcyelerinden HSK\'n\u0131n se\u00e7ti\u011fi oran (kalan 1/4\'\u00fc Cumhurba\u015fkan\u0131)' }
+      ]},
+      { t:'ozet', b:'Y\u00fcce Divan s\u0131fat\u0131yla yarg\u0131lananlar', i:[
+        '**Cumhurba\u015fkan\u0131** ve **Cumhurba\u015fkan\u0131 yard\u0131mc\u0131lar\u0131**','**Bakanlar**','**TBMM Ba\u015fkan\u0131**','**Genelkurmay Ba\u015fkan\u0131** ve **Kara, Hava, Deniz Kuvvet Komutanlar\u0131**',
+        '**Anayasa Mahkemesi, Yarg\u0131tay, Dan\u0131\u015ftay, Say\u0131\u015ftay** ba\u015fkan ve \u00fcyeleri','**H\u00e2kimler ve Savc\u0131lar Kurulu** mensuplar\u0131','**Yarg\u0131tay Cumhuriyet Ba\u015fsavc\u0131s\u0131 ve vekili**',
+        '**Listede olmayan (tuzak): Y\u00fcksek\u00f6\u011fretim Kurulu (Y\u00d6K) \u00fcyeleri.**'
+      ]},
+      { t:'ozet', b:'H\u00e2kimlik ve savc\u0131l\u0131k g\u00fcvenceleri', i:[
+        'H\u00e2kimler ve savc\u0131lar **azlolunamaz**; kendileri istemedik\u00e7e **65 ya\u015f\u0131ndan \u00f6nce emekliye ayr\u0131lamaz**.',
+        'Ayl\u0131k, \u00f6denek ve di\u011fer \u00f6zl\u00fck haklar\u0131ndan **yoksun b\u0131rak\u0131lamaz**.',
+        'Bir mahkemenin veya kadronun kald\u0131r\u0131lmas\u0131 sebebiyle de ayl\u0131klar\u0131ndan yoksun kalmazlar.',
+        '**H\u00e2kimler ba\u011f\u0131ms\u0131zd\u0131r**; Anayasa\'ya, kanuna ve hukuka uygun olarak **vicdani kanaatlerine g\u00f6re** karar verir.',
+        'Hi\u00e7bir organ, makam veya ki\u015fi yarg\u0131 yetkisinin kullan\u0131lmas\u0131nda mahkemelere **emir ve talimat veremez**, tavsiyede bulunamaz.'
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Temyiz merci ikilisi: adli \u2192 Yarg\u0131tay, idari \u2192 Dan\u0131\u015ftay.** \u0130stinaf ikilisi: adli \u2192 B\u00f6lge Adliye, idari \u2192 B\u00f6lge \u0130dare. "B\u00f6lge" kelimesi g\u00f6rd\u00fc\u011f\u00fcn yerde **istinaf**, "-tay" ekini g\u00f6rd\u00fc\u011f\u00fcn yerde **temyiz** vard\u0131r.' },
+      { t:'tuzak', i:[
+        '**Memur atama i\u015fleminin iptali istemiyle a\u00e7\u0131lan dava idari yarg\u0131da g\u00f6r\u00fcl\u00fcr**, adli yarg\u0131da de\u011fil. Memurlukla ilgili t\u00fcm uyu\u015fmazl\u0131klar idari yarg\u0131 konusudur.',
+        '**Tutuklama karar\u0131n\u0131 yaln\u0131z h\u00e2kim verir** \u2014 soru\u015fturma a\u015famas\u0131nda sulh ceza h\u00e2kimi, kovu\u015fturmada h\u00e2kim veya mahkeme. **Cumhuriyet savc\u0131s\u0131 ve kolluk amiri tutuklama karar\u0131 veremez.**',
+        '**Y\u00d6K \u00fcyeleri Y\u00fcce Divan\'da yarg\u0131lanmaz.** Y\u00fcce Divan listesinde Y\u00d6K yoktur.',
+        '**Dan\u0131\u015ftay Ba\u015fkan\u0131 Cumhurba\u015fkan\u0131 taraf\u0131ndan atanmaz**; Dan\u0131\u015ftay Genel Kurulu kendi \u00fcyeleri aras\u0131ndan, \u00fcye tam say\u0131s\u0131n\u0131n salt \u00e7o\u011funlu\u011fu ve gizli oyla 4 y\u0131l i\u00e7in se\u00e7er.',
+        '**Dan\u0131\u015ftay hem y\u00fcksek mahkeme hem dan\u0131\u015fma ve inceleme merciidir** \u2014 iki i\u015flevi vard\u0131r.',
+        '**HSK\'n\u0131n ba\u015fkan\u0131 Adalet Bakan\u0131**\'d\u0131r; bu, yarg\u0131 ba\u011f\u0131ms\u0131zl\u0131\u011f\u0131 tart\u0131\u015fmalar\u0131n\u0131n oda\u011f\u0131d\u0131r ama s\u0131navda d\u00fcz bilgi olarak sorulur.',
+        '**Uyu\u015fmazl\u0131k Mahkemesi bir y\u00fcksek mahkemedir** ve ba\u015fkan\u0131n\u0131 Anayasa Mahkemesi kendi \u00fcyeleri aras\u0131ndan atar.'
+      ]},
+      { t:'test', s:[
+        { q:'T\u00fcrk hukukuna g\u00f6re adli yarg\u0131 kolunda kanun yolu olarak temyiz incelemesi yapabilecek merci a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['A\u011f\u0131r ceza mahkemesi','Dan\u0131\u015ftay','Yarg\u0131tay','B\u00f6lge adliye mahkemesi'],
+          d:2, a:'Adli yarg\u0131da istinaf mercii b\u00f6lge adliye mahkemesi, temyiz mercii ise Yarg\u0131tay\'d\u0131r. Dan\u0131\u015ftay idari yarg\u0131n\u0131n temyiz merciidir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi tutuklama karar\u0131 vermeye yetkilidir?',
+          c:['Yaln\u0131z h\u00e2kim','Yaln\u0131z Cumhuriyet savc\u0131s\u0131','H\u00e2kim ve Cumhuriyet savc\u0131s\u0131','H\u00e2kim, Cumhuriyet savc\u0131s\u0131 ve kolluk amiri'],
+          d:0, a:'Tutuklama karar\u0131 soru\u015fturma a\u015famas\u0131nda sulh ceza h\u00e2kimi, kovu\u015fturma a\u015famas\u0131nda h\u00e2kim veya mahkeme heyeti taraf\u0131ndan verilir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re Anayasa Mahkemesi, a\u015fa\u011f\u0131dakilerden hangisinin \u00fcyelerini g\u00f6revleriyle ilgili su\u00e7lardan dolay\u0131 Y\u00fcce Divan s\u0131fat\u0131yla yarg\u0131la**maz**?',
+          c:['Say\u0131\u015ftay','Yarg\u0131tay','H\u00e2kimler ve Savc\u0131lar Kurulu','Y\u00fcksek\u00f6\u011fretim Kurulu'],
+          d:3, a:'Y\u00fcce Divan\'da yarg\u0131lananlar aras\u0131nda Y\u00d6K \u00fcyeleri yer almaz. Say\u0131\u015ftay, Yarg\u0131tay, Dan\u0131\u015ftay ve HSK mensuplar\u0131 ise yarg\u0131lan\u0131r.' },
+        { q:'Memur atama i\u015fleminin iptali istemiyle a\u00e7\u0131lan bir dava hangi yarg\u0131 kolunda karara ba\u011flan\u0131r?',
+          c:['\u0130dari yarg\u0131','Adli yarg\u0131','Uyu\u015fmazl\u0131k Mahkemesi','Anayasa yarg\u0131s\u0131'],
+          d:0, a:'Memurlukla ilgili i\u015flemler idari i\u015flem niteli\u011finde oldu\u011fundan bu davalara idari yarg\u0131 bakar.' },
+        { q:'Dan\u0131\u015ftay ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi **yanl\u0131\u015ft\u0131r**?',
+          c:['1982 Anayasas\u0131\'nda y\u00fcksek mahkemelerden biri olarak say\u0131lm\u0131\u015ft\u0131r.','\u00dcyelerinin d\u00f6rtte \u00fc\u00e7\u00fc H\u00e2kimler ve Savc\u0131lar Kurulu taraf\u0131ndan se\u00e7ilir.','Ba\u015fkan\u0131, kendi \u00fcyeleri aras\u0131ndan Cumhurba\u015fkan\u0131nca atan\u0131r.','Kanunla g\u00f6sterilen belli davalara ilk ve son derece mahkemesi olarak bakar.'],
+          d:2, a:'Dan\u0131\u015ftay Ba\u015fkan\u0131, ba\u015fsavc\u0131, ba\u015fkanvekilleri ve daire ba\u015fkanlar\u0131 Dan\u0131\u015ftay Genel Kurulunca kendi \u00fcyeleri aras\u0131ndan salt \u00e7o\u011funluk ve gizli oyla d\u00f6rt y\u0131l i\u00e7in se\u00e7ilir.' },
+        { q:'Anayasa Mahkemesi ka\u00e7 \u00fcyeden olu\u015fur ve bu \u00fcyelerin ka\u00e7\u0131n\u0131 Cumhurba\u015fkan\u0131 se\u00e7er?',
+          c:['11 \u00fcye \u2013 8\'i','15 \u00fcye \u2013 12\'si','17 \u00fcye \u2013 14\'\u00fc','15 \u00fcye \u2013 10\'u'],
+          d:1, a:'Anayasa Mahkemesi 15 \u00fcyeden olu\u015fur; 12 \u00fcyeyi Cumhurba\u015fkan\u0131, 3 \u00fcyeyi TBMM se\u00e7er.' },
+        { q:'Adli ve idari yarg\u0131 mercileri aras\u0131ndaki g\u00f6rev ve h\u00fck\u00fcm uyu\u015fmazl\u0131klar\u0131n\u0131 \u00e7\u00f6zen merci hangisidir?',
+          c:['Anayasa Mahkemesi','Uyu\u015fmazl\u0131k Mahkemesi','Yarg\u0131tay','Dan\u0131\u015ftay'],
+          d:1, a:'Uyu\u015fmazl\u0131k Mahkemesi bu g\u00f6revi yerine getirir; ba\u015fkan\u0131n\u0131 Anayasa Mahkemesi kendi \u00fcyeleri aras\u0131ndan atar.' },
+        { q:'H\u00e2kimler ve Savc\u0131lar Kurulu\'nun ba\u015fkan\u0131 kimdir?',
+          c:['Cumhurba\u015fkan\u0131','Adalet Bakan\u0131','Yarg\u0131tay Birinci Ba\u015fkan\u0131','Anayasa Mahkemesi Ba\u015fkan\u0131'],
+          d:1, a:'HSK\'n\u0131n ba\u015fkan\u0131 Adalet Bakan\u0131\'d\u0131r. Kurul 13 \u00fcyeden olu\u015fur.' },
+        { q:'\u0130dari yarg\u0131da istinaf incelemesi hangi merci taraf\u0131ndan yap\u0131l\u0131r?',
+          c:['Dan\u0131\u015ftay','B\u00f6lge idare mahkemesi','B\u00f6lge adliye mahkemesi','Uyu\u015fmazl\u0131k Mahkemesi'],
+          d:1, a:'\u0130dari yarg\u0131da istinaf mercii b\u00f6lge idare mahkemesi, temyiz mercii ise Dan\u0131\u015ftay\'d\u0131r.' },
+        { q:'Anayasa Mahkemesi \u00fcyelerinin g\u00f6rev s\u00fcresi ne kadard\u0131r?',
+          c:['8 y\u0131l','10 y\u0131l','12 y\u0131l','S\u00fcresizdir'],
+          d:2, a:'AYM \u00fcyeleri 12 y\u0131l i\u00e7in se\u00e7ilir ve bir ki\u015fi iki kez \u00fcye se\u00e7ilemez. \u00dcyeler 65 ya\u015f\u0131n\u0131 doldurunca emekliye ayr\u0131l\u0131r.' },
+        { q:'H\u00e2kimlik teminat\u0131 ile ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi **yanl\u0131\u015ft\u0131r**?',
+          c:['H\u00e2kimler azlolunamaz.','Kendileri istemedik\u00e7e 65 ya\u015f\u0131ndan \u00f6nce emekliye ayr\u0131lamaz.','Ayl\u0131k ve \u00f6zl\u00fck haklar\u0131ndan yoksun b\u0131rak\u0131lamaz.','Adalet Bakan\u0131 h\u00e2kimlere dava hakk\u0131nda talimat verebilir.'],
+          d:3, a:'Hi\u00e7bir organ, makam veya ki\u015fi yarg\u0131 yetkisinin kullan\u0131lmas\u0131nda mahkemelere emir ve talimat veremez, genelge g\u00f6nderemez, tavsiye ve telkinde bulunamaz.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi 1982 Anayasas\u0131\'nda say\u0131lan y\u00fcksek mahkemelerden biri **de\u011fildir**?',
+          c:['Anayasa Mahkemesi','Yarg\u0131tay','B\u00f6lge adliye mahkemesi','Dan\u0131\u015ftay'],
+          d:2, a:'B\u00f6lge adliye mahkemesi bir istinaf mahkemesidir, y\u00fcksek mahkeme de\u011fildir. Y\u00fcksek mahkemeler: Anayasa Mahkemesi, Yarg\u0131tay, Dan\u0131\u015ftay ve Uyu\u015fmazl\u0131k Mahkemesi.' },
+        { q:'Anayasa Mahkemesi Ba\u015fkan\u0131 nas\u0131l belirlenir?',
+          c:['Cumhurba\u015fkan\u0131 atar.','TBMM se\u00e7er.','Mahkeme kendi \u00fcyeleri aras\u0131ndan salt \u00e7o\u011funluk ve gizli oyla 4 y\u0131l i\u00e7in se\u00e7er.','HSK se\u00e7er.'],
+          d:2, a:'Cumhurba\u015fkan\u0131 AYM\'ye 12 \u00fcye atayabilir ancak Ba\u015fkan ve ba\u015fkanvekilleri, mahkemenin kendi \u00fcyeleri aras\u0131ndan gizli oyla d\u00f6rt y\u0131l i\u00e7in se\u00e7ilir.' },
+        { q:'Bireysel ba\u015fvuru yolu ile hangi mercie ba\u015fvurulur?',
+          c:['Yarg\u0131tay','Dan\u0131\u015ftay','Anayasa Mahkemesi','Avrupa \u0130nsan Haklar\u0131 Mahkemesi'],
+          d:2, a:'2010 anayasa de\u011fi\u015fikli\u011fiyle kabul edilen bireysel ba\u015fvuru, i\u00e7 hukuk yollar\u0131 t\u00fcketildikten sonra Anayasa Mahkemesi\'ne yap\u0131l\u0131r.' }
+      ]}
+    ]},
+
+  /* ============= 7 ============= */
+  { id:'idare-hukuku', ad:'\u0130dare Hukuku ve Devlet Memurlar\u0131 Kanunu', soru:'2\u20133 soru \u00b7 en \u00e7ok soru gelen konu', durum:'hazir',
+    ozet:'\u00c7\u0131km\u0131\u015f soru taramas\u0131nda en \u00e7ok soru bu konudan geldi. Yar\u0131s\u0131 do\u011frudan 657 say\u0131l\u0131 kanundan.',
+    bloklar:[
+      { t:'sema', b:'\u0130dari te\u015fkilat', d:[
+        { b:'Merkez\u00ee idare \u2014 ba\u015fkent te\u015fkilat\u0131', a:['Cumhurba\u015fkanl\u0131\u011f\u0131','Bakanl\u0131klar','**Yard\u0131mc\u0131 kurulu\u015flar**: Dan\u0131\u015ftay, Say\u0131\u015ftay, Mill\u00ee G\u00fcvenlik Kurulu'] },
+        { b:'Merkez\u00ee idare \u2014 ta\u015fra te\u015fkilat\u0131', a:['**\u0130l** (vali) \u00b7 **\u0130l\u00e7e** (kaymakam) \u00b7 Bucak','**Yetki geni\u015fli\u011fi** yaln\u0131z burada uygulan\u0131r'] },
+        { b:'Yerinden y\u00f6netim \u2014 yer y\u00f6n\u00fcnden (mahall\u00ee idareler)', a:['**\u0130l \u00f6zel idaresi**','**Belediye** (ve b\u00fcy\u00fck\u015fehir belediyesi)','**K\u00f6y**','Se\u00e7imleri **5 y\u0131lda bir** yap\u0131l\u0131r'] },
+        { b:'Yerinden y\u00f6netim \u2014 hizmet y\u00f6n\u00fcnden', a:['\u00dcniversiteler, TRT, K\u0130T\'ler','Kamu kurumu niteli\u011findeki meslek kurulu\u015flar\u0131 (barolar, odalar)','Ba\u011f\u0131ms\u0131z idari otoriteler (RT\u00dcK, BDDK, Rekabet Kurumu)'] }
+      ]},
+      { t:'tablo', b:'Hiyerar\u015fi mi, idari vesayet mi?', h:['Ara\u00e7','Nerede i\u015fler','\u00d6rnek'], r:[
+        ['**Hiyerar\u015fi**','**Merkez\u00ee idarenin kendi i\u00e7inde** (ast-\u00fcst)','Mill\u00ee E\u011fitim Bakan\u0131 \u2013 il mill\u00ee e\u011fitim m\u00fcd\u00fcr\u00fc \u00b7 Vali \u2013 il n\u00fcfus m\u00fcd\u00fcr\u00fc'],
+        ['**\u0130dari vesayet**','**Merkez\u00ee idare ile yerinden y\u00f6netim** aras\u0131nda','Kaymakam \u2013 k\u00f6y muhtar\u0131 \u00b7 \u0130\u00e7i\u015fleri Bakan\u0131 \u2013 belediye ba\u015fkan\u0131']
+      ]},
+      { t:'ozet', b:'Mahall\u00ee idareler \u2014 ayr\u0131nt\u0131lar', i:[
+        '**\u0130l \u00f6zel idaresinin karar organ\u0131: \u0130l Genel Meclisi** (ildeki se\u00e7menlerce se\u00e7ilir). Di\u011fer organlar: il enc\u00fcmeni ve vali.',
+        '**Belediyenin organlar\u0131**: belediye ba\u015fkan\u0131, **belediye meclisi**, **belediye enc\u00fcmeni**.',
+        '**K\u00f6y\u00fcn organlar\u0131**: k\u00f6y derne\u011fi, k\u00f6y muhtar\u0131, k\u00f6y ihtiyar meclisi.',
+        '**Belediye kurulabilmesi i\u00e7in** il ve il\u00e7e merkezi d\u0131\u015f\u0131ndaki yerle\u015fimlerde **n\u00fcfusun en az 5.000** olmas\u0131 gerekir. \u0130l ve il\u00e7e merkezlerinde n\u00fcfus \u015fart\u0131 aranmaz.',
+        '**B\u00fcy\u00fck\u015fehir olan illerde il \u00f6zel idaresi ve k\u00f6y uygulamas\u0131 kald\u0131r\u0131lm\u0131\u015ft\u0131r**; k\u00f6yler mahalleye d\u00f6n\u00fc\u015fm\u00fc\u015ft\u00fcr.',
+        '**Yetki geni\u015fli\u011fi**: merkeze ba\u011fl\u0131 g\u00f6revliye merkeze dan\u0131\u015fmadan karar alma yetkisinin b\u0131rak\u0131lmas\u0131d\u0131r. **Yaln\u0131z ilde ve yaln\u0131z vali** taraf\u0131ndan kullan\u0131l\u0131r.',
+        '**Belediye organlar\u0131 veya \u00fcyeleri**, g\u00f6revleriyle ilgili bir su\u00e7 nedeniyle haklar\u0131nda soru\u015fturma a\u00e7\u0131l\u0131rsa **kesin h\u00fckme kadar \u0130\u00e7i\u015fleri Bakan\u0131** taraf\u0131ndan ge\u00e7ici olarak g\u00f6revden uzakla\u015ft\u0131r\u0131labilir. **Kesin olarak g\u00f6revden alma yetkisi Dan\u0131\u015ftay\'a** aittir.',
+        '**Kanuni idare ilkesi**: idarenin kurulu\u015f, eylem ve i\u015flemlerinin kanuna dayanmas\u0131 ve kanuna ayk\u0131r\u0131 olamamas\u0131d\u0131r.'
+      ]},
+      { t:'sayilar', b:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu \u2014 say\u0131 kartlar\u0131', s:[
+        { n:'657', a:'Devlet Memurlar\u0131 Kanunu\'nun numaras\u0131' },
+        { n:'1\u20132 y\u0131l', a:'**Aday memurluk s\u00fcresi**: en az 1 y\u0131l, en fazla 2 y\u0131l' },
+        { n:'3 y\u0131l', a:'Adayl\u0131k devresinde ili\u015fi\u011fi kesilenlerin memurlu\u011fa al\u0131namayaca\u011f\u0131 s\u00fcre' },
+        { n:'40 saat', a:'Memurlar\u0131n **haftal\u0131k \u00e7al\u0131\u015fma s\u00fcresi**' },
+        { n:'20 g\u00fcn', a:'Hizmeti 1\u201310 y\u0131l olan memurun y\u0131ll\u0131k izni' },
+        { n:'30 g\u00fcn', a:'Hizmeti 10 y\u0131ldan fazla olan memurun y\u0131ll\u0131k izni' },
+        { n:'5 y\u0131l', a:'**Mal bildirimi** yenileme aral\u0131\u011f\u0131 \u2014 sonu 0 ve 5 ile biten y\u0131llar\u0131n \u015eubat ay\u0131 sonuna kadar' },
+        { n:'20 g\u00fcn', a:'\u00d6z\u00fcrs\u00fcz g\u00f6reve gelmeme h\u00e2linde memurluktan \u00e7\u0131karma s\u0131n\u0131r\u0131' },
+        { n:'6 ay', a:'Usul\u00fcne uygun \u00e7ekilen memurun yeniden atanamayaca\u011f\u0131 s\u00fcre' }
+      ]},
+      { t:'ozet', b:'657 \u2014 memurun \u00f6devleri', i:[
+        '**Sadakat**: Anayasa ve kanunlara sad\u0131k kalmak, T\u00fcrkiye Cumhuriyeti\'ne ba\u011fl\u0131l\u0131k.',
+        '**Tarafs\u0131zl\u0131k ve devlete ba\u011fl\u0131l\u0131k**: dil, \u0131rk, cinsiyet, siyasi d\u00fc\u015f\u00fcnce, felsefi inan\u00e7, din ve mezhep ayr\u0131m\u0131 yapmamak; Anayasa ve kanunlara ayk\u0131r\u0131, \u00fclkenin ba\u011f\u0131ms\u0131zl\u0131\u011f\u0131n\u0131 ve b\u00fct\u00fcnl\u00fc\u011f\u00fcn\u00fc bozan faaliyette bulunmamak.',
+        '**Davran\u0131\u015f ve i\u015f birli\u011fi**, **yurt d\u0131\u015f\u0131nda davran\u0131\u015f**, **amir durumundaki memurun g\u00f6rev ve sorumluluklar\u0131**.',
+        '**Devlete ait mallar\u0131 koruma**, **mal bildiriminde bulunma**, **resm\u00ee belge, ara\u00e7 ve gere\u00e7leri iade**.',
+        '**Bas\u0131na bilgi veya deme\u00e7 verme**: kurumun en \u00fcst y\u00f6neticisi veya yetkilendirece\u011fi ki\u015fi d\u0131\u015f\u0131nda memur bas\u0131na a\u00e7\u0131klama yapamaz.'
+      ]},
+      { t:'ozet', b:'657 \u2014 disiplin cezalar\u0131 (hafiften a\u011f\u0131ra)', i:[
+        '**1. Uyarma** \u2014 daha dikkatli davranmas\u0131 gerekti\u011finin yaz\u0131yla bildirilmesi',
+        '**2. K\u0131nama** \u2014 kusurlu say\u0131ld\u0131\u011f\u0131n\u0131n yaz\u0131yla bildirilmesi',
+        '**3. Ayl\u0131ktan kesme** \u2014 br\u00fct ayl\u0131ktan 1/30 \u2013 1/8 aras\u0131 kesinti',
+        '**4. Kademe ilerlemesinin durdurulmas\u0131** \u2014 1 ila 3 y\u0131l',
+        '**5. Devlet memurlu\u011fundan \u00e7\u0131karma** \u2014 bir daha memurlu\u011fa atanmamak \u00fczere \u00e7\u0131karma',
+        '**Memurluktan \u00e7\u0131karma sebepleri**: ideolojik/siyasi ama\u00e7l\u0131 eylem veya grev \u00b7 **siyasi partiye girmek** \u00b7 **\u00f6z\u00fcrs\u00fcz olarak bir y\u0131lda toplam 20 g\u00fcn g\u00f6reve gelmemek** \u00b7 sava\u015f, ola\u011fan\u00fcst\u00fc h\u00e2l ve afetlerde amirin emrini yerine getirmemek \u00b7 **amirine veya maiyetindekilere fiil\u00ee tecav\u00fczde bulunmak** \u00b7 memurluk s\u0131fat\u0131yla ba\u011fda\u015fmayan y\u00fcz k\u0131zart\u0131c\u0131 su\u00e7 i\u015flemek'
+      ]},
+      { t:'ozet', b:'657 \u2014 memurlu\u011fun sona ermesi', i:[
+        '**\u00c7ekilme (istifa)**','**Memurlu\u011fa al\u0131nma \u015fartlar\u0131ndan birinin kaybedilmesi**','**Memurluktan \u00e7\u0131kar\u0131lma**','**\u00d6l\u00fcm**','**Emeklilik**',
+        '**Listede olmayan (tuzak): "ya\u015flanma".** Ya\u015flanma tek ba\u015f\u0131na sona erme sebebi de\u011fildir; emeklilik ise ayr\u0131 bir kurumdur.'
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'Disiplin cezalar\u0131 s\u0131ras\u0131: **U-K-A-K-D** \u2192 **U**yarma, **K**\u0131nama, **A**yl\u0131ktan kesme, **K**ademe durdurma, **D**evlet memurlu\u011fundan \u00e7\u0131karma. "Fiil\u00ee tecav\u00fcz" g\u00f6rd\u00fc\u011f\u00fcn an cevap **en a\u011f\u0131r\u0131d\u0131r**: memurluktan \u00e7\u0131karma.' },
+      { t:'tuzak', i:[
+        '**Adayl\u0131kta ili\u015fi\u011fi kesilenler 3 y\u0131l** memurlu\u011fa al\u0131nmaz \u2014 soru "2 y\u0131l" \u015f\u0131kk\u0131yla tuzak kurar. Adayl\u0131k s\u00fcresi 1-2 y\u0131l, ceza s\u00fcresi 3 y\u0131ld\u0131r; ikisini kar\u0131\u015ft\u0131rma.',
+        '**Y\u0131ll\u0131k izin 10 y\u0131l s\u0131n\u0131r\u0131na g\u00f6re de\u011fi\u015fir**: 10 y\u0131la kadar 20 g\u00fcn, 10 y\u0131l ve \u00fczeri 30 g\u00fcn. "12 y\u0131ll\u0131k memur" denirse cevap 30 g\u00fcnd\u00fcr.',
+        '**Ya\u015flanma memurlu\u011fu sona erdiren h\u00e2llerden de\u011fildir.** Emeklilik ayr\u0131 bir kurumdur.',
+        '**Aday memurun ba\u015fka kuruma nakli yap\u0131lamaz.**',
+        '**Mal bildirimi 5 y\u0131lda bir** yenilenir; sonu 0 ve 5 ile biten y\u0131llar\u0131n \u015eubat ay\u0131 sonuna kadar.',
+        '**Kaymakam \u2013 k\u00f6y muhtar\u0131 ili\u015fkisi idari vesayettir**, hiyerar\u015fi de\u011fil. K\u00f6y ayr\u0131 bir t\u00fczel ki\u015filiktir. Bakan \u2013 m\u00fcd\u00fcr, genel m\u00fcd\u00fcr \u2013 b\u00f6lge m\u00fcd\u00fcr\u00fc ili\u015fkileri ise hiyerar\u015fidir.',
+        '**Yetki geni\u015fli\u011fi yaln\u0131z ilde ve yaln\u0131z vali** taraf\u0131ndan kullan\u0131l\u0131r; il\u00e7ede kaymakam i\u00e7in s\u00f6z konusu de\u011fildir.',
+        '**Orman kollu\u011fu ve g\u00fcmr\u00fck kollu\u011fu \u00f6zel kolluktur**; adli kolluk g\u00f6revi bulunan genel kolluk polis ve jandarmad\u0131r.',
+        '**Belediye ba\u015fkan\u0131n\u0131 ge\u00e7ici olarak g\u00f6revden uzakla\u015ft\u0131ran \u0130\u00e7i\u015fleri Bakan\u0131, kesin olarak g\u00f6revden alan ise Dan\u0131\u015ftay\'d\u0131r.**'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi bir mahall\u00ee idaredir?',
+          c:['G\u00f6lba\u015f\u0131 Kaymakaml\u0131\u011f\u0131','Ankara Valili\u011fi','Ankara \u00dcniversitesi','Mamak Belediyesi'],
+          d:3, a:'Mahall\u00ee idareler; il \u00f6zel idaresi, belediye ve k\u00f6yd\u00fcr. Valilik ve kaymakaml\u0131k merkez\u00ee idarenin ta\u015fra te\u015fkilat\u0131, \u00fcniversite ise hizmet y\u00f6n\u00fcnden yerinden y\u00f6netim kurulu\u015fudur.' },
+        { q:'Ankara B\u00fcy\u00fck\u015fehir Belediyesi idari te\u015fkilatta a\u015fa\u011f\u0131dakilerin hangisi kapsam\u0131nda yer al\u0131r?',
+          c:['Merkez\u00ee idarenin ba\u015fkent te\u015fkilat\u0131','Ba\u011f\u0131ms\u0131z idari otoriteler','Mahall\u00ee idareler','Merkez\u00ee idarenin ta\u015fra te\u015fkilat\u0131'],
+          d:2, a:'B\u00fcy\u00fck\u015fehir belediyesi de d\u00e2hil olmak \u00fczere belediyeler, yer y\u00f6n\u00fcnden yerinden y\u00f6netim kurulu\u015fu olan mahall\u00ee idarelerdendir.' },
+        { q:'1982 Anayasas\u0131\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisinin idaresi yetki geni\u015fli\u011fi esas\u0131na dayan\u0131r?',
+          c:['Merkez\u00ee idarenin ta\u015fra te\u015fkilat\u0131 olan iller','B\u00fcy\u00fck\u015fehir belediyeleri','Mahall\u00ee idare birlikleri','Kamu kurumu niteli\u011findeki meslek kurulu\u015flar\u0131'],
+          d:0, a:'Yetki geni\u015fli\u011fi, merkeze ba\u011fl\u0131 g\u00f6revliye merkeze dan\u0131\u015fmadan karar alma yetkisinin b\u0131rak\u0131lmas\u0131d\u0131r ve yaln\u0131z ilde, yaln\u0131z vali taraf\u0131ndan kullan\u0131l\u0131r.' },
+        { q:'\u0130l \u00f6zel idaresinin, ildeki se\u00e7menler taraf\u0131ndan se\u00e7ilmi\u015f \u00fcyelerden olu\u015fan karar organ\u0131 a\u015fa\u011f\u0131dakilerden hangisidir?',
+          c:['\u0130l idare kurulu','\u0130l m\u00fcd\u00fcrl\u00fc\u011f\u00fc','\u0130l genel meclisi','\u0130l enc\u00fcmeni'],
+          d:2, a:'\u0130l \u00f6zel idaresinin karar organ\u0131, yerel se\u00e7imle olu\u015fan \u0130l Genel Meclisi\'dir.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'na g\u00f6re aday memurluk s\u00fcresi en az ne kadar olabilir?',
+          c:['2 ay','3 ay','6 ay','1 y\u0131l'],
+          d:3, a:'Aday memurluk s\u00fcresi en az bir y\u0131l, en fazla iki y\u0131ld\u0131r.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'na g\u00f6re 14 y\u0131ll\u0131k hizmeti bulunan bir memurun y\u0131ll\u0131k izin s\u00fcresi kural olarak ka\u00e7 g\u00fcnd\u00fcr?',
+          c:['20','22','25','30'],
+          d:3, a:'Hizmeti 10 y\u0131la kadar olan memura 20 g\u00fcn, 10 y\u0131l ve daha fazla olan memura 30 g\u00fcn y\u0131ll\u0131k izin verilir.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'nda, amirlerine ve maiyetindekilere fiil\u00ee tecav\u00fczde bulunan devlet memuru i\u00e7in \u00f6ng\u00f6r\u00fclen disiplin cezas\u0131 hangisidir?',
+          c:['Uyarma','K\u0131nama','Kademe ilerlemesinin durdurulmas\u0131','Devlet memurlu\u011fundan \u00e7\u0131karma'],
+          d:3, a:'Amirine veya maiyetinde i\u015f yapanlara fiil\u00ee tecav\u00fczde bulunmak, devlet memurlu\u011fundan \u00e7\u0131karma cezas\u0131n\u0131 gerektiren fiillerdendir.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'na g\u00f6re memurlar\u0131n haftal\u0131k \u00e7al\u0131\u015fma s\u00fcresi genel olarak ka\u00e7 saattir?',
+          c:['30','35','40','45'],
+          d:2, a:'Memurlar\u0131n haftal\u0131k \u00e7al\u0131\u015fma s\u00fcresi genel olarak 40 saattir.' },
+        { q:'\u0130darenin kurulu\u015f, eylem ve i\u015flemlerinin kanuna dayanmas\u0131n\u0131 ve bunlar\u0131n kanuna ayk\u0131r\u0131 olamamas\u0131n\u0131 ifade eden ilke hangisidir?',
+          c:['Sosyal devlet','Laiklik','Kanuni idare','\u00dcniter devlet'],
+          d:2, a:'Bu ilke, hukuk devletinin bir unsuru olan "kanuni idare" ilkesidir.' },
+        { q:'A\u015fa\u011f\u0131da verilenlerin hangisinde idarenin b\u00fct\u00fcnl\u00fc\u011f\u00fcn\u00fc sa\u011flayan hukuki ara\u00e7 di\u011ferlerinden farkl\u0131d\u0131r?',
+          c:['Mill\u00ee E\u011fitim Bakan\u0131 \u2013 A\u011fr\u0131 il mill\u00ee e\u011fitim m\u00fcd\u00fcr\u00fc','Sa\u011fl\u0131k Bakan\u0131 \u2013 Sa\u011fl\u0131k Bakanl\u0131\u011f\u0131 genel m\u00fcd\u00fcr\u00fc','Kayseri il n\u00fcfus m\u00fcd\u00fcr\u00fc \u2013 Kayseri n\u00fcfus memuru','Alaca kaymakam\u0131 \u2013 Gazipa\u015fa K\u00f6y\u00fc muhtar\u0131'],
+          d:3, a:'\u0130lk \u00fc\u00e7 se\u00e7enek merkez\u00ee idarenin kendi i\u00e7indeki ast-\u00fcst ili\u015fkisini yani hiyerar\u015fiyi g\u00f6sterir. Kaymakam ile k\u00f6y muhtar\u0131 aras\u0131ndaki ili\u015fki ise idari vesayettir; k\u00f6y ayr\u0131 bir t\u00fczel ki\u015filiktir.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'na g\u00f6re devlet memurlu\u011funda adayl\u0131kla ilgili a\u015fa\u011f\u0131daki ifadelerden hangisi **yanl\u0131\u015ft\u0131r**?',
+          c:['Adayl\u0131k s\u00fcresi en az 1 y\u0131ld\u0131r.','Adayl\u0131k s\u00fcresi 2 y\u0131ldan \u00e7ok olamaz.','Aday memurun ba\u015fka kurumlara nakli yap\u0131lamaz.','Adayl\u0131k devresinde ili\u015fi\u011fi kesilenler 2 y\u0131l memurlu\u011fa al\u0131nmaz.'],
+          d:3, a:'Adayl\u0131k devresinde ili\u015fi\u011fi kesilenler 3 y\u0131l s\u00fcreyle devlet memurlu\u011funa al\u0131nmazlar.' },
+        { q:'Devlet Memurlar\u0131 Kanunu\'na g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi memurlu\u011fun sona erme h\u00e2llerinden biri **de\u011fildir**?',
+          c:['Memurluktan \u00e7\u0131kar\u0131lma','\u00c7ekilme','Ya\u015flanma','\u00d6l\u00fcm'],
+          d:2, a:'Memurlu\u011fu sona erdiren h\u00e2ller: \u00e7ekilme, memurlu\u011fa al\u0131nma \u015fartlar\u0131ndan birinin kaybedilmesi, memurluktan \u00e7\u0131kar\u0131lma, \u00f6l\u00fcm ve emeklilik. Ya\u015flanma bu h\u00e2llerden biri de\u011fildir.' },
+        { q:'Devlet memurlar\u0131n\u0131n mal bildiriminde bulunmas\u0131 kural olarak ka\u00e7 y\u0131lda bir yenilenir?',
+          c:['1','2','3','5'],
+          d:3, a:'Mal bildirimleri, sonu (0) ve (5) ile biten y\u0131llar\u0131n en ge\u00e7 \u015eubat ay\u0131 sonuna kadar yenilenir; yani 5 y\u0131lda bir.' },
+        { q:'G\u00f6revleriyle ilgili bir su\u00e7 nedeniyle haklar\u0131nda soru\u015fturma a\u00e7\u0131lan belediye organlar\u0131 veya \u00fcyeleri, kesin h\u00fckme kadar kim taraf\u0131ndan ge\u00e7ici olarak g\u00f6revden uzakla\u015ft\u0131r\u0131labilir?',
+          c:['Y\u00fcksek Se\u00e7im Kurulu','\u0130\u00e7i\u015fleri Bakan\u0131','Adalet Bakan\u0131','Vali'],
+          d:1, a:'Ge\u00e7ici g\u00f6revden uzakla\u015ft\u0131rma yetkisi \u0130\u00e7i\u015fleri Bakan\u0131\'na aittir; kesin olarak g\u00f6revden alma yetkisi ise Dan\u0131\u015ftay\'a aittir.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'nun "dil, \u0131rk, cinsiyet, siyasi d\u00fc\u015f\u00fcnce, felsefi inan\u00e7, din ve mezhep ayr\u0131m\u0131 yap\u0131lamaz" h\u00fckm\u00fc hangi \u00f6dev kapsam\u0131ndad\u0131r?',
+          c:['Sadakat','Tarafs\u0131zl\u0131k ve devlete ba\u011fl\u0131l\u0131k','Davran\u0131\u015f ve i\u015f birli\u011fi','Mal bildirimi'],
+          d:1, a:'Ayr\u0131m yapmaks\u0131z\u0131n g\u00f6rev ifas\u0131 tarafs\u0131zl\u0131k, Anayasa ve kanunlara ba\u011fl\u0131l\u0131k ise devlete ba\u011fl\u0131l\u0131k \u00f6devi kapsam\u0131nda d\u00fczenlenmi\u015ftir.' },
+        { q:'\u0130l ve il\u00e7e merkezi d\u0131\u015f\u0131ndaki bir yerle\u015fim yerinde belediye kurulabilmesi i\u00e7in gerekli asgari n\u00fcfus ka\u00e7t\u0131r?',
+          c:['2.000','5.000','10.000','20.000'],
+          d:1, a:'\u0130l ve il\u00e7e merkezleri d\u0131\u015f\u0131ndaki yerle\u015fim yerlerinde belediye kurulabilmesi i\u00e7in n\u00fcfusun en az 5.000 olmas\u0131 gerekir.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi T\u00fcrkiye\'de ayn\u0131 zamanda adli kolluk g\u00f6revi de y\u00fcr\u00fcten genel kolluk birimlerindendir?',
+          c:['Orman kollu\u011fu','G\u00fcmr\u00fck kollu\u011fu','Jandarma','Belediye zab\u0131tas\u0131'],
+          d:2, a:'Genel kolluk polis ve jandarmad\u0131r; her ikisi de adli kolluk g\u00f6revi y\u00fcr\u00fct\u00fcr. Orman ve g\u00fcmr\u00fck kollu\u011fu ile zab\u0131ta \u00f6zel kolluk niteli\u011findedir.' },
+        { q:'A\u015fa\u011f\u0131dakilerden hangisi hizmet y\u00f6n\u00fcnden yerinden y\u00f6netim kurulu\u015fudur?',
+          c:['\u0130l \u00f6zel idaresi','Belediye','K\u00f6y','\u00dcniversite'],
+          d:3, a:'\u00dcniversiteler, TRT ve K\u0130T\'ler hizmet y\u00f6n\u00fcnden yerinden y\u00f6netim kurulu\u015flar\u0131d\u0131r. Di\u011fer \u00fc\u00e7\u00fc yer y\u00f6n\u00fcnden yerinden y\u00f6netim, yani mahall\u00ee idarelerdir.' },
+        { q:'Mahall\u00ee idarelerin se\u00e7imleri ka\u00e7 y\u0131lda bir yap\u0131l\u0131r?',
+          c:['3','4','5','6'],
+          d:2, a:'Mahall\u00ee idarelerin organlar\u0131, 2017 de\u011fi\u015fikli\u011finden sonra be\u015f y\u0131lda bir yap\u0131lan se\u00e7imlerle belirlenir.' },
+        { q:'657 say\u0131l\u0131 Devlet Memurlar\u0131 Kanunu\'na g\u00f6re disiplin cezalar\u0131 en hafiften en a\u011f\u0131ra do\u011fru hangi s\u0131rada verilmi\u015ftir?',
+          c:['Uyarma \u2013 K\u0131nama \u2013 Ayl\u0131ktan kesme \u2013 Kademe ilerlemesinin durdurulmas\u0131 \u2013 Devlet memurlu\u011fundan \u00e7\u0131karma','K\u0131nama \u2013 Uyarma \u2013 Ayl\u0131ktan kesme \u2013 Devlet memurlu\u011fundan \u00e7\u0131karma \u2013 Kademe ilerlemesinin durdurulmas\u0131','Uyarma \u2013 Ayl\u0131ktan kesme \u2013 K\u0131nama \u2013 Kademe ilerlemesinin durdurulmas\u0131 \u2013 Devlet memurlu\u011fundan \u00e7\u0131karma','K\u0131nama \u2013 Ayl\u0131ktan kesme \u2013 Uyarma \u2013 Devlet memurlu\u011fundan \u00e7\u0131karma \u2013 Kademe ilerlemesinin durdurulmas\u0131'],
+          d:0, a:'Do\u011fru s\u0131ra: uyarma, k\u0131nama, ayl\u0131ktan kesme, kademe ilerlemesinin durdurulmas\u0131 ve devlet memurlu\u011fundan \u00e7\u0131karma.' }
+      ]}
     ]}
-  ]
-},
-
-{
-  id:'anayasal-kavramlar', ad:'Anayasal Kavramlar ve Anayasa Tarihi', soru:'0\u20131 soru', durum:'hazir',
-  ozet:'Devlet bi\u00e7imleri, h\u00fck\u00fcmet sistemleri ve T\u00fcrk anayasa tarihinin k\u0131sa kronolojisi.',
-  bloklar:[
-    {t:'zaman', b:'T\u00fcrk anayasa tarihi', z:[
-      {y:'1876', o:'Kanun-i Esasi', d:'\u0130lk Osmanl\u0131 anayasas\u0131. I. Me\u015frutiyet. Padi\u015fah\u0131n yetkileri geni\u015f.'},
-      {y:'1921', o:'Te\u015fkilat-\u0131 Esasiye Kanunu', d:'**Mill\u00ee egemenlik** ilkesi. Kuvvetler birli\u011fi. Yumu\u015fak (\u00e7er\u00e7eve) anayasa.'},
-      {y:'1924', o:'1924 Anayasas\u0131', d:'Cumhuriyetin ilk kapsaml\u0131 anayasas\u0131. Kuvvetler birli\u011fi, meclis \u00fcst\u00fcnl\u00fc\u011f\u00fc.'},
-      {y:'1961', o:'1961 Anayasas\u0131', d:'27 May\u0131s sonras\u0131. **Anayasa Mahkemesi** ve Senato kuruldu. Kuvvetler ayr\u0131l\u0131\u011f\u0131, geni\u015f hak ve \u00f6zg\u00fcrl\u00fckler.'},
-      {y:'1982', o:'1982 Anayasas\u0131', d:'12 Eyl\u00fcl sonras\u0131. Y\u00fcr\u00fctme g\u00fc\u00e7lendirildi. H\u00e2len y\u00fcr\u00fcrl\u00fckte, \u00e7ok kez de\u011fi\u015ftirildi.'},
-      {y:'2017', o:'Cumhurba\u015fkanl\u0131\u011f\u0131 H\u00fck\u00fcmet Sistemi', d:'16 Nisan 2017 halk oylamas\u0131, 2018\'de uygulamaya girdi. Ba\u015fbakanl\u0131k kald\u0131r\u0131ld\u0131.'}
-    ]},
-    {t:'sayilar', b:'Anayasa say\u0131lar\u0131', s:[
-      {n:'1\u20133', a:'De\u011fi\u015ftirilemez, de\u011fi\u015ftirilmesi teklif edilemez maddeler'},
-      {n:'4', a:'\u0130lk \u00fc\u00e7 maddenin de\u011fi\u015ftirilemeyece\u011fini s\u00f6yleyen madde'},
-      {n:'177', a:'1982 Anayasas\u0131\'n\u0131n toplam madde say\u0131s\u0131'},
-      {n:'3/5', a:'Anayasa de\u011fi\u015fikli\u011fi teklifinin kabul\u00fc i\u00e7in gereken asgari oy (360)'},
-      {n:'2/3', a:'Halkoyuna sunulmadan do\u011frudan yay\u0131mlanabilmesi i\u00e7in gereken oy (400)'},
-      {n:'1/3', a:'Anayasa de\u011fi\u015fikli\u011fi teklifi i\u00e7in gereken milletvekili say\u0131s\u0131 (200)'}
-    ]},
-    {t:'tuzak', i:[
-      'Anayasa Mahkemesi **1961** Anayasas\u0131 ile kuruldu, 1982 ile de\u011fil.',
-      '1921 Anayasas\u0131 **yumu\u015fak (\u00e7er\u00e7eve)** anayasad\u0131r; k\u0131sa ve de\u011fi\u015ftirilmesi kolayd\u0131r.',
-      'De\u011fi\u015ftirilemez maddeler **1, 2, 3**\'t\u00fcr; madde 4 bunlar\u0131 koruyan maddedir, kendisi de\u011fi\u015ftirilemez maddelerden biri say\u0131lmaz ama teklif edilemez.'
-    ]}
-  ]
-},
-
-{ id:'temel-haklar', ad:'Temel Hak ve \u00d6devler', soru:'0\u20131 soru', durum:'iskelet',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'Haklar\u0131n s\u0131n\u0131fland\u0131r\u0131lmas\u0131: ki\u015fi haklar\u0131, sosyal-ekonomik haklar, siyasi haklar',
-    'Temel hak ve h\u00fcrriyetlerin s\u0131n\u0131rland\u0131r\u0131lmas\u0131 (m.13) ve \u00f6l\u00e7\u00fctleri',
-    'Ola\u011fan\u00fcst\u00fc h\u00e2llerde kullan\u0131m\u0131n durdurulmas\u0131 (m.15) ve \u00e7ekirdek alan',
-    'K\u00f6t\u00fcye kullan\u0131lamama (m.14), yabanc\u0131lar\u0131n durumu (m.16)',
-    'Vatanda\u015fl\u0131k, se\u00e7me-se\u00e7ilme, dilek\u00e7e ve bilgi edinme hakk\u0131',
-    '\u00d6devler: vergi, askerlik, kanunlara uyma'
-  ]}]
-},
-
-{
-  id:'yasama', ad:'Yasama \u2014 TBMM', soru:'1 soru', durum:'hazir',
-  ozet:'Say\u0131 ezberi yeter: milletvekili say\u0131s\u0131, ya\u015f, toplant\u0131 ve karar yeter say\u0131s\u0131.',
-  bloklar:[
-    {t:'sayilar', b:'TBMM say\u0131lar\u0131', s:[
-      {n:'600', a:'Milletvekili say\u0131s\u0131'},
-      {n:'18', a:'Milletvekili se\u00e7ilme ya\u015f\u0131'},
-      {n:'5 y\u0131l', a:'Yasama d\u00f6nemi (Cumhurba\u015fkan\u0131 se\u00e7imiyle ayn\u0131 g\u00fcn)'},
-      {n:'200', a:'Toplant\u0131 yeter say\u0131s\u0131 (TBMM \u00fcye tamsay\u0131s\u0131n\u0131n 1/3\'\u00fc)'},
-      {n:'151', a:'Karar yeter say\u0131s\u0131 (toplant\u0131ya kat\u0131lanlar\u0131n salt \u00e7o\u011funlu\u011fu, en az \u00fcye tamsay\u0131s\u0131n\u0131n 1/4\'\u00fc + 1)'},
-      {n:'360', a:'Anayasa de\u011fi\u015fikli\u011fi i\u00e7in 3/5 \u00e7o\u011funluk'},
-      {n:'400', a:'Halkoyu olmadan yay\u0131m i\u00e7in 2/3 \u00e7o\u011funluk'}
-    ]},
-    {t:'sema', b:'TBMM\'nin g\u00f6rev ve yetkileri', d:[
-      {b:'Yasama', a:['Kanun koymak, de\u011fi\u015ftirmek, kald\u0131rmak','B\u00fct\u00e7e ve kesin hesap kanununu g\u00f6r\u00fc\u015fmek','Para bas\u0131lmas\u0131na karar vermek']},
-      {b:'Denetim', a:['Yaz\u0131l\u0131 soru','Genel g\u00f6r\u00fc\u015fme','Meclis ara\u015ft\u0131rmas\u0131','Meclis soru\u015fturmas\u0131 (Cumhurba\u015fkan\u0131 ve yard\u0131mc\u0131lar\u0131 i\u00e7in)']},
-      {b:'Di\u011fer', a:['Sava\u015f ilan\u0131na karar vermek','Milletleraras\u0131 antla\u015fmalar\u0131 onaylamay\u0131 uygun bulmak','Genel ve \u00f6zel af ilan\u0131 (3/5)','Se\u00e7imlerin yenilenmesine karar vermek (3/5)']}
-    ]},
-    {t:'tuzak', i:[
-      'Cumhurba\u015fkanl\u0131\u011f\u0131 sisteminde **gensoru ve s\u00f6zl\u00fc soru kald\u0131r\u0131ld\u0131**; denetim yollar\u0131 yaz\u0131l\u0131 soru, genel g\u00f6r\u00fc\u015fme, meclis ara\u015ft\u0131rmas\u0131 ve meclis soru\u015fturmas\u0131d\u0131r.',
-      '**Meclis ara\u015ft\u0131rmas\u0131** ile **meclis soru\u015fturmas\u0131** farkl\u0131d\u0131r: ara\u015ft\u0131rma bilgi edinmedir, soru\u015fturma cezai sorumluluk i\u00e7indir.',
-      'Milletvekili se\u00e7ilme ya\u015f\u0131 **18**\'dir (2017 \u00f6ncesi 25\'ti) \u2014 eski kaynaklar yan\u0131lt\u0131r.'
-    ]}
-  ]
-},
-
-{
-  id:'yurutme', ad:'Y\u00fcr\u00fctme \u2014 Cumhurba\u015fkan\u0131 ve \u0130dare', soru:'1\u20133 soru', durum:'hazir',
-  ozet:'2017 sonras\u0131 sistemin merkezi. Cumhurba\u015fkan\u0131n\u0131n yetkileri ve kararname s\u0131n\u0131rlar\u0131 sorulur.',
-  bloklar:[
-    {t:'sayilar', b:'Y\u00fcr\u00fctme say\u0131lar\u0131', s:[
-      {n:'40', a:'Cumhurba\u015fkan\u0131 se\u00e7ilme ya\u015f\u0131'},
-      {n:'5 y\u0131l', a:'G\u00f6rev s\u00fcresi'},
-      {n:'2 d\u00f6nem', a:'En fazla se\u00e7ilebilme say\u0131s\u0131 (meclis 3/5 ile yenilerse \u00fc\u00e7\u00fcnc\u00fc kez aday olabilir)'},
-      {n:'%50+1', a:'Se\u00e7ilmek i\u00e7in gereken oy; sa\u011flanamazsa iki hafta sonra ikinci tur'},
-      {n:'100 bin', a:'Cumhurba\u015fkan\u0131 adayl\u0131\u011f\u0131 i\u00e7in gereken se\u00e7men imzas\u0131 (veya son se\u00e7imde %5 alan partiler)'}
-    ]},
-    {t:'sema', b:'Cumhurba\u015fkan\u0131n\u0131n yetkileri', d:[
-      {b:'Yasama ile ilgili', a:['Kanunlar\u0131 yay\u0131mlamak / bir kez daha g\u00f6r\u00fc\u015f\u00fclmek \u00fczere geri g\u00f6ndermek','TBMM se\u00e7imlerinin yenilenmesine karar vermek','Anayasa Mahkemesi\'nde iptal davas\u0131 a\u00e7mak']},
-      {b:'Y\u00fcr\u00fctme ile ilgili', a:['Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesi \u00e7\u0131karmak','Cumhurba\u015fkan\u0131 yard\u0131mc\u0131lar\u0131 ve bakanlar\u0131 atamak/g\u00f6revden almak','\u00dcst kademe y\u00f6neticilerini atamak','OHAL ilan etmek','Milletleraras\u0131 antla\u015fma onaylamak']},
-      {b:'Yarg\u0131 ile ilgili', a:['AYM \u00fcyelerinin bir k\u0131sm\u0131n\u0131 se\u00e7mek','HSK \u00fcyelerinin 4\'\u00fcn\u00fc se\u00e7mek','S\u00fcrekli hastal\u0131k, sakatl\u0131k ve kocama sebebiyle cezay\u0131 hafifletmek veya kald\u0131rmak']}
-    ]},
-    {t:'ozet', b:'Cumhurba\u015fkanl\u0131\u011f\u0131 kararnamesinin s\u0131n\u0131rlar\u0131', i:[
-      'Y\u00fcr\u00fctme yetkisine ili\u015fkin konularda \u00e7\u0131kar\u0131labilir.',
-      '**Temel haklar, ki\u015fi haklar\u0131 ve \u00f6devleri** ile **siyasi haklar ve \u00f6devler** kararnameyle d\u00fczenlenemez.',
-      'Anayasada **m\u00fcnhas\u0131ran kanunla** d\u00fczenlenmesi \u00f6ng\u00f6r\u00fclen konularda \u00e7\u0131kar\u0131lamaz.',
-      'Kanunda **a\u00e7\u0131k\u00e7a d\u00fczenlenen** konularda \u00e7\u0131kar\u0131lamaz.',
-      'Kararname ile kanun \u00e7at\u0131\u015f\u0131rsa **kanun** uygulan\u0131r.',
-      'TBMM ayn\u0131 konuda kanun \u00e7\u0131kar\u0131rsa kararname **h\u00fck\u00fcms\u00fcz** h\u00e2le gelir.'
-    ]},
-    {t:'tuzak', i:[
-      'Cumhurba\u015fkan\u0131 kararnameyle **temel haklar\u0131 d\u00fczenleyemez** \u2014 en s\u0131k sorulan s\u0131n\u0131rd\u0131r.',
-      'Kararname ile kanun \u00e7at\u0131\u015f\u0131rsa **kanun \u00fcst\u00fcnd\u00fcr**; kararname \u00fcst\u00fcn de\u011fildir.',
-      'OHAL s\u00fcresi **en fazla 6 ay**d\u0131r ve TBMM onay\u0131na sunulur.'
-    ]}
-  ]
-},
-
-{ id:'yargi', ad:'Yarg\u0131', soru:'0\u20131 soru', durum:'iskelet',
-  bloklar:[
-    {t:'sema', b:'Y\u00fcksek mahkemeler', d:[
-      {b:'Y\u00fcksek Mahkemeler', a:['Anayasa Mahkemesi','Yarg\u0131tay','Dan\u0131\u015ftay','Uyu\u015fmazl\u0131k Mahkemesi','Say\u0131\u015ftay (denetim organ\u0131)']}
-    ]},
-    {t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-      'Yarg\u0131 ba\u011f\u0131ms\u0131zl\u0131\u011f\u0131 ve h\u00e2kimlik teminat\u0131',
-      'Anayasa Mahkemesi: \u00fcye say\u0131s\u0131, g\u00f6revleri, iptal ve itiraz yolu, bireysel ba\u015fvuru, Y\u00fcce Divan',
-      'Yarg\u0131tay ve Dan\u0131\u015ftay\'\u0131n g\u00f6revleri ve fark\u0131',
-      'Uyu\u015fmazl\u0131k Mahkemesi\'nin i\u015flevi',
-      'HSK (H\u00e2kimler ve Savc\u0131lar Kurulu): \u00fcye say\u0131s\u0131 ve se\u00e7imi',
-      'Adli, idari ve anayasa yarg\u0131s\u0131 ayr\u0131m\u0131'
-    ]}
-  ]
-},
-
-{ id:'idare-hukuku', ad:'\u0130dare Hukuku', soru:'2\u20133 soru', durum:'iskelet',
-  ozet:'Vatanda\u015fl\u0131\u011f\u0131n ikinci a\u011f\u0131r konusu. Merkezi-yerinden y\u00f6netim ayr\u0131m\u0131 ve idari i\u015flem unsurlar\u0131 sorulur.',
-  bloklar:[
-    {t:'sema', b:'\u0130darenin yap\u0131s\u0131', d:[
-      {b:'Merkezden Y\u00f6netim', a:['Ba\u015fkent te\u015fkilat\u0131: Cumhurba\u015fkan\u0131, bakanl\u0131klar, Dan\u0131\u015ftay, Say\u0131\u015ftay, MGK','Ta\u015fra te\u015fkilat\u0131: il, il\u00e7e, bucak (vali, kaymakam)']},
-      {b:'Yerinden Y\u00f6netim', a:['Yer y\u00f6n\u00fcnden: il \u00f6zel idaresi, belediye, k\u00f6y','Hizmet y\u00f6n\u00fcnden: \u00fcniversiteler, TRT, K\u0130T\'ler, meslek kurulu\u015flar\u0131']}
-    ]},
-    {t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-      '\u0130darenin b\u00fct\u00fcnl\u00fc\u011f\u00fc: **hiyerar\u015fi** ve **idari vesayet** fark\u0131',
-      '\u0130dari i\u015flemin unsurlar\u0131: yetki, \u015fekil, sebep, konu, ama\u00e7',
-      '\u0130dari i\u015flemin \u00f6zellikleri: tek yanl\u0131l\u0131k, icrailik, hukuka uygunluk karinesi',
-      '\u0130dari s\u00f6zle\u015fmeler ve kamu ihalesi',
-      'Kamu g\u00f6revlileri, memur hukuku, disiplin cezalar\u0131',
-      '\u0130darenin sorumlulu\u011fu: hizmet kusuru, kusursuz sorumluluk',
-      '\u0130dari yarg\u0131: iptal davas\u0131 ve tam yarg\u0131 davas\u0131'
-    ]},
-    {t:'tuzak', i:[
-      '**Hiyerar\u015fi** ayn\u0131 t\u00fczel ki\u015filik i\u00e7indedir; **vesayet** farkl\u0131 t\u00fczel ki\u015filikler aras\u0131ndad\u0131r ve **kanunla** \u00f6ng\u00f6r\u00fclmelidir.',
-      '\u0130ptal davas\u0131 **i\u015flemin hukuka ayk\u0131r\u0131l\u0131\u011f\u0131** i\u00e7in, tam yarg\u0131 davas\u0131 **zarar\u0131n giderilmesi** i\u00e7indir.',
-      'Vali merkez\u00ee idarenin ta\u015fra temsilcisidir; belediye ba\u015fkan\u0131 **yerinden y\u00f6netim** organ\u0131d\u0131r. Kar\u0131\u015ft\u0131rma.'
-    ]}
-  ]
-}
 
   ]
 };
