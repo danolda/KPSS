@@ -1748,193 +1748,683 @@ window.DERS_COGRAFYA = {
 
 /* ===== turkce.js ===== */
 /* KPSS On Lisans -- TURKCE - 30 soru
-   Calisma formati: KURAL -> YANLIS / DOGRU cumle cifti.
-   Turkce'de kurali okumak yetmiyor; yanlisi gorunce tanimak gerekiyor. */
+   Bicim: KURAL -> YANLIS/DOGRU cumle cifti -> tuzak -> test
+   Not: OSYM alt konu bazinda kesin soru sayisi yayimlamaz; asagidaki
+   sayilar gecmis yillarin kitapcik analizlerine dayanan tahmindir.  */
 
 window.DERS_TURKCE = {
-  id:'turkce', ad:'T\u00fcrk\u00e7e', bolum:'Genel Yetenek', soru:30, renk:'tur',
-  tanim:'Sorular\u0131n yar\u0131s\u0131 paragraf. Kural konular\u0131 h\u0131zl\u0131 bitirilir, kalan zaman paragrafa ayr\u0131l\u0131r.',
-  yontem:[
-    'Her kural\u0131n alt\u0131nda bir **yanl\u0131\u015f** ve bir **do\u011fru** c\u00fcmle var. \u00d6nce yanl\u0131\u015f\u0131 bul, sonra a\u00e7\u0131klamay\u0131 oku.',
-    'Paragrafta bilgi de\u011fil teknik gerekir: soru k\u00f6k\u00fcn\u00fc \u00f6nce oku, sonra par\u00e7ay\u0131.',
-    'Yaz\u0131m ve noktalama garanti sorudur \u2014 ezberle, kaybetme.'
+  id: 'turkce',
+  ad: 'T\u00fcrk\u00e7e',
+  bolum: 'Genel Yetenek',
+  soru: 30,
+  renk: 'tur',
+  tanim: 'Sorular\u0131n yakla\u015f\u0131k yar\u0131s\u0131 paragraf. Dil bilgisi az soru getirir ama garantidir; paragraf teknikle, dil bilgisi kuralla kazan\u0131l\u0131r.',
+  yontem: [
+    'Her kural\u0131n alt\u0131nda bir **yanl\u0131\u015f** ve bir **do\u011fru** c\u00fcmle var. \u00d6nce yanl\u0131\u015f\u0131 kendin bulmaya \u00e7al\u0131\u015f, sonra a\u00e7\u0131klamay\u0131 oku.',
+    'Dil bilgisi konular\u0131 toplamda **8 civar\u0131 soru** getirir ama kesin puand\u0131r \u2014 ezberle, kaybetme.',
+    'Paragrafta bilgi de\u011fil teknik gerekir: **soru k\u00f6k\u00fcn\u00fc \u00f6nce oku**, sonra par\u00e7ay\u0131.',
+    '\u00d6SYM alt konu baz\u0131nda soru say\u0131s\u0131 a\u00e7\u0131klamaz. Buradaki say\u0131lar ge\u00e7mi\u015f y\u0131l analizlerine dayanan tahmindir.'
   ],
-  konular:[
 
-{
-  id:'sozcukte-anlam', ad:'S\u00f6zc\u00fckte Anlam', soru:'1\u20132 soru', durum:'hazir',
-  ozet:'Bir kelimenin c\u00fcmledeki g\u00f6revini bulma i\u015fi. S\u00f6zl\u00fck anlam\u0131 de\u011fil, ba\u011flam belirler.',
-  bloklar:[
-    {t:'ozet', b:'Anlam t\u00fcrleri', i:[
-      '**Ger\u00e7ek (temel) anlam**: kelimenin ilk akla gelen anlam\u0131. \u2192 *\u00c7ocuk elini y\u0131kad\u0131.*',
-      '**Yan anlam**: temel anlamla ilgisi s\u00fcren, benzerli\u011fe dayanan anlam. \u2192 *Masan\u0131n **aya\u011f\u0131** k\u0131r\u0131ld\u0131.*',
-      '**Mecaz anlam**: temel anlamdan tamamen uzakla\u015fm\u0131\u015f. \u2192 *Bu i\u015fin alt\u0131ndan **kalkamad\u0131m**.*',
-      '**Terim anlam**: bir bilim, sanat, meslek dal\u0131na ait. \u2192 *C\u00fcmlenin **\u00f6znesi**ni bulun.*',
-      '**Deyim**: kal\u0131pla\u015fm\u0131\u015f, \u00e7o\u011funlukla mecazl\u0131 s\u00f6z. \u2192 *a\u011fz\u0131 kulaklar\u0131na varmak*',
-      '**\u0130kileme**: anlam\u0131 peki\u015ftirmek i\u00e7in kelime tekrar\u0131. \u2192 *yava\u015f yava\u015f, e\u011fri b\u00fc\u011fr\u00fc*'
+  konular: [
+
+  /* ============== 1 ============== */
+  { id:'sozcukte-anlam', ad:'S\u00f6zc\u00fckte Anlam', soru:'1\u20132 soru', durum:'hazir',
+    ozet:'Bir kelimenin c\u00fcmledeki g\u00f6revini bulma i\u015fi. S\u00f6zl\u00fck anlam\u0131 de\u011fil, ba\u011flam belirler.',
+    bloklar:[
+      { t:'ozet', b:'Anlam t\u00fcrleri', i:[
+        '**Ger\u00e7ek (temel) anlam**: kelimenin ilk akla gelen anlam\u0131. \u2192 *\u00c7ocuk **elini** y\u0131kad\u0131.*',
+        '**Yan anlam**: temel anlamla benzerlik ba\u011f\u0131 s\u00fcren anlam. \u2192 *Masan\u0131n **aya\u011f\u0131** k\u0131r\u0131ld\u0131.*',
+        '**Mecaz anlam**: temel anlamdan tamamen uzakla\u015fm\u0131\u015f. \u2192 *Bu i\u015fin alt\u0131ndan **kalkamad\u0131m**.*',
+        '**Terim anlam**: bir bilim, sanat veya meslek dal\u0131na ait. \u2192 *C\u00fcmlenin **\u00f6znesi**ni bulun.*',
+        '**Deyim**: kal\u0131pla\u015fm\u0131\u015f, \u00e7o\u011funlukla mecazl\u0131 s\u00f6z. \u2192 *a\u011fz\u0131 kulaklar\u0131na varmak*',
+        '**\u0130kileme**: anlam\u0131 peki\u015ftirmek i\u00e7in kelime tekrar\u0131. \u2192 *yava\u015f yava\u015f, e\u011fri b\u00fc\u011fr\u00fc, az \u00e7ok*'
+      ]},
+      { t:'ozet', b:'S\u0131k sorulan di\u011fer ayr\u0131mlar', i:[
+        '**Somut**: be\u015f duyuyla alg\u0131lan\u0131r (ta\u015f, koku, ses). **Soyut**: alg\u0131lanamaz (sevgi, ak\u0131l, korku).',
+        '**Genel\u2013\u00f6zel**: *varl\u0131k > bitki > a\u011fa\u00e7 > \u00e7am*. Sa\u011fa gidildik\u00e7e \u00f6zelle\u015fir.',
+        '**Nitel**: \u00f6l\u00e7\u00fclemez, "nas\u0131l?" sorusuna cevap (g\u00fczel, ak\u0131ll\u0131, k\u0131rm\u0131z\u0131). **Nicel**: \u00f6l\u00e7\u00fclebilir/say\u0131labilir (uzun, a\u011f\u0131r, \u00fc\u00e7).',
+        '**E\u015f sesli (seste\u015f)**: yaz\u0131l\u0131\u015f\u0131 ve okunu\u015fu ayn\u0131, anlam\u0131 ayr\u0131 \u2192 *y\u00fcz* (100 / surat / y\u00fczmek).',
+        '**Ad aktarmas\u0131**: par\u00e7a s\u00f6ylenip b\u00fct\u00fcn kastedilir \u2192 *"**Sobay\u0131** yakt\u0131k"* (soba de\u011fil, odun yanar).',
+        '**Dolaylama**: tek kelimeyle anlat\u0131labileni birden \u00e7ok kelimeyle anlatma \u2192 *"file bek\u00e7isi"* (kaleci).'
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Da\u011f\u0131n **ete\u011finde** kamp kurduk." \u2192 mecaz',
+          d:'**Yan anlam.** Ete\u011fin "alt k\u0131s\u0131m" anlam\u0131, elbisenin ete\u011fiyle *benzerlik* ta\u015f\u0131r. Ba\u011f koptuysa mecaz, s\u00fcr\u00fcyorsa yan anlamd\u0131r.' },
+        { y:'"S\u00f6zlerim onu \u00e7ok **k\u0131rd\u0131**." \u2192 yan anlam',
+          d:'**Mecaz.** Ortada fiziksel bir k\u0131r\u0131lma yok; temel anlamla ba\u011f tamamen kopmu\u015f.' },
+        { y:'"**Uzun** bir yol vard\u0131." \u2192 nitel anlam',
+          d:'**Nicel.** Uzunluk \u00f6l\u00e7\u00fclebilir. Nitel olsayd\u0131 "g\u00fczel bir yol" gibi \u00f6l\u00e7\u00fclemeyen bir niteleme olurdu.' },
+        { y:'"**K\u00e2r** ettik" ile "**kar** ya\u011fd\u0131" seste\u015ftir.',
+          d:'**Seste\u015f de\u011fil.** D\u00fczeltme i\u015fareti okunu\u015fu de\u011fi\u015ftirir. Seste\u015flikte hem yaz\u0131l\u0131\u015f hem okunu\u015f ayn\u0131 olmal\u0131d\u0131r.' }
+      ]},
+      { t:'tuzak', i:[
+        'Yan anlam ile mecaz ayr\u0131m\u0131: **benzerlik ba\u011f\u0131 s\u00fcr\u00fcyorsa yan anlam**, kopmu\u015fsa mecaz.',
+        'Deyimler c\u00fcmleye g\u00f6re ger\u00e7ek anlaml\u0131 da olabilir: *"Eli aya\u011f\u0131 tutmuyor"* deyimdir, *"Elini y\u0131kad\u0131"* de\u011fildir.',
+        'Terim anlam her zaman ger\u00e7ek anlamd\u0131r; ikisi \u00e7eli\u015fmez.',
+        '\u0130kilemelerin aras\u0131na **noktalama girmez**: *yava\u015f yava\u015f* (virg\u00fcls\u00fcz). Ama *"az \u00e7ok"* gibi z\u0131t ikilemeler de vard\u0131r.',
+        'Soyut bir kelime c\u00fcmlede somutla\u015fabilir: *"Bu **ac\u0131** haberi duydum"* \u2192 ac\u0131 (tat, somut) burada soyutla\u015fm\u0131\u015f.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde alt\u0131 \u00e7izili s\u00f6zc\u00fck **mecaz** anlamda kullan\u0131lm\u0131\u015ft\u0131r?',
+          c:['Bah\u00e7edeki a\u011fac\u0131n **dal\u0131** k\u0131r\u0131ld\u0131.','Bilimin bu **dal\u0131nda** \u00e7al\u0131\u015f\u0131yor.','Kap\u0131n\u0131n **kolu** d\u00fc\u015fm\u00fc\u015f.','Onun **tatl\u0131** dili herkesi kazan\u0131r.'],
+          d:3, a:'"Tatl\u0131 dil" \u2192 dilin tad\u0131 yoktur, temel anlamla ba\u011f kopmu\u015ftur: mecaz. "Bilim dal\u0131" terim, "kap\u0131 kolu" yan anlamd\u0131r.' },
+        { q:'"Y\u0131llard\u0131r bu **ocakta** yemek pi\u015fer." c\u00fcmlesindeki "ocak" s\u00f6zc\u00fc\u011f\u00fc ile ayn\u0131 anlam ili\u015fkisi hangisinde vard\u0131r?',
+          c:['Aile **oca\u011f\u0131n\u0131** da\u011f\u0131tmay\u0131n.','**Ocak** ay\u0131nda tatile \u00e7\u0131kaca\u011f\u0131z.','Maden **oca\u011f\u0131nda** \u00e7al\u0131\u015f\u0131yor.','Yeni bir **ocak** ald\u0131k.'],
+          d:3, a:'C\u00fcmledeki "ocak" ger\u00e7ek (temel) anlam\u0131yla, yemek pi\u015firilen ara\u00e7t\u0131r. D se\u00e7ene\u011fi de ayn\u0131 temel anlamdad\u0131r. A mecaz, B \u00f6zel ad, C terimdir.' },
+        { q:'A\u015fa\u011f\u0131dakilerin hangisinde **nitel** anlaml\u0131 bir s\u0131fat vard\u0131r?',
+          c:['**Geni\u015f** bir odaya ta\u015f\u0131nd\u0131k.','**S\u0131cak** bir \u00e7ay i\u00e7elim.','**Kibar** bir insand\u0131.','**Kal\u0131n** bir defter ald\u0131m.'],
+          d:2, a:'"Kibar" \u00f6l\u00e7\u00fclemez, nas\u0131l sorusuna cevap verir \u2192 nitel. Geni\u015f, s\u0131cak ve kal\u0131n \u00f6l\u00e7\u00fclebilir \u2192 nicel.' }
+      ]}
     ]},
-    {t:'karsit', b:'Yan anlam m\u0131 mecaz m\u0131?', c:[
-      {y:'"Da\u011f\u0131n **ete\u011fi**nde kamp kurduk." \u2192 mecaz', d:'**Yan anlam.** Ete\u011fin "alt k\u0131s\u0131m" anlam\u0131, elbisenin ete\u011fiyle *benzerlik* ta\u015f\u0131r. Ba\u011f koptuysa mecaz, s\u00fcr\u00fcyorsa yan anlamd\u0131r.'},
-      {y:'"S\u00f6zlerim onu \u00e7ok **k\u0131rd\u0131**." \u2192 yan anlam', d:'**Mecaz.** Burada fiziksel bir k\u0131r\u0131lma yok, temel anlamla ba\u011f tamamen kopmu\u015f.'}
+
+  /* ============== 2 ============== */
+  { id:'cumlede-anlam', ad:'C\u00fcmlede Anlam', soru:'2\u20134 soru', durum:'hazir',
+    ozet:'C\u00fcmlenin ne s\u00f6yledi\u011fini de\u011fil, nas\u0131l bir yarg\u0131 kurdu\u011funu bulma i\u015fi.',
+    bloklar:[
+      { t:'tablo', b:'Anlam ili\u015fkileri ve i\u015faret s\u00f6zc\u00fckleri', h:['\u0130li\u015fki','\u0130\u015faret','\u00d6rnek'], r:[
+        ['Neden\u2013sonu\u00e7','-d\u0131\u011f\u0131 i\u00e7in, -den, \u00e7\u00fcnk\u00fc, -di\u011finden','*Ya\u011fmur ya\u011fd\u0131\u011f\u0131 **i\u00e7in** ma\u00e7 ertelendi.*'],
+        ['Ama\u00e7\u2013sonu\u00e7','i\u00e7in, diye, \u00fczere, amac\u0131yla','*S\u0131nav\u0131 kazanmak **i\u00e7in** \u00e7ok \u00e7al\u0131\u015ft\u0131.*'],
+        ['Ko\u015ful (\u015fart)','-sa/-se, ise, -dik\u00e7e, -mek \u00fczere','*Erken kalkar**san** yeti\u015firsin.*'],
+        ['Kar\u015f\u0131la\u015ft\u0131rma','gibi, kadar, daha, en, g\u00f6re','*Ondan **daha** h\u0131zl\u0131 ko\u015fuyor.*'],
+        ['Varsay\u0131m','diyelim ki, tut ki, farz edelim','***Diyelim ki** kazand\u0131n, ne yapacaks\u0131n?*'],
+        ['\u00d6znellik','ki\u015fiden ki\u015fiye de\u011fi\u015fir','*Bu, y\u0131l\u0131n **en g\u00fczel** filmiydi.*'],
+        ['Nesnellik','kan\u0131tlanabilir','*Film **iki saat** s\u00fcrd\u00fc.*'],
+        ['Tan\u0131m','"nedir?" sorusuna cevap','*Roman, olay \u00f6rg\u00fcs\u00fcne dayanan uzun anlat\u0131d\u0131r.*']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"S\u0131nav\u0131 kazanmak **i\u00e7in** \u00e7al\u0131\u015ft\u0131." \u2192 neden-sonu\u00e7',
+          d:'**Ama\u00e7\u2013sonu\u00e7.** "\u0130\u00e7in"in \u00f6ncesinde hen\u00fcz ger\u00e7ekle\u015fmemi\u015f bir *istek* varsa ama\u00e7t\u0131r. Ger\u00e7ekle\u015fmi\u015f bir *durum* varsa nedendir: *"Hasta oldu\u011fu i\u00e7in gelmedi."*' },
+        { y:'"Bu roman\u0131 \u00e7ok be\u011fendim, kesinlikle okumal\u0131s\u0131n\u0131z." \u2192 nesnel',
+          d:'**\u00d6znel.** "Be\u011fendim" ve "kesinlikle okumal\u0131s\u0131n\u0131z" kan\u0131tlanabilir de\u011fil, ki\u015fisel yarg\u0131d\u0131r.' },
+        { y:'"Bu \u015fiiri okuyunca \u00e7ok duyguland\u0131m." \u2192 nesnel',
+          d:'**\u00d6znel.** "Duyguland\u0131m" konu\u015fan\u0131n ki\u015fisel tepkisidir, d\u0131\u015far\u0131dan do\u011frulanamaz. Nesnel olsayd\u0131 *"\u015eiir on d\u00f6rt dizeden olu\u015fuyor"* gibi say\u0131labilir bir yarg\u0131 olurdu.' },
+        { y:'"Ne yaz\u0131k ki ge\u00e7 kald\u0131k." c\u00fcmlesinde yak\u0131nma yoktur.',
+          d:'**Yak\u0131nma vard\u0131r.** "Ne yaz\u0131k ki" ho\u015fnutsuzluk bildirir. Yak\u0131nmay\u0131 *pi\u015fmanl\u0131ktan* ay\u0131ran \u015fey: pi\u015fmanl\u0131kta konu\u015fan kendi yapt\u0131\u011f\u0131ndan dolay\u0131 \u00fcz\u00fcl\u00fcr (*"Ke\u015fke gitmeseydim"*).' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Ama\u00e7 m\u0131 neden mi?** "\u0130\u00e7in"i sil, yerine **"diye"** koy. C\u00fcmle anlaml\u0131 kal\u0131yorsa **ama\u00e7**t\u0131r. \u2192 *"Kazanmak diye \u00e7al\u0131\u015ft\u0131"* \u2713 / *"Hasta oldu\u011fu diye gelmedi"* \u2717' },
+      { t:'tuzak', i:[
+        '**Kesinlik** ile **olas\u0131l\u0131k** kar\u0131\u015ft\u0131r\u0131l\u0131r: *"Mutlaka gelir"* kesinlik, *"Gelebilir / san\u0131r\u0131m gelir"* olas\u0131l\u0131kt\u0131r.',
+        '**Ele\u015ftiri** olumlu da olabilir. *"Anlat\u0131m\u0131 ak\u0131c\u0131"* da bir ele\u015ftiridir; olumsuz olmas\u0131 \u015fart de\u011fil.',
+        '**\u00d6z ele\u015ftiri**: konu\u015fan kendi eksi\u011fini s\u00f6yler. *"Bu kitab\u0131mda gere\u011finden fazla ayr\u0131nt\u0131ya girmi\u015fim."*',
+        '**\u00d6nyarg\u0131**: sonucu g\u00f6rmeden verilen olumsuz h\u00fck\u00fcm. *"Bu film de di\u011ferleri gibi s\u0131k\u0131c\u0131 olacak."*',
+        '**Tan\u0131m c\u00fcmlesi** "nedir?" sorusuna cevap verir; "nas\u0131ld\u0131r?" cevab\u0131 tan\u0131m de\u011fil, niteleme olur.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde **ama\u00e7\u2013sonu\u00e7** ili\u015fkisi vard\u0131r?',
+          c:['Hava so\u011fudu\u011fu i\u00e7in sobay\u0131 yakt\u0131k.','G\u00f6r\u00fc\u015fmek \u00fczere yola \u00e7\u0131kt\u0131k.','Ya\u011fmur ya\u011f\u0131nca sokaklar bo\u015fald\u0131.','\u00c7ok yoruldu\u011fundan erken yatt\u0131.'],
+          d:1, a:'"G\u00f6r\u00fc\u015fmek \u00fczere" \u2192 hen\u00fcz ger\u00e7ekle\u015fmemi\u015f bir istek, ama\u00e7 bildirir. Di\u011ferleri ger\u00e7ekle\u015fmi\u015f bir durumu neden olarak g\u00f6sterir.' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisi tamamen **nesnel**dir?',
+          c:['Kitap, alan\u0131n\u0131n en ba\u015far\u0131l\u0131 \u00e7al\u0131\u015fmas\u0131d\u0131r.','Kitap \u00fc\u00e7 b\u00f6l\u00fcmden olu\u015fmaktad\u0131r.','Kitab\u0131n dili olduk\u00e7a a\u011f\u0131rd\u0131r.','Kitap okuyucuyu s\u0131kmaktad\u0131r.'],
+          d:1, a:'"\u00dc\u00e7 b\u00f6l\u00fcmden olu\u015fma" say\u0131labilir ve do\u011frulanabilir. "En ba\u015far\u0131l\u0131", "a\u011f\u0131r", "s\u0131k\u0131c\u0131" ki\u015fiden ki\u015fiye de\u011fi\u015fir.' },
+        { q:'"Ke\u015fke o g\u00fcn ona her \u015feyi anlatsayd\u0131m." c\u00fcmlesinde a\u015fa\u011f\u0131dakilerden hangisi vard\u0131r?',
+          c:['Yak\u0131nma','\u00d6nyarg\u0131','Pi\u015fmanl\u0131k','Varsay\u0131m'],
+          d:2, a:'"Ke\u015fke ...-sayd\u0131m" kal\u0131b\u0131, konu\u015fan\u0131n kendi ge\u00e7mi\u015f davran\u0131\u015f\u0131ndan duydu\u011fu \u00fcz\u00fcnt\u00fcy\u00fc, yani pi\u015fmanl\u0131\u011f\u0131 bildirir.' }
+      ]}
     ]},
-    {t:'tuzak', i:[
-      'Yan anlam ile mecaz ayr\u0131m\u0131: **benzerlik ba\u011f\u0131 s\u00fcr\u00fcyorsa yan anlam**, kopmu\u015fsa mecaz.',
-      'Deyimler **c\u00fcmleye g\u00f6re** ger\u00e7ek anlaml\u0131 da olabilir: *"Eli aya\u011f\u0131 tutmuyor"* deyimdir; *"Elini y\u0131kad\u0131"* de\u011fildir.',
-      'Terim anlam her zaman ger\u00e7ek anlamd\u0131r; ikisi \u00e7eli\u015fmez.'
+
+  /* ============== 3 ============== */
+  { id:'sozcuk-turleri', ad:'S\u00f6zc\u00fck T\u00fcrleri', soru:'1 soru', durum:'hazir',
+    ozet:'Sekiz t\u00fcr var ama s\u0131navda d\u00f6rd\u00fc yar\u0131\u015f\u0131r: s\u0131fat\u2013zamir, zarf\u2013s\u0131fat, edat\u2013ba\u011fla\u00e7.',
+    bloklar:[
+      { t:'ozet', b:'Sekiz s\u00f6zc\u00fck t\u00fcr\u00fc', i:[
+        '**\u0130sim (ad)**: varl\u0131klar\u0131 kar\u015f\u0131lar. \u00d6zel/cins, tekil/\u00e7o\u011ful/topluluk, somut/soyut.',
+        '**S\u0131fat (\u00f6n ad)**: ismin **\u00f6n\u00fcne** gelip onu niteler veya belirtir.',
+        '**Zamir (ad\u0131l)**: ismin **yerini** tutar.',
+        '**Zarf (belirte\u00e7)**: fiili, s\u0131fat\u0131 veya ba\u015fka bir zarf\u0131 etkiler.',
+        '**Edat (ilge\u00e7)**: tek ba\u015f\u0131na anlams\u0131z, kendinden \u00f6nceki s\u00f6zc\u00fckle anlam kazan\u0131r (gibi, kadar, i\u00e7in, ile, g\u00f6re).',
+        '**Ba\u011fla\u00e7**: e\u015f g\u00f6revli s\u00f6zc\u00fckleri veya c\u00fcmleleri ba\u011flar (ve, ama, \u00e7\u00fcnk\u00fc, oysa, de/da, ki).',
+        '**\u00dcnlem**: duygu bildirir (ah, eyvah, hey).',
+        '**Fiil (eylem)**: kip ve ki\u015fi eki alarak y\u00fcklem olur.'
+      ]},
+      { t:'tablo', b:'S\u0131fat \u00e7e\u015fitleri', h:['T\u00fcr','Soru','\u00d6rnek'], r:[
+        ['Niteleme','nas\u0131l?','***g\u00fczel*** ev, ***k\u0131rm\u0131z\u0131*** kalem'],
+        ['\u0130\u015faret','hangi?','***bu*** kitap, ***\u015fu*** yol'],
+        ['Say\u0131 \u2014 as\u0131l','ka\u00e7?','***\u00fc\u00e7*** elma'],
+        ['Say\u0131 \u2014 s\u0131ra','ka\u00e7\u0131nc\u0131?','***\u00fc\u00e7\u00fcnc\u00fc*** s\u0131ra'],
+        ['Say\u0131 \u2014 \u00fcle\u015ftirme','ka\u00e7ar?','***\u00fc\u00e7er*** ki\u015fi'],
+        ['Say\u0131 \u2014 kesir','\u2014','***yar\u0131m*** ekmek'],
+        ['Belgisiz','\u2014','***baz\u0131*** g\u00fcnler, ***birka\u00e7*** ki\u015fi'],
+        ['Soru','\u2014','***ka\u00e7*** kitap, ***hangi*** yol']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"**Bu**, benim kitab\u0131m." c\u00fcmlesinde "bu" i\u015faret s\u0131fat\u0131d\u0131r.',
+          d:'**\u0130\u015faret zamiri.** S\u0131fat, ismin **\u00f6n\u00fcnde** durur ve isimden ayr\u0131lmaz: *"**bu** kitap"*. Burada "bu" tek ba\u015f\u0131na, ismin yerine ge\u00e7mi\u015f. **Ayra\u00e7 kural\u0131: arkas\u0131ndan isim geliyorsa s\u0131fat, gelmiyorsa zamirdir.**' },
+        { y:'"**H\u0131zl\u0131** ko\u015fuyor." c\u00fcmlesinde "h\u0131zl\u0131" s\u0131fatt\u0131r.',
+          d:'**Durum zarf\u0131.** "H\u0131zl\u0131" burada *ko\u015fmak* fiilini etkiliyor. S\u0131fat olmas\u0131 i\u00e7in bir ismi nitelemesi gerekirdi: *"**h\u0131zl\u0131** araba"*.' },
+        { y:'"Karde\u015fim **ile** ben gittik." \u2192 edat',
+          d:'**Ba\u011fla\u00e7.** "\u0130le" yerine **"ve"** konabiliyorsa ba\u011fla\u00e7t\u0131r. Konam\u0131yorsa edatt\u0131r: *"Kalem **ile** yazd\u0131"* (= kalemle) \u2192 edat.' },
+        { y:'"S\u0131navda **yaln\u0131z** iki soru \u00e7\u0131kt\u0131." \u2192 ba\u011fla\u00e7',
+          d:'**Edat/zarf.** "Yaln\u0131z" burada **"sadece"** anlam\u0131ndad\u0131r. "Ama" anlam\u0131na geliyorsa ba\u011fla\u00e7 olur: *"Geldi, **yaln\u0131z** kalmad\u0131."*' },
+        { y:'"Ev**de** kimse yoktu." c\u00fcmlesindeki "de" ba\u011fla\u00e7t\u0131r, ayr\u0131 yaz\u0131lmal\u0131yd\u0131.',
+          d:'**H\u00e2l (bulunma) ekidir, biti\u015fik do\u011frudur.** Test: \u00e7\u0131kard\u0131\u011f\u0131nda c\u00fcmle bozuluyorsa ektir. *"Ev kimse yoktu"* bozuk \u2192 ek. *"Ben **de** geldim"* \u2192 *"Ben geldim"* bozulmuyor \u2192 ba\u011fla\u00e7, ayr\u0131 yaz\u0131l\u0131r.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**S\u0131fat m\u0131 zamir mi?** \u2192 *Arkas\u0131na bak.* \u0130sim varsa **s\u0131fat**, yoksa **zamir**. \u00b7 **S\u0131fat m\u0131 zarf m\u0131?** \u2192 *\u00d6n\u00fcne bak.* \u0130smi niteliyorsa **s\u0131fat**, fiili etkiliyorsa **zarf**. \u00b7 **Edat m\u0131 ba\u011fla\u00e7 m\u0131?** \u2192 *"ve" koy.* Oluyorsa **ba\u011fla\u00e7**.' },
+      { t:'tuzak', i:[
+        '**Yer-y\u00f6n zarf\u0131 ek almaz**: *"**\u0130\u00e7eri** girdi"* \u2192 zarf. *"**\u0130\u00e7eriye** girdi"* \u2192 ek ald\u0131, art\u0131k isimdir (dolayl\u0131 t\u00fcmle\u00e7).',
+        '**Ba\u011fla\u00e7lar c\u00fcmleden \u00e7\u0131kar\u0131labilir**, anlam daral\u0131r ama c\u00fcmle bozulmaz. Edat \u00e7\u0131kar\u0131l\u0131rsa c\u00fcmle bozulur.',
+        '"**Ki**" \u00fc\u00e7 ayr\u0131 \u015fey olabilir: ba\u011fla\u00e7 (*Biliyorum **ki**...* \u2192 ayr\u0131 yaz\u0131l\u0131r), s\u0131fat yapan ek (*sabah**ki*** \u2192 biti\u015fik), ilgi zamiri (*seninki* \u2192 biti\u015fik).',
+        '**"Bir"** say\u0131 s\u0131fat\u0131 da olabilir belgisiz s\u0131fat da: *"**bir** elma ald\u0131m"* (tek tane \u2192 say\u0131) / *"**bir** g\u00fcn gelecek"* (herhangi bir \u2192 belgisiz).',
+        'Bir kelime birden \u00e7ok t\u00fcr olabilir; **t\u00fcr c\u00fcmledeki g\u00f6reve g\u00f6re belirlenir**, s\u00f6zl\u00fckteki kar\u015f\u0131l\u0131\u011fa g\u00f6re de\u011fil.'
+      ]},
+      { t:'test', s:[
+        { q:'"Bu soruyu **kimse** \u00e7\u00f6zemedi." c\u00fcmlesindeki alt\u0131 \u00e7izili s\u00f6zc\u00fc\u011f\u00fcn t\u00fcr\u00fc nedir?',
+          c:['Belgisiz s\u0131fat','Belgisiz zamir','Olumsuzluk zarf\u0131','Ba\u011fla\u00e7'],
+          d:1, a:'"Kimse" bir ismin yerini tutuyor ve arkas\u0131nda isim yok \u2192 belgisiz zamir. S\u0131fat olsayd\u0131 *"kimse insan"* gibi bir isim gelmeliydi.' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde "ile" **edat** g\u00f6revindedir?',
+          c:['Ali ile Veli s\u0131n\u0131f arkada\u015f\u0131d\u0131r.','Annem ile babam geldi.','Mektubu kalem ile yazd\u0131.','Kedi ile k\u00f6pek kavga etti.'],
+          d:2, a:'"Kalem ile yazd\u0131" \u2192 "kalem ve yazd\u0131" olmuyor; ara\u00e7 bildiriyor, edatt\u0131r. Di\u011ferlerinde "ile" yerine "ve" konabilir \u2192 ba\u011fla\u00e7.' },
+        { q:'"**\u00c7ok** \u00e7al\u0131\u015fkan bir \u00f6\u011frenciydi." c\u00fcmlesinde "\u00e7ok" s\u00f6zc\u00fc\u011f\u00fc neyi etkilemektedir?',
+          c:['\u0130smi','Fiili','S\u0131fat\u0131','Zamiri'],
+          d:2, a:'"\u00c7ok", "\u00e7al\u0131\u015fkan" s\u0131fat\u0131n\u0131 etkiliyor \u2192 miktar zarf\u0131d\u0131r. Zarflar fiili, s\u0131fat\u0131 ya da ba\u015fka bir zarf\u0131 etkileyebilir.' }
+      ]}
+    ]},
+
+  /* ============== 4 ============== */
+  { id:'sozcukte-yapi', ad:'S\u00f6zc\u00fckte Yap\u0131', soru:'1 soru', durum:'hazir',
+    ozet:'Tek soru: kelime basit mi t\u00fcremi\u015f mi birle\u015fik mi? Cevap tek \u015feye bakar \u2014 yap\u0131m eki var m\u0131?',
+    bloklar:[
+      { t:'ozet', b:'Temel kavramlar', i:[
+        '**K\u00f6k**: anlaml\u0131 en k\u00fc\u00e7\u00fck par\u00e7a, b\u00f6l\u00fcnemez. \u0130sim k\u00f6k\u00fc (*g\u00f6z*) veya fiil k\u00f6k\u00fc (*gel-*) olur.',
+        '**G\u00f6vde**: k\u00f6k + yap\u0131m eki (*g\u00f6z-l\u00fck*, *gel-ir*).',
+        '**Yap\u0131m eki**: kelimenin **anlam\u0131n\u0131 de\u011fi\u015ftirir**, yeni kelime \u00fcretir (-l\u0131k, -c\u0131, -s\u0131z, -ma, -g\u0131, -la).',
+        '**\u00c7ekim eki**: yeni kelime \u00fcretmez, **g\u00f6rev y\u00fckler** (\u00e7o\u011ful -ler, h\u00e2l ekleri, iyelik, kip ve ki\u015fi ekleri).',
+        '**Basit**: yap\u0131m eki almam\u0131\u015f (*kitap, kitaplar, kitab\u0131*).',
+        '**T\u00fcremi\u015f**: yap\u0131m eki alm\u0131\u015f (*kitapl\u0131k, g\u00f6zl\u00fck\u00e7\u00fc*).',
+        '**Birle\u015fik**: iki veya daha \u00e7ok kelimeden olu\u015fmu\u015f (*han\u0131meli, bilgisayar, cumartesi*).'
+      ]},
+      { t:'tablo', b:'Yap\u0131m ekleri \u2014 d\u00f6rt yol', h:['Yol','Ek \u00f6rnekleri','\u00d6rnek'], r:[
+        ['\u0130simden isim','-l\u0131k, -c\u0131, -s\u0131z, -l\u0131, -da\u015f, -c\u0131k','g\u00f6z\u2192**g\u00f6zl\u00fck**, yol\u2192**yolcu**'],
+        ['\u0130simden fiil','-la, -al, -l, -a, -da, -k\u0131r','ba\u015f\u2192**ba\u015fla-**, kan\u2192**kana-**'],
+        ['Fiilden isim','-ma, -\u0131\u015f, -g\u0131, -g\u0131n, -\u0131c\u0131, -ak','sev\u2192**sevgi**, yaz\u2192**yaz\u0131**'],
+        ['Fiilden fiil','-t, -d\u0131r, -il, -in, -i\u015f, -ele','yaz\u2192**yazd\u0131r-**, g\u00f6r\u2192**g\u00f6r\u00fc\u015f-**']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Kitaplar" t\u00fcremi\u015f bir kelimedir.',
+          d:'**Basittir.** "-lar" \u00e7o\u011ful eki bir **\u00e7ekim** ekidir; kelimeye yeni anlam katmaz. T\u00fcremi\u015f olsayd\u0131 *"kitapl\u0131k"* gibi yap\u0131m eki almal\u0131yd\u0131.' },
+        { y:'"G\u00f6zl\u00fck\u00e7\u00fcl\u00fck" birle\u015fik kelimedir.',
+          d:'**T\u00fcremi\u015ftir.** Tek k\u00f6k (*g\u00f6z*) \u00fczerine \u00fcst \u00fcste yap\u0131m ekleri gelmi\u015f: g\u00f6z-l\u00fck-\u00e7\u00fc-l\u00fck. Birle\u015fik olmas\u0131 i\u00e7in *iki ayr\u0131 kelime* gerekirdi.' },
+        { y:'"Sarard\u0131" kelimesinin k\u00f6k\u00fc "sar\u0131"d\u0131r ve yap\u0131 bak\u0131m\u0131ndan basittir.',
+          d:'**K\u00f6k sar\u0131, ama kelime t\u00fcremi\u015ftir.** *sar\u0131 \u2192 sar-ar-* (isimden fiil yap\u0131m eki) \u2192 *sarard\u0131*. \u00dcnl\u00fc d\u00fc\u015fmesi de olmu\u015ftur.' },
+        { y:'"Bilgisayar" t\u00fcremi\u015f kelimedir.',
+          d:'**Birle\u015fiktir.** *bilgi + sayar* \u2192 iki kelimenin kayna\u015fmas\u0131yla olu\u015fmu\u015f. Anlam kaymas\u0131na u\u011fram\u0131\u015f birle\u015fik kelimelerdendir.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'Kelimenin sonundan ekleri **teker teker at**. Att\u0131k\u00e7a anlam **de\u011fi\u015fiyorsa yap\u0131m**, sadece g\u00f6rev kayboluyorsa **\u00e7ekim** ekidir. Geriye tek anlaml\u0131 par\u00e7a kal\u0131yorsa **k\u00f6k**t\u00fcr.' },
+      { t:'tuzak', i:[
+        'Ekleri atarken **anlam kopuyorsa dur**: *"gelin"* kelimesinin k\u00f6k\u00fc *gel-* de\u011fildir; *gelin* zaten bir isimdir. Anlam ba\u011f\u0131 yoksa b\u00f6lme.',
+        '**Seste\u015f k\u00f6kler**: *boya-, ek\u015fi, a\u011fr\u0131, g\u00fcven, bar\u0131\u015f, g\u00f6\u00e7, tat, boy, eski* hem isim hem fiil k\u00f6k\u00fc olabilir. Soruda "hangisi fiil k\u00f6k\u00fc?" diye sorulur.',
+        'Birle\u015fik kelime kurulurken **ses d\u00fc\u015fmesi** olabilir: *kahve+alt\u0131 \u2192 kahvalt\u0131*, *ne+i\u00e7in \u2192 ni\u00e7in*, *pazar+ertesi \u2192 pazartesi*, *cuma+ertesi \u2192 cumartesi*, *kay\u0131n+ana \u2192 kaynana*.',
+        '**Anlam kaymas\u0131** olan birle\u015fikler biti\u015fik yaz\u0131l\u0131r: *aslana\u011fz\u0131, han\u0131meli, ku\u015fburnu, imambay\u0131ld\u0131, kad\u0131nbudu*.',
+        '\u0130yelik eki (*-im, -in, -i*) ve ilgi eki (*-in*) \u00e7ekim ekidir; kelimeyi t\u00fcremi\u015f yapmaz.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki kelimelerden hangisi yap\u0131 bak\u0131m\u0131ndan **t\u00fcremi\u015f de\u011fildir**?',
+          c:['Sevgi','Yazar','Kitaplardan','G\u00f6zl\u00fck'],
+          d:2, a:'"Kitaplardan" = kitap + lar + dan. Her ikisi de \u00e7ekim ekidir, kelimeye yeni anlam katmaz \u2192 basit. Di\u011ferlerinde yap\u0131m eki vard\u0131r: sev-**gi**, yaz-**ar**, g\u00f6z-**l\u00fck**.' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde **birle\u015fik** bir kelime vard\u0131r?',
+          c:['Bah\u00e7edeki \u00e7i\u00e7ekler a\u00e7m\u0131\u015f.','Cumartesi g\u00fcn\u00fc bulu\u015fal\u0131m.','Kitapl\u0131\u011f\u0131 yeniden d\u00fczenledim.','Yolculuk \u00e7ok uzun s\u00fcrd\u00fc.'],
+          d:1, a:'"Cumartesi" = cuma + ertesi. Kayna\u015fma s\u0131ras\u0131nda ses d\u00fc\u015fmesi olmu\u015ftur. Di\u011ferleri t\u00fcremi\u015f kelimelerdir.' },
+        { q:'"Bu **yaz\u0131y\u0131** d\u00fcn ak\u015fam bitirdim." c\u00fcmlesindeki alt\u0131 \u00e7izili s\u00f6zc\u00fc\u011f\u00fcn yap\u0131s\u0131 i\u00e7in ne s\u00f6ylenebilir?',
+          c:['Fiil k\u00f6k\u00fc + yap\u0131m eki + \u00e7ekim eki','\u0130sim k\u00f6k\u00fc + iki \u00e7ekim eki','Fiil k\u00f6k\u00fc + iki \u00e7ekim eki','\u0130sim k\u00f6k\u00fc + yap\u0131m eki'],
+          d:0, a:'yaz- (fiil k\u00f6k\u00fc) + -\u0131 (fiilden isim yap\u0131m eki) + -y\u0131 (belirtme h\u00e2li \u00e7ekim eki). Kelime t\u00fcremi\u015ftir.' }
+      ]}
+    ]},
+
+  /* ============== 5 ============== */
+  { id:'cumlenin-ogeleri', ad:'C\u00fcmlenin \u00d6geleri', soru:'1 soru', durum:'hazir',
+    ozet:'Her zaman y\u00fcklemden ba\u015fla. Y\u00fcklemi bulmadan hi\u00e7bir \u00f6ge bulunamaz.',
+    bloklar:[
+      { t:'ozet', b:'\u00d6ge bulma s\u0131ras\u0131', i:[
+        '**1. Y\u00fcklem**: c\u00fcmlenin temel \u00f6gesi. Genellikle sonda, kip ve ki\u015fi eki ta\u015f\u0131r.',
+        '**2. \u00d6zne**: y\u00fckleme *"kim?"* / *"ne?"* \u2192 **i\u015fi yapan**. Y\u00fckleme sorulur.',
+        '**3. Nesne**: y\u00fckleme *"neyi/kimi?"* \u2192 belirtili nesne (-i ekli). *"ne?"* \u2192 belirtisiz nesne (yal\u0131n).',
+        '**4. Dolayl\u0131 t\u00fcmle\u00e7**: *"nereye, nerede, nereden, kime, kimde, kimden?"* \u2192 **-e, -de, -den** ekleri.',
+        '**5. Zarf t\u00fcmleci**: *"nas\u0131l, ne zaman, ne kadar, ni\u00e7in?"*',
+        '**6. Edat t\u00fcmleci**: *"kiminle, ne ile?"* \u2192 *ile, i\u00e7in, gibi* edatlar\u0131yla kurulur.'
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Camlar temizlendi." c\u00fcmlesinde "camlar" ger\u00e7ek \u00f6znedir.',
+          d:'**S\u00f6zde \u00f6znedir.** Fiil edilgen \u00e7at\u0131l\u0131 (*temizle-n-di*); i\u015fi yapan belli de\u011fil. Camlar i\u015fi yapm\u0131yor, i\u015ften etkileniyor. Edilgen fiilli c\u00fcmlelerde **nesne yoktur**, \u00f6zne s\u00f6zde \u00f6znedir.' },
+        { y:'"Ona bakt\u0131m." c\u00fcmlesinde "ona" nesnedir.',
+          d:'**Dolayl\u0131 t\u00fcmle\u00e7tir.** Nesne yal\u0131n veya **-i** h\u00e2linde olur. "-e" h\u00e2li dolayl\u0131 t\u00fcmle\u00e7 yapar. Ayr\u0131ca *bakmak* ge\u00e7i\u015fsiz bir fiildir, nesne almaz.' },
+        { y:'"D\u00fcn ak\u015fam eve geldim." c\u00fcmlesinde "eve" zarf t\u00fcmlecidir.',
+          d:'**Dolayl\u0131 t\u00fcmle\u00e7tir.** "-e" h\u00e2l eki alm\u0131\u015f, *"nereye?"* sorusuna cevap veriyor. "D\u00fcn ak\u015fam" ise zarf t\u00fcmlecidir (*ne zaman?*).' },
+        { y:'"\u0130\u00e7eri girdi" ile "i\u00e7eriye girdi" c\u00fcmlelerinde ayn\u0131 \u00f6ge vard\u0131r.',
+          d:'**Farkl\u0131d\u0131r.** *"\u0130\u00e7eri"* ek almad\u0131\u011f\u0131 i\u00e7in **zarf t\u00fcmleci**, *"i\u00e7eriye"* ek ald\u0131\u011f\u0131 i\u00e7in **dolayl\u0131 t\u00fcmle\u00e7**tir. Yer-y\u00f6n s\u00f6zc\u00fckleri ek al\u0131nca isimle\u015fir.' },
+        { y:'"Kitab\u0131 okudum" c\u00fcmlesinde "kitab\u0131" belirtisiz nesnedir.',
+          d:'**Belirtili nesnedir.** "-\u0131" belirtme h\u00e2li eki alm\u0131\u015f. Belirtisiz nesne yal\u0131n h\u00e2lde olur: *"Kitap okudum."*' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**"Ne?" sorusu hem \u00f6zneyi hem nesneyi bulur.** Ay\u0131rmak i\u00e7in: *"Yapan ne?"* \u2192 **\u00f6zne**. *"Yap\u0131lan ne?"* \u2192 **nesne**. \u00d6rnek: *"Cam\u0131 \u00e7ocuk k\u0131rd\u0131."* \u2192 K\u0131ran kim? \u00e7ocuk (\u00f6zne). K\u0131r\u0131lan ne? cam (nesne).' },
+      { t:'tuzak', i:[
+        '**\u00d6geler b\u00f6l\u00fcnmez.** S\u0131fat tamlamas\u0131, isim tamlamas\u0131 ve ikilemeler tek \u00f6ge say\u0131l\u0131r: *"Uzun boylu gen\u00e7 adam"* \u2192 tek \u00f6ge.',
+        '**Ara s\u00f6z**, hangi \u00f6geyi a\u00e7\u0131kl\u0131yorsa o \u00f6geye dahildir; ayr\u0131 \u00f6ge say\u0131lmaz.',
+        '**Nesne yaln\u0131zca ge\u00e7i\u015fli fiillerde** bulunur. *Gelmek, gitmek, uyumak, bakmak* ge\u00e7i\u015fsizdir \u2192 nesne alamaz.',
+        '**Gizli \u00f6zne**: y\u00fcklemin ki\u015fi ekinden anla\u015f\u0131lan, c\u00fcmlede yazmayan \u00f6zne. *"Eve gittim."* \u2192 \u00f6zne *ben* (gizli).',
+        '\u0130sim c\u00fcmlelerinde de \u00f6ge aran\u0131r: *"Bu, en g\u00fczel \u015fiirdi."* \u2192 y\u00fcklem *en g\u00fczel \u015fiirdi*, \u00f6zne *bu*.',
+        'Y\u00fcklem birden \u00e7ok kelimeden olu\u015fabilir: *"Gitmek zorunda kald\u0131"* \u2192 hepsi y\u00fcklemdir.'
+      ]},
+      { t:'test', s:[
+        { q:'"D\u00fcn ak\u015fam karde\u015fime uzun bir mektup yazd\u0131m." c\u00fcmlesinin \u00f6geleri s\u0131ras\u0131yla hangisidir?',
+          c:['Zarf t. \u2013 dolayl\u0131 t. \u2013 belirtisiz nesne \u2013 y\u00fcklem','Zarf t. \u2013 belirtili nesne \u2013 dolayl\u0131 t. \u2013 y\u00fcklem','Dolayl\u0131 t. \u2013 zarf t. \u2013 belirtisiz nesne \u2013 y\u00fcklem','Zarf t. \u2013 dolayl\u0131 t. \u2013 belirtili nesne \u2013 y\u00fcklem'],
+          d:0, a:'"D\u00fcn ak\u015fam" ne zaman? \u2192 zarf t\u00fcmleci. "Karde\u015fime" kime? \u2192 dolayl\u0131 t\u00fcmle\u00e7. "Uzun bir mektup" ne yazd\u0131m? yal\u0131n h\u00e2lde \u2192 belirtisiz nesne. \u00d6zne gizlidir (ben).' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde **s\u00f6zde \u00f6zne** vard\u0131r?',
+          c:['\u00c7ocuk kap\u0131y\u0131 a\u00e7t\u0131.','Kap\u0131 r\u00fczg\u00e2rdan a\u00e7\u0131ld\u0131.','Kap\u0131y\u0131 \u00e7ocuk a\u00e7t\u0131.','\u00c7ocuk kap\u0131da bekliyor.'],
+          d:1, a:'"A\u00e7\u0131ld\u0131" edilgen \u00e7at\u0131l\u0131d\u0131r; a\u00e7ma i\u015fini kap\u0131 yapm\u0131yor, kap\u0131 i\u015ften etkileniyor. Bu durumda "kap\u0131" s\u00f6zde \u00f6znedir.' },
+        { q:'"Bu haberi, yani terfi etti\u011fini, herkesten \u00f6nce ben duydum." c\u00fcmlesindeki "yani terfi etti\u011fini" s\u00f6z\u00fc nedir?',
+          c:['Ayr\u0131 bir \u00f6ge, belirtili nesne','Ara s\u00f6z, nesnenin a\u00e7\u0131klay\u0131c\u0131s\u0131','Zarf t\u00fcmleci','Y\u00fcklemin bir par\u00e7as\u0131'],
+          d:1, a:'\u0130ki virg\u00fcl aras\u0131ndaki bu s\u00f6z "bu haberi" nesnesini a\u00e7\u0131klayan ara s\u00f6zd\u00fcr. Ara s\u00f6zler ayr\u0131 \u00f6ge say\u0131lmaz, a\u00e7\u0131klad\u0131klar\u0131 \u00f6geye dahildir.' }
+      ]}
+    ]},
+
+  /* ============== 6 ============== */
+  { id:'cumle-turleri', ad:'C\u00fcmle T\u00fcrleri', soru:'1 soru', durum:'hazir',
+    ozet:'D\u00f6rt ayr\u0131 a\u00e7\u0131dan s\u0131n\u0131fland\u0131rma var. Soruda hangisinin soruldu\u011funu okumadan cevap verme.',
+    bloklar:[
+      { t:'tablo', b:'D\u00f6rt s\u0131n\u0131fland\u0131rma', h:['\u00d6l\u00e7\u00fct','T\u00fcrler','Ay\u0131rt etme'], r:[
+        ['Y\u00fcklemin t\u00fcr\u00fc','Fiil c\u00fcmlesi / \u0130sim c\u00fcmlesi','Y\u00fcklem \u00e7ekimli fiil mi, ek-fiil alm\u0131\u015f isim mi?'],
+        ['Y\u00fcklemin yeri','Kurall\u0131 / Devrik','Y\u00fcklem sonda m\u0131 de\u011fil mi?'],
+        ['Yap\u0131s\u0131','Basit / Birle\u015fik / S\u0131ral\u0131 / Ba\u011fl\u0131','Yarg\u0131 say\u0131s\u0131 ve ba\u011flant\u0131 bi\u00e7imi'],
+        ['Anlam\u0131','Olumlu / Olumsuz / Soru / \u00dcnlem','Bi\u00e7ime de\u011fil **anlama** bak']
+      ]},
+      { t:'ozet', b:'Yap\u0131s\u0131na g\u00f6re c\u00fcmleler', i:[
+        '**Basit**: tek yarg\u0131, **fiilimsi yok**. \u2192 *\u00c7ocuklar bah\u00e7ede oynuyor.*',
+        '**Birle\u015fik**: i\u00e7inde yan c\u00fcmlecik var. En s\u0131k t\u00fcr\u00fc **giri\u015fik birle\u015fik** (fiilimsili). \u2192 *Ko\u015farak gelen \u00e7ocuk yoruldu.*',
+        '**S\u0131ral\u0131**: virg\u00fcl ya da noktal\u0131 virg\u00fclle ba\u011flanm\u0131\u015f c\u00fcmleler. \u2192 *Kap\u0131y\u0131 a\u00e7t\u0131, i\u00e7eri girdi.*',
+        '**Ba\u011fl\u0131**: ba\u011fla\u00e7la ba\u011flanm\u0131\u015f c\u00fcmleler. \u2192 *Kap\u0131y\u0131 a\u00e7t\u0131 **ve** i\u00e7eri girdi.*'
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Bu filmi izlemeyen kalmad\u0131." \u2192 olumsuz c\u00fcmle',
+          d:'**Olumlu anlaml\u0131d\u0131r.** Bi\u00e7imce iki olumsuzluk var ama anlam *"herkes izledi"* demek. **Anlama bak\u0131l\u0131r, bi\u00e7ime de\u011fil.**' },
+        { y:'"Kim bilmez ki onu?" \u2192 soru c\u00fcmlesi',
+          d:'**Soru de\u011fil, olumlu (peki\u015ftirilmi\u015f) anlaml\u0131d\u0131r.** Cevap beklenmiyor; *"herkes bilir"* deniyor. Buna **s\u00f6zde soru c\u00fcmlesi** denir.' },
+        { y:'"Yorulan \u00e7ocuk hemen uyudu." \u2192 basit c\u00fcmle',
+          d:'**Birle\u015fik (giri\u015fik) c\u00fcmledir.** *"Yorulan"* bir s\u0131fat-fiildir, yani fiilimsi. Fiilimsi varsa yan c\u00fcmlecik vard\u0131r, c\u00fcmle basit olamaz.' },
+        { y:'"\u00c7al\u0131\u015ft\u0131, kazand\u0131." \u2192 ba\u011fl\u0131 c\u00fcmle',
+          d:'**S\u0131ral\u0131 c\u00fcmledir.** Ba\u011fla\u00e7 yok, virg\u00fcl var. Ba\u011fla\u00e7 olsayd\u0131 (*\u00c7al\u0131\u015ft\u0131 **ve** kazand\u0131*) ba\u011fl\u0131 c\u00fcmle olurdu.' },
+        { y:'"Hava ne kadar da g\u00fczel!" \u2192 isim c\u00fcmlesi olamaz.',
+          d:'**\u0130sim c\u00fcmlesidir.** Y\u00fcklem *"g\u00fczel"*, ek-fiille y\u00fcklem olmu\u015f bir isimdir. Ayn\u0131 zamanda \u00fcnlem c\u00fcmlesidir; s\u0131n\u0131fland\u0131rmalar birbirini d\u0131\u015flamaz.' }
+      ]},
+      { t:'tuzak', i:[
+        '**Bir c\u00fcmle ayn\u0131 anda d\u00f6rt s\u0131n\u0131fa birden girer.** *"Gelmedi mi?"* \u2192 fiil c\u00fcmlesi + kurall\u0131 + basit + soru.',
+        '**Fiilimsi = yan c\u00fcmlecik.** Fiilimsi g\u00f6ren c\u00fcmle asla basit de\u011fildir. Fiilimsi ekleri: isim-fiil (**-ma, -\u0131\u015f, -mak**), s\u0131fat-fiil (**-an, -as\u0131, -mez, -ar, -dik, -ecek, -mi\u015f**), zarf-fiil (**-ip, -arak, -ince, -ken, -madan, -d\u0131k\u00e7a, -al\u0131**).',
+        '**Eksiltili c\u00fcmle**: y\u00fcklemi s\u00f6ylenmemi\u015f, \u00fc\u00e7 noktayla biten c\u00fcmle. *"Sonra o uzun yollar, o bitmeyen bekleyi\u015fler..."*',
+        '**Devrik c\u00fcmle** yaln\u0131zca y\u00fcklemin yerine bakar; \u015fiirde ve konu\u015fmada s\u0131kt\u0131r.',
+        'Ek-fiil (*-d\u0131r, idi, imi\u015f, ise*) bir ismi y\u00fcklem yapar \u2192 isim c\u00fcmlesi olur.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerden hangisi **basit** c\u00fcmledir?',
+          c:['Ya\u011fmur ya\u011f\u0131nca herkes i\u00e7eri girdi.','Kitab\u0131 okuyup masaya b\u0131rakt\u0131.','Bah\u00e7edeki g\u00fcller \u00e7ok g\u00fczel kokuyor.','Gelen ki\u015fiyi tan\u0131mad\u0131m.'],
+          d:2, a:'C se\u00e7ene\u011finde fiilimsi yoktur; "bah\u00e7edeki" bir s\u0131fat, "kokuyor" tek y\u00fcklemdir. Di\u011ferlerinde -\u0131nca, -\u0131p, -en fiilimsileri yan c\u00fcmlecik kurar.' },
+        { q:'"Onun bu davran\u0131\u015f\u0131n\u0131 kim onaylayabilir?" c\u00fcmlesi anlamca nas\u0131l bir c\u00fcmledir?',
+          c:['Soru c\u00fcmlesi','Olumsuz anlaml\u0131','\u00dcnlem c\u00fcmlesi','Ko\u015ful c\u00fcmlesi'],
+          d:1, a:'Cevap beklenmiyor; "kimse onaylayamaz" deniyor. Bi\u00e7imce soru, anlamca olumsuzdur. Anlam soruldu\u011funda bi\u00e7ime aldanmamak gerekir.' },
+        { q:'"Sabah erkenden kalkt\u0131, kahvalt\u0131s\u0131n\u0131 yapt\u0131 ve i\u015fe gitti." c\u00fcmlesinin yap\u0131s\u0131 nedir?',
+          c:['S\u0131ral\u0131 c\u00fcmle','Ba\u011fl\u0131 c\u00fcmle','S\u0131ral\u0131 ve ba\u011fl\u0131 c\u00fcmle','Giri\u015fik birle\u015fik c\u00fcmle'],
+          d:2, a:'\u0130lk iki yarg\u0131 virg\u00fclle (s\u0131ral\u0131), \u00fc\u00e7\u00fcnc\u00fcs\u00fc "ve" ba\u011flac\u0131yla (ba\u011fl\u0131) ba\u011flanm\u0131\u015ft\u0131r. Bu t\u00fcr c\u00fcmleler hem s\u0131ral\u0131 hem ba\u011fl\u0131 say\u0131l\u0131r.' }
+      ]}
+    ]},
+
+  /* ============== 7 ============== */
+  { id:'ses-olaylari', ad:'Ses Bilgisi ve Ses Olaylar\u0131', soru:'1 soru', durum:'hazir',
+    ozet:'Kelimenin ilk ve son h\u00e2lini yan yana koy, fark\u0131 isimlendir. Soru bundan ibarettir.',
+    bloklar:[
+      { t:'ozet', b:'\u00dcnl\u00fc ve \u00fcns\u00fczler', i:[
+        '**Kal\u0131n \u00fcnl\u00fcler**: a, \u0131, o, u \u2014 **\u0130nce \u00fcnl\u00fcler**: e, i, \u00f6, \u00fc',
+        '**D\u00fcz**: a, e, \u0131, i \u2014 **Yuvarlak**: o, \u00f6, u, \u00fc',
+        '**Geni\u015f**: a, e, o, \u00f6 \u2014 **Dar**: \u0131, i, u, \u00fc',
+        '**Sert \u00fcns\u00fczler**: f, s, t, k, \u00e7, \u015f, h, p \u2192 **"F\u0131st\u0131k\u00e7\u0131 \u015eahap"**',
+        '**B\u00fcy\u00fck \u00fcnl\u00fc uyumu** (kal\u0131nl\u0131k-incelik): bir kelimedeki t\u00fcm \u00fcnl\u00fcler ya kal\u0131n ya ince olur.',
+        '**K\u00fc\u00e7\u00fck \u00fcnl\u00fc uyumu** (d\u00fczl\u00fck-yuvarlakl\u0131k): d\u00fcz \u00fcnl\u00fcden sonra d\u00fcz; yuvarlaktan sonra ya dar-yuvarlak ya geni\u015f-d\u00fcz gelir.'
+      ]},
+      { t:'tablo', b:'Ses olaylar\u0131', h:['Olay','Kural','\u00d6rnek'], r:[
+        ['\u00dcns\u00fcz yumu\u015famas\u0131','**p \u00e7 t k** \u2192 **b c d \u011f/g** (\u00fcnl\u00fcyle ba\u015flayan ek gelince)','kitap \u2192 kita**b**\u0131, a\u011fa\u00e7 \u2192 a\u011fa**c**\u0131'],
+        ['\u00dcns\u00fcz benze\u015fmesi','Sert \u00fcns\u00fczden sonra **c d g** \u2192 **\u00e7 t k**','se\u00e7-**d**i \u2192 se\u00e7**t**i, kitap-**c**\u0131 \u2192 kitap**\u00e7**\u0131'],
+        ['\u00dcnl\u00fc d\u00fc\u015fmesi','\u0130ki heceli kelimede dar \u00fcnl\u00fc d\u00fc\u015fer','burun \u2192 bur**n**u, o\u011ful \u2192 o\u011f**l**u'],
+        ['\u00dcnl\u00fc daralmas\u0131','**a e** \u2192 **\u0131 i u \u00fc** (yaln\u0131z -yor ve de-/ye-)','ba\u015fla-yor \u2192 ba\u015fl**\u0131**yor, de-yor \u2192 d**i**yor'],
+        ['\u00dcns\u00fcz d\u00fc\u015fmesi','k sesi d\u00fc\u015fer','k\u00fc\u00e7\u00fck-c\u00fck \u2192 k\u00fc\u00e7\u00fcc\u00fck, y\u00fcksek-l- \u2192 y\u00fcksel-'],
+        ['\u00dcnl\u00fc t\u00fcremesi','Peki\u015ftirmede \u00fcnl\u00fc belirir','az-c\u0131k \u2192 az**\u0131**c\u0131k, dar-c\u0131k \u2192 dar**a**c\u0131k'],
+        ['\u00dcns\u00fcz t\u00fcremesi','K\u00f6kteki \u00e7ift \u00fcns\u00fcz geri gelir','his-etmek \u2192 his**s**etmek, af-etmek \u2192 af**f**etmek'],
+        ['Kayna\u015ft\u0131rma','\u0130ki \u00fcnl\u00fc yan yana gelmez: **y \u015f s n**','araba-**y**-a, baba-**s**-\u0131, iki-**\u015f**-er, o-**n**-u'],
+        ['Ulama','\u00dcns\u00fczle biten kelime, \u00fcnl\u00fcyle ba\u015flayana ba\u011flan\u0131r','*"ak\u015fam olunca"* \u2192 *"ak\u015fa-molunca"*']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Sinop\'a gittik" yaz\u0131m\u0131nda \u00fcns\u00fcz yumu\u015famas\u0131 olmal\u0131yd\u0131: "Sinob\'a".',
+          d:'**\u00d6zel isimlerde yumu\u015fama yaz\u0131ya ge\u00e7irilmez.** S\u00f6yleyi\u015fte yumu\u015fasa da yaz\u0131mda korunur: *Ahmet\'i, Sinop\'a, Zonguldak\'a*.' },
+        { y:'"Topu att\u0131" kelimesinde \u00fcns\u00fcz yumu\u015famas\u0131 vard\u0131r.',
+          d:'**Yoktur.** *Top \u2192 topu*: "p" korunmu\u015f. **Tek heceli kelimelerin \u00e7o\u011funda yumu\u015fama olmaz**: *at \u2192 at\u0131, sa\u00e7 \u2192 sa\u00e7\u0131, ek \u2192 eki*. (\u0130stisnalar var: *\u00e7ok \u2192 \u00e7o\u011fu, kap \u2192 kab\u0131*.)' },
+        { y:'"Geliyor" kelimesinde \u00fcnl\u00fc daralmas\u0131 vard\u0131r.',
+          d:'**Yoktur.** *gel-* \u00fcns\u00fczle biter; araya giren "i" yard\u0131mc\u0131 \u00fcnl\u00fcd\u00fcr, daralan bir ses yoktur. Daralma yaln\u0131zca **a/e ile biten fiile -yor gelince** olur: *bekle-yor \u2192 bekl**i**yor*, *anla-yor \u2192 anl**\u0131**yor*. Bir de *de-* ve *ye-* fiillerinde: *de-yor \u2192 d**i**yor*. **"Gelmiyor"da ise vard\u0131r**: olumsuzluk eki *-me* daralarak *-mi* olmu\u015ftur.' },
+        { y:'"Kitap\u00e7\u0131" kelimesinde \u00fcns\u00fcz yumu\u015famas\u0131 vard\u0131r.',
+          d:'**\u00dcns\u00fcz benze\u015fmesi (sertle\u015fmesi) vard\u0131r.** Sert \u00fcns\u00fcz "p"den sonra gelen "-c\u0131" eki "-\u00e7\u0131" olmu\u015ftur. Yumu\u015fama tam tersi y\u00f6nde i\u015fler.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Sert \u00fcns\u00fczler:** *F\u0131st\u0131k\u00e7\u0131 \u015eahap* \u2192 **f s t k \u00e7 \u015f h p**. \u00b7 **Kayna\u015ft\u0131rma \u00fcns\u00fczleri:** *Ya\u015fas\u0131n* \u2192 **y \u015f s n**. \u00b7 **Yumu\u015fayanlar:** *p \u00e7 t k* \u2192 hepsi F\u0131st\u0131k\u00e7\u0131 \u015eahap\'\u0131n i\u00e7inde.' },
+      { t:'tuzak', i:[
+        '**Ulama olmas\u0131 i\u00e7in arada noktalama i\u015fareti bulunmamal\u0131d\u0131r.** Virg\u00fcl varsa ulama yap\u0131lmaz.',
+        '**B\u00fcy\u00fck \u00fcnl\u00fc uyumuna uymayan ekler**: **-yor, -ken, -ki, -leyin, -imt\u0131rak, -da\u015f** (baz\u0131 kullan\u0131mlarda). *"Geliyor"* uyumsuzdur ama kural d\u0131\u015f\u0131d\u0131r, yanl\u0131\u015f de\u011fildir.',
+        'Al\u0131nt\u0131 kelimeler \u00fcnl\u00fc uyumu kurallar\u0131na uymayabilir: *kitap, kalem, insan, televizyon*. Bu kelimeler **T\u00fcrk\u00e7e k\u00f6kenli olmad\u0131\u011f\u0131** i\u00e7in uyum aranmaz.',
+        'Bir kelimede **birden fazla ses olay\u0131** olabilir: *"ediyor"* \u2192 *et-i-yor*: hem yumu\u015fama (t\u2192d) hem daralma.',
+        '**\u00dcns\u00fcz t\u00fcremesi** genellikle Arap\u00e7a k\u00f6kenli, sonu \u00e7ift \u00fcns\u00fczle biten kelimelerde g\u00f6r\u00fcl\u00fcr: *hak \u2192 hakk\u0131, af \u2192 aff\u0131, his \u2192 hissi*.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki kelimelerin hangisinde **\u00fcnl\u00fc d\u00fc\u015fmesi** vard\u0131r?',
+          c:['Kitab\u0131','A\u011fz\u0131','Kitap\u00e7\u0131','Diyor'],
+          d:1, a:'a\u011f\u0131z \u2192 a\u011fz\u0131: ikinci hecedeki dar \u00fcnl\u00fc "\u0131" d\u00fc\u015fm\u00fc\u015ft\u00fcr. "Kitab\u0131" yumu\u015fama, "kitap\u00e7\u0131" benze\u015fme, "diyor" daralmad\u0131r.' },
+        { q:'"Bu \u00e7ocuk **\u00e7ok** \u00e7al\u0131\u015fkan." c\u00fcmlesindeki "\u00e7ok" kelimesine "-u" eki getirildi\u011finde hangi ses olay\u0131 g\u00f6r\u00fcl\u00fcr?',
+          c:['\u00dcnl\u00fc d\u00fc\u015fmesi','\u00dcns\u00fcz benze\u015fmesi','\u00dcns\u00fcz yumu\u015famas\u0131','\u00dcns\u00fcz t\u00fcremesi'],
+          d:2, a:'\u00e7ok \u2192 \u00e7o\u011fu: sondaki "k" sesi "\u011f"ye d\u00f6n\u00fc\u015fm\u00fc\u015ft\u00fcr. Bu, tek heceli olmas\u0131na ra\u011fmen yumu\u015fayan istisna kelimelerdendir.' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde **ulama** yap\u0131labilir?',
+          c:['Bug\u00fcn, hava \u00e7ok g\u00fczel.','Ak\u015fam olunca eve d\u00f6nd\u00fck.','Gel, otur \u015furaya.','Kitap okudum, uyudum.'],
+          d:1, a:'"Ak\u015fam olunca" \u2192 "ak\u015fa-molunca" \u015feklinde ba\u011flan\u0131r; arada noktalama yoktur. Di\u011ferlerinde virg\u00fcl ulamay\u0131 engeller.' }
+      ]}
+    ]},
+
+  /* ============== 8 ============== */
+  { id:'yazim', ad:'Yaz\u0131m Kurallar\u0131', soru:'1 soru', durum:'hazir',
+    ozet:'Garanti sorudur. Kural az, istisna \u00e7ok \u2014 istisnalar\u0131 ezberleyen bu soruyu kaybetmez.',
+    bloklar:[
+      { t:'ozet', b:'En \u00e7ok sorulan be\u015f kural', i:[
+        '**"de/da" ba\u011flac\u0131 ayr\u0131 yaz\u0131l\u0131r**: *Sen **de** gel.* H\u00e2l eki biti\u015fiktir: *Ev**de** kald\u0131m.* **Test:** \u00e7\u0131kar\u0131nca c\u00fcmle bozulmuyorsa ba\u011fla\u00e7t\u0131r. Ba\u011fla\u00e7 asla *"te/ta"* olmaz.',
+        '**"ki" ba\u011flac\u0131 ayr\u0131 yaz\u0131l\u0131r**: *G\u00f6r\u00fcyorum **ki** \u00e7al\u0131\u015fm\u0131\u015fs\u0131n.* S\u0131fat yapan **-ki** biti\u015fiktir: *sabah**ki**, yar\u0131n**ki**, benim**ki***.',
+        '**"mi" soru eki ayr\u0131 yaz\u0131l\u0131r** ama kendisinden sonraki ekleri biti\u015fik al\u0131r: *Geliyor **musun**? G\u00fczel **mi**ymi\u015f?*',
+        '**\u00d6zel adlara gelen \u00e7ekim ekleri kesme ile ayr\u0131l\u0131r**: *Ankara\'da, Ahmet\'in*. **Yap\u0131m ekleri ayr\u0131lmaz**: *T\u00fcrk\u00e7e, Ankaral\u0131, Avrupal\u0131la\u015fmak*.',
+        '**Kurum ve kurulu\u015f adlar\u0131na gelen ekler kesme ile ayr\u0131lmaz**: *T\u00fcrk Dil Kurumuna, Mill\u00ee E\u011fitim Bakanl\u0131\u011f\u0131ndan*.'
+      ]},
+      { t:'tablo', b:'Biti\u015fik mi ayr\u0131 m\u0131?', h:['Do\u011fru','Yanl\u0131\u015f','Not'], r:[
+        ['her \u015fey','her\u015fey','**Ayr\u0131** yaz\u0131l\u0131r'],
+        ['hi\u00e7bir','hi\u00e7 bir','**Biti\u015fik** yaz\u0131l\u0131r'],
+        ['hi\u00e7bir \u015fey','hi\u00e7bir\u015fey','\u0130kisi kar\u0131\u015f\u0131k: *hi\u00e7bir* biti\u015fik, *\u015fey* ayr\u0131'],
+        ['bir\u00e7ok','bir \u00e7ok','**Biti\u015fik**'],
+        ['birka\u00e7','bir ka\u00e7','**Biti\u015fik**'],
+        ['bir \u015fey','bir\u015fey','**Ayr\u0131**'],
+        ['hi\u00e7 kimse','hi\u00e7kimse','**Ayr\u0131**'],
+        ['pek \u00e7ok','pek\u00e7ok','**Ayr\u0131**'],
+        ['peki','pek i','**Biti\u015fik**']
+      ]},
+      { t:'tablo', b:'S\u0131k yaz\u0131lan yanl\u0131\u015flar', h:['Do\u011fru','Yanl\u0131\u015f'], r:[
+        ['yaln\u0131z','yanl\u0131z'],['yanl\u0131\u015f','yaln\u0131\u015f'],['herkes','herkez'],
+        ['k\u0131lavuz','klavuz'],['s\u00fcrpriz','s\u00fcpriz'],['orijinal','orjinal'],
+        ['t\u0131ra\u015f','tra\u015f'],['meyve','meyva'],['makine','makina'],
+        ['\u015fof\u00f6r','\u015f\u00f6f\u00f6r'],['egzoz','eksoz'],['e\u015fofman','e\u015fortman']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Toplant\u0131 29 Ekim Pazartesi g\u00fcn\u00fc yap\u0131lacak." \u2192 "pazartesi" k\u00fc\u00e7\u00fck yaz\u0131lmal\u0131yd\u0131.',
+          d:'**B\u00fcy\u00fck do\u011frudur.** Ay ve g\u00fcn adlar\u0131 **belirli bir tarihle birlikte** kullan\u0131l\u0131nca b\u00fcy\u00fck harfle ba\u015flar. Tek ba\u015f\u0131na genel anlamda ge\u00e7erse k\u00fc\u00e7\u00fck yaz\u0131l\u0131r: *"Her pazartesi spora gidiyorum."*' },
+        { y:'"Evin do\u011fusunda bir bah\u00e7e var." \u2192 "Do\u011fu" b\u00fcy\u00fck yaz\u0131lmal\u0131yd\u0131.',
+          d:'**K\u00fc\u00e7\u00fck do\u011frudur.** Y\u00f6n adlar\u0131 **yaln\u0131zca \u00f6zel ad oldu\u011funda** b\u00fcy\u00fck yaz\u0131l\u0131r: *Do\u011fu Anadolu, Bat\u0131 Trakya*. Y\u00f6n bildirdi\u011finde k\u00fc\u00e7\u00fckt\u00fcr.' },
+        { y:'"T\u00fcrkiye B\u00fcy\u00fck Millet Meclisi\'ne sunuldu." yaz\u0131m\u0131 do\u011frudur.',
+          d:'**Yanl\u0131\u015ft\u0131r.** Kurum adlar\u0131na gelen ekler kesme ile ayr\u0131lmaz: *T\u00fcrkiye B\u00fcy\u00fck Millet Meclisine*. Ancak **k\u0131saltmalarda ayr\u0131l\u0131r**: *TBMM\'ye*.' },
+        { y:'"Ali\'de kitap var" ile "Ali de geldi" ayn\u0131 yaz\u0131m kural\u0131na girer.',
+          d:'**Farkl\u0131d\u0131r.** \u0130lkinde *-de* bulunma h\u00e2li ekidir, \u00f6zel ada geldi\u011fi i\u00e7in kesme ile ayr\u0131l\u0131r. \u0130kincisinde *de* ba\u011fla\u00e7t\u0131r, her zaman ayr\u0131 ve kesmesiz yaz\u0131l\u0131r.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**"de/da" testi:** Kelimeyi c\u00fcmleden **\u00e7\u0131kar**. C\u00fcmle ayakta kal\u0131yorsa **ba\u011fla\u00e7 \u2192 ayr\u0131**. Y\u0131k\u0131l\u0131yorsa **ek \u2192 biti\u015fik**. \u00b7 \u0130kinci test: *"te/ta"* diye okunabiliyorsa (*kitapta*) kesinlikle **ektir**.' },
+      { t:'tuzak', i:[
+        '**D\u00fczeltme i\u015fareti (^)** anlam ay\u0131rt eder: *kar / k\u00e2r*, *hala / h\u00e2l\u00e2*, *adet / \u00e2det*, *a\u015f\u0131k / \u00e2\u015f\u0131k*. Nispet ekinde de kullan\u0131l\u0131r: *asker\u00ee, mill\u00ee, resm\u00ee*.',
+        '**Peki\u015ftirilmi\u015f s\u0131fatlar biti\u015fik** yaz\u0131l\u0131r: *bembeyaz, sapasa\u011flam, tertemiz, upuzun*.',
+        '**Say\u0131lar**: metin i\u00e7inde k\u00fc\u00e7\u00fck say\u0131lar yaz\u0131yla; b\u00fcy\u00fck ve kesin say\u0131lar rakamla. S\u0131ra say\u0131lar\u0131 *"3."* veya *"3\'\u00fcnc\u00fc"* bi\u00e7iminde yaz\u0131l\u0131r, **"3.\u00fcnc\u00fc" yanl\u0131\u015ft\u0131r.**',
+        '**K\u0131saltmalar**: b\u00fcy\u00fck harfli k\u0131saltmalarda nokta yoktur (*TDK, TBMM, \u00d6SYM*). \u00d6l\u00e7\u00fc birimlerinde de yoktur (*km, kg, cm*). Ama *Prof., Dr., Cad., Sok.* noktal\u0131d\u0131r.',
+        '**Unvanlar** \u00f6zel adla birlikteyse b\u00fcy\u00fck yaz\u0131l\u0131r: *Ali **Bey**, **Doktor** Ay\u015fe Han\u0131m*.',
+        'Birle\u015fik fiiller: yard\u0131mc\u0131 fiille kurulanlarda **ses d\u00fc\u015fmesi veya t\u00fcremesi varsa biti\u015fik**: *affetmek, hissetmek, kaybolmak*. Yoksa ayr\u0131: *terk etmek, yard\u0131m etmek*.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde bir **yaz\u0131m yanl\u0131\u015f\u0131** vard\u0131r?',
+          c:['Bug\u00fcn hi\u00e7bir \u015fey yapmad\u0131m.','Sen de bizimle gelir misin?','Her\u015feyi ba\u015ftan anlatt\u0131.','Birka\u00e7 g\u00fcn sonra d\u00f6neriz.'],
+          d:2, a:'"Her\u015fey" yanl\u0131\u015ft\u0131r; "her \u015fey" ayr\u0131 yaz\u0131l\u0131r. Buna kar\u015f\u0131l\u0131k "hi\u00e7bir" ve "birka\u00e7" biti\u015fik yaz\u0131l\u0131r.' },
+        { q:'"S\u0131navda ...... soru \u00e7\u0131kt\u0131, ...... \u00e7\u00f6zemedim." c\u00fcmlesinde bo\u015fluklara s\u0131ras\u0131yla ne gelmelidir?',
+          c:['bir ka\u00e7 / hi\u00e7birini','birka\u00e7 / hi\u00e7birini','birka\u00e7 / hi\u00e7 birini','bir ka\u00e7 / hi\u00e7 birini'],
+          d:1, a:'"Birka\u00e7" ve "hi\u00e7biri" biti\u015fik yaz\u0131lan kelimelerdir.' },
+        { q:'A\u015fa\u011f\u0131dakilerin hangisinde kesme i\u015fareti **do\u011fru** kullan\u0131lm\u0131\u015ft\u0131r?',
+          c:['T\u00fcrk\u00e7e\'yi \u00e7ok seviyorum.','Ankara\'l\u0131 bir arkada\u015f\u0131m var.','Mill\u00ee E\u011fitim Bakanl\u0131\u011f\u0131\'na ba\u015fvurdum.','\u00d6SYM\'nin a\u00e7\u0131klamas\u0131 bekleniyor.'],
+          d:3, a:'K\u0131saltmalara gelen ekler kesme ile ayr\u0131l\u0131r. "T\u00fcrk\u00e7e" ve "Ankaral\u0131" yap\u0131m eki alm\u0131\u015ft\u0131r, ayr\u0131lmaz; kurum adlar\u0131na gelen ekler de ayr\u0131lmaz.' }
+      ]}
+    ]},
+
+  /* ============== 9 ============== */
+  { id:'noktalama', ad:'Noktalama \u0130\u015faretleri', soru:'1 soru', durum:'hazir',
+    ozet:'\u0130kinci garanti soru. En \u00e7ok virg\u00fcl ve kesme i\u015fareti sorulur.',
+    bloklar:[
+      { t:'tablo', b:'\u0130\u015faretler ve ba\u015fl\u0131ca g\u00f6revleri', h:['\u0130\u015faret','Kullan\u0131m'], r:[
+        ['Nokta (.)','C\u00fcmle sonu \u00b7 k\u0131saltmalar (*Dr., Cad.*) \u00b7 tarih (*29.10.1923*) \u00b7 s\u0131ra say\u0131s\u0131 (*3.*)'],
+        ['Virg\u00fcl (,)','E\u015f g\u00f6revli s\u00f6zc\u00fckler \u00b7 s\u0131ral\u0131 c\u00fcmleler \u00b7 ara s\u00f6z\u00fcn ba\u015f\u0131 ve sonu \u00b7 hitaptan sonra \u00b7 \u00f6zneyi belirginle\u015ftirme'],
+        ['Noktal\u0131 virg\u00fcl (;)','Virg\u00fclle ayr\u0131lm\u0131\u015f **gruplar\u0131** ay\u0131r\u0131r \u00b7 \u00f6geleri virg\u00fcll\u00fc s\u0131ral\u0131 c\u00fcmleleri ay\u0131r\u0131r'],
+        ['\u0130ki nokta (:)','A\u00e7\u0131klama, \u00f6rnek veya al\u0131nt\u0131 \u00f6ncesi'],
+        ['\u00dc\u00e7 nokta (...)','Tamamlanmam\u0131\u015f c\u00fcmle \u00b7 s\u00f6z\u00fcn kesilmesi \u00b7 al\u0131nt\u0131da atlanan b\u00f6l\u00fcm'],
+        ['Kesme (\')','\u00d6zel adlara gelen **\u00e7ekim** eklerini ay\u0131r\u0131r'],
+        ['T\u0131rnak ("")','Al\u0131nt\u0131 \u00b7 eser adlar\u0131 \u00b7 \u00f6zel vurgu'],
+        ['K\u0131sa \u00e7izgi (-)','Ekleri g\u00f6sterme (*-l\u0131k*) \u00b7 "aras\u0131nda" anlam\u0131 (*1914-1918*) \u00b7 sat\u0131r sonu'],
+        ['Uzun \u00e7izgi (\u2014)','Konu\u015fma \u00e7izgisi, diyalog ba\u015flang\u0131c\u0131']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Ali, ve Veli s\u0131n\u0131fa girdi." ',
+          d:'**"Ve" ba\u011flac\u0131ndan \u00f6nce ve sonra virg\u00fcl konmaz.** Do\u011frusu: *"Ali ve Veli s\u0131n\u0131fa girdi."* Ayn\u0131s\u0131 *ile, veya, ya da* i\u00e7in de ge\u00e7erlidir.' },
+        { y:'"Gen\u00e7, kad\u0131na bakt\u0131" ile "Gen\u00e7 kad\u0131na bakt\u0131" ayn\u0131 anlamdad\u0131r.',
+          d:'**Anlam tamamen de\u011fi\u015fir.** Birincide bakan gen\u00e7tir; ikincide bak\u0131lan ki\u015fi gen\u00e7 kad\u0131nd\u0131r. Virg\u00fcl burada **anlam belirsizli\u011fini** giderir.' },
+        { y:'"Ankara T\u00fcrkiye\'nin ba\u015fkentidir." c\u00fcmlesinde noktalama eksi\u011fi yoktur.',
+          d:'**Eksik yok \u2014 do\u011fru.** Ancak *"Ankara, T\u00fcrkiye\'nin ba\u015fkentidir"* bi\u00e7iminde \u00f6zneyi belirginle\u015ftiren virg\u00fcl de kullan\u0131labilir. \u0130kisi de kabul edilir.' },
+        { y:'"Yar\u0131\u015fmada birinci, ikinci ve \u00fc\u00e7\u00fcnc\u00fc olanlar; \u00f6d\u00fcllerini ald\u0131."',
+          d:'**Noktal\u0131 virg\u00fcl yanl\u0131\u015f.** Burada tek bir c\u00fcmle var, \u00f6ge b\u00f6l\u00fcnm\u00fc\u015f. Do\u011frusu: *"...olanlar \u00f6d\u00fcllerini ald\u0131."* Noktal\u0131 virg\u00fcl **ayr\u0131 yarg\u0131lar\u0131** ya da **virg\u00fcll\u00fc gruplar\u0131** ay\u0131rmak i\u00e7in kullan\u0131l\u0131r.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Virg\u00fcl konmayan \u00fc\u00e7 yer:** \u2460 *"ve, ile, veya, ya da"* ba\u011fla\u00e7lar\u0131n\u0131n iki yan\u0131 \u2461 \u015eart eki *-sa/-se*\'den sonra \u2462 Metin i\u00e7inde **say\u0131lar\u0131n** aras\u0131na (*3, 4* yerine *3-4*).' },
+      { t:'tuzak', i:[
+        '**Kesme i\u015fareti yaln\u0131zca \u00e7ekim eklerini ay\u0131r\u0131r.** Yap\u0131m eki geldiyse ayr\u0131lmaz: *T\u00fcrk**\u00e7e***, *Ankara**l\u0131***, *Bursa**l\u0131***.',
+        '**S\u0131ral\u0131 c\u00fcmlelerde \u00f6zne ortaksa** virg\u00fcl yeterlidir; \u00f6zneler farkl\u0131ysa noktal\u0131 virg\u00fcl tercih edilir.',
+        '**Ara s\u00f6z iki virg\u00fcl aras\u0131na al\u0131n\u0131r**; sadece ba\u015f\u0131na virg\u00fcl koyup sonunu unutmak s\u0131k yap\u0131lan hatad\u0131r.',
+        '**\u00dc\u00e7 nokta ile "vs." birlikte kullan\u0131lmaz**: *"kalem, defter, silgi vs..."* yanl\u0131\u015ft\u0131r.',
+        '**Soru anlam\u0131 ta\u015f\u0131mayan** "mi"li c\u00fcmlelere soru i\u015fareti konmaz: *"Bir gelmesin mi, ortal\u0131k kar\u0131\u015ft\u0131."*',
+        '**T\u0131rnak i\u00e7indeki al\u0131nt\u0131n\u0131n** sonundaki noktalama t\u0131rna\u011f\u0131n i\u00e7inde kal\u0131r; c\u00fcmlenin kendi noktas\u0131 d\u0131\u015far\u0131dad\u0131r.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde **virg\u00fcl** yanl\u0131\u015f kullan\u0131lm\u0131\u015ft\u0131r?',
+          c:['Kitaplar\u0131, defterleri ve kalemleri toplad\u0131.','Ahmet, bu i\u015fi yapabilecek tek ki\u015fidir.','Yorulmu\u015ftu, ama yine de devam etti.','Karde\u015fim, ve ben pikni\u011fe gittik.'],
+          d:3, a:'"Ve" ba\u011flac\u0131ndan \u00f6nce virg\u00fcl konmaz. Do\u011frusu: "Karde\u015fim ve ben pikni\u011fe gittik."' },
+        { q:'"Bu konuda \u00fc\u00e7 \u015fey \u00f6nemlidir(  ) sab\u0131r, dikkat ve d\u00fczen." c\u00fcmlesinde parantezle g\u00f6sterilen yere hangi i\u015faret gelmelidir?',
+          c:['Virg\u00fcl','\u0130ki nokta','Noktal\u0131 virg\u00fcl','\u00dc\u00e7 nokta'],
+          d:1, a:'Kendinden sonra a\u00e7\u0131klama ya da s\u0131ralama gelen c\u00fcmlelerin sonuna iki nokta konur.' },
+        { q:'A\u015fa\u011f\u0131dakilerin hangisinde kesme i\u015fareti **gereksiz** kullan\u0131lm\u0131\u015ft\u0131r?',
+          c:['\u0130stanbul\'da ya\u015f\u0131yorum.','Atat\u00fcrk\'\u00fcn s\u00f6zleri','\u0130zmir\'li arkada\u015f\u0131m','2026\'da mezun olacak'],
+          d:2, a:'"-li" bir yap\u0131m ekidir; \u00f6zel ada gelse de kesme ile ayr\u0131lmaz. Do\u011frusu "\u0130zmirli"dir.' }
+      ]}
+    ]},
+
+  /* ============== 10 ============== */
+  { id:'anlatim-bozukluklari', ad:'Anlat\u0131m Bozukluklar\u0131', soru:'1\u20132 soru', durum:'hazir',
+    ozet:'\u0130ki aile var: anlamla ilgili bozukluklar ve yap\u0131yla ilgili bozukluklar. \u00d6nce hangi aile, sonra hangi t\u00fcr.',
+    bloklar:[
+      { t:'ozet', b:'Anlamsal bozukluklar', i:[
+        '**Gereksiz s\u00f6zc\u00fck**: ayn\u0131 anlam iki kez verilir. \u2192 *"**Yukar\u0131** \u00e7\u0131kt\u0131", "**geri** iade etti", "**yakla\u015f\u0131k** 5 **civar\u0131nda**"*',
+        '**Anlam belirsizli\u011fi**: c\u00fcmle iki t\u00fcrl\u00fc anla\u015f\u0131l\u0131r. \u2192 *"Gen\u00e7 kad\u0131na bakt\u0131."* (virg\u00fcl gerekir)',
+        '**\u00c7eli\u015fen s\u00f6zc\u00fckler**: kesinlik ve olas\u0131l\u0131k bir arada. \u2192 *"**Kesinlikle belki** gelir."*',
+        '**Yanl\u0131\u015f anlamda s\u00f6zc\u00fck**: \u2192 *"Onu **az\u0131msamay\u0131n**"* (do\u011frusu: k\u00fc\u00e7\u00fcmsemeyin)',
+        '**Deyim yanl\u0131\u015f\u0131**: \u2192 *"G\u00f6z\u00fcn\u00fc att\u0131"* (do\u011frusu: g\u00f6z att\u0131)',
+        '**Mant\u0131k hatas\u0131**: \u2192 *"Bu ila\u00e7 a\u011fr\u0131y\u0131 azalt\u0131r, **hatta** biraz hafifletir."* (art\u0131\u015f olmal\u0131)',
+        '**S\u00f6zc\u00fc\u011f\u00fcn yanl\u0131\u015f yerde kullan\u0131m\u0131**: \u2192 *"Sadece ben seni g\u00f6rd\u00fcm"* / *"Ben sadece seni g\u00f6rd\u00fcm"* anlamlar\u0131 farkl\u0131d\u0131r.'
+      ]},
+      { t:'ozet', b:'Yap\u0131sal bozukluklar', i:[
+        '**\u00d6zne\u2013y\u00fcklem uyumsuzlu\u011fu**: \u2192 *"Ku\u015flar g\u00f6ky\u00fcz\u00fcnde u\u00e7tu**lar**."* Cans\u0131z varl\u0131klarda ve hayvanlarda y\u00fcklem **tekil** olur.',
+        '**\u00d6zne eksikli\u011fi**: \u2192 *"Kitab\u0131 ald\u0131 ve masaya kondu."* \u0130ki y\u00fcklemin \u00f6znesi farkl\u0131.',
+        '**Nesne eksikli\u011fi**: \u2192 *"Sana \u00e7ok g\u00fcveniyor ve seviyorum."* \u2192 *"seni seviyorum"* gerekir.',
+        '**T\u00fcmle\u00e7 eksikli\u011fi**: \u2192 *"Karde\u015fimi \u00f6zledim ve mektup yazd\u0131m."* \u2192 *"ona mektup yazd\u0131m"*',
+        '**Y\u00fcklem eksikli\u011fi**: \u2192 *"Ben sinemaya, o tiyatroya gitti."* \u2192 *"ben sinemaya gittim"*',
+        '**Tamlama yanl\u0131\u015f\u0131**: \u2192 *"ekonomik ve siyasal **alandaki** geli\u015fmeler"* \u2192 *"alanlardaki"*',
+        '**\u00c7at\u0131 uyu\u015fmazl\u0131\u011f\u0131**: \u2192 *"Bah\u00e7eyi temizledi ve \u00e7i\u00e7ekler ekildi."* Biri etken, biri edilgen.',
+        '**Ek yanl\u0131\u015f\u0131**: \u2192 *"\u00d6\u011fretmen, \u00f6\u011frencilere \u00f6devlerini **kontrol etti**."* \u2192 *"\u00f6\u011frencilerin \u00f6devlerini"*'
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Sorunlar\u0131 \u00e7\u00f6zmek i\u00e7in elimizden gelen t\u00fcm \u00e7abay\u0131 sarf edece\u011fiz."',
+          d:'**Gereksiz s\u00f6zc\u00fck.** *"\u00c7aba sarf etmek"* zaten *"elden geleni yapmak"* demektir. Do\u011frusu: *"...elimizden geleni yapaca\u011f\u0131z"* veya *"...t\u00fcm \u00e7abay\u0131 g\u00f6sterece\u011fiz."*' },
+        { y:'"\u00d6\u011frenciler ve \u00f6\u011fretmenler t\u00f6rene kat\u0131ld\u0131." \u2192 \u00f6zne-y\u00fcklem uyumsuzlu\u011fu var.',
+          d:'**Bozukluk yok.** \u0130nsan \u00f6zneler \u00e7o\u011fulsa y\u00fcklem tekil de \u00e7o\u011ful da olabilir. Bozukluk cans\u0131z/hayvan \u00f6znelerde y\u00fcklem \u00e7o\u011fulla\u015f\u0131rsa do\u011far: *"Yapraklar d\u00f6k\u00fcld\u00fcler"* \u2717' },
+        { y:'"Ne kitap okudu ne de \u00f6devini yapmad\u0131."',
+          d:'**Bozuk \u2014 olumsuzluk fazlal\u0131\u011f\u0131.** *"Ne... ne..."* ba\u011flac\u0131 c\u00fcmleye zaten olumsuzluk katar; **y\u00fcklem olumlu kalmal\u0131d\u0131r**. Do\u011frusu: *"Ne kitap okudu ne de \u00f6devini **yapt\u0131**."*' },
+        { y:'"Adaylar s\u0131nava girmeden \u00f6nce kimlik kontrol\u00fc yap\u0131ld\u0131."',
+          d:'**\u00c7at\u0131 uyu\u015fmazl\u0131\u011f\u0131 ve \u00f6zne eksikli\u011fi.** *"Adaylar girmeden"* (etken) ile *"kontrol yap\u0131ld\u0131"* (edilgen) uyu\u015fmuyor. Do\u011frusu: *"Adaylar s\u0131nava girmeden \u00f6nce kimlikleri kontrol edildi."*' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'Bozukluk ararken \u015fu s\u0131rayla bak: \u2460 **Gereksiz kelime var m\u0131?** (en s\u0131k) \u2461 **\u0130ki y\u00fcklem varsa ortak \u00f6ge tutuyor mu?** \u2462 **\u00d6zne cans\u0131z m\u0131, y\u00fcklem \u00e7o\u011ful mu?** \u2463 **Kelime do\u011fru anlamda m\u0131?**' },
+      { t:'tuzak', i:[
+        '**Her uzun c\u00fcmle bozuk de\u011fildir.** \u00d6nce bozuklu\u011fun *hangi t\u00fcrden* oldu\u011funu adland\u0131rabiliyor musun, ona bak. Adland\u0131ram\u0131yorsan muhtemelen bozukluk yoktur.',
+        '**S\u0131k kar\u0131\u015ft\u0131r\u0131lan kelimeler**: *az\u0131msamak* (az g\u00f6rmek) / *k\u00fc\u00e7\u00fcmsemek* (de\u011fersiz g\u00f6rmek) \u00b7 *\u00e7ekimser* (oy kullanmayan) / *\u00e7ekingen* (utanga\u00e7) \u00b7 *\u00f6\u011frenim* (\u00f6\u011frencinin yapt\u0131\u011f\u0131) / *\u00f6\u011fretim* (\u00f6\u011fretmenin yapt\u0131\u011f\u0131) \u00b7 *ayr\u0131m* (fark) / *ayr\u0131cal\u0131k* (imtiyaz).',
+        '**Gereksiz s\u00f6zc\u00fck klasikleri**: *"yukar\u0131 \u00e7\u0131kmak, a\u015fa\u011f\u0131 inmek, geri iade, ileriye d\u00f6n\u00fck, en optimum, birbirinden ayr\u0131 ayr\u0131, kar\u015f\u0131l\u0131kl\u0131 diyalog, h\u00e2l\u00e2 devam ediyor"*.',
+        'Noktalama eksikli\u011fi de bir anlat\u0131m bozuklu\u011fu say\u0131labilir; \u00f6zellikle **anlam belirsizli\u011fi** do\u011furuyorsa.'
+      ]},
+      { t:'test', s:[
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde **gereksiz s\u00f6zc\u00fck kullan\u0131m\u0131ndan** kaynaklanan bir bozukluk vard\u0131r?',
+          c:['Toplant\u0131ya kat\u0131lan herkes fikrini s\u00f6yledi.','Merdivenlerden yukar\u0131 \u00e7\u0131karken d\u00fc\u015ft\u00fc.','Kitab\u0131 okuyunca \u00e7ok etkilendim.','Yar\u0131n sabah erkenden yola \u00e7\u0131kaca\u011f\u0131z.'],
+          d:1, a:'"\u00c7\u0131kmak" fiili zaten yukar\u0131 y\u00f6n\u00fc i\u00e7erir; "yukar\u0131" gereksizdir. Do\u011frusu: "Merdivenlerden \u00e7\u0131karken d\u00fc\u015ft\u00fc."' },
+        { q:'"\u00d6\u011fretmen \u00f6\u011frencilere sorular\u0131 da\u011f\u0131tt\u0131 ve topland\u0131." c\u00fcmlesindeki bozuklu\u011fun nedeni nedir?',
+          c:['Nesne eksikli\u011fi','\u00c7at\u0131 uyu\u015fmazl\u0131\u011f\u0131','Tamlama yanl\u0131\u015f\u0131','Gereksiz s\u00f6zc\u00fck'],
+          d:1, a:'"Da\u011f\u0131tt\u0131" etken, "topland\u0131" edilgendir; iki y\u00fcklem ayn\u0131 \u00f6zneye ba\u011flanamaz. Do\u011frusu: "...da\u011f\u0131tt\u0131 ve sonra toplad\u0131."' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerin hangisinde anlat\u0131m bozuklu\u011fu **yoktur**?',
+          c:['A\u011fa\u00e7lar r\u00fczg\u00e2rda salland\u0131lar.','Sana inan\u0131yor ve g\u00fcveniyorum.','Bu olay hepimizi derinden sarst\u0131 ve \u00fczd\u00fc.','Merdivenlerden a\u015fa\u011f\u0131 indi.'],
+          d:2, a:'C sa\u011flamd\u0131r: "sarst\u0131" ve "\u00fczd\u00fc" ayn\u0131 \u00f6zneyi ve ayn\u0131 nesneyi payla\u015f\u0131r. A \u2192 cans\u0131z \u00f6zne \u00e7o\u011ful y\u00fcklem alm\u0131\u015f. B \u2192 "inan\u0131yor" (o) ile "g\u00fcveniyorum" (ben) \u00f6zne uyu\u015fmazl\u0131\u011f\u0131. D \u2192 "inmek" zaten a\u015fa\u011f\u0131 y\u00f6nl\u00fcd\u00fcr, "a\u015fa\u011f\u0131" gereksizdir.' }
+      ]}
+    ]},
+
+  /* ============== 11 ============== */
+  { id:'paragraf', ad:'Paragrafta Anlam', soru:'13\u201315 soru \u2014 dersin belkemi\u011fi', durum:'hazir',
+    ozet:'T\u00fcrk\u00e7enin yar\u0131s\u0131 burada. Bilgi de\u011fil teknik gerekir; teknik de sekiz soru tipinden ibarettir.',
+    bloklar:[
+      { t:'ozet', b:'Soru tipleri ve \u00e7\u00f6z\u00fcm anahtar\u0131', i:[
+        '**Ana d\u00fc\u015f\u00fcnce**: yazar\u0131n vermek istedi\u011fi temel mesaj. Genellikle **ilk veya son c\u00fcmlede** sakl\u0131d\u0131r. *"Anlat\u0131lmak istenen nedir?"*',
+        '**Yard\u0131mc\u0131 d\u00fc\u015f\u00fcnce**: ana d\u00fc\u015f\u00fcnceyi destekleyen ara yarg\u0131lar. Soru genellikle *"de\u011finilmemi\u015ftir"* bi\u00e7iminde sorulur \u2192 **eleme yap**.',
+        '**Konu**: neden s\u00f6z ediliyor? Ana d\u00fc\u015f\u00fcnceden **daha geni\u015f** ve daha yal\u0131nd\u0131r.',
+        '**Ba\u015fl\u0131k**: konuyu kapsayan **en dar** ifade. \u00c7ok genel de \u00e7ok dar da olmamal\u0131.',
+        '**Ak\u0131\u015f\u0131 bozan c\u00fcmle**: konudan sapan, \u00f6ncesi ve sonras\u0131yla ba\u011f\u0131 kopan c\u00fcmle.',
+        '**Paragraf tamamlama**: bo\u015flu\u011fun **\u00f6ncesi ve sonras\u0131** birlikte okunur; ba\u011fla\u00e7lar yol g\u00f6sterir.',
+        '**Paragraf\u0131 ikiye b\u00f6lme**: yeni bir d\u00fc\u015f\u00fcncenin ba\u015flad\u0131\u011f\u0131 c\u00fcmle ikinci paragraf\u0131n ilk c\u00fcmlesidir.',
+        '**Yazar\u0131n tavr\u0131**: nesnel mi \u00f6znel mi, ele\u015ftiriyor mu \u00f6v\u00fcyor mu?'
+      ]},
+      { t:'tablo', b:'Ba\u011fla\u00e7lar ne haber verir?', h:['Ba\u011fla\u00e7','Sinyal'], r:[
+        ['ama, fakat, ancak, ne var ki, oysa','**Z\u0131tl\u0131k** \u2014 ana d\u00fc\u015f\u00fcnce \u00e7o\u011funlukla bundan sonra gelir'],
+        ['\u00e7\u00fcnk\u00fc, zira, -d\u0131\u011f\u0131 i\u00e7in','**Neden** \u2014 a\u00e7\u0131klama geliyor'],
+        ['bu nedenle, dolay\u0131s\u0131yla, sonu\u00e7 olarak, k\u0131sacas\u0131','**Sonu\u00e7** \u2014 ana d\u00fc\u015f\u00fcnce burada'],
+        ['\u00f6rne\u011fin, s\u00f6zgelimi, nitekim','**\u00d6rnek** \u2014 yard\u0131mc\u0131 d\u00fc\u015f\u00fcnce'],
+        ['ayr\u0131ca, \u00fcstelik, hatta, bir de','**Ekleme** \u2014 ayn\u0131 y\u00f6nde devam'],
+        ['bu, o, bunlar, b\u00f6ylece','**Geriye g\u00f6nderme** \u2014 giri\u015f c\u00fcmlesi olamaz']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru yakla\u015f\u0131m', c:[
+        { y:'\u00d6nce paragraf\u0131 okurum, sonra soruya bakar\u0131m.',
+          d:'**\u00d6nce soru k\u00f6k\u00fcn\u00fc oku.** Ne arad\u0131\u011f\u0131n\u0131 bilmeden okumak, ayn\u0131 paragraf\u0131 iki kez okumaya yol a\u00e7ar. Paragraf sorular\u0131nda en b\u00fcy\u00fck kay\u0131p zaman kayb\u0131d\u0131r.' },
+        { y:'Ana d\u00fc\u015f\u00fcnce, paragrafta en \u00e7ok tekrarlanan kelimedir.',
+          d:'**Hay\u0131r \u2014 en \u00e7ok tekrarlanan kelime *konu*yu verir.** Ana d\u00fc\u015f\u00fcnce, o konu hakk\u0131nda **ileri s\u00fcr\u00fclen yarg\u0131**d\u0131r. Konu *"okuma al\u0131\u015fkanl\u0131\u011f\u0131"*, ana d\u00fc\u015f\u00fcnce *"okuma al\u0131\u015fkanl\u0131\u011f\u0131 \u00e7ocuklukta kazan\u0131l\u0131r"* olabilir.' },
+        { y:'Paragraf\u0131n ilk c\u00fcmlesi ba\u011fla\u00e7la ba\u015flayabilir.',
+          d:'**Ba\u015flayamaz.** Giri\u015f c\u00fcmlesi **ba\u011f\u0131ms\u0131z** olmal\u0131d\u0131r: *"ancak, ayr\u0131ca, bu nedenle, bunlar, oysa"* gibi ifadelerle ba\u015flayan c\u00fcmle giri\u015f c\u00fcmlesi olamaz. Bu, "paragraf\u0131n ilk c\u00fcmlesi hangisidir" sorusunun anahtar\u0131d\u0131r.' },
+        { y:'Se\u00e7enekteki bilgi do\u011fruysa cevap odur.',
+          d:'**Do\u011fru olmas\u0131 yetmez, *paragrafta s\u00f6ylenmi\u015f* olmas\u0131 gerekir.** Genel k\u00fclt\u00fcr\u00fcne g\u00f6re do\u011fru ama par\u00e7ada ge\u00e7meyen se\u00e7enek, en s\u0131k d\u00fc\u015f\u00fclen tuzakt\u0131r.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**\u00dc\u00e7 ad\u0131m:** \u2460 Soru k\u00f6k\u00fcn\u00fc oku, ne arad\u0131\u011f\u0131n\u0131 yaz. \u2461 Paragraf\u0131 **bir kez** oku, ana d\u00fc\u015f\u00fcnceyi kendi c\u00fcmlenle \u00f6zetle. \u2462 Se\u00e7enekleri **eleyerek** git \u2014 "paragrafta var m\u0131?" diye sor, "do\u011fru mu?" diye de\u011fil.' },
+      { t:'tuzak', i:[
+        '**"De\u011finilmemi\u015ftir" sorular\u0131** en \u00e7ok zaman yiyen tiptir. D\u00f6rt se\u00e7ene\u011fi par\u00e7ada tek tek i\u015faretle; kalan se\u00e7enek cevapt\u0131r.',
+        '**A\u015f\u0131r\u0131 genelleme tuza\u011f\u0131**: par\u00e7ada *"baz\u0131 yazarlar"* deniyorsa, *"t\u00fcm yazarlar"* diyen se\u00e7enek yanl\u0131\u015ft\u0131r. **her, hi\u00e7, asla, t\u00fcm, kesinlikle** kelimeleri \u015f\u00fcphelidir.',
+        '**Ba\u015fl\u0131k sorusunda** en \u00e7ekici se\u00e7enek genellikle \u00e7ok geni\u015f oland\u0131r. Ba\u015fl\u0131k, paragraf\u0131n **tamam\u0131n\u0131** kapsamal\u0131 ama **fazlas\u0131n\u0131** kapsamamal\u0131d\u0131r.',
+        '**Paragraf tamamlamada** bo\u015fluk sondaysa, \u00f6nceki c\u00fcmlenin ba\u011flac\u0131na bak; bo\u015fluk ba\u015ftaysa, sonraki c\u00fcmledeki *"bu, bunlar, b\u00f6ylece"* g\u00f6ndermelerine bak.',
+        '**Yazar\u0131n tavr\u0131** ile **yazar\u0131n anlatt\u0131\u011f\u0131 ki\u015finin tavr\u0131** kar\u0131\u015ft\u0131r\u0131l\u0131r. Kimin g\u00f6r\u00fc\u015f\u00fc soruldu\u011funa dikkat et.',
+        'S\u00fcre y\u00f6netimi: paragraf sorusu ba\u015f\u0131na **60\u201375 saniye**. Tak\u0131l\u0131rsan i\u015faretle, ge\u00e7, sona b\u0131rak.'
+      ]},
+      { t:'test', s:[
+        { q:'"Bir yazar\u0131n de\u011feri, ka\u00e7 kitap yazd\u0131\u011f\u0131yla de\u011fil, okurunda ka\u00e7 soru b\u0131rakt\u0131\u011f\u0131yla \u00f6l\u00e7\u00fcl\u00fcr. \u00c7ok satan pek \u00e7ok kitap vard\u0131r ki okunduktan sonra geriye hi\u00e7bir \u015fey b\u0131rakmaz. Oysa bazen tek bir sayfa, insan\u0131n y\u0131llarca akl\u0131ndan \u00e7\u0131kmaz."\n\nBu par\u00e7an\u0131n ana d\u00fc\u015f\u00fcncesi nedir?',
+          c:['\u00c7ok kitap yazan yazarlar ba\u015far\u0131l\u0131d\u0131r.','Edebiyatta nicelik de\u011fil, okurda b\u0131rakt\u0131\u011f\u0131 iz \u00f6nemlidir.','\u00c7ok satan kitaplar genellikle k\u00f6t\u00fcd\u00fcr.','K\u0131sa metinler uzun metinlerden de\u011ferlidir.'],
+          d:1, a:'Par\u00e7a boyunca say\u0131 (ka\u00e7 kitap, \u00e7ok satan) ile etki (soru b\u0131rakma, ak\u0131ldan \u00e7\u0131kmama) kar\u015f\u0131la\u015ft\u0131r\u0131l\u0131yor ve etki \u00fcst\u00fcn tutuluyor. C ve D a\u015f\u0131r\u0131 genellemedir; A par\u00e7an\u0131n tam tersidir.' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerden hangisi bir paragraf\u0131n **giri\u015f c\u00fcmlesi** olamaz?',
+          c:['Okuma al\u0131\u015fkanl\u0131\u011f\u0131 \u00e7ocuklukta kazan\u0131l\u0131r.','Bu nedenle aileye b\u00fcy\u00fck g\u00f6rev d\u00fc\u015fmektedir.','Kitap, insan\u0131n en eski arkada\u015f\u0131d\u0131r.','Teknoloji okuma bi\u00e7imimizi de\u011fi\u015ftirdi.'],
+          d:1, a:'"Bu nedenle" bir \u00f6nceki c\u00fcmleye g\u00f6nderme yapar; kendisinden \u00f6nce bir a\u00e7\u0131klama gerektirir. Giri\u015f c\u00fcmlesi ba\u011f\u0131ms\u0131z olmal\u0131d\u0131r.' },
+        { q:'"(I) Deniz kaplumba\u011falar\u0131 yumurtalar\u0131n\u0131 kumsala b\u0131rak\u0131r. (II) Yavrular yumurtadan \u00e7\u0131k\u0131nca ay \u0131\u015f\u0131\u011f\u0131n\u0131 izleyerek denize y\u00f6nelir. (III) Kumsallardaki yapay \u0131\u015f\u0131klar bu y\u00f6nelimi bozar. (IV) Kaplumba\u011fa eti baz\u0131 \u00fclkelerde h\u00e2l\u00e2 t\u00fcketilmektedir. (V) Bu y\u00fczden bir\u00e7ok yavru denize ula\u015famadan \u00f6l\u00fcr."\n\nNumaralanm\u0131\u015f c\u00fcmlelerden hangisi par\u00e7an\u0131n ak\u0131\u015f\u0131n\u0131 bozmaktad\u0131r?',
+          c:['II','III','IV','V'],
+          d:2, a:'Par\u00e7a, yavrular\u0131n denize y\u00f6nelimi ve yapay \u0131\u015f\u0131klar\u0131n bu y\u00f6nelimi bozmas\u0131 \u00fczerinedir. IV. c\u00fcmle avlanma/t\u00fcketim konusuna ge\u00e7erek ak\u0131\u015f\u0131 bozar; ayr\u0131ca V. c\u00fcmledeki "bu y\u00fczden" do\u011frudan III\'e ba\u011flan\u0131r.' }
+      ]}
+    ]},
+
+  /* ============== 12 ============== */
+  { id:'anlatim-bicimleri', ad:'Paragrafta Anlat\u0131m Bi\u00e7imleri', soru:'1\u20132 soru', durum:'hazir',
+    ozet:'D\u00f6rt anlat\u0131m bi\u00e7imi, alt\u0131 geli\u015ftirme yolu. Ay\u0131rt etmek i\u00e7in tek soru yeter: yazar ne yap\u0131yor?',
+    bloklar:[
+      { t:'tablo', b:'D\u00f6rt anlat\u0131m bi\u00e7imi', h:['Bi\u00e7im','Ama\u00e7','\u0130\u015fareti'], r:[
+        ['**A\u00e7\u0131klay\u0131c\u0131**','Bilgi vermek, \u00f6\u011fretmek','Tarafs\u0131z dil, tan\u0131mlar, *"-d\u0131r"* ekleri'],
+        ['**Tart\u0131\u015fmac\u0131**','\u0130kna etmek, kar\u015f\u0131 g\u00f6r\u00fc\u015f\u00fc \u00e7\u00fcr\u00fctmek','*"oysa, ne var ki, bana kal\u0131rsa, do\u011fru de\u011fildir"*'],
+        ['**Betimleyici**','G\u00f6z \u00f6n\u00fcnde canland\u0131rmak','S\u0131fat bollu\u011fu, duyu ayr\u0131nt\u0131lar\u0131, **zaman durur**'],
+        ['**\u00d6yk\u00fcleyici**','Olay\u0131 anlatmak','Olay\u2013ki\u015fi\u2013zaman\u2013mek\u00e2n, **hareket vard\u0131r**']
+      ]},
+      { t:'tablo', b:'D\u00fc\u015f\u00fcnceyi geli\u015ftirme yollar\u0131', h:['Yol','Tan\u0131ma anahtar\u0131','\u00d6rnek ifade'], r:[
+        ['Tan\u0131mlama','*"nedir?"* sorusuna cevap','*"Roman, ... bir anlat\u0131 t\u00fcr\u00fcd\u00fcr."*'],
+        ['\u00d6rnekleme','Somut \u00f6rnek verilir','*"\u00f6rne\u011fin, s\u00f6zgelimi, nitekim"*'],
+        ['Kar\u015f\u0131la\u015ft\u0131rma','\u0130ki \u015fey yan yana konur','*"oysa, buna kar\u015f\u0131l\u0131k, -e g\u00f6re, daha"*'],
+        ['Tan\u0131k g\u00f6sterme','\u00dcnl\u00fc birinin s\u00f6z\u00fc, **t\u0131rnak i\u00e7inde**','*"Nurullah Ata\u00e7 \u015f\u00f6yle der: ..."*'],
+        ['Say\u0131sal verilerden yararlanma','Rakam, oran, istatistik','*"%40\'\u0131, \u00fc\u00e7 ki\u015fiden biri"*'],
+        ['Benzetme','Bir \u015fey ba\u015fka bir \u015feye benzetilir','*"gibi, sanki, and\u0131r\u0131r"*']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ayr\u0131m', c:[
+        { y:'"Yazar bu par\u00e7ada bir olay\u0131 anlatm\u0131\u015f, demek ki betimleme var."',
+          d:'**\u00d6yk\u00fcleme.** Betimlemede **hareket yoktur**, zaman donar, tablo \u00e7izilir. \u00d6yk\u00fclemede olay akar. En kolay ayr\u0131m: *"sonra ne oldu?"* diye sorabiliyorsan \u00f6yk\u00fclemedir.' },
+        { y:'Tan\u0131k g\u00f6sterme ile \u00f6rnekleme ayn\u0131 \u015feydir.',
+          d:'**Farkl\u0131d\u0131r.** \u00d6rneklemede yazar **kendi** somut \u00f6rne\u011fini verir. Tan\u0131k g\u00f6stermede **ba\u015fkas\u0131n\u0131n s\u00f6z\u00fc** aktar\u0131l\u0131r ve genellikle kaynak belirtilir.' },
+        { y:'"Bu g\u00f6r\u00fc\u015fe kat\u0131lm\u0131yorum" diyen bir par\u00e7a a\u00e7\u0131klay\u0131c\u0131d\u0131r.',
+          d:'**Tart\u0131\u015fmac\u0131d\u0131r.** A\u00e7\u0131klay\u0131c\u0131 anlat\u0131mda yazar taraf tutmaz, bilgi verir. Kar\u015f\u0131 \u00e7\u0131kma, \u00e7\u00fcr\u00fctme, ikna etme varsa tart\u0131\u015fmac\u0131d\u0131r.' },
+        { y:'Bir paragrafta yaln\u0131zca tek bir anlat\u0131m bi\u00e7imi bulunabilir.',
+          d:'**Birden \u00e7o\u011fu bir arada bulunabilir.** Soruda genellikle *"a\u011f\u0131r basan"* ya da *"ba\u015fvurulmayan"* bi\u00e7im sorulur; bu y\u00fczden hepsini i\u015faretlemek gerekir.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Tek soruyla ay\u0131r:** Yazar *\u00f6\u011fretiyor* mu \u2192 **a\u00e7\u0131klay\u0131c\u0131**. *\u0130kna ediyor* mu \u2192 **tart\u0131\u015fmac\u0131**. *\u00c7izdiriyor* mu \u2192 **betimleyici**. *Ya\u015fat\u0131yor* mu \u2192 **\u00f6yk\u00fcleyici**.' },
+      { t:'tuzak', i:[
+        '**Betimleme iki t\u00fcrl\u00fcd\u00fcr**: *fiziksel* (d\u0131\u015f g\u00f6r\u00fcn\u00fc\u015f) ve *ruhsal* (i\u00e7 d\u00fcnya, tahlil). \u0130kincisi g\u00f6zden ka\u00e7ar.',
+        '**Say\u0131sal veri** ile **\u00f6rnekleme** kar\u0131\u015ft\u0131r\u0131l\u0131r: rakam varsa say\u0131sal veridir, somut bir durum anlat\u0131l\u0131yorsa \u00f6rneklemedir.',
+        '**Kar\u015f\u0131la\u015ft\u0131rmada** iki \u015feyin **ayn\u0131 \u00f6l\u00e7\u00fcte g\u00f6re** de\u011ferlendirilmesi gerekir; sadece iki kavram\u0131n an\u0131lmas\u0131 kar\u015f\u0131la\u015ft\u0131rma say\u0131lmaz.',
+        '**Tan\u0131mlama** c\u00fcmlesi *"nas\u0131ld\u0131r?"* de\u011fil *"nedir?"* sorusuna cevap verir. *"Roman uzun bir t\u00fcrd\u00fcr"* tan\u0131m de\u011fildir.'
+      ]},
+      { t:'test', s:[
+        { q:'"Kap\u0131n\u0131n \u00f6n\u00fcnde ya\u015fl\u0131 bir \u00e7\u0131nar duruyordu. G\u00f6vdesi \u00e7atlam\u0131\u015f, dallar\u0131 iki yana sarkm\u0131\u015ft\u0131. Yapraklar\u0131 \u00f6\u011fle g\u00fcne\u015finde kur\u015funi bir renk alm\u0131\u015ft\u0131."\n\nBu par\u00e7an\u0131n anlat\u0131m bi\u00e7imi nedir?',
+          c:['\u00d6yk\u00fcleyici','Betimleyici','A\u00e7\u0131klay\u0131c\u0131','Tart\u0131\u015fmac\u0131'],
+          d:1, a:'Olay yok, hareket yok; bir g\u00f6r\u00fcnt\u00fc s\u0131fatlarla \u00e7izilmi\u015f. Zaman donmu\u015f durumda \u2014 betimleme.' },
+        { q:'"T\u00fcrkiye\'de ki\u015fi ba\u015f\u0131na d\u00fc\u015fen y\u0131ll\u0131k kitap okuma s\u00fcresi ortalama alt\u0131 saattir. Bu oran, Avrupa ortalamas\u0131n\u0131n \u00e7ok alt\u0131ndad\u0131r."\n\nBu par\u00e7ada hangi d\u00fc\u015f\u00fcnceyi geli\u015ftirme yollar\u0131na ba\u015fvurulmu\u015ftur?',
+          c:['Tan\u0131mlama ve \u00f6rnekleme','Say\u0131sal veri ve kar\u015f\u0131la\u015ft\u0131rma','Tan\u0131k g\u00f6sterme ve benzetme','Benzetme ve \u00f6rnekleme'],
+          d:1, a:'"Alt\u0131 saat" say\u0131sal veridir; Avrupa ortalamas\u0131yla k\u0131yaslama ise kar\u015f\u0131la\u015ft\u0131rmad\u0131r.' },
+        { q:'A\u015fa\u011f\u0131daki c\u00fcmlelerden hangisinde **tan\u0131k g\u00f6sterme** vard\u0131r?',
+          c:['\u015eiir, duygular\u0131n yo\u011funla\u015ft\u0131r\u0131lm\u0131\u015f h\u00e2lidir.','\u00d6rne\u011fin Yunus Emre \u00e7ok sade bir dil kullan\u0131r.','Cemil Meri\u00e7, "Kitap, en sad\u0131k dosttur." der.','\u015eiir okumak, sessiz bir yolculu\u011fa benzer.'],
+          d:2, a:'Bir d\u00fc\u015f\u00fcn\u00fcr\u00fcn s\u00f6z\u00fc do\u011frudan al\u0131nt\u0131lan\u0131p kayna\u011f\u0131 belirtilmi\u015ftir. A tan\u0131mlama, B \u00f6rnekleme, D benzetmedir.' }
+      ]}
+    ]},
+
+  /* ============== 13 ============== */
+  { id:'sozel-mantik', ad:'S\u00f6zel Mant\u0131k', soru:'3\u20134 soru', durum:'hazir',
+    ozet:'Bilgi gerektirmez, tablo gerektirir. Kalemi eline al, kafadan \u00e7\u00f6zmeye \u00e7al\u0131\u015fma.',
+    bloklar:[
+      { t:'ozet', b:'Soru tipleri', i:[
+        '**S\u0131ralama**: boy, ya\u015f, s\u0131ra, puan. *"A, B\'den uzundur"* bi\u00e7iminde ipu\u00e7lar\u0131 verilir.',
+        '**E\u015fle\u015ftirme**: kim\u2013hangi \u015fehir, kim\u2013hangi meslek. **Tablo kurulur.**',
+        '**Konum belirleme**: kim nerede oturuyor, hangi katta.',
+        '**\u00c7\u0131kar\u0131m**: verilenlerden **kesin** olarak ne s\u00f6ylenebilir?',
+        '**Ko\u015fullu \u00f6nerme**: *"p ise q"* bi\u00e7imindeki yarg\u0131lardan sonu\u00e7 \u00e7\u0131karma.'
+      ]},
+      { t:'tablo', b:'Ko\u015fullu \u00f6nerme \u2014 hangisi kesin?', h:['\u00d6nerme','Do\u011fru mu?'], r:[
+        ['*p ise q* (verilen)','\u2713 Do\u011fru kabul edilir'],
+        ['*q de\u011filse p de\u011fil* (**kar\u015f\u0131t tersi**)','\u2713 **Her zaman do\u011frudur**'],
+        ['*q ise p* (tersi/\u00e7evrilmi\u015fi)','\u2717 Do\u011fru olmak zorunda de\u011fil'],
+        ['*p de\u011filse q de\u011fil* (kar\u015f\u0131t\u0131)','\u2717 Do\u011fru olmak zorunda de\u011fil']
+      ]},
+      { t:'karsit', b:'Yanl\u0131\u015f / do\u011fru ak\u0131l y\u00fcr\u00fctme', c:[
+        { y:'"Ya\u011fmur ya\u011farsa ma\u00e7 iptal olur. Ma\u00e7 iptal oldu, \u00f6yleyse ya\u011fmur ya\u011fm\u0131\u015ft\u0131r."',
+          d:'**Ge\u00e7ersiz.** Bu, \u00f6nermenin *tersini* kullanmakt\u0131r. Ma\u00e7 ba\u015fka nedenlerle de iptal olabilir. Ge\u00e7erli olan: *"Ma\u00e7 iptal olmad\u0131ysa ya\u011fmur ya\u011fmam\u0131\u015ft\u0131r."*' },
+        { y:'"Baz\u0131 \u00f6\u011frenciler sporcudur" ise "baz\u0131 sporcular \u00f6\u011frencidir" de do\u011frudur.',
+          d:'**Do\u011frudur.** *"Baz\u0131"* i\u00e7eren \u00f6nermeler kar\u015f\u0131l\u0131kl\u0131 \u00e7evrilebilir. Ancak *"t\u00fcm"* i\u00e7erenler \u00e7evrilemez: *"T\u00fcm \u00f6\u011frenciler insand\u0131r"* \u2260 *"T\u00fcm insanlar \u00f6\u011frencidir."*' },
+        { y:'S\u0131ralama sorusunu kafamdan takip edebilirim.',
+          d:'**K\u00e2\u011f\u0131da \u00e7iz.** S\u0131ralama sorular\u0131nda bir eksen \u00e7izip isimleri yerle\u015ftirmek, hem h\u0131z hem do\u011fruluk kazand\u0131r\u0131r. Kafadan \u00e7\u00f6zmek en s\u0131k hata kayna\u011f\u0131d\u0131r.' }
+      ]},
+      { t:'kod', b:'Haf\u0131za kodu', x:'**Kesinlik kontrol\u00fc:** Bir yarg\u0131, verilen bilgilerin **her** olas\u0131 dizili\u015finde do\u011fruysa kesindir. Tek bir kar\u015f\u0131 \u00f6rnek bulabiliyorsan kesin de\u011fildir. Sorularda *"kesinlikle do\u011frudur"* ifadesi g\u00f6r\u00fcnce kar\u015f\u0131 \u00f6rnek aramaya ba\u015fla.' },
+      { t:'tuzak', i:[
+        '**"En az / en \u00e7ok" ifadeleri** olas\u0131l\u0131k b\u0131rak\u0131r; *"tam olarak"* b\u0131rakmaz. Kar\u0131\u015ft\u0131rma.',
+        '**Tablo kurarken** kesin bilgileri (\u2713) ve kesin olmayanlar\u0131 (\u2717) ayr\u0131 i\u015faretle; bo\u015f b\u0131rakma.',
+        '**"Hi\u00e7biri" ve "hepsi"** i\u00e7eren se\u00e7enekler genellikle tek bir kar\u015f\u0131 \u00f6rnekle elenir \u2014 \u00f6nce onlar\u0131 dene.',
+        'S\u00f6zel mant\u0131k sorular\u0131 **uzun ama kolayd\u0131r**. Panikleyip atlamak yerine, en son 3\u20134 dakikay\u0131 bunlara ay\u0131r: net getirisi y\u00fcksektir.',
+        'Bir soruda birden fazla \u015f\u0131k soruluyorsa (ayn\u0131 bilgiye dayal\u0131 2-3 soru), tabloyu **bir kez** kurup \u00fc\u00e7\u00fcn\u00fc birden \u00e7\u00f6z.'
+      ]},
+      { t:'test', s:[
+        { q:'Ali, Burak\'tan uzundur. Can, Ali\'den k\u0131sad\u0131r. Deniz, Burak\'tan k\u0131sad\u0131r.\n\nBuna g\u00f6re kesinlikle do\u011fru olan nedir?',
+          c:['Can, Deniz\'den uzundur.','Ali en uzundur.','Burak, Can\'dan uzundur.','Deniz en k\u0131sad\u0131r.'],
+          d:1, a:'Ali > Burak, Ali > Can, Burak > Deniz. Ali herkesten uzundur \u2192 B kesin. Can ile Deniz ve Can ile Burak aras\u0131nda s\u0131ralama belirsizdir.' },
+        { q:'"Bir \u00f6\u011frenci s\u0131nav\u0131 ge\u00e7tiyse derse d\u00fczenli devam etmi\u015ftir."\n\nBu \u00f6nermeye g\u00f6re a\u015fa\u011f\u0131dakilerden hangisi **kesinlikle** do\u011frudur?',
+          c:['Derse d\u00fczenli devam eden \u00f6\u011frenci s\u0131nav\u0131 ge\u00e7mi\u015ftir.','Derse d\u00fczenli devam etmeyen \u00f6\u011frenci s\u0131nav\u0131 ge\u00e7ememi\u015ftir.','S\u0131nav\u0131 ge\u00e7emeyen \u00f6\u011frenci derse devam etmemi\u015ftir.','Derse devam etmeyen \u00f6\u011frenci s\u0131nava girmemi\u015ftir.'],
+          d:1, a:'Kar\u015f\u0131t tersi her zaman do\u011frudur: "q de\u011filse p de\u011fil". Devam etmediyse ge\u00e7memi\u015ftir. A \u00f6nermenin tersi, C ise kar\u015f\u0131t\u0131d\u0131r; ikisi de kesin de\u011fildir.' },
+        { q:'D\u00f6rt arkada\u015f yan yana oturuyor. Ece en solda de\u011fil. Faruk, Ece\'nin hemen sa\u011f\u0131nda. Gizem en sa\u011fda. Hakan ile Faruk yan yana de\u011fil.\n\nEn soldaki kimdir?',
+          c:['Ece','Faruk','Gizem','Hakan'],
+          d:3, a:'Gizem en sa\u011fda (4. s\u0131ra). Ece en solda de\u011fil, Faruk hemen sa\u011f\u0131nda \u2192 Ece-Faruk ikilisi 2-3 olmal\u0131. Geriye 1. s\u0131ra i\u00e7in Hakan kal\u0131r; Hakan (1) ile Faruk (3) yan yana de\u011fildir, ko\u015ful sa\u011flan\u0131r.' }
+      ]}
     ]}
-  ]
-},
-
-{
-  id:'cumlede-anlam', ad:'C\u00fcmlede Anlam', soru:'1\u20133 soru', durum:'hazir',
-  ozet:'C\u00fcmlenin ne s\u00f6yledi\u011fini de\u011fil, nas\u0131l s\u00f6yledi\u011fini soruyor: neden-sonu\u00e7, ko\u015ful, ama\u00e7, kar\u015f\u0131la\u015ft\u0131rma.',
-  bloklar:[
-    {t:'tablo', b:'Anlam ili\u015fkileri', h:['\u0130li\u015fki','\u0130\u015faret kelimesi','\u00d6rnek'], r:[
-      ['Neden-sonu\u00e7','i\u00e7in, -di\u011finden, dolay\u0131, ile','Ya\u011fmur **ya\u011fd\u0131\u011f\u0131 i\u00e7in** ma\u00e7 ertelendi.'],
-      ['Ama\u00e7-sonu\u00e7','i\u00e7in, \u00fczere, diye, amac\u0131yla','S\u0131nav\u0131 kazanmak **i\u00e7in** \u00e7al\u0131\u015f\u0131yor.'],
-      ['Ko\u015ful (\u015fart)','-se, -dik\u00e7e, ancak, yeter ki','Erken kalkarsan yeti\u015firsin.'],
-      ['Kar\u015f\u0131la\u015ft\u0131rma','daha, en, kadar, g\u00f6re','Bu kitap \u00f6tekinden **daha** iyi.'],
-      ['\u00d6znellik','bence, san\u0131r\u0131m, g\u00fczel, k\u00f6t\u00fc','Bu film **\u00e7ok s\u0131k\u0131c\u0131yd\u0131**.'],
-      ['Nesnellik','say\u0131, \u00f6l\u00e7\u00fc, kan\u0131tlanabilir bilgi','Film **120 dakika** s\u00fcr\u00fcyor.'],
-      ['E\u015fitlik / yakla\u015f\u0131kl\u0131k','gibi, sanki, yakla\u015f\u0131k','**Yakla\u015f\u0131k** 50 ki\u015fi vard\u0131.']
-    ]},
-    {t:'karsit', b:'Neden-sonu\u00e7 mu ama\u00e7-sonu\u00e7 mu?', c:[
-      {y:'"S\u0131nav\u0131 kazanmak **i\u00e7in** \u00e7al\u0131\u015ft\u0131." \u2192 neden-sonu\u00e7', d:'**Ama\u00e7-sonu\u00e7.** "\u0130\u00e7in"den \u00f6nceki k\u0131s\u0131m hen\u00fcz ger\u00e7ekle\u015fmemi\u015f bir *hedef*tir. Neden-sonu\u00e7ta \u00f6nceki k\u0131s\u0131m ger\u00e7ekle\u015fmi\u015f olmal\u0131d\u0131r.'},
-      {y:'"Hasta **oldu\u011fu i\u00e7in** gelmedi." \u2192 ama\u00e7-sonu\u00e7', d:'**Neden-sonu\u00e7.** Hastal\u0131k ger\u00e7ekle\u015fmi\u015f bir durumdur, hedef de\u011fildir. K\u0131sa test: "i\u00e7in"den \u00f6ncesi *olmu\u015f* mu, *olacak* m\u0131?'}
-    ]},
-    {t:'kod', b:'\u0130\u00e7in testi', x:'**"\u0130\u00e7in"den \u00f6ncesi OLMU\u015eSA neden, OLACAKSA ama\u00e7.** Tek soruyla ayr\u0131l\u0131r.'}
-  ]
-},
-
-{ id:'sozcuk-turleri', ad:'S\u00f6zc\u00fck T\u00fcrleri', soru:'1\u20132 soru', durum:'iskelet',
-  ozet:'\u0130sim, s\u0131fat, zamir, zarf, edat, ba\u011fla\u00e7, \u00fcnlem, fiil. En \u00e7ok zamir-s\u0131fat ve edat-ba\u011fla\u00e7 ayr\u0131m\u0131 sorulur.',
-  bloklar:[
-    {t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-      '\u0130sim: varl\u0131k, cins, \u00f6zel, tekil-\u00e7o\u011ful-topluluk, somut-soyut',
-      'S\u0131fat: niteleme / belirtme (i\u015faret, say\u0131, belgisiz, soru)',
-      'Zamir: ki\u015fi, i\u015faret, belgisiz, soru, ilgi (-ki), iyelik, ek h\u00e2lindeki zamirler',
-      'Zarf: durum, zaman, yer-y\u00f6n, miktar, soru',
-      'Edat (ilge\u00e7), ba\u011fla\u00e7, \u00fcnlem \u2014 ayr\u0131m\u0131 ve "de / ki / ile" kullan\u0131m\u0131',
-      'Fiil: kip, ki\u015fi, \u00e7at\u0131, ek-fiil, yap\u0131'
-    ]},
-    {t:'karsit', b:'S\u0131fat m\u0131 zamir mi? (\u00f6rnek \u015fablon)', c:[
-      {y:'"**Bu** kitab\u0131 okudum." \u2192 zamir', d:'**S\u0131fat.** \u0130smin \u00f6n\u00fcnde ve onu belirtiyor. "**Bu**nu okudum" deseydi zamir olurdu \u2014 zamir ismin yerini tutar, s\u0131fat ismin \u00f6n\u00fcne gelir.'}
-    ]}
-  ]
-},
-
-{ id:'sozcukte-yapi', ad:'S\u00f6zc\u00fckte Yap\u0131', soru:'1 soru', durum:'iskelet',
-  ozet:'K\u00f6k, g\u00f6vde, yap\u0131m eki, \u00e7ekim eki. Basit-t\u00fcremi\u015f-birle\u015fik ayr\u0131m\u0131.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'K\u00f6k t\u00fcrleri: isim k\u00f6k\u00fc, fiil k\u00f6k\u00fc, ortak k\u00f6k, seste\u015f k\u00f6k',
-    'Yap\u0131m ekleri: isimden isim, isimden fiil, fiilden isim, fiilden fiil',
-    '\u00c7ekim ekleri: h\u00e2l, iyelik, \u00e7o\u011ful, tamlayan, kip, ki\u015fi, ek-fiil',
-    'Basit / t\u00fcremi\u015f / birle\u015fik s\u00f6zc\u00fck',
-    'Birle\u015fik s\u00f6zc\u00fck kurulma yollar\u0131'
-  ]}]
-},
-
-{ id:'cumlenin-ogeleri', ad:'C\u00fcmlenin \u00d6geleri', soru:'1 soru', durum:'iskelet',
-  ozet:'Y\u00fcklem, \u00f6zne, nesne, dolayl\u0131 t\u00fcmle\u00e7, zarf t\u00fcmleci, edat t\u00fcmleci.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    '\u00d6nce y\u00fcklem bulunur, sonra sorular y\u00fckleme sorulur',
-    'Ger\u00e7ek \u00f6zne / s\u00f6zde \u00f6zne ayr\u0131m\u0131',
-    'Belirtili ve belirtisiz nesne',
-    'Dolayl\u0131 t\u00fcmle\u00e7: -e / -de / -den h\u00e2l ekleri',
-    'Ara s\u00f6z, ara c\u00fcmle ve \u00f6ge d\u0131\u015f\u0131 unsurlar'
-  ]}]
-},
-
-{ id:'cumle-turleri', ad:'C\u00fcmle T\u00fcrleri', soru:'1 soru', durum:'iskelet',
-  ozet:'Y\u00fckleminin t\u00fcr\u00fcne, yerine, anlam\u0131na ve yap\u0131s\u0131na g\u00f6re c\u00fcmleler.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'Y\u00fcklemin t\u00fcr\u00fcne g\u00f6re: fiil / isim c\u00fcmlesi',
-    'Y\u00fcklemin yerine g\u00f6re: kurall\u0131 / devrik',
-    'Anlam\u0131na g\u00f6re: olumlu, olumsuz, soru, \u00fcnlem',
-    'Yap\u0131s\u0131na g\u00f6re: basit, birle\u015fik, s\u0131ral\u0131, ba\u011fl\u0131',
-    'Birle\u015fik c\u00fcmle \u00e7e\u015fitleri: giri\u015fik, \u015fartl\u0131, ki\'li, i\u00e7 i\u00e7e'
-  ]}]
-},
-
-{ id:'ses-olaylari', ad:'Ses Bilgisi ve Ses Olaylar\u0131', soru:'1\u20132 soru', durum:'iskelet',
-  ozet:'\u00dcnl\u00fc ve \u00fcns\u00fcz uyumlar\u0131 + ses olaylar\u0131. Ezberi az, mant\u0131\u011f\u0131 \u00e7ok bir konu.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'B\u00fcy\u00fck ve k\u00fc\u00e7\u00fck \u00fcnl\u00fc uyumu, uymayan s\u00f6zc\u00fckler',
-    '\u00dcns\u00fcz benze\u015fmesi (sertle\u015fme), \u00fcns\u00fcz yumu\u015famas\u0131',
-    '\u00dcnl\u00fc d\u00fc\u015fmesi, \u00fcnl\u00fc t\u00fcremesi, \u00fcnl\u00fc daralmas\u0131',
-    '\u00dcns\u00fcz d\u00fc\u015fmesi, \u00fcns\u00fcz t\u00fcremesi, kayna\u015ft\u0131rma',
-    'Ulama ve vurgu'
-  ]}]
-},
-
-{ id:'yazim', ad:'Yaz\u0131m Kurallar\u0131', soru:'1 soru', durum:'iskelet',
-  ozet:'Garanti soru. Kural say\u0131s\u0131 s\u0131n\u0131rl\u0131, tekrar edince kaybedilmez.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'B\u00fcy\u00fck harflerin kullan\u0131ld\u0131\u011f\u0131 yerler',
-    '"de / da" ayr\u0131 m\u0131 biti\u015fik mi',
-    '"ki" ayr\u0131 m\u0131 biti\u015fik mi',
-    '"mi" soru ekinin yaz\u0131m\u0131',
-    'Birle\u015fik kelimelerin biti\u015fik / ayr\u0131 yaz\u0131m\u0131',
-    'Say\u0131lar\u0131n, k\u0131saltmalar\u0131n, tarihlerin yaz\u0131m\u0131',
-    'D\u00fczeltme i\u015fareti (^) kullan\u0131m\u0131'
-  ]}]
-},
-
-{ id:'noktalama', ad:'Noktalama \u0130\u015faretleri', soru:'1 soru', durum:'iskelet',
-  ozet:'Garanti soru. Virg\u00fcl ve kesme i\u015fareti en \u00e7ok sorulanlar.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'Nokta, virg\u00fcl, noktal\u0131 virg\u00fcl, iki nokta',
-    '\u00dc\u00e7 nokta, soru i\u015fareti, \u00fcnlem',
-    'K\u0131sa \u00e7izgi, uzun \u00e7izgi, t\u0131rnak, parantez',
-    'Kesme i\u015faretinin ay\u0131rd\u0131\u011f\u0131 ve ay\u0131rmad\u0131\u011f\u0131 ekler'
-  ]}]
-},
-
-{ id:'anlatim-bozukluklari', ad:'Anlat\u0131m Bozukluklar\u0131', soru:'1\u20132 soru', durum:'iskelet',
-  ozet:'Anlamsal ve yap\u0131sal bozukluklar. C\u00fcmleyi sesli okuyunca \u00e7o\u011fu kendini belli eder.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'Anlamsal: gereksiz s\u00f6zc\u00fck, anlamca \u00e7eli\u015fme, yanl\u0131\u015f anlamda kullan\u0131m, mant\u0131k hatas\u0131',
-    'Yap\u0131sal: \u00f6zne-y\u00fcklem uyumsuzlu\u011fu, \u00f6ge eksikli\u011fi, tamlama yanl\u0131\u015f\u0131, ek yanl\u0131\u015f\u0131, \u00e7at\u0131 uyumsuzlu\u011fu',
-    'Deyim ve atas\u00f6z\u00fc yanl\u0131\u015f kullan\u0131m\u0131'
-  ]}]
-},
-
-{ id:'paragraf', ad:'Paragrafta Anlam', soru:'14\u201315 soru \u2014 dersin belkemi\u011fi', durum:'iskelet',
-  ozet:'T\u00fcrk\u00e7enin yar\u0131s\u0131 bu konu. Bilgi de\u011fil teknik gerektirir; g\u00fcnde 20 paragraf \u00e7\u00f6zmek en verimli \u00e7al\u0131\u015fmad\u0131r.',
-  bloklar:[
-    {t:'ozet', b:'Soru tipleri', i:[
-      'Ana d\u00fc\u015f\u00fcnce / ana fikir',
-      'Yard\u0131mc\u0131 d\u00fc\u015f\u00fcnce ("de\u011finilmemi\u015ftir" sorular\u0131)',
-      'Paragraf\u0131n konusu ve ba\u015fl\u0131\u011f\u0131',
-      'Paragrafta yap\u0131: giri\u015f, geli\u015fme, sonu\u00e7 c\u00fcmlesi',
-      'Paragraf\u0131 ikiye b\u00f6lme, ak\u0131\u015f\u0131 bozan c\u00fcmle',
-      'Bo\u015fluk doldurma, c\u00fcmle tamamlama',
-      'Paragraf olu\u015fturma (c\u00fcmle s\u0131ralama)',
-      'Yazar\u0131n bak\u0131\u015f a\u00e7\u0131s\u0131, \u00fcslubu, amac\u0131'
-    ]},
-    {t:'kod', b:'Paragraf tekni\u011fi', x:'**\u00d6nce soru k\u00f6k\u00fc, sonra par\u00e7a.** Ne arad\u0131\u011f\u0131n\u0131 bilmeden okumak zaman kayb\u0131d\u0131r. "De\u011finilmemi\u015ftir" sorular\u0131nda \u015f\u0131klar\u0131 par\u00e7ada tek tek i\u015faretle \u2014 eleme y\u00f6ntemi burada en h\u0131zl\u0131s\u0131d\u0131r.'}
-  ]
-},
-
-{ id:'anlatim-bicimleri', ad:'Paragrafta Anlat\u0131m Bi\u00e7imleri', soru:'1 soru', durum:'iskelet',
-  ozet:'Anlat\u0131m bi\u00e7imi (a\u00e7\u0131klama, tart\u0131\u015fma, betimleme, \u00f6yk\u00fcleme) ve d\u00fc\u015f\u00fcnceyi geli\u015ftirme yollar\u0131.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'A\u00e7\u0131klay\u0131c\u0131, tart\u0131\u015fmac\u0131, betimleyici, \u00f6yk\u00fcleyici anlat\u0131m',
-    'D\u00fc\u015f\u00fcnceyi geli\u015ftirme yollar\u0131: tan\u0131mlama, \u00f6rnekleme, kar\u015f\u0131la\u015ft\u0131rma, tan\u0131k g\u00f6sterme, say\u0131sal veri, benzetme'
-  ]}]
-},
-
-{ id:'sozel-mantik', ad:'S\u00f6zel Mant\u0131k', soru:'4 soru', durum:'iskelet',
-  ozet:'Bilgi gerektirmez, tablo kurmay\u0131 gerektirir. Do\u011fru \u00e7\u00f6z\u00fcl\u00fcrse en garantili 4 sorudur.',
-  bloklar:[{t:'ozet', b:'\u0130\u015flenecek ba\u015fl\u0131klar', i:[
-    'S\u0131ralama ve dizilim problemleri',
-    'E\u015fle\u015ftirme (kim-hangi-nerede) tablolar\u0131',
-    'Do\u011fru-yanl\u0131\u015f ifade \u00e7\u00f6z\u00fcmlemesi',
-    'Akrabal\u0131k ve konum ili\u015fkileri',
-    'Kesin / kesin de\u011fil ayr\u0131m\u0131'
-  ]},
-  {t:'kod', b:'S\u00f6zel mant\u0131k tekni\u011fi', x:'**Her zaman tablo kur.** Kesin bilgiyi \u00f6nce yerle\u015ftir, olumsuz bilgileri (\u00d7 i\u015fareti) tabloya i\u015fle. Zihinden \u00e7\u00f6zmeye \u00e7al\u0131\u015fmak en s\u0131k yap\u0131lan hatad\u0131r.'}]
-}
 
   ]
 };
