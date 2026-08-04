@@ -260,6 +260,42 @@ td strong{color:var(--ink)}
 .b-sayilar .sc b{display:block; font-family:var(--f-m); font-size:23px; font-weight:600; color:var(--acc); letter-spacing:-.02em}
 .b-sayilar .sc span{display:block; font-size:13.2px; color:var(--ink2); margin-top:4px; line-height:1.4}
 
+/* profil / avatar / sampiyon / alt bar */
+.dnProfil{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:16px 0}
+.dnProfSatir{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.dnAvYukle{position:relative; cursor:pointer; flex-shrink:0}
+.dnAvIkon{position:absolute; right:-2px; bottom:-2px; width:19px; height:19px; border-radius:50%;
+  background:var(--acc); color:#fff; font-size:13px; font-weight:700; line-height:19px; text-align:center;
+  border:2px solid var(--card)}
+.dnAvatar{display:inline-flex; flex-shrink:0}
+.dnSatirAv{display:inline-flex; vertical-align:middle; margin-right:7px}
+.dnSampiyon{background:linear-gradient(135deg,#1a1a2e,#16213e); border:2px solid var(--acc);
+  border-radius:11px; padding:15px; text-align:center; margin:14px 0}
+.sm-ust{font-family:var(--f-m); font-size:10px; letter-spacing:.2em; color:#f1c40f; margin-bottom:8px}
+.sm-av{display:flex; justify-content:center; margin-bottom:7px}
+.sm-ad{color:#fff; font-family:var(--f-d); font-size:17px; font-weight:700; letter-spacing:-.02em}
+.sm-alt{color:#f1c40f; font-family:var(--f-m); font-size:11.5px; margin-top:3px}
+.dnAltBar{position:fixed; left:12px; right:12px; bottom:12px; height:38px; z-index:60;
+  background:var(--card); border:1px solid var(--line); border-radius:9px;
+  display:flex; align-items:center; gap:7px; padding:4px 6px; box-shadow:0 6px 22px rgba(0,0,0,.22)}
+.ab-lv{font-family:var(--f-m); font-size:12px; font-weight:700; color:#fff; background:var(--acc);
+  border-radius:6px; padding:5px 10px; white-space:nowrap}
+.ab-wrap{position:relative; flex:1; height:100%; background:var(--bg2); border-radius:6px; overflow:hidden;
+  border:1px solid var(--line2); display:flex; align-items:center}
+.ab-fill{position:absolute; left:0; top:0; bottom:0; width:0;
+  background:linear-gradient(90deg,var(--ova),var(--plato),var(--acc)); transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.ab-txt{position:relative; width:100%; text-align:center; font-family:var(--f-m); font-size:11px;
+  font-weight:600; color:var(--ink); text-shadow:0 1px 3px var(--bg)}
+.dnLevelUp{position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999;
+  background:var(--card); border:3px solid var(--acc); border-radius:15px; padding:26px 38px;
+  text-align:center; box-shadow:0 16px 60px rgba(0,0,0,.45); animation:luPop .5s cubic-bezier(.175,.885,.32,1.4)}
+.lu-ust{font-family:var(--f-m); font-size:11px; letter-spacing:.2em; color:var(--ink3)}
+.lu-lv{font-family:var(--f-d); font-size:38px; font-weight:800; letter-spacing:-.04em; margin:5px 0}
+.lu-rutbe{font-family:var(--f-m); font-size:14px; letter-spacing:.14em; text-transform:uppercase}
+.lu-alt{font-family:var(--f-m); font-size:11.5px; color:var(--ink3); margin-top:8px}
+@keyframes luPop{from{transform:translate(-50%,-50%) scale(.4); opacity:0}to{transform:translate(-50%,-50%) scale(1); opacity:1}}
+@media(max-width:520px){ .dnAltBar{left:8px; right:8px; bottom:8px; height:34px} .ab-txt{font-size:10px} }
+
 /* seviye / rutbe */
 .dnSeviye{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:16px 0}
 .dnSvUst{display:flex; align-items:center; gap:10px; margin-bottom:9px; flex-wrap:wrap}
@@ -7751,19 +7787,16 @@ window.Harita = { olustur: olustur, bolgeKatmani: bolgeKatmani };
    Dagilim : Turkce 7 - Matematik 8 - Tarih 7 - Cografya 5 - Vatandaslik 3
    Puan    : Turkce 100 - Tarih 100 - Matematik 200 - Cografya 50 - Vatandaslik 50
    Seviye  : Lv1 -> Lv2 = 3400 XP, sonraki her seviye +100 XP daha ister
+   XP      : TUM gunlerin toplami, asla sifirlanmaz
+   Sunucu  : Pantry (getpantry.cloud) - sabit, kurulum gerektirmez
    =========================================================== */
 (function(){
 'use strict';
 
-/* +==========================================================+
-   |  AYARLAR -- tek yapman gereken burayi doldurmak.          |
-   |  Siteyi ac, "Lider Tablosu" > "Sunucu kur" dugmesine bas.|
-   |  Ciktidaki iki satiri buraya yapistirip GitHub'a yukle.  |
-   +==========================================================+ */
-var AYAR = {
-  lider: '',        /* ornek: 'a1b2c3d4-1111-2222/e5f6g7h8-3333-4444' */
-  ntfy:  ''         /* ornek: 'kpss-7f3a2b'                           */
-};
+/* -- SABIT SUNUCU (kurulum yok) -- */
+var PANTRY_ID = '41e0725c-beab-4cea-9de2-ed320c7b115a';
+var KOVA      = 'KpssLiderlikTablosu';
+var API       = 'https://getpantry.cloud/apiv1/pantry/' + PANTRY_ID + '/basket/' + KOVA;
 
 var PLAN = [
   { ders:'turkce',      ad:'T\u00fcrk\u00e7e',      adet:7, puan:100 },
@@ -7772,12 +7805,22 @@ var PLAN = [
   { ders:'cografya',    ad:'Co\u011frafya',    adet:5, puan:50  },
   { ders:'vatandaslik', ad:'Vatanda\u015fl\u0131k', adet:3, puan:50  }
 ];
-var SURE = 40 * 60;
-var TOPLAM_PUAN = 3400;
-var SEV_TABAN   = 3400;
-var SEV_ARTIS   = 100;
-var RUTBE = ['\u00c7aylak','Acemi','\u00c7al\u0131\u015fkan','Azimli','Usta','K\u0131demli','Uzman','\u015eampiyon','Efsane'];
+var SURE = 40 * 60, TOPLAM_PUAN = 3400, SEV_TABAN = 3400, SEV_ARTIS = 100;
 
+var RUTBELER = [
+  { lv:1,  ad:'\u00c7aylak',   renk:'#7f8c8d' }, { lv:5,  ad:'Azimli',   renk:'#1abc9c' },
+  { lv:10, ad:'\u00c7al\u0131\u015fkan', renk:'#95a5a6' }, { lv:15, ad:'Usta',     renk:'#2ecc71' },
+  { lv:20, ad:'K\u0131demli',  renk:'#3498db' }, { lv:30, ad:'Uzman',    renk:'#9b59b6' },
+  { lv:40, ad:'\u00dcstat',    renk:'#e67e22' }, { lv:60, ad:'\u015eampiyon', renk:'#f1c40f' },
+  { lv:80, ad:'Efsane',   renk:'#e74c3c' }
+];
+function rutbeVer(lv){
+  var r = RUTBELER[0];
+  for(var i=0;i<RUTBELER.length;i++){ if(lv >= RUTBELER[i].lv) r = RUTBELER[i]; }
+  return r;
+}
+
+/* -- yardimcilar -- */
 function h(t,c,x){ var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n; }
 function H(t,c,html){ var n=h(t,c); n.innerHTML=html; return n; }
 function md(s){
@@ -7789,20 +7832,34 @@ function karistir(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.flo
 function bugun(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function ss(k,v){ try{ if(v===undefined){ var s=localStorage.getItem('kpss_'+k); return s==null?null:JSON.parse(s); } localStorage.setItem('kpss_'+k, JSON.stringify(v)); }catch(e){ return null; } }
 function saatBicim(sn){ if(sn<0) sn=0; return String(Math.floor(sn/60)).padStart(2,'0')+':'+String(sn%60).padStart(2,'0'); }
+function sayiBicim(n){ return Number(n||0).toLocaleString('tr-TR'); }
 
 /* -- SEVIYE -- */
-function benimXp(){
-  var yerel = (ss('sonuclar')||[]).reduce(function(t,k){ return t + (k.puan||0); }, 0);
-  var sunucu = ss('xpSunucu') || 0;
-  return Math.max(yerel, sunucu);        /* sunucu verisi varsa o gecerli */
-}
 function seviyeIstem(lv){ return SEV_TABAN + (lv-1)*SEV_ARTIS; }
 function seviyeHesap(xp){
   var lv=1, kalan=xp||0, guv=0;
-  while(kalan >= seviyeIstem(lv) && guv++ < 500){ kalan -= seviyeIstem(lv); lv++; }
-  var gerek = seviyeIstem(lv);
-  return { seviye:lv, ilerleme:kalan, gerek:gerek, yuzde:Math.min(100, Math.round(kalan/gerek*100)),
-           rutbe: RUTBE[Math.min(RUTBE.length-1, Math.floor((lv-1)/2))] };
+  while(kalan >= seviyeIstem(lv) && guv++ < 999){ kalan -= seviyeIstem(lv); lv++; }
+  var gerek = seviyeIstem(lv), r = rutbeVer(lv);
+  return { seviye:lv, ilerleme:kalan, gerek:gerek, kalanPuan:gerek-kalan,
+           yuzde:Math.min(100, Math.round(kalan/gerek*100)), rutbe:r.ad, renk:r.renk };
+}
+
+/* -- KIMLIK -- */
+function benimAd(){ return ss('kullanici') || ''; }
+function benimAvatar(){ return ss('avatar') || ''; }
+function benimNtfy(){
+  var k = ss('ntfyKanal');
+  if(!k){ k = 'kpss-' + Math.random().toString(36).slice(2,8) + Date.now().toString(36).slice(-4); ss('ntfyKanal', k); }
+  return k;
+}
+function avatarHTML(ad, veri, boy){
+  boy = boy || 40;
+  if(veri) return '<img src="'+veri+'" style="width:'+boy+'px;height:'+boy+'px;border-radius:50%;object-fit:cover;">';
+  var bas = (ad||'?').charAt(0).toUpperCase();
+  var renkler = ['#e74c3c','#3498db','#2ecc71','#f39c12','#9b59b6','#1abc9c','#e67e22','#16a085'];
+  var i = ad ? ad.charCodeAt(0) % renkler.length : 0;
+  return '<div style="width:'+boy+'px;height:'+boy+'px;border-radius:50%;background:'+renkler[i]+
+    ';display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:'+(boy*0.44)+'px">'+bas+'</div>';
 }
 
 /* -- SORU HAVUZU -- */
@@ -7820,92 +7877,113 @@ function dersSorulari(dersId, n, puan){
   while(secilen.length < n && konular.length){ secilen.push(konular[i % konular.length]); i++; }
   return secilen.map(function(x){
     var s = x.sorular[Math.floor(Math.random()*x.sorular.length)];
-    return { ders:dersId, dersAd:d.ad, renk:d.renk, konuAd:x.konu.ad,
-             q:s.q, c:s.c, d:s.d, a:s.a, puan:puan };
+    return { ders:dersId, dersAd:d.ad, renk:d.renk, konuAd:x.konu.ad, q:s.q, c:s.c, d:s.d, a:s.a, puan:puan };
   });
 }
 function sinavKur(){ var t=[]; PLAN.forEach(function(p){ t = t.concat(dersSorulari(p.ders,p.adet,p.puan)); }); return t; }
 
 /* -- SUNUCU -- */
-var API = 'https://api.jsonstorage.net/v1/json';
-function liderKod(){ return AYAR.lider || ss('lider') || ''; }
-function ntfyKonu(){ return AYAR.ntfy || ss('ntfy') || ''; }
-function liderUrl(){ var k = liderKod(); return k ? API + '/' + k : null; }
-
-function liderOku(){
-  var u = liderUrl(); if(!u) return Promise.resolve(null);
-  return fetch(u, { cache:'no-store' }).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+function tabloOku(){
+  return fetch(API, { cache:'no-store' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(j){ return (j && j.oyuncular) ? j : { oyuncular:[] }; })
+    .catch(function(){ return null; });
 }
-function liderYaz(v){
-  var u = liderUrl(); if(!u) return Promise.resolve(false);
-  return fetch(u, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(v) })
+function tabloYaz(v){
+  return fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(v) })
     .then(function(r){ return r.ok; }).catch(function(){ return false; });
 }
-function sunucuKur(){
-  var konu = 'kpss-' + Math.random().toString(36).slice(2,8) + Math.random().toString(36).slice(2,6);
-  return fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ kayitlar:[] }) })
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(j){
-      if(!j || !j.uri) return null;
-      var kod = j.uri.split('/v1/json/')[1];
-      ss('lider', kod); ss('ntfy', konu);
-      return { lider:kod, ntfy:konu };
-    }).catch(function(){ return null; });
+function ntfyGonder(kanal, baslik, mesaj){
+  if(!kanal) return;
+  try{
+    fetch('https://ntfy.sh/', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ topic:kanal, title:baslik, message:mesaj, priority:4, tags:['trophy'] }) }).catch(function(){});
+  }catch(e){}
 }
-function bildir(mesaj){
-  var k = ntfyKonu(); if(!k) return;
-  try{ fetch('https://ntfy.sh/' + k, { method:'POST', body:mesaj }).catch(function(){}); }catch(e){}
+function yerelBildirim(baslik, mesaj){
+  try{
+    if(!('Notification' in window) || Notification.permission !== 'granted') return;
+    new Notification(baslik, { body:mesaj });
+  }catch(e){}
 }
 
-function sonucKaydet(kayit){
-  var yerel = ss('sonuclar') || []; yerel.push(kayit); ss('sonuclar', yerel);
-  if(!liderUrl()) return Promise.resolve({ nerede:'yerel' });
-  return liderOku().then(function(v){
-    v = (v && v.kayitlar) ? v : { kayitlar:[] };
-    var onceki = tabloHesapla(v.kayitlar);
-    v.kayitlar.push(kayit);
-    if(v.kayitlar.length > 500) v.kayitlar = v.kayitlar.slice(-500);
-    return liderYaz(v).then(function(ok){
-      return { nerede: ok?'sunucu':'yerel', onceki:onceki, yeni:tabloHesapla(v.kayitlar) };
+/* -- SONUC KAYDI -- */
+function sonucKaydet(puan, dogru, sure){
+  var ad = benimAd(), gun = bugun();
+  /* yerel kopya */
+  var y = ss('sonuclar') || []; y.push({ ad:ad, gun:gun, puan:puan, dogru:dogru, sure:sure, zaman:Date.now() });
+  ss('sonuclar', y);
+
+  return tabloOku().then(function(veri){
+    if(!veri) return { nerede:'yerel' };
+    var oncekiSira = siralamaYap(veri.oyuncular);
+    var benOnce = oncekiSira.filter(function(x){ return x.ad===ad; })[0];
+    var eskiSeviye = benOnce ? benOnce.seviye : 1;
+    var oncekiOnumdekiler = oncekiSira.filter(function(x){ return x.ad!==ad && x.xp > (benOnce?benOnce.xp:0); });
+
+    var i = -1;
+    for(var k=0;k<veri.oyuncular.length;k++) if(veri.oyuncular[k].ad === ad) i = k;
+    var o = (i>-1) ? veri.oyuncular[i] : { ad:ad, xp:0, deneme:0, enIyi:0, gunler:{} };
+    o.xp = (o.xp||0) + puan;                     /* TUM gunlerin toplami */
+    o.deneme = (o.deneme||0) + 1;
+    if(puan > (o.enIyi||0)) o.enIyi = puan;
+    o.gunler = o.gunler || {};
+    if(puan > (o.gunler[gun]||0)) o.gunler[gun] = puan;
+    /* gun listesini son 180 gunle sinirla (XP etkilenmez) */
+    var gk = Object.keys(o.gunler).sort();
+    while(gk.length > 180){ delete o.gunler[gk.shift()]; }
+    o.avatar = benimAvatar(); o.ntfy = benimNtfy();
+    o.seviye = seviyeHesap(o.xp).seviye;
+    if(i>-1) veri.oyuncular[i] = o; else veri.oyuncular.push(o);
+
+    return tabloYaz(veri).then(function(ok){
+      var yeniSira = siralamaYap(veri.oyuncular);
+      var ben = yeniSira.filter(function(x){ return x.ad===ad; })[0];
+
+      /* geciyor muyuz? gecilenlere bildirim gonder */
+      oncekiOnumdekiler.forEach(function(p){
+        var simdi = yeniSira.filter(function(x){ return x.ad===p.ad; })[0];
+        if(simdi && ben && ben.xp > simdi.xp && p.ntfy){
+          ntfyGonder(p.ntfy, 'Ge\u00e7ildin!',
+            ad + ' seni ge\u00e7ti: Lv ' + ben.seviye + ' \u00b7 ' + sayiBicim(ben.xp) + ' XP. Hemen bir deneme \u00e7\u00f6z!');
+        }
+      });
+      if(ben && ben.seviye > eskiSeviye){
+        yerelBildirim('Seviye atlad\u0131n!', 'Lv ' + ben.seviye + ' \u00b7 ' + ben.rutbe);
+        veri.oyuncular.forEach(function(p){
+          if(p.ad !== ad && p.ntfy) ntfyGonder(p.ntfy, 'Seviye atlad\u0131', ad + ' Lv ' + ben.seviye + ' (' + ben.rutbe + ') oldu.');
+        });
+      }
+      return { nerede: ok?'sunucu':'yerel', ben:ben, eskiSeviye:eskiSeviye };
     });
   });
 }
 
-function tabloHesapla(kayitlar){
-  var gunler = {}, kisi = {};
-  (kayitlar||[]).forEach(function(k){
-    if(!k || !k.ad || !k.gun) return;
-    (gunler[k.gun] = gunler[k.gun] || {});
-    if(!gunler[k.gun][k.ad] || gunler[k.gun][k.ad] < k.puan) gunler[k.gun][k.ad] = k.puan;
-    var p = (kisi[k.ad] = kisi[k.ad] || { ad:k.ad, birincilik:0, xp:0, deneme:0, bugun:0, enIyi:0 });
-    p.xp += k.puan; p.deneme++;
-    if(k.puan > p.enIyi) p.enIyi = k.puan;
-    if(k.gun === bugun() && k.puan > p.bugun) p.bugun = k.puan;
-  });
-  Object.keys(gunler).forEach(function(g){
-    var gun = gunler[g], enY = -1, kazanan = [];
-    Object.keys(gun).forEach(function(ad){
-      if(gun[ad] > enY){ enY = gun[ad]; kazanan = [ad]; } else if(gun[ad] === enY) kazanan.push(ad);
+/* -- SIRALAMA -- */
+function siralamaYap(oyuncular){
+  var gunKazanan = {};
+  (oyuncular||[]).forEach(function(p){
+    Object.keys(p.gunler||{}).forEach(function(g){
+      if(!gunKazanan[g] || gunKazanan[g].puan < p.gunler[g]) gunKazanan[g] = { puan:p.gunler[g], ad:p.ad };
+      else if(gunKazanan[g].puan === p.gunler[g]) gunKazanan[g].ad += '|' + p.ad;
     });
-    kazanan.forEach(function(ad){ if(kisi[ad]) kisi[ad].birincilik++; });
   });
-  return Object.keys(kisi).map(function(a){
-    var k = kisi[a], s = seviyeHesap(k.xp);
-    k.seviye=s.seviye; k.rutbe=s.rutbe; k.ilerleme=s.ilerleme; k.gerek=s.gerek; k.yuzde=s.yuzde;
-    return k;
-  }).sort(function(x,y){ return y.seviye-x.seviye || y.birincilik-x.birincilik || y.xp-x.xp; });
+  var birincilik = {};
+  Object.keys(gunKazanan).forEach(function(g){
+    gunKazanan[g].ad.split('|').forEach(function(a){ birincilik[a] = (birincilik[a]||0) + 1; });
+  });
+  return (oyuncular||[]).map(function(p){
+    var s = seviyeHesap(p.xp||0);
+    return { ad:p.ad, avatar:p.avatar||'', ntfy:p.ntfy||'', xp:p.xp||0, deneme:p.deneme||0,
+             enIyi:p.enIyi||0, bugun:(p.gunler||{})[bugun()]||0, birincilik:birincilik[p.ad]||0,
+             seviye:s.seviye, rutbe:s.rutbe, renk:s.renk, ilerleme:s.ilerleme, gerek:s.gerek, yuzde:s.yuzde };
+  }).sort(function(a,b){ return b.xp - a.xp; });
 }
 
 /* =========== ARAYUZ =========== */
 var S = null;
 function icerik(){ return document.querySelector('#icerik'); }
-
-function ciz(hedef){
-  hedef.textContent = '';
-  if(!S) giris(hedef);
-  else if(S.bitti) sonuc(hedef);
-  else sinav(hedef);
-}
+function ciz(hedef){ hedef.textContent=''; if(!S) giris(hedef); else if(S.bitti) sonuc(hedef); else sinav(hedef); }
 
 function giris(m){
   var hd = h('div','dhead');
@@ -7926,10 +8004,9 @@ function giris(m){
   m.appendChild(g);
   m.appendChild(H('div','dnNot','Toplam <b>' + TOPLAM_PUAN + ' puan</b> \u00b7 Yanl\u0131\u015f cevap do\u011fruyu g\u00f6t\u00fcrmez \u00b7 S\u00fcre dolunca s\u0131nav kendili\u011finden biter.'));
 
-  var ad = ss('kullanici') || '';
   var kutu = h('div','dnBaslat');
   var inp = document.createElement('input');
-  inp.type='text'; inp.placeholder='Kullan\u0131c\u0131 ad\u0131n'; inp.value=ad; inp.maxLength=20; inp.className='dnAd';
+  inp.type='text'; inp.placeholder='Kullan\u0131c\u0131 ad\u0131n'; inp.value=benimAd(); inp.maxLength=20; inp.className='dnAd';
   var btn = h('button','dnBtn','S\u0131nav\u0131 Ba\u015flat');
   btn.onclick = function(){
     var v = inp.value.trim();
@@ -7946,23 +8023,39 @@ function giris(m){
   };
   inp.oninput = function(){ inp.classList.remove('hata'); };
   kutu.appendChild(inp); kutu.appendChild(btn);
-  var lb = h('button','dnBtn ikincil','Lider Tablosu');
-  lb.onclick = function(){ location.hash = '#/lider'; };
+  var lb = h('button','dnBtn ikincil','Lider Tablosu'); lb.onclick = function(){ location.hash='#/lider'; };
   kutu.appendChild(lb);
   m.appendChild(kutu);
 
-  var xp = benimXp();
-  if(xp) m.appendChild(seviyeKarti(ad || 'Sen', xp));
+  m.appendChild(seviyeKarti());
 }
 
-function seviyeKarti(ad, xp){
+/* -- seviye karti (sunucudan XP ceker) -- */
+function seviyeKarti(){
+  var k = h('div','dnSeviye'); k.id = 'dnSevKart';
+  seviyeKartiDoldur(k, ss('xpSunucu') || 0);
+  tabloOku().then(function(v){
+    if(!v) return;
+    var ben = siralamaYap(v.oyuncular).filter(function(x){ return x.ad===benimAd(); })[0];
+    if(ben){ ss('xpSunucu', ben.xp); seviyeKartiDoldur(k, ben.xp); barGuncelle(ben.xp); }
+  });
+  return k;
+}
+function seviyeKartiDoldur(k, xp){
   var s = seviyeHesap(xp);
-  var k = h('div','dnSeviye');
-  k.appendChild(H('div','dnSvUst','<span class="dnRozet">Lv ' + s.seviye + '</span><b>' + ad + '</b><span class="dnRutbe">' + s.rutbe + '</span>'));
+  k.textContent = '';
+  var ust = h('div','dnSvUst');
+  ust.appendChild(H('span','dnAvatar', avatarHTML(benimAd(), benimAvatar(), 42)));
+  var rz = h('span','dnRozet','Lv ' + s.seviye); rz.style.background = s.renk;
+  ust.appendChild(rz);
+  ust.appendChild(h('b', null, benimAd() || 'Sen'));
+  var rt = h('span','dnRutbe', s.rutbe); rt.style.color = s.renk;
+  ust.appendChild(rt);
+  k.appendChild(ust);
   var bar = h('div','dnBar2'), dol = h('div','dnDolu');
   dol.style.width = s.yuzde + '%'; bar.appendChild(dol); k.appendChild(bar);
-  k.appendChild(H('div','dnSvAlt', s.ilerleme + ' / ' + s.gerek + ' XP \u00b7 sonraki seviyeye <b>' + (s.gerek - s.ilerleme) + '</b> puan'));
-  return k;
+  k.appendChild(H('div','dnSvAlt','Toplam <b>' + sayiBicim(xp) + ' XP</b> \u00b7 Lv ' + (s.seviye+1) +
+    ' i\u00e7in <b>' + sayiBicim(s.kalanPuan) + '</b> puan kald\u0131'));
 }
 
 function sinav(m){
@@ -8018,25 +8111,29 @@ function bitir(){
   });
   S.sonuc = { puan:puan, dogru:dogru, yanlis:yanlis, bos:bos, dersler:dersler,
               sure:Math.min(SURE, Math.round((Date.now()-S.baslangic)/1000)) };
-  var kayit = { ad:S.ad, gun:bugun(), puan:puan, dogru:dogru, sure:S.sonuc.sure, zaman:Date.now() };
 
-  sonucKaydet(kayit).then(function(r){
+  sonucKaydet(puan, dogru, S.sonuc.sure).then(function(r){
     if(!S) return;
     S.kayitDurum = r.nerede;
     var e = document.getElementById('dnKayitDurum');
-    if(e) e.textContent = r.nerede==='sunucu' ? 'Sonu\u00e7 lider tablosuna kaydedildi.' : 'Sonu\u00e7 bu cihaza kaydedildi.';
-    if(r.yeni){
-      var eski = (r.onceki||[]).filter(function(x){ return x.ad===kayit.ad; })[0];
-      var yeni = r.yeni.filter(function(x){ return x.ad===kayit.ad; })[0];
-      var mesaj = kayit.ad + ' bir deneme \u00e7\u00f6zd\u00fc: ' + puan + ' puan (' + dogru + '/30 do\u011fru)';
-      if(yeni && yeni.seviye > (eski ? eski.seviye : 1)) mesaj += ' \u2014 SEV\u0130YE ATLADI: Lv ' + yeni.seviye + ' ' + yeni.rutbe + '!';
-      if(yeni) ss('xpSunucu', yeni.xp);
-      if(r.yeni[0] && r.yeni[0].ad === kayit.ad && (!r.onceki[0] || r.onceki[0].ad !== kayit.ad)) mesaj += ' \u2014 ve liderli\u011fi ald\u0131!';
-      bildir(mesaj);
+    if(e) e.textContent = r.nerede==='sunucu' ? 'Sonu\u00e7 lider tablosuna kaydedildi.' : 'Sunucuya ula\u015f\u0131lamad\u0131, sonu\u00e7 bu cihaza kaydedildi.';
+    if(r.ben){
+      ss('xpSunucu', r.ben.xp);
+      var k = document.getElementById('dnSevKart'); if(k) seviyeKartiDoldur(k, r.ben.xp);
+      barGuncelle(r.ben.xp);
+      if(r.ben.seviye > r.eskiSeviye) seviyeKutlama(r.ben);
     }
-    var p = document.getElementById('dnLider'); if(p) tabloDoldur(p, true);
   });
   if(location.hash.indexOf('deneme') >= 0) ciz(icerik());
+}
+
+function seviyeKutlama(ben){
+  var d = h('div','dnLevelUp');
+  d.innerHTML = '<div class="lu-ust">SEV\u0130YE ATLADIN</div><div class="lu-lv" style="color:'+ben.renk+'">Lv '+ben.seviye+'</div>' +
+    '<div class="lu-rutbe" style="color:'+ben.renk+'">'+ben.rutbe+'</div>' +
+    '<div class="lu-alt">Toplam '+sayiBicim(ben.xp)+' XP</div>';
+  document.body.appendChild(d);
+  setTimeout(function(){ if(d.parentNode) d.remove(); }, 4200);
 }
 
 function sonuc(m){
@@ -8054,9 +8151,7 @@ function sonuc(m){
     c.appendChild(h('b',null,String(x[1]))); c.appendChild(h('span',null,x[0])); say.appendChild(c);
   });
   oz.appendChild(say); m.appendChild(oz);
-
-  var xp = benimXp();
-  m.appendChild(seviyeKarti(S.ad, xp));
+  m.appendChild(seviyeKarti());
 
   var tw = h('div','tw'), tb = document.createElement('table');
   var tr = h('tr'); ['Ders','Do\u011fru','Yanl\u0131\u015f','Bo\u015f','Puan'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
@@ -8069,8 +8164,7 @@ function sonuc(m){
   });
   tb.appendChild(body); tw.appendChild(tb); m.appendChild(tw);
   m.appendChild(H('div','dnNot','<span id="dnKayitDurum">' +
-    (S.kayitDurum ? (S.kayitDurum==='sunucu' ? 'Sonu\u00e7 lider tablosuna kaydedildi.' : 'Sonu\u00e7 bu cihaza kaydedildi.')
-                  : 'Sonu\u00e7 kaydediliyor\u2026') + '</span>'));
+    (S.kayitDurum ? (S.kayitDurum==='sunucu'?'Sonu\u00e7 lider tablosuna kaydedildi.':'Sonu\u00e7 bu cihaza kaydedildi.') : 'Sonu\u00e7 kaydediliyor\u2026') + '</span>'));
 
   var dg = h('div','dnDugmeler');
   var yeni = h('button','dnBtn','Yeni Deneme'); yeni.onclick = function(){ S=null; ciz(icerik()); };
@@ -8101,15 +8195,121 @@ function liderSayfa(m){
   var hd = h('div','dhead');
   hd.appendChild(H('div','crumb','<a href="#/">Ana sayfa</a> \u00b7 Yar\u0131\u015fma'));
   hd.appendChild(h('h1', null, 'Lider Tablosu'));
-  hd.appendChild(h('p','lead','S\u0131ralama \u00f6nce seviyeye, sonra g\u00fcnl\u00fck birincilik say\u0131s\u0131na, sonra toplam XP\'ye g\u00f6re yap\u0131l\u0131r. Ayn\u0131 g\u00fcn birden \u00e7ok deneme \u00e7\u00f6zersen o g\u00fcn\u00fcn en iyi puan\u0131 say\u0131l\u0131r.'));
+  hd.appendChild(h('p','lead','S\u0131ralama toplam XP\'ye g\u00f6redir. XP hi\u00e7 s\u0131f\u0131rlanmaz \u2014 \u00e7\u00f6zd\u00fc\u011f\u00fcn her denemenin puan\u0131 \u00f6m\u00fcr boyu birikir.'));
   m.appendChild(hd);
 
-  var xp = benimXp();
-  if(xp) m.appendChild(seviyeKarti(ss('kullanici')||'Sen', xp));
+  m.appendChild(profilKarti());
+  m.appendChild(seviyeKarti());
 
   var p = h('div','dnLider'); p.id='dnLider';
   m.appendChild(p); tabloDoldur(p);
 
+  m.appendChild(seviyeTablosu());
+  m.appendChild(bildirimPaneli());
+}
+
+/* -- profil: ad + avatar -- */
+function profilKarti(){
+  var k = h('div','dnProfil');
+  k.appendChild(h('div','blk-h','Profilin'));
+  var satir = h('div','dnProfSatir');
+
+  var av = h('div','dnAvYukle');
+  av.innerHTML = avatarHTML(benimAd(), benimAvatar(), 56) + '<span class="dnAvIkon">+</span>';
+  var dosya = document.createElement('input');
+  dosya.type='file'; dosya.accept='image/*'; dosya.style.display='none';
+  dosya.onchange = function(e){ avatarYukle(e, k); };
+  av.onclick = function(){ dosya.click(); };
+  av.appendChild(dosya);
+  satir.appendChild(av);
+
+  var inp = document.createElement('input');
+  inp.type='text'; inp.className='dnAd'; inp.placeholder='Kullan\u0131c\u0131 ad\u0131n'; inp.value=benimAd(); inp.maxLength=20;
+  var kaydet = h('button','dnBtn ikincil','Kaydet');
+  kaydet.onclick = function(){
+    var v = inp.value.trim();
+    if(v.length < 2){ inp.classList.add('hata'); return; }
+    ss('kullanici', v); kaydet.textContent='Kaydedildi';
+    setTimeout(function(){ kaydet.textContent='Kaydet'; liderSayfa(icerik()); }, 900);
+  };
+  satir.appendChild(inp); satir.appendChild(kaydet);
+  k.appendChild(satir);
+  return k;
+}
+
+function avatarYukle(e, kart){
+  var f = e.target.files && e.target.files[0]; if(!f) return;
+  var fr = new FileReader();
+  fr.onload = function(ev){
+    var img = new Image();
+    img.onload = function(){
+      var c = document.createElement('canvas'); c.width=128; c.height=128;
+      var x = c.getContext('2d'); x.imageSmoothingQuality='high';
+      var b = Math.min(img.width, img.height);
+      x.drawImage(img, (img.width-b)/2, (img.height-b)/2, b, b, 0, 0, 128, 128);
+      ss('avatar', c.toDataURL('image/jpeg', 0.82));
+      /* sunucudaki kaydi da guncelle */
+      tabloOku().then(function(v){
+        if(!v) return;
+        var ad = benimAd();
+        for(var i=0;i<v.oyuncular.length;i++) if(v.oyuncular[i].ad===ad){ v.oyuncular[i].avatar = benimAvatar(); tabloYaz(v); break; }
+      });
+      liderSayfa(icerik());
+    };
+    img.src = ev.target.result;
+  };
+  fr.readAsDataURL(f);
+}
+
+function tabloDoldur(p){
+  p.textContent = '';
+  p.appendChild(h('div','blk-h','S\u0131ralama'));
+  var yuk = h('div','dnNot','Tablo y\u00fckleniyor\u2026'); p.appendChild(yuk);
+
+  tabloOku().then(function(v){
+    yuk.remove();
+    if(!v){ p.appendChild(H('div','dnNot','Sunucuya ula\u015f\u0131lamad\u0131. \u0130nternet ba\u011flant\u0131n\u0131 kontrol et; sonu\u00e7lar\u0131n cihaz\u0131nda saklanmaya devam ediyor.')); return; }
+    var sira = siralamaYap(v.oyuncular);
+    if(!sira.length){ p.appendChild(H('div','dnNot','Hen\u00fcz kay\u0131t yok. \u0130lk denemeyi \u00e7\u00f6z, tabloyu sen ba\u015flat.')); return; }
+
+    /* sampiyon bandi */
+    var en = sira.slice().sort(function(a,b){ return b.birincilik - a.birincilik || b.xp - a.xp; })[0];
+    if(en && en.birincilik > 0){
+      var band = h('div','dnSampiyon');
+      band.innerHTML = '<div class="sm-ust">EN \u00c7OK G\u00dcN B\u0130R\u0130NC\u0130S\u0130</div>' +
+        '<div class="sm-av">' + avatarHTML(en.ad, en.avatar, 56) + '</div>' +
+        '<div class="sm-ad">' + en.ad + '</div>' +
+        '<div class="sm-alt">' + en.birincilik + ' g\u00fcn birinci</div>';
+      p.appendChild(band);
+    }
+
+    var tw = h('div','tw'), tb = document.createElement('table');
+    var tr = h('tr');
+    ['#','Kullan\u0131c\u0131','Seviye','Toplam XP','Bug\u00fcn','En iyi','G\u00fcn 1.','Deneme'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
+    tb.appendChild(h('thead')).appendChild(tr);
+    var body = h('tbody'), ben = benimAd();
+    sira.forEach(function(k,i){
+      var row = h('tr'); if(k.ad===ben) row.className='ben';
+      var madalya = ['\ud83e\udd47','\ud83e\udd48','\ud83e\udd49'][i] || String(i+1);
+      row.appendChild(h('td',null,madalya));
+      row.appendChild(H('td',null,'<span class="dnSatirAv">'+avatarHTML(k.ad,k.avatar,26)+'</span><b>'+k.ad+'</b>'));
+      row.appendChild(H('td',null,'<span class="dnRozet kucuk" style="background:'+k.renk+'">Lv '+k.seviye+'</span> <span class="dnRutbe" style="color:'+k.renk+'">'+k.rutbe+'</span>'));
+      [sayiBicim(k.xp), k.bugun?sayiBicim(k.bugun):'\u2014', sayiBicim(k.enIyi), String(k.birincilik), String(k.deneme)]
+        .forEach(function(x){ row.appendChild(h('td',null,x)); });
+      body.appendChild(row);
+    });
+    tb.appendChild(body); tw.appendChild(tb); p.appendChild(tw);
+
+    if(sira.length > 1){
+      var a = sira[0], b = sira[1], not;
+      if(a.seviye !== b.seviye) not = '<b>'+a.ad+'</b> \u00f6nde: '+(a.seviye-b.seviye)+' seviye fark\u0131 var.';
+      else not = '<b>'+a.ad+'</b> \u00f6nde: '+sayiBicim(a.xp-b.xp)+' XP fark\u0131 var.';
+      p.appendChild(H('div','dnNot', not));
+    }
+  });
+}
+
+function seviyeTablosu(){
   var s = h('div','dnSevTablo');
   s.appendChild(h('div','blk-h','Seviye e\u015fikleri'));
   s.appendChild(H('div','dnNot','Bir denemenin tamam\u0131 <b>' + TOPLAM_PUAN + ' puan</b>. \u0130lk seviye atlamas\u0131 tam bir deneme kadar XP ister; sonraki her seviyede istem <b>+' + SEV_ARTIS + '</b> artar.'));
@@ -8117,120 +8317,80 @@ function liderSayfa(m){
   var tr = h('tr'); ['Seviye','R\u00fctbe','Gereken XP','K\u00fcm\u00fclatif XP'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
   tb.appendChild(h('thead')).appendChild(tr);
   var body = h('tbody'), kum = 0;
-  for(var lv=1; lv<=10; lv++){
-    var row = h('tr'), istem = seviyeIstem(lv);
+  for(var lv=1; lv<=12; lv++){
+    var row = h('tr'), istem = seviyeIstem(lv), r = rutbeVer(lv);
     row.appendChild(h('td',null,'Lv '+lv+' \u2192 '+(lv+1)));
-    row.appendChild(h('td',null, RUTBE[Math.min(RUTBE.length-1, Math.floor((lv-1)/2))]));
-    row.appendChild(h('td',null, String(istem)));
-    kum += istem; row.appendChild(h('td',null, String(kum)));
+    row.appendChild(H('td',null,'<span style="color:'+r.renk+';font-weight:600">'+r.ad+'</span>'));
+    row.appendChild(h('td',null, sayiBicim(istem)));
+    kum += istem; row.appendChild(h('td',null, sayiBicim(kum)));
     body.appendChild(row);
   }
-  tb.appendChild(body); tw.appendChild(tb); s.appendChild(tw); m.appendChild(s);
-  m.appendChild(bildirimPanel());
+  tb.appendChild(body); tw.appendChild(tb); s.appendChild(tw);
+  return s;
 }
 
-function tabloDoldur(p, sessiz){
-  p.textContent = '';
-  if(!sessiz) p.appendChild(h('div','blk-h','S\u0131ralama'));
-
-  if(!liderUrl()){
-    p.appendChild(H('div','dnNot','Ortak lider tablosu i\u00e7in <b>bir kereye mahsus</b> \u00fccretsiz bir kay\u0131t alan\u0131 kurman gerekiyor. D\u00fc\u011fmeye bas; \u00e7\u0131kan iki sat\u0131r\u0131 <code>index.html</code> i\u00e7indeki <code>AYAR</code> blo\u011funa yap\u0131\u015ft\u0131r\u0131p GitHub\'a y\u00fckle. Bundan sonra siteyi a\u00e7an herkes ayn\u0131 tabloyu g\u00f6r\u00fcr.'));
-    var kur = h('div','dnOda');
-    var b1 = h('button','dnBtn','Sunucu kur');
-    b1.onclick = function(){
-      b1.disabled = true; b1.textContent='Kuruluyor\u2026';
-      sunucuKur().then(function(k){
-        if(!k){ b1.disabled=false; b1.textContent='Sunucu kur'; alert('Kurulamad\u0131. \u0130nternet ba\u011flant\u0131n\u0131 kontrol et.'); return; }
-        tabloDoldur(p);
-      });
-    };
-    kur.appendChild(b1); p.appendChild(kur);
-    yerelTablo(p); return;
-  }
-
-  if(!AYAR.lider){
-    var kod = h('div','dnKurulum');
-    kod.appendChild(H('div','dnAltBaslik','Bu blo\u011fu index.html i\u00e7ine yap\u0131\u015ft\u0131r'));
-    var pre = h('pre','dnKod2', "var AYAR = {\n  lider: '" + liderKod() + "',\n  ntfy:  '" + ntfyKonu() + "'\n};");
-    kod.appendChild(pre);
-    var kp = h('button','dnMini','Kopyala');
-    kp.onclick = function(){
-      var t = pre.textContent;
-      try{ navigator.clipboard.writeText(t); kp.textContent='Kopyaland\u0131'; setTimeout(function(){ kp.textContent='Kopyala'; },1500); }
-      catch(e){ prompt('Kopyala:', t); }
-    };
-    kod.appendChild(kp);
-    kod.appendChild(H('div','dnNot','\u015eu an bu ayarlar yaln\u0131z bu cihazda sakl\u0131. Dosyaya yap\u0131\u015ft\u0131r\u0131p y\u00fckleyene kadar arkada\u015f\u0131n ayn\u0131 tabloyu g\u00f6remez.'));
-    p.appendChild(kod);
-  }
-
-  var yuk = h('div','dnNot','Tablo y\u00fckleniyor\u2026'); p.appendChild(yuk);
-  liderOku().then(function(v){
-    yuk.remove();
-    if(!v || !v.kayitlar){ p.appendChild(H('div','dnNot','Sunucuya ula\u015f\u0131lamad\u0131. A\u015fa\u011f\u0131da bu cihazdaki sonu\u00e7lar var.')); yerelTablo(p); return; }
-    var sira = tabloHesapla(v.kayitlar);
-    var ben = ss('kullanici');
-    var benim = sira.filter(function(x){ return x.ad===ben; })[0];
-    if(benim) ss('xpSunucu', benim.xp);
-    if(!sira.length){ p.appendChild(H('div','dnNot','Hen\u00fcz kay\u0131t yok. \u0130lk denemeyi \u00e7\u00f6z, tabloyu sen ba\u015flat.')); return; }
-    tabloCiz(p, sira, 'Bug\u00fcn: ' + bugun());
-  });
-}
-
-function yerelTablo(p){
-  var k = ss('sonuclar') || []; if(!k.length) return;
-  tabloCiz(p, tabloHesapla(k), 'Bu cihazdaki sonu\u00e7lar');
-}
-
-function tabloCiz(p, sira, baslik){
-  p.appendChild(H('div','dnAltBaslik', baslik));
-  var tw = h('div','tw'), tb = document.createElement('table');
-  var tr = h('tr');
-  ['#','Kullan\u0131c\u0131','Seviye','G\u00fcnl\u00fck 1.','Bug\u00fcn','En iyi','Toplam XP','Deneme'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
-  tb.appendChild(h('thead')).appendChild(tr);
-  var body = h('tbody'), ben = ss('kullanici');
-  sira.forEach(function(k,i){
-    var row = h('tr'); if(k.ad===ben) row.className='ben';
-    row.appendChild(h('td',null,String(i+1)));
-    row.appendChild(h('td',null,k.ad));
-    row.appendChild(H('td',null,'<span class="dnRozet kucuk">Lv '+k.seviye+'</span> <span class="dnRutbe">'+k.rutbe+'</span>'));
-    [String(k.birincilik), k.bugun?String(k.bugun):'\u2014', String(k.enIyi), String(k.xp), String(k.deneme)]
-      .forEach(function(v){ row.appendChild(h('td',null,v)); });
-    body.appendChild(row);
-  });
-  tb.appendChild(body); tw.appendChild(tb); p.appendChild(tw);
-  if(sira.length > 1){
-    var a = sira[0], b = sira[1], not;
-    if(a.seviye !== b.seviye) not = '<b>'+a.ad+'</b> \u00f6nde: '+(a.seviye-b.seviye)+' seviye fark\u0131 var.';
-    else if(a.birincilik !== b.birincilik) not = '<b>'+a.ad+'</b> \u00f6nde: '+(a.birincilik-b.birincilik)+' g\u00fcnl\u00fck birincilik fark\u0131 var.';
-    else not = '<b>'+a.ad+'</b> ile <b>'+b.ad+'</b> ba\u015fa ba\u015f \u2014 XP fark\u0131 '+Math.abs(a.xp-b.xp)+'.';
-    p.appendChild(H('div','dnNot', not));
-  }
-}
-
-function bildirimPanel(){
+function bildirimPaneli(){
   var p = h('div','dnBildirim');
   p.appendChild(h('div','blk-h','Bildirimler'));
-  var k = ntfyKonu();
-  if(!k){ p.appendChild(H('div','dnNot','Sunucu kurulunca bildirim kanal\u0131 da otomatik olu\u015fur.')); return p; }
-  p.appendChild(H('div','dnNot','Arkada\u015f\u0131n deneme \u00e7\u00f6zd\u00fc\u011f\u00fcnde, seviye atlad\u0131\u011f\u0131nda veya liderli\u011fi ald\u0131\u011f\u0131nda telefonuna bildirim gelir. Kurmak i\u00e7in <b>ntfy</b> uygulamas\u0131n\u0131 indir (Android/iOS, \u00fccretsiz) ve \u015fu kanala abone ol:'));
+  p.appendChild(H('div','dnNot','Biri seni toplam XP\'de ge\u00e7ti\u011finde veya seviye atlad\u0131\u011f\u0131nda telefonuna bildirim gelir. <b>ntfy</b> uygulamas\u0131n\u0131 indir ve a\u015fa\u011f\u0131daki kendi kanal\u0131na abone ol. Kanal\u0131n sana \u00f6zeldir; arkada\u015f\u0131n seni ge\u00e7ince buraya bildirim d\u00fc\u015fer.'));
+  var k = benimNtfy();
   var kutu = h('div','dnKod');
-  kutu.appendChild(H('span',null,'Kanal: <b>'+k+'</b>'));
+  kutu.appendChild(H('span',null,'Kanal\u0131n: <b>'+k+'</b>'));
   var kp = h('button','dnMini','Kopyala');
   kp.onclick = function(){ try{ navigator.clipboard.writeText(k); kp.textContent='Kopyaland\u0131'; setTimeout(function(){ kp.textContent='Kopyala'; },1500); }catch(e){ prompt('Kanal:',k); } };
   kutu.appendChild(kp);
   var ac = document.createElement('a');
-  ac.href = 'https://ntfy.sh/' + k; ac.target='_blank'; ac.rel='noopener'; ac.className='dnMini'; ac.textContent='Taray\u0131c\u0131da a\u00e7';
+  ac.href='https://ntfy.sh/'+k; ac.target='_blank'; ac.rel='noopener'; ac.className='dnMini'; ac.textContent='Taray\u0131c\u0131da a\u00e7';
   kutu.appendChild(ac);
   p.appendChild(kutu);
-  var dn = h('button','dnBtn ikincil','Test bildirimi g\u00f6nder');
-  dn.onclick = function(){ bildir((ss('kullanici')||'Biri')+' test bildirimi g\u00f6nderdi.'); dn.textContent='G\u00f6nderildi'; setTimeout(function(){ dn.textContent='Test bildirimi g\u00f6nder'; },1600); };
-  p.appendChild(dn);
-  p.appendChild(H('div','dnNot','ntfy.sh \u00fccretsizdir ve \u00fcyelik istemez. Kanal ad\u0131n\u0131 bilen herkes bildirimleri g\u00f6rebilir; ba\u015fkas\u0131yla payla\u015fma.'));
+
+  var dg = h('div','dnDugmeler');
+  var izin = h('button','dnBtn ikincil','Taray\u0131c\u0131 bildirimlerini a\u00e7');
+  izin.onclick = function(){
+    if(!('Notification' in window)){ alert('Bu taray\u0131c\u0131 bildirimleri desteklemiyor.'); return; }
+    Notification.requestPermission().then(function(p2){
+      izin.textContent = (p2==='granted') ? 'Bildirimler a\u00e7\u0131k' : '\u0130zin verilmedi';
+    });
+  };
+  var test = h('button','dnBtn ikincil','Test bildirimi g\u00f6nder');
+  test.onclick = function(){
+    ntfyGonder(k, 'KPSS Test', (benimAd()||'Biri') + ' test bildirimi g\u00f6nderdi.');
+    yerelBildirim('KPSS Test', 'Bildirimler \u00e7al\u0131\u015f\u0131yor.');
+    test.textContent='G\u00f6nderildi'; setTimeout(function(){ test.textContent='Test bildirimi g\u00f6nder'; },1600);
+  };
+  dg.appendChild(izin); dg.appendChild(test); p.appendChild(dg);
+  p.appendChild(H('div','dnNot','ntfy.sh \u00fccretsizdir ve \u00fcyelik istemez. Kanal ad\u0131n\u0131 bilen herkes bildirimlerini g\u00f6rebilir; ba\u015fkas\u0131yla payla\u015fma.'));
   return p;
 }
 
-window.Deneme = { ciz:ciz, lider:liderSayfa, sifirla:function(){ if(S&&S.sayac) clearInterval(S.sayac); S=null; } };
+/* -- alt sabit seviye cubugu -- */
+function barGoster(goster){
+  var b = document.getElementById('dnAltBar');
+  if(!goster){ if(b) b.style.display='none'; return; }
+  if(!b){
+    b = h('div','dnAltBar'); b.id='dnAltBar';
+    b.innerHTML = '<span class="ab-lv" id="abLv">Lv 1</span>' +
+      '<span class="ab-wrap"><span class="ab-fill" id="abFill"></span><span class="ab-txt" id="abTxt">\u2014</span></span>';
+    document.body.appendChild(b);
+  }
+  b.style.display = 'flex';
+  barGuncelle(ss('xpSunucu') || 0);
+}
+function barGuncelle(xp){
+  var lv = document.getElementById('abLv'), fl = document.getElementById('abFill'), tx = document.getElementById('abTxt');
+  if(!lv) return;
+  var s = seviyeHesap(xp);
+  lv.textContent = 'Lv ' + s.seviye; lv.style.background = s.renk;
+  fl.style.width = s.yuzde + '%';
+  tx.textContent = sayiBicim(s.kalanPuan) + ' XP kald\u0131';
+}
+
+window.Deneme = {
+  ciz: function(m){ barGoster(true); ciz(m); },
+  lider: function(m){ barGoster(true); liderSayfa(m); },
+  barGizle: function(){ barGoster(false); },
+  sifirla: function(){ if(S&&S.sayac) clearInterval(S.sayac); S=null; }
+};
 
 })();
 
@@ -8636,6 +8796,7 @@ function yonlendir(){
     q('#side').classList.remove('acik'); q('#scrim').classList.remove('acik');
     return;
   }
+  if(window.Deneme && window.Deneme.barGizle) window.Deneme.barGizle();
   var d = byId[p[0]];
   if(!d) anasayfa();
   else {
