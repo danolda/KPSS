@@ -7808,11 +7808,17 @@ var PLAN = [
 var SURE = 40 * 60, TOPLAM_PUAN = 3400, SEV_TABAN = 3400, SEV_ARTIS = 100;
 
 var RUTBELER = [
-  { lv:1,  ad:'\u00c7aylak',   renk:'#7f8c8d' }, { lv:5,  ad:'Azimli',   renk:'#1abc9c' },
-  { lv:10, ad:'\u00c7al\u0131\u015fkan', renk:'#95a5a6' }, { lv:15, ad:'Usta',     renk:'#2ecc71' },
-  { lv:20, ad:'K\u0131demli',  renk:'#3498db' }, { lv:30, ad:'Uzman',    renk:'#9b59b6' },
-  { lv:40, ad:'\u00dcstat',    renk:'#e67e22' }, { lv:60, ad:'\u015eampiyon', renk:'#f1c40f' },
-  { lv:80, ad:'Efsane',   renk:'#e74c3c' }
+  { lv:1,   ad:'NPC',       renk:'#7f8c8d' },
+  { lv:10,  ad:'Gooner',    renk:'#95a5a6' },
+  { lv:20,  ad:'Sedanter',  renk:'#1abc9c' },
+  { lv:30,  ad:'Grinder',   renk:'#e67e22' },
+  { lv:40,  ad:'Alpha',     renk:'#2ecc71' },
+  { lv:50,  ad:'Sigma',     renk:'#3498db' },
+  { lv:60,  ad:'Gigachad',  renk:'#9b59b6' },
+  { lv:70,  ad:'Goat',      renk:'#ffd700' },
+  { lv:80,  ad:'TerraChad', renk:'#ff6347' },
+  { lv:90,  ad:'TRUECHAD',  renk:'#ff4500' },
+  { lv:100, ad:'TOPG',      renk:'#ff0000' }
 ];
 function rutbeVer(lv){
   var r = RUTBELER[0];
@@ -7836,6 +7842,10 @@ function sayiBicim(n){ return Number(n||0).toLocaleString('tr-TR'); }
 
 /* -- SEVIYE -- */
 function seviyeIstem(lv){ return SEV_TABAN + (lv-1)*SEV_ARTIS; }
+function kumulatifXP(lv){          /* lv seviyesine ulasmak icin gereken toplam XP */
+  var n = lv - 1;
+  return SEV_TABAN*n + SEV_ARTIS*n*(n-1)/2;
+}
 function seviyeHesap(xp){
   var lv=1, kalan=xp||0, guv=0;
   while(kalan >= seviyeIstem(lv) && guv++ < 999){ kalan -= seviyeIstem(lv); lv++; }
@@ -8311,21 +8321,32 @@ function tabloDoldur(p){
 
 function seviyeTablosu(){
   var s = h('div','dnSevTablo');
-  s.appendChild(h('div','blk-h','Seviye e\u015fikleri'));
-  s.appendChild(H('div','dnNot','Bir denemenin tamam\u0131 <b>' + TOPLAM_PUAN + ' puan</b>. \u0130lk seviye atlamas\u0131 tam bir deneme kadar XP ister; sonraki her seviyede istem <b>+' + SEV_ARTIS + '</b> artar.'));
+  s.appendChild(h('div','blk-h','R\u00fctbe merdiveni'));
+  s.appendChild(H('div','dnNot','R\u00fctbe <b>her 10 seviyede bir</b> de\u011fi\u015fir. Bir denemenin tamam\u0131 <b>' +
+    TOPLAM_PUAN + ' puan</b>; ilk seviye atlamas\u0131 tam bir deneme kadar XP ister, sonraki her seviyede istem <b>+' +
+    SEV_ARTIS + '</b> artar.'));
+
   var tw = h('div','tw'), tb = document.createElement('table');
-  var tr = h('tr'); ['Seviye','R\u00fctbe','Gereken XP','K\u00fcm\u00fclatif XP'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
+  var tr = h('tr');
+  ['R\u00fctbe','Seviye','Gereken toplam XP','Yakla\u015f\u0131k deneme'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
   tb.appendChild(h('thead')).appendChild(tr);
-  var body = h('tbody'), kum = 0;
-  for(var lv=1; lv<=12; lv++){
-    var row = h('tr'), istem = seviyeIstem(lv), r = rutbeVer(lv);
-    row.appendChild(h('td',null,'Lv '+lv+' \u2192 '+(lv+1)));
-    row.appendChild(H('td',null,'<span style="color:'+r.renk+';font-weight:600">'+r.ad+'</span>'));
-    row.appendChild(h('td',null, sayiBicim(istem)));
-    kum += istem; row.appendChild(h('td',null, sayiBicim(kum)));
+  var body = h('tbody'), simdiki = seviyeHesap(ss('xpSunucu') || 0);
+  RUTBELER.forEach(function(r, i){
+    var row = h('tr');
+    var sonraki = RUTBELER[i+1];
+    if(simdiki.seviye >= r.lv && (!sonraki || simdiki.seviye < sonraki.lv)) row.className = 'ben';
+    var rz = h('td'); 
+    var et = h('span','dnRozet kucuk', r.ad); et.style.background = r.renk;
+    rz.appendChild(et); row.appendChild(rz);
+    row.appendChild(h('td', null, sonraki ? ('Lv ' + r.lv + '\u2013' + (sonraki.lv-1)) : ('Lv ' + r.lv + '+')));
+    var kx = kumulatifXP(r.lv);
+    row.appendChild(h('td', null, kx ? sayiBicim(kx) : '0'));
+    row.appendChild(h('td', null, kx ? ('~' + Math.round(kx / 2400) + ' deneme') : '\u2014'));
     body.appendChild(row);
-  }
+  });
   tb.appendChild(body); tw.appendChild(tb); s.appendChild(tw);
+
+  s.appendChild(H('div','dnNot','Yakla\u015f\u0131k deneme s\u00fctunu, ortalama <b>2400 puan</b>l\u0131k bir deneme performans\u0131na g\u00f6re hesaplanm\u0131\u015ft\u0131r.'));
   return s;
 }
 
