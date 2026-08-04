@@ -7841,6 +7841,10 @@ function saatBicim(sn){ if(sn<0) sn=0; return String(Math.floor(sn/60)).padStart
 function sayiBicim(n){ return Number(n||0).toLocaleString('tr-TR'); }
 
 /* -- SEVIYE -- */
+function benimXp(){
+  var yerel = (ss('sonuclar')||[]).reduce(function(t,k){ return t + (k.puan||0); }, 0);
+  return Math.max(yerel, ss('xpSunucu') || 0);   /* sunucu yoksa yerel toplam gecerli */
+}
 function seviyeIstem(lv){ return SEV_TABAN + (lv-1)*SEV_ARTIS; }
 function kumulatifXP(lv){          /* lv seviyesine ulasmak icin gereken toplam XP */
   var n = lv - 1;
@@ -7893,15 +7897,43 @@ function dersSorulari(dersId, n, puan){
 function sinavKur(){ var t=[]; PLAN.forEach(function(p){ t = t.concat(dersSorulari(p.ders,p.adet,p.puan)); }); return t; }
 
 /* -- SUNUCU -- */
-function tabloOku(){
-  return fetch(API, { cache:'no-store' })
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(j){ return (j && j.oyuncular) ? j : { oyuncular:[] }; })
-    .catch(function(){ return null; });
+var sonHata = '';
+function bekle(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+
+function tabloOku(deneme){
+  deneme = deneme || 0;
+  return fetch(API, { method:'GET', headers:{'Content-Type':'application/json'}, cache:'no-store' })
+    .then(function(r){
+      if(r.ok){
+        return r.json().then(function(j){ sonHata=''; return (j && j.oyuncular) ? j : { oyuncular:[] }; },
+                             function(){ sonHata=''; return { oyuncular:[] }; });
+      }
+      /* 400 = kova henuz olusturulmamis; ilk kayitta olusacak */
+      if(r.status === 400){ sonHata=''; return { oyuncular:[] }; }
+      sonHata = 'HTTP ' + r.status;
+      if(deneme < 2) return bekle(900).then(function(){ return tabloOku(deneme+1); });
+      return null;
+    })
+    .catch(function(){
+      sonHata = 'baglanti kurulamadi';
+      if(deneme < 2) return bekle(900).then(function(){ return tabloOku(deneme+1); });
+      return null;
+    });
 }
-function tabloYaz(v){
+function tabloYaz(v, deneme){
+  deneme = deneme || 0;
   return fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(v) })
-    .then(function(r){ return r.ok; }).catch(function(){ return false; });
+    .then(function(r){
+      if(r.ok){ sonHata=''; return true; }
+      sonHata = 'HTTP ' + r.status;
+      if(deneme < 2) return bekle(1100).then(function(){ return tabloYaz(v, deneme+1); });
+      return false;
+    })
+    .catch(function(){
+      sonHata = 'baglanti kurulamadi';
+      if(deneme < 2) return bekle(1100).then(function(){ return tabloYaz(v, deneme+1); });
+      return false;
+    });
 }
 function ntfyGonder(kanal, baslik, mesaj){
   if(!kanal) return;
@@ -7925,7 +7957,7 @@ function sonucKaydet(puan, dogru, sure){
   ss('sonuclar', y);
 
   return tabloOku().then(function(veri){
-    if(!veri) return { nerede:'yerel' };
+    if(!veri){ ss('bekleyen', (ss('bekleyen')||0) + puan); return { nerede:'yerel' }; }
     var oncekiSira = siralamaYap(veri.oyuncular);
     var benOnce = oncekiSira.filter(function(x){ return x.ad===ad; })[0];
     var eskiSeviye = benOnce ? benOnce.seviye : 1;
@@ -7934,7 +7966,9 @@ function sonucKaydet(puan, dogru, sure){
     var i = -1;
     for(var k=0;k<veri.oyuncular.length;k++) if(veri.oyuncular[k].ad === ad) i = k;
     var o = (i>-1) ? veri.oyuncular[i] : { ad:ad, xp:0, deneme:0, enIyi:0, gunler:{} };
-    o.xp = (o.xp||0) + puan;                     /* TUM gunlerin toplami */
+    var bekleyen = ss('bekleyen') || 0;
+    o.xp = (o.xp||0) + puan + bekleyen;          /* TUM gunlerin toplami + gonderilemeyenler */
+    if(bekleyen) ss('bekleyen', 0);
     o.deneme = (o.deneme||0) + 1;
     if(puan > (o.enIyi||0)) o.enIyi = puan;
     o.gunler = o.gunler || {};
@@ -8041,9 +8075,10 @@ function giris(m){
 }
 
 /* -- seviye karti (sunucudan XP ceker) -- */
-function seviyeKarti(){
+function seviyeKarti(cek){
   var k = h('div','dnSeviye'); k.id = 'dnSevKart';
-  seviyeKartiDoldur(k, ss('xpSunucu') || 0);
+  seviyeKartiDoldur(k, benimXp());
+  if(cek === false) return k;
   tabloOku().then(function(v){
     if(!v) return;
     var ben = siralamaYap(v.oyuncular).filter(function(x){ return x.ad===benimAd(); })[0];
@@ -8126,7 +8161,7 @@ function bitir(){
     if(!S) return;
     S.kayitDurum = r.nerede;
     var e = document.getElementById('dnKayitDurum');
-    if(e) e.textContent = r.nerede==='sunucu' ? 'Sonu\u00e7 lider tablosuna kaydedildi.' : 'Sunucuya ula\u015f\u0131lamad\u0131, sonu\u00e7 bu cihaza kaydedildi.';
+    if(e) e.textContent = kayitMetni();
     if(r.ben){
       ss('xpSunucu', r.ben.xp);
       var k = document.getElementById('dnSevKart'); if(k) seviyeKartiDoldur(k, r.ben.xp);
@@ -8137,6 +8172,14 @@ function bitir(){
   if(location.hash.indexOf('deneme') >= 0) ciz(icerik());
 }
 
+function kayitMetni(){
+  if(!S || !S.kayitDurum) return 'Sonu\u00e7 kaydediliyor\u2026';
+  if(S.kayitDurum === 'sunucu')
+    return 'Sonu\u00e7 lider tablosuna kaydedildi. Toplam ' + sayiBicim(benimXp()) + ' XP.';
+  return 'Sunucuya yaz\u0131lamad\u0131' + (sonHata ? ' (' + sonHata + ')' : '') +
+    '. Puan\u0131n bu cihazda i\u015flendi: toplam ' + sayiBicim(benimXp()) +
+    ' XP. Ba\u011flant\u0131 gelince tabloya kendili\u011finden y\u00fcklenecek.';
+}
 function seviyeKutlama(ben){
   var d = h('div','dnLevelUp');
   d.innerHTML = '<div class="lu-ust">SEV\u0130YE ATLADIN</div><div class="lu-lv" style="color:'+ben.renk+'">Lv '+ben.seviye+'</div>' +
@@ -8161,7 +8204,7 @@ function sonuc(m){
     c.appendChild(h('b',null,String(x[1]))); c.appendChild(h('span',null,x[0])); say.appendChild(c);
   });
   oz.appendChild(say); m.appendChild(oz);
-  m.appendChild(seviyeKarti());
+  m.appendChild(seviyeKarti(false));
 
   var tw = h('div','tw'), tb = document.createElement('table');
   var tr = h('tr'); ['Ders','Do\u011fru','Yanl\u0131\u015f','Bo\u015f','Puan'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
@@ -8173,8 +8216,8 @@ function sonuc(m){
     body.appendChild(row);
   });
   tb.appendChild(body); tw.appendChild(tb); m.appendChild(tw);
-  m.appendChild(H('div','dnNot','<span id="dnKayitDurum">' +
-    (S.kayitDurum ? (S.kayitDurum==='sunucu'?'Sonu\u00e7 lider tablosuna kaydedildi.':'Sonu\u00e7 bu cihaza kaydedildi.') : 'Sonu\u00e7 kaydediliyor\u2026') + '</span>'));
+  m.appendChild(H('div','dnNot','<span id="dnKayitDurum"></span>'));
+  m.querySelector('#dnKayitDurum').textContent = kayitMetni();
 
   var dg = h('div','dnDugmeler');
   var yeni = h('button','dnBtn','Yeni Deneme'); yeni.onclick = function(){ S=null; ciz(icerik()); };
@@ -8209,11 +8252,12 @@ function liderSayfa(m){
   m.appendChild(hd);
 
   m.appendChild(profilKarti());
-  m.appendChild(seviyeKarti());
+  m.appendChild(seviyeKarti(false));
 
   var p = h('div','dnLider'); p.id='dnLider';
   m.appendChild(p); tabloDoldur(p);
 
+  m.appendChild(taniPaneli());
   m.appendChild(seviyeTablosu());
   m.appendChild(bildirimPaneli());
 }
@@ -8280,6 +8324,13 @@ function tabloDoldur(p){
     yuk.remove();
     if(!v){ p.appendChild(H('div','dnNot','Sunucuya ula\u015f\u0131lamad\u0131. \u0130nternet ba\u011flant\u0131n\u0131 kontrol et; sonu\u00e7lar\u0131n cihaz\u0131nda saklanmaya devam ediyor.')); return; }
     var sira = siralamaYap(v.oyuncular);
+    var benK = sira.filter(function(x){ return x.ad===benimAd(); })[0];
+    if(benK){
+      ss('xpSunucu', benK.xp);
+      var kk = document.getElementById('dnSevKart');
+      if(kk) seviyeKartiDoldur(kk, benK.xp);
+      barGuncelle(benK.xp);
+    }
     if(!sira.length){ p.appendChild(H('div','dnNot','Hen\u00fcz kay\u0131t yok. \u0130lk denemeyi \u00e7\u00f6z, tabloyu sen ba\u015flat.')); return; }
 
     /* sampiyon bandi */
@@ -8319,6 +8370,31 @@ function tabloDoldur(p){
   });
 }
 
+function taniPaneli(){
+  var p = h('div','dnTani');
+  p.appendChild(h('div','blk-h','Sunucu durumu'));
+  var d = h('div','dnNot','Kontrol ediliyor\u2026'); d.id = 'dnTaniMetin'; p.appendChild(d);
+  var btn = h('button','dnBtn ikincil','Yeniden dene');
+  btn.onclick = function(){ taniCalistir(); };
+  p.appendChild(btn);
+  taniCalistir();
+  return p;
+}
+function taniCalistir(){
+  var d = document.getElementById('dnTaniMetin');
+  if(d) d.textContent = 'Kontrol ediliyor\u2026';
+  tabloOku().then(function(v){
+    d = document.getElementById('dnTaniMetin'); if(!d) return;
+    if(v){
+      var n = (v.oyuncular||[]).length;
+      d.innerHTML = '\u2713 Sunucuya ba\u011fland\u0131. Tabloda <b>' + n + '</b> oyuncu kay\u0131tl\u0131.' +
+        (ss('bekleyen') ? ' G\u00f6nderilmeyi bekleyen <b>' + sayiBicim(ss('bekleyen')) + ' XP</b> var; bir sonraki denemede eklenecek.' : '');
+    } else {
+      d.innerHTML = '\u2717 Sunucuya ula\u015f\u0131lam\u0131yor' + (sonHata ? ' (' + sonHata + ')' : '') +
+        '. Puanlar\u0131n cihaz\u0131nda birikiyor, ba\u011flant\u0131 gelince tabloya y\u00fcklenecek.';
+    }
+  });
+}
 function seviyeTablosu(){
   var s = h('div','dnSevTablo');
   s.appendChild(h('div','blk-h','R\u00fctbe merdiveni'));
@@ -8330,7 +8406,7 @@ function seviyeTablosu(){
   var tr = h('tr');
   ['R\u00fctbe','Seviye','Gereken toplam XP','Yakla\u015f\u0131k deneme'].forEach(function(x){ tr.appendChild(h('th',null,x)); });
   tb.appendChild(h('thead')).appendChild(tr);
-  var body = h('tbody'), simdiki = seviyeHesap(ss('xpSunucu') || 0);
+  var body = h('tbody'), simdiki = seviyeHesap(benimXp());
   RUTBELER.forEach(function(r, i){
     var row = h('tr');
     var sonraki = RUTBELER[i+1];
@@ -8395,7 +8471,7 @@ function barGoster(goster){
     document.body.appendChild(b);
   }
   b.style.display = 'flex';
-  barGuncelle(ss('xpSunucu') || 0);
+  barGuncelle(benimXp());
 }
 function barGuncelle(xp){
   var lv = document.getElementById('abLv'), fl = document.getElementById('abFill'), tx = document.getElementById('abTxt');
