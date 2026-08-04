@@ -260,6 +260,87 @@ td strong{color:var(--ink)}
 .b-sayilar .sc b{display:block; font-family:var(--f-m); font-size:23px; font-weight:600; color:var(--acc); letter-spacing:-.02em}
 .b-sayilar .sc span{display:block; font-size:13.2px; color:var(--ink2); margin-top:4px; line-height:1.4}
 
+/* ===== deneme sinavi ===== */
+.dnGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:9px; margin:20px 0 12px}
+.dnKart{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--dc); border-radius:9px; padding:11px 13px}
+.dnKart b{display:block; font-family:var(--f-d); font-size:14.5px; letter-spacing:-.01em}
+.dnKart span{display:block; font-size:13px; color:var(--ink2); margin-top:3px}
+.dnKart em{display:block; font-style:normal; font-family:var(--f-m); font-size:11px; color:var(--dc); margin-top:5px}
+.dnNot{font-size:14px; color:var(--ink2); margin:12px 0; line-height:1.6}
+.dnNot b{color:var(--ink)}
+.dnBaslat{display:flex; gap:9px; flex-wrap:wrap; align-items:center; margin:18px 0 8px}
+.dnAd{padding:10px 13px; border:1px solid var(--line); background:var(--card); color:var(--ink);
+  border-radius:8px; font-family:var(--f-d); font-size:14px; outline:none; min-width:190px}
+.dnAd:focus{border-color:var(--acc)}
+.dnAd.hata{border-color:var(--sinir)}
+.dnBtn{background:var(--acc); color:#fff; border:0; border-radius:8px; padding:11px 20px;
+  font-family:var(--f-d); font-size:14.5px; font-weight:700; letter-spacing:-.01em}
+.dnBtn:hover{filter:brightness(1.08)}
+.dnBtn:disabled{opacity:.55}
+.dnBtn.ikincil{background:none; border:1px solid var(--line); color:var(--ink2)}
+.dnBtn.ikincil:hover{border-color:var(--acc); color:var(--acc); filter:none}
+.dnBar{position:sticky; top:57px; z-index:30; display:flex; align-items:center; gap:12px;
+  background:var(--bg2); border:1px solid var(--line); border-radius:9px; padding:9px 13px; margin-bottom:12px}
+.dnSol{font-size:14px; color:var(--ink2)} .dnSol b{color:var(--ink); font-size:16px; font-family:var(--f-d)}
+.dnSayac{margin-left:auto; font-family:var(--f-m); font-size:19px; font-weight:600; color:var(--ink); letter-spacing:.03em}
+.dnSayac.az{color:var(--sinir)}
+.dnBitir{background:none; border:1px solid var(--sinir); color:var(--sinir); border-radius:7px;
+  padding:6px 12px; font-family:var(--f-d); font-size:12.5px; font-weight:600}
+.dnIzgara{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px}
+.dnHucre{width:30px; height:30px; border:1px solid var(--line); background:var(--card); color:var(--ink3);
+  border-radius:6px; font-family:var(--f-m); font-size:11.5px}
+.dnHucre.dolu{background:var(--sel); color:var(--ink); border-color:var(--acc)}
+.dnHucre.aktif{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.dnSoru{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:17px 19px}
+.dnEtiket{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px}
+.dnDers{font-family:var(--f-m); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--dc); border:1px solid var(--dc); border-radius:5px; padding:2px 7px}
+.dnKonu{font-size:12.5px; color:var(--ink3)}
+.dnPuan{margin-left:auto; font-family:var(--f-m); font-size:11.5px; color:var(--ink2)}
+.dnMetin{font-size:16px; line-height:1.6; margin-bottom:14px; white-space:pre-line}
+.dnSik{display:block; width:100%; text-align:left; background:var(--bg2); border:1px solid var(--line);
+  border-radius:7px; padding:10px 14px; margin-bottom:7px; font-family:var(--f-b); font-size:15px; color:var(--ink2)}
+.dnSik:hover{border-color:var(--acc)}
+.dnSik.secili{background:var(--sel); border-color:var(--acc); color:var(--ink)}
+.dnSik .lt{font-family:var(--f-m); font-size:11.5px; color:var(--ink3); margin-right:9px}
+.dnNav{display:flex; gap:9px; margin-top:14px}
+.dnGez{flex:1; padding:12px; background:var(--card); border:1px solid var(--line); border-radius:9px;
+  font-family:var(--f-d); font-size:14px; font-weight:600; color:var(--ink)}
+.dnGez:hover{border-color:var(--acc)} .dnGez.nx{text-align:right}
+.dnSonuc{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px; margin-bottom:16px}
+.dnBuyuk{text-align:center; margin-bottom:16px}
+.dnBuyuk b{font-family:var(--f-d); font-size:46px; font-weight:800; letter-spacing:-.04em; color:var(--acc)}
+.dnBuyuk span{display:block; font-family:var(--f-m); font-size:12px; color:var(--ink3); margin-top:2px}
+.dnSayim{display:grid; grid-template-columns:repeat(4,1fr); gap:9px}
+.dnSay{text-align:center; padding:10px 6px; background:var(--bg2); border-radius:8px; border-top:2px solid var(--dc)}
+.dnSay b{display:block; font-family:var(--f-m); font-size:19px; color:var(--dc)}
+.dnSay span{font-size:11.5px; color:var(--ink3)}
+.dnDugmeler{display:flex; gap:9px; margin:16px 0; flex-wrap:wrap}
+.dnInceleme{margin-top:22px}
+.dnIncKart{background:var(--card); border:1px solid var(--line); border-left-width:3px;
+  border-radius:9px; padding:14px 16px; margin-bottom:10px}
+.dnIncKart.dogru{border-left-color:var(--ova)} .dnIncKart.yanlis{border-left-color:var(--sinir)}
+.dnIncKart.bos{border-left-color:var(--ink3)}
+.dnCevapSatir{font-size:14px; color:var(--ink2); margin-top:6px}
+.dnCevapSatir b{color:var(--ink)} .dnCevapSatir i{color:var(--ink3)}
+.dnAcik{margin-top:8px; padding-top:8px; border-top:1px solid var(--line2); font-size:13.8px; color:var(--ink2)}
+.dnYaris{margin-top:26px; padding-top:20px; border-top:1px solid var(--line)}
+.dnOda{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:12px 0}
+.dnKod{display:flex; gap:9px; align-items:center; flex-wrap:wrap; font-size:13.5px; color:var(--ink2); margin:10px 0}
+.dnKod b{font-family:var(--f-m); font-size:12.5px; color:var(--ink); word-break:break-all}
+.dnMini{background:none; border:1px solid var(--line); color:var(--ink3); border-radius:6px;
+  padding:4px 10px; font-family:var(--f-d); font-size:11.5px}
+.dnMini:hover{border-color:var(--acc); color:var(--acc)}
+.dnAltBaslik{font-family:var(--f-m); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink3); margin:14px 0 8px}
+.dnYaris tr.ben td{background:var(--sel)}
+@media(max-width:520px){
+  .dnSayim{grid-template-columns:repeat(2,1fr)}
+  .dnBuyuk b{font-size:38px}
+  .dnBar{gap:8px; padding:8px 10px}
+  .dnHucre{width:27px; height:27px}
+}
+
 /* sekil (SVG cizim) */
 .b-sekil{background:var(--card); border:1px solid var(--line); border-radius:9px; padding:14px 16px}
 .b-sekil .fig{text-align:center; overflow-x:auto}
@@ -4442,11 +4523,42 @@ window.DERS_MATEMATIK = {
       ]},
       { t:'sekil', b:'\u015eekilde ne aran\u0131r?', g:'<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M20 165 L150 165 L95 45 Z"/></g><path d="M20 165 L150 165 L95 45 Z" fill="var(--acc)" opacity=".08"/><text x="12" y="182" font-size="13" fill="var(--ink2)">A</text><text x="150" y="182" font-size="13" fill="var(--ink2)">B</text><text x="90" y="38" font-size="13" fill="var(--ink2)">C</text><path d="M38 165 A18 18 0 0 0 30 150" fill="none" stroke="var(--dag)" stroke-width="2"/><text x="42" y="155" font-size="12" fill="var(--dag)">a</text><path d="M132 165 A18 18 0 0 1 141 151" fill="none" stroke="var(--dag)" stroke-width="2"/><text x="112" y="156" font-size="12" fill="var(--dag)">b</text><text x="86" y="62" font-size="12" fill="var(--dag)">c</text><text x="20" y="30" font-size="12.5" fill="var(--ink3)">a + b + c = 180</text><g stroke="var(--ink)" stroke-width="2" fill="none"><path d="M260 165 L400 165 L340 55 Z"/><path d="M400 165 L445 165" stroke-dasharray="4 3"/></g><path d="M260 165 L400 165 L340 55 Z" fill="var(--ova)" opacity=".10"/><path d="M408 165 A22 22 0 0 0 400 146" fill="none" stroke="var(--lav)" stroke-width="2"/><text x="412" y="152" font-size="12" fill="var(--lav)">d</text><text x="276" y="158" font-size="12" fill="var(--ink2)">x</text><text x="334" y="72" font-size="12" fill="var(--ink2)">y</text><text x="258" y="30" font-size="12.5" fill="var(--ink3)">Dis aci: d = x + y</text></svg>',
         a:'**Sol:** i\u00e7 a\u00e7\u0131lar toplam\u0131 her zaman 180\u00b0\'dir. **Sa\u011f:** bir d\u0131\u015f a\u00e7\u0131, kendisine kom\u015fu olmayan iki i\u00e7 a\u00e7\u0131n\u0131n toplam\u0131na e\u015fittir \u2014 a\u00e7\u0131 sorular\u0131n\u0131n \u00e7o\u011fu bu tek kuralla biter.' },
-      { t:'sekil', b:'Ezberlenecek \u00f6zel \u00fc\u00e7genler', g:'<svg viewBox="0 0 460 175" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M25 140 L125 140 L25 65 Z"/><path d="M25 128 L37 128 L37 140" stroke="var(--ink3)" stroke-width="1.5"/></g><path d="M25 140 L125 140 L25 65 Z" fill="var(--akarsu)" opacity=".10"/><text x="66" y="157" font-size="12" fill="var(--ink2)">4k</text><text x="2" y="108" font-size="12" fill="var(--ink2)">3k</text><text x="80" y="95" font-size="12" fill="var(--dag)">5k</text><text x="24" y="42" font-size="12.5" fill="var(--ink3)">3-4-5 uclusu</text><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M175 140 L285 140 L175 45 Z"/><path d="M175 128 L187 128 L187 140" stroke="var(--ink3)" stroke-width="1.5"/></g><path d="M175 140 L285 140 L175 45 Z" fill="var(--plato)" opacity=".14"/><text x="220" y="157" font-size="12" fill="var(--ink2)">a</text><text x="150" y="98" font-size="12" fill="var(--ink2)">a&#8730;3</text><text x="238" y="88" font-size="12" fill="var(--dag)">2a</text><text x="190" y="133" font-size="11" fill="var(--lav)">60</text><text x="266" y="134" font-size="11" fill="var(--lav)">30</text><text x="174" y="30" font-size="12.5" fill="var(--ink3)">30-60-90</text><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M330 140 L430 140 L330 40 Z"/><path d="M330 128 L342 128 L342 140" stroke="var(--ink3)" stroke-width="1.5"/></g><path d="M330 140 L430 140 L330 40 Z" fill="var(--ova)" opacity=".12"/><text x="374" y="157" font-size="12" fill="var(--ink2)">a</text><text x="312" y="95" font-size="12" fill="var(--ink2)">a</text><text x="392" y="86" font-size="12" fill="var(--dag)">a&#8730;2</text><text x="404" y="134" font-size="11" fill="var(--lav)">45</text><text x="329" y="26" font-size="12.5" fill="var(--ink3)">45-45-90</text></svg>',
-        a:'S\u0131navda Pisagor sorular\u0131n\u0131n \u00e7o\u011fu **3-4-5\'in kat\u0131d\u0131r**: 6-8-10, 9-12-15, 12-16-20. Kenarlar\u0131 g\u00f6r\u00fcr g\u00f6rmez tan\u0131, karek\u00f6k alma.' },
+      { t:'sekil', b:'Ezberlenecek \u00f6zel \u00fc\u00e7genler', g:'<svg viewBox="0 0 470 185" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M25 150 L125 150 L25 75 Z"/></g><path d="M25 150 L125 150 L25 75 Z" fill="var(--akarsu)" opacity=".10"/><path d="M25 138 L37 138 L37 150" fill="none" stroke="var(--ink3)" stroke-width="1.5"/><text x="66" y="167" font-size="12" fill="var(--ink2)">4k</text><text x="4" y="116" font-size="12" fill="var(--ink2)">3k</text><text x="80" y="104" font-size="12" fill="var(--dag)">5k</text><text x="24" y="46" font-size="12.5" fill="var(--ink3)">3-4-5 uclusu</text><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M175 150 L285 150 L175 55 Z"/></g><path d="M175 150 L285 150 L175 55 Z" fill="var(--plato)" opacity=".16"/><path d="M175 138 L187 138 L187 150" fill="none" stroke="var(--ink3)" stroke-width="1.5"/><text x="222" y="167" font-size="12" fill="var(--ink2)">a</text><text x="150" y="108" font-size="12" fill="var(--ink2)">a&#8730;3</text><text x="240" y="96" font-size="12" fill="var(--dag)">2a</text><text x="181" y="78" font-size="11.5" fill="var(--lav)">30</text><text x="258" y="144" font-size="11.5" fill="var(--lav)">60</text><text x="174" y="40" font-size="12.5" fill="var(--ink3)">30-60-90</text><g fill="none" stroke="var(--ink)" stroke-width="2"><path d="M335 150 L435 150 L335 50 Z"/></g><path d="M335 150 L435 150 L335 50 Z" fill="var(--ova)" opacity=".12"/><path d="M335 138 L347 138 L347 150" fill="none" stroke="var(--ink3)" stroke-width="1.5"/><text x="379" y="167" font-size="12" fill="var(--ink2)">a</text><text x="317" y="105" font-size="12" fill="var(--ink2)">a</text><text x="396" y="96" font-size="12" fill="var(--dag)">a&#8730;2</text><text x="341" y="74" font-size="11.5" fill="var(--lav)">45</text><text x="408" y="144" font-size="11.5" fill="var(--lav)">45</text><text x="334" y="36" font-size="12.5" fill="var(--ink3)">45-45-90</text></svg>',
+        a:'**Dik a\u00e7\u0131 her \u00fc\u00e7gende sol alt k\u00f6\u015fededir.** 30-60-90\'da **30\u00b0, en k\u0131sa kenar\u0131n (a) kar\u015f\u0131s\u0131ndaki** tepe noktas\u0131ndad\u0131r; 60\u00b0 ise a&#8730;3 kenar\u0131n\u0131n kar\u015f\u0131s\u0131ndad\u0131r. Kural: **en k\u00fc\u00e7\u00fck a\u00e7\u0131 en k\u0131sa kenar\u0131n kar\u015f\u0131s\u0131nda.** 45-45-90\'da iki dar a\u00e7\u0131 da 45\u00b0\'dir.' },
       { t:'cozum', b:'\u00c7\u00f6z\u00fcml\u00fc \u00f6rnek', q:'Bir dik \u00fc\u00e7gende dik kenarlar 6 cm ve 8 cm ise hipoten\u00fcs ve alan ka\u00e7t\u0131r?',
         s:['Pisagor: 6\u00b2 + 8\u00b2 = 100 \u2192 hipoten\u00fcs = **10 cm** (3-4-5\'in 2 kat\u0131)',
            'Dik \u00fc\u00e7gende dik kenarlar taban ve y\u00fcksekliktir.','Alan = (6 \u00d7 8)/2 = 24 cm\u00b2'], c:'Hipoten\u00fcs 10 cm, alan 24 cm\u00b2' },
+      { t:'sekil', b:'\u0130kizkenar ve e\u015fkenar \u00fc\u00e7gen', g:'<svg viewBox="0 0 460 190" xmlns="http://www.w3.org/2000/svg"><path d="M35 155 L165 155 L100 45 Z" fill="var(--akarsu)" opacity=".10" stroke="var(--ink)" stroke-width="2"/><path d="M100 45 L100 155" stroke="var(--dag)" stroke-width="2" stroke-dasharray="5 4"/><path d="M100 143 L112 143 L112 155" fill="none" stroke="var(--ink3)" stroke-width="1.5"/><path d="M52 155 A18 18 0 0 0 45 141" fill="none" stroke="var(--lav)" stroke-width="2"/><path d="M148 155 A18 18 0 0 1 155 141" fill="none" stroke="var(--lav)" stroke-width="2"/><text x="56" y="146" font-size="11.5" fill="var(--lav)">B</text><text x="134" y="146" font-size="11.5" fill="var(--lav)">C</text><text x="94" y="38" font-size="12" fill="var(--ink2)">A</text><text x="52" y="92" font-size="11.5" fill="var(--ink2)">b</text><text x="140" y="92" font-size="11.5" fill="var(--ink2)">b</text><text x="65" y="172" font-size="11.5" fill="var(--ink3)">|BH|</text><text x="118" y="172" font-size="11.5" fill="var(--ink3)">|HC|</text><text x="30" y="28" font-size="12.5" fill="var(--ink3)">Ikizkenar: |AB|=|AC| ise B=C</text><path d="M280 155 L400 155 L340 51 Z" fill="var(--ova)" opacity=".12" stroke="var(--ink)" stroke-width="2"/><path d="M340 51 L340 155" stroke="var(--dag)" stroke-width="2" stroke-dasharray="5 4"/><text x="292" y="146" font-size="11.5" fill="var(--lav)">60</text><text x="376" y="146" font-size="11.5" fill="var(--lav)">60</text><text x="332" y="70" font-size="11.5" fill="var(--lav)">60</text><text x="345" y="112" font-size="11.5" fill="var(--dag)">a&#8730;3/2</text><text x="332" y="172" font-size="11.5" fill="var(--ink2)">a</text><text x="278" y="28" font-size="12.5" fill="var(--ink3)">Eskenar: h = a&#8730;3/2</text></svg>',
+        a:'**\u0130kizkenar \u00fc\u00e7gende tepeden tabana inen do\u011fru d\u00f6rt i\u015fi birden g\u00f6r\u00fcr:** y\u00fckseklik, **a\u00e7\u0131ortay**, **kenarortay** ve **orta dikme**. Yani taban\u0131 **tam ortadan** b\u00f6ler (|BH| = |HC|). Bu tek bilgi, ikizkenar sorular\u0131n\u0131n \u00e7o\u011funu \u00e7\u00f6zer.' },
+      { t:'ozet', b:'\u0130kizkenar ve e\u015fkenar \u00fc\u00e7gen kurallar\u0131', i:[
+        '**\u0130kizkenar \u00fc\u00e7gende e\u015fit kenarlar\u0131n kar\u015f\u0131s\u0131ndaki a\u00e7\u0131lar e\u015fittir**: |AB| = |AC| \u2192 m(B) = m(C).',
+        '**Tepe a\u00e7\u0131s\u0131ndan tabana inen do\u011fru** ayn\u0131 anda **y\u00fckseklik + a\u00e7\u0131ortay + kenarortay + orta dikme**dir; taban\u0131 iki e\u015f par\u00e7aya b\u00f6ler.',
+        '**Tepe a\u00e7\u0131s\u0131 x ise taban a\u00e7\u0131lar\u0131 (180 \u2212 x)/2**\'dir.',
+        '**E\u015fkenar \u00fc\u00e7gende** t\u00fcm kenarlar ve t\u00fcm a\u00e7\u0131lar (60\u00b0) e\u015fittir.',
+        '**E\u015fkenar \u00fc\u00e7gende y\u00fckseklik h = a\u221a3/2** \u00b7 **alan = a\u00b2\u221a3/4**.',
+        '**E\u015fkenar \u00fc\u00e7gende a\u011f\u0131rl\u0131k merkezi, i\u00e7 te\u011fet \u00e7emberin ve \u00e7evrel \u00e7emberin merkeziyle ayn\u0131d\u0131r.**',
+        '**\u0130kizkenar dik \u00fc\u00e7gen** = 45-45-90 \u00fc\u00e7genidir; dik kenarlar\u0131 e\u015fit, hipoten\u00fcs\u00fc a\u221a2\'dir.'
+      ]},
+      { t:'sekil', b:'\u00d6klid ba\u011f\u0131nt\u0131lar\u0131', g:'<svg viewBox="0 0 460 195" xmlns="http://www.w3.org/2000/svg"><path d="M40 155 L400 155 L150 40 Z" fill="var(--plato)" opacity=".13" stroke="var(--ink)" stroke-width="2"/><path d="M150 40 L150 155" stroke="var(--dag)" stroke-width="2"/><path d="M150 143 L162 143 L162 155" fill="none" stroke="var(--ink3)" stroke-width="1.5"/><path d="M150 52 L162 58 L156 70" fill="none" stroke="var(--lav)" stroke-width="1.8"/><text x="34" y="172" font-size="12" fill="var(--ink2)">B</text><text x="146" y="172" font-size="12" fill="var(--ink2)">H</text><text x="396" y="172" font-size="12" fill="var(--ink2)">C</text><text x="144" y="32" font-size="12" fill="var(--ink2)">A</text><text x="88" y="172" font-size="12" fill="var(--dag)">p</text><text x="270" y="172" font-size="12" fill="var(--dag)">k</text><text x="156" y="105" font-size="12" fill="var(--dag)">h</text><text x="80" y="92" font-size="12" fill="var(--ink3)">c</text><text x="278" y="88" font-size="12" fill="var(--ink3)">b</text></svg>',
+        a:'**A k\u00f6\u015fesi dik**, **AH hipoten\u00fcse ait y\u00fckseklik**tir. Y\u00fckseklik hipoten\u00fcs\u00fc **p** ve **k** par\u00e7alar\u0131na b\u00f6ler. Bu \u015fekil ezberlenirse d\u00f6rt ba\u011f\u0131nt\u0131 da kendili\u011finden gelir.' },
+      { t:'formul', b:'\u00d6klid ba\u011f\u0131nt\u0131lar\u0131 \u2014 d\u00f6rt sat\u0131r', f:[
+        '**h\u00b2 = p \u00b7 k**  \u2192 y\u00fcksekli\u011fin karesi, hipoten\u00fcsteki **iki par\u00e7an\u0131n \u00e7arp\u0131m\u0131**',
+        '**c\u00b2 = p \u00b7 (p+k)**  \u2192 bir dik kenar\u0131n karesi = **kendi izd\u00fc\u015f\u00fcm\u00fc \u00d7 hipoten\u00fcs**',
+        '**b\u00b2 = k \u00b7 (p+k)**  \u2192 di\u011fer dik kenar i\u00e7in ayn\u0131 kural',
+        '**b \u00b7 c = h \u00b7 (p+k)**  \u2192 alan\u0131 iki t\u00fcrl\u00fc yazmaktan gelir',
+        '**1/h\u00b2 = 1/b\u00b2 + 1/c\u00b2**',
+        '*Hat\u0131rlatma: p + k = hipoten\u00fcs\u00fcn tamam\u0131d\u0131r.*'
+      ]},
+      { t:'ozet', b:'\u00dc\u00e7gende di\u011fer \u00f6zel ba\u011f\u0131nt\u0131lar', i:[
+        '**Kenarortay** bir kenar\u0131 iki e\u015f par\u00e7aya b\u00f6ler ve \u00fc\u00e7geni **e\u015fit alanl\u0131 iki \u00fc\u00e7gene** ay\u0131r\u0131r.',
+        '**A\u011f\u0131rl\u0131k merkezi (G)** kenarortaylar\u0131 **2 : 1** oran\u0131nda b\u00f6ler; k\u00f6\u015feye yak\u0131n par\u00e7a 2 birimdir.',
+        '**Dik \u00fc\u00e7gende hipoten\u00fcse ait kenarortay, hipoten\u00fcs\u00fcn yar\u0131s\u0131na e\u015fittir.**',
+        '**\u0130\u00e7 a\u00e7\u0131ortay teoremi**: A a\u00e7\u0131s\u0131n\u0131n a\u00e7\u0131ortay\u0131 BC\'yi D\'de kesiyorsa **|BD| / |DC| = |AB| / |AC|**.',
+        '**Ayn\u0131 y\u00fcksekli\u011fe sahip \u00fc\u00e7genlerin alanlar\u0131 tabanlar\u0131yla**, ayn\u0131 tabana sahip olanlar\u0131n alanlar\u0131 **y\u00fckseklikleriyle** orant\u0131l\u0131d\u0131r.',
+        '**Benzerlikte** benzerlik oran\u0131 k ise **\u00e7evreler oran\u0131 k**, **alanlar oran\u0131 k\u00b2**\'dir.',
+        '**\u0130\u00e7 te\u011fet \u00e7ember**: Alan = u \u00b7 r  (u = \u00e7evrenin yar\u0131s\u0131, r = i\u00e7 te\u011fet \u00e7ember yar\u0131\u00e7ap\u0131).',
+        '**Dik \u00fc\u00e7gende i\u00e7 te\u011fet \u00e7ember yar\u0131\u00e7ap\u0131**: r = (dik kenarlar toplam\u0131 \u2212 hipoten\u00fcs) / 2.'
+      ]},
       { t:'taktik', b:'H\u0131z takti\u011fi', x:'**A\u00e7\u0131 sorular\u0131nda d\u0131\u015f a\u00e7\u0131 kural\u0131n\u0131 ilk denemede uygula**; \u00fc\u00e7gen i\u00e7inde \u00fc\u00e7gen varsa d\u0131\u015ftan i\u00e7e do\u011fru ilerle. **Alan sorular\u0131nda** iki \u00fc\u00e7genin ortak y\u00fcksekli\u011fi varsa alanlar\u0131 taban oran\u0131na e\u015fittir.' },
       { t:'tuzak', i:[
         '**\u00dc\u00e7gen e\u015fitsizli\u011finde u\u00e7lar d\u00e2hil de\u011fildir**: 3 ve 5 kenarlar\u0131 i\u00e7in 2 < c < 8.',
@@ -4481,7 +4593,34 @@ window.DERS_MATEMATIK = {
         { q:'Bir \u00fc\u00e7genin kenarlar\u0131 6, 8 ve x\'tir. \u00dc\u00e7gen dik \u00fc\u00e7gen ise x\'in alabilece\u011fi de\u011ferlerden biri **de\u011fildir**?',
           c:['10','\u221a28','2\u221a7','14'], d:3, a:'x hipoten\u00fcs ise 10; x dik kenar ise \u221a(64\u221236) = \u221a28 = 2\u221a7. 14 \u00fc\u00e7gen e\u015fitsizli\u011fini bile sa\u011flamaz.' },
         { q:'Alan\u0131 24 cm\u00b2 olan bir \u00fc\u00e7genin taban\u0131 8 cm ise bu tabana ait y\u00fckseklik ka\u00e7 cm\'dir?',
-          c:['3','4','6','8'], d:2, a:'(8 \u00d7 h)/2 = 24 \u2192 h = 6 cm.' }
+          c:['3','4','6','8'], d:2, a:'(8 \u00d7 h)/2 = 24 \u2192 h = 6 cm.' },
+        { q:'Bir ikizkenar \u00fc\u00e7gende tepe a\u00e7\u0131s\u0131 50\u00b0 ise taban a\u00e7\u0131lar\u0131ndan biri ka\u00e7 derecedir?',
+          c:['55','60','65','70'], d:2, a:'(180 \u2212 50)/2 = 65\u00b0.' },
+        { q:'\u0130kizkenar bir \u00fc\u00e7gende tepeden tabana inen do\u011fru i\u00e7in a\u015fa\u011f\u0131dakilerden hangisi **s\u00f6ylenemez**?',
+          c:['Y\u00fcksekliktir.','A\u00e7\u0131ortayd\u0131r.','Kenarortayd\u0131r.','Taban\u0131 1:2 oran\u0131nda b\u00f6ler.'],
+          d:3, a:'Bu do\u011fru taban\u0131 tam ortadan, yani 1:1 oran\u0131nda b\u00f6ler; kenarortay olmas\u0131 bunu gerektirir.' },
+        { q:'Bir e\u015fkenar \u00fc\u00e7genin kenar uzunlu\u011fu 8 cm ise y\u00fcksekli\u011fi ka\u00e7 cm\'dir?',
+          c:['4','4\u221a3','8\u221a3','16'], d:1, a:'h = a\u221a3/2 = 8\u221a3/2 = 4\u221a3 cm.' },
+        { q:'A k\u00f6\u015fesi dik olan ABC \u00fc\u00e7geninde AH hipoten\u00fcse ait y\u00fcksekliktir. |BH| = 4 cm ve |HC| = 9 cm ise |AH| ka\u00e7 cm\'dir?',
+          c:['5','6','6,5','13'], d:1, a:'\u00d6klid: h\u00b2 = p \u00b7 k = 4 \u00b7 9 = 36 \u2192 h = 6 cm.' },
+        { q:'A k\u00f6\u015fesi dik olan ABC \u00fc\u00e7geninde |BH| = 3 cm, |HC| = 12 cm ise |AB| ka\u00e7 cm\'dir?',
+          c:['3\u221a3','3\u221a5','6','9'], d:1, a:'\u00d6klid: |AB|\u00b2 = |BH| \u00b7 |BC| = 3 \u00b7 15 = 45 \u2192 |AB| = 3\u221a5 cm.' },
+        { q:'Dik kenarlar\u0131 6 cm ve 8 cm olan dik \u00fc\u00e7gende hipoten\u00fcse ait y\u00fckseklik ka\u00e7 cm\'dir?',
+          c:['4','4,8','5','6'], d:1, a:'Hipoten\u00fcs 10 cm. b\u00b7c = h\u00b7a \u2192 6\u00b78 = h\u00b710 \u2192 h = 4,8 cm.' },
+        { q:'Bir dik \u00fc\u00e7gende hipoten\u00fcs 10 cm ise hipoten\u00fcse ait kenarortay ka\u00e7 cm\'dir?',
+          c:['4','5','6','8'], d:1, a:'Dik \u00fc\u00e7gende hipoten\u00fcse ait kenarortay hipoten\u00fcs\u00fcn yar\u0131s\u0131d\u0131r: 5 cm.' },
+        { q:'ABC \u00fc\u00e7geninde A a\u00e7\u0131s\u0131n\u0131n a\u00e7\u0131ortay\u0131 BC kenar\u0131n\u0131 D noktas\u0131nda kesmektedir. |AB| = 8 cm, |AC| = 12 cm ve |BD| = 6 cm ise |DC| ka\u00e7 cm\'dir?',
+          c:['4','8','9','10'], d:2, a:'A\u00e7\u0131ortay teoremi: |BD|/|DC| = |AB|/|AC| \u2192 6/|DC| = 8/12 \u2192 |DC| = 9 cm.' },
+        { q:'Benzerlik oran\u0131 2/3 olan iki \u00fc\u00e7genin alanlar\u0131 oran\u0131 ka\u00e7t\u0131r?',
+          c:['2/3','4/9','8/27','3/2'], d:1, a:'Benzerlikte alanlar oran\u0131, benzerlik oran\u0131n\u0131n karesidir: (2/3)\u00b2 = 4/9.' },
+        { q:'Bir \u00fc\u00e7gende kenarortay \u00e7izildi\u011finde olu\u015fan iki \u00fc\u00e7gen i\u00e7in a\u015fa\u011f\u0131dakilerden hangisi do\u011frudur?',
+          c:['Alanlar\u0131 e\u015fittir.','\u00c7evreleri e\u015fittir.','Benzerdirler.','E\u015fkenard\u0131rlar.'],
+          d:0, a:'Kenarortay taban\u0131 iki e\u015f par\u00e7aya b\u00f6ler; y\u00fckseklik ortak oldu\u011fu i\u00e7in iki \u00fc\u00e7genin alan\u0131 e\u015fittir.' },
+        { q:'Dik kenarlar\u0131 6 cm ve 8 cm olan dik \u00fc\u00e7genin i\u00e7 te\u011fet \u00e7emberinin yar\u0131\u00e7ap\u0131 ka\u00e7 cm\'dir?',
+          c:['2','2,4','3','4'], d:0, a:'r = (dik kenarlar toplam\u0131 \u2212 hipoten\u00fcs)/2 = (6 + 8 \u2212 10)/2 = 2 cm.' },
+        { q:'Bir \u00fc\u00e7gende a\u011f\u0131rl\u0131k merkezi kenarortay\u0131 hangi oranda b\u00f6ler?',
+          c:['1 : 1','1 : 2','2 : 1 (k\u00f6\u015feye yak\u0131n par\u00e7a 2)','3 : 1'],
+          d:2, a:'A\u011f\u0131rl\u0131k merkezi kenarortay\u0131 k\u00f6\u015feden itibaren 2 : 1 oran\u0131nda b\u00f6ler.' }
       ]}
     ]},
 
@@ -7587,6 +7726,415 @@ window.Harita = { olustur: olustur, bolgeKatmani: bolgeKatmani };
 
 })();
 
+/* ===== deneme.js ===== */
+/* ===========================================================
+   DENEME SINAVI + YARISMA TABLOSU
+   30 soru - 40 dakika
+   Dagilim: Turkce 7 - Matematik 8 - Tarih 7 - Cografya 5 - Vatandaslik 3
+   Puan   : Turkce 100 - Tarih 100 - Matematik 200 - Cografya 50 - Vatandaslik 50
+   Her ders icin sorular FARKLI konulardan cekilir, her sinavda yeniden secilir.
+   =========================================================== */
+(function(){
+'use strict';
+
+var PLAN = [
+  { ders:'turkce',      ad:'T\u00fcrk\u00e7e',      adet:7, puan:100 },
+  { ders:'matematik',   ad:'Matematik',   adet:8, puan:200 },
+  { ders:'tarih',       ad:'Tarih',       adet:7, puan:100 },
+  { ders:'cografya',    ad:'Co\u011frafya',    adet:5, puan:50  },
+  { ders:'vatandaslik', ad:'Vatanda\u015fl\u0131k', adet:3, puan:50  }
+];
+var SURE = 40 * 60;                       /* saniye */
+var TOPLAM_PUAN = 3400;
+
+/* -- kucuk yardimcilar -- */
+function h(t,c,x){ var n=document.createElement(t); if(c) n.className=c; if(x!=null) n.textContent=x; return n; }
+function H(t,c,html){ var n=h(t,c); n.innerHTML=html; return n; }
+function md(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/(^|[\s(])\*([^*]+)\*/g,'$1<em>$2</em>');
+}
+function karistir(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function bugun(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function ss(k,v){ try{ if(v===undefined) { var s=localStorage.getItem('kpss_'+k); return s==null?null:JSON.parse(s); } localStorage.setItem('kpss_'+k, JSON.stringify(v)); }catch(e){ return null; } }
+
+/* =========== SORU HAVUZU =========== */
+function dersVer(id){
+  return { turkce:window.DERS_TURKCE, matematik:window.DERS_MATEMATIK, tarih:window.DERS_TARIH,
+           cografya:window.DERS_COGRAFYA, vatandaslik:window.DERS_VATANDASLIK }[id];
+}
+/* Bir dersten, her biri FARKLI konudan olmak uzere n soru sec */
+function dersSorulari(dersId, n, puan){
+  var d = dersVer(dersId); if(!d) return [];
+  var konular = [];
+  d.konular.forEach(function(k){
+    (k.bloklar||[]).forEach(function(b){
+      if(b.t === 'test' && b.s && b.s.length) konular.push({ konu:k, sorular:b.s });
+    });
+  });
+  var secilen = karistir(konular).slice(0, n);          /* farkli konular */
+  /* konu sayisi yetmezse kalanlari tekrar dolas */
+  var i = 0;
+  while(secilen.length < n && konular.length){ secilen.push(konular[i % konular.length]); i++; }
+  return secilen.map(function(x){
+    var s = x.sorular[Math.floor(Math.random() * x.sorular.length)];
+    return { ders:dersId, dersAd:d.ad, renk:d.renk, konuAd:x.konu.ad, konuId:x.konu.id,
+             q:s.q, c:s.c, d:s.d, a:s.a, puan:puan };
+  });
+}
+function sinavKur(){
+  var hepsi = [];
+  PLAN.forEach(function(p){ hepsi = hepsi.concat(dersSorulari(p.ders, p.adet, p.puan)); });
+  return hepsi;                                          /* ders sirasi korunur */
+}
+
+/* =========== YARISMA (uzak sunucu) =========== */
+/* jsonstorage.net -- ucretsiz, kayit gerektirmez, CORS acik.
+   Oda = tek bir JSON kaydi. Kod = "kullaniciId/kayitId" parcasi.        */
+var API = 'https://api.jsonstorage.net/v1/json';
+function odaKodu(){ return ss('oda'); }
+function odaUrl(){ var k = odaKodu(); return k ? API + '/' + k : null; }
+
+function odaOku(){
+  var u = odaUrl();
+  if(!u) return Promise.resolve(null);
+  return fetch(u, { cache:'no-store' }).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+}
+function odaYaz(veri){
+  var u = odaUrl();
+  if(!u) return Promise.resolve(false);
+  return fetch(u, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(veri) })
+    .then(function(r){ return r.ok; }).catch(function(){ return false; });
+}
+function odaOlustur(){
+  return fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ kayitlar:[] }) })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(j){
+      if(!j || !j.uri) return null;
+      var kod = j.uri.split('/v1/json/')[1];
+      ss('oda', kod); return kod;
+    }).catch(function(){ return null; });
+}
+
+/* Sonucu hem yerelde hem odada sakla */
+function sonucKaydet(kayit){
+  var yerel = ss('sonuclar') || [];
+  yerel.push(kayit); ss('sonuclar', yerel);
+  if(!odaUrl()) return Promise.resolve('yerel');
+  return odaOku().then(function(veri){
+    veri = veri && veri.kayitlar ? veri : { kayitlar:[] };
+    veri.kayitlar.push(kayit);
+    if(veri.kayitlar.length > 400) veri.kayitlar = veri.kayitlar.slice(-400);
+    return odaYaz(veri).then(function(ok){ return ok ? 'oda' : 'yerel'; });
+  });
+}
+
+/* Gunluk birincilikleri ve toplamlari hesapla */
+function tabloHesapla(kayitlar){
+  var gunler = {}, kisi = {};
+  kayitlar.forEach(function(k){
+    if(!k || !k.ad || !k.gun) return;
+    (gunler[k.gun] = gunler[k.gun] || {});
+    /* bir kisinin o gunku EN IYI puani */
+    if(!gunler[k.gun][k.ad] || gunler[k.gun][k.ad] < k.puan) gunler[k.gun][k.ad] = k.puan;
+    var p = (kisi[k.ad] = kisi[k.ad] || { ad:k.ad, birincilik:0, toplam:0, deneme:0, bugun:0, enIyi:0 });
+    p.toplam += k.puan; p.deneme++;
+    if(k.puan > p.enIyi) p.enIyi = k.puan;
+    if(k.gun === bugun() && k.puan > p.bugun) p.bugun = k.puan;
+  });
+  Object.keys(gunler).forEach(function(g){
+    var gun = gunler[g], enY = -1, kazanan = [];
+    Object.keys(gun).forEach(function(ad){
+      if(gun[ad] > enY){ enY = gun[ad]; kazanan = [ad]; }
+      else if(gun[ad] === enY) kazanan.push(ad);
+    });
+    kazanan.forEach(function(ad){ if(kisi[ad]) kisi[ad].birincilik++; });
+  });
+  return Object.keys(kisi).map(function(a){ return kisi[a]; })
+    .sort(function(x,y){ return y.birincilik - x.birincilik || y.toplam - x.toplam; });
+}
+
+/* =========== ARAYUZ =========== */
+var S = null;   /* aktif sinav durumu */
+
+function ciz(hedef){
+  hedef.textContent = '';
+  if(!S)          giris(hedef);
+  else if(S.bitti) sonuc(hedef);
+  else            sinav(hedef);
+}
+
+/* -- giris ekrani -- */
+function giris(m){
+  var hd = h('div','dhead');
+  hd.appendChild(H('div','crumb','<a href="#/">Ana sayfa</a> \u00b7 Deneme'));
+  hd.appendChild(h('h1', null, 'Deneme S\u0131nav\u0131'));
+  hd.appendChild(h('p','lead','30 soru, 40 dakika. Sorular her s\u0131navda yeniden ve rastgele se\u00e7ilir; her ders i\u00e7in sorular farkl\u0131 konulardan gelir.'));
+  m.appendChild(hd);
+
+  var g = h('div','dnGrid');
+  PLAN.forEach(function(p){
+    var c = h('div','dnKart');
+    c.style.setProperty('--dc','var(--c-' + (dersVer(p.ders)||{renk:'cog'}).renk + ')');
+    c.appendChild(h('b', null, p.ad));
+    c.appendChild(h('span', null, p.adet + ' soru'));
+    c.appendChild(h('em', null, p.puan + ' puan/soru'));
+    g.appendChild(c);
+  });
+  m.appendChild(g);
+  m.appendChild(H('div','dnNot','Toplam <b>' + TOPLAM_PUAN + ' puan</b> \u00b7 Yanl\u0131\u015f cevap do\u011fruyu g\u00f6t\u00fcrmez \u00b7 S\u00fcre dolunca s\u0131nav kendili\u011finden biter.'));
+
+  var ad = ss('kullanici') || '';
+  var kutu = h('div','dnBaslat');
+  var inp = document.createElement('input');
+  inp.type = 'text'; inp.placeholder = 'Kullan\u0131c\u0131 ad\u0131n'; inp.value = ad; inp.maxLength = 20; inp.className = 'dnAd';
+  var btn = h('button','dnBtn','S\u0131nav\u0131 Ba\u015flat');
+  btn.onclick = function(){
+    var v = inp.value.trim();
+    if(!v){ inp.focus(); inp.classList.add('hata'); return; }
+    ss('kullanici', v);
+    S = { ad:v, sorular:sinavKur(), cevap:{}, i:0, kalan:SURE, bitti:false, baslangic:Date.now() };
+    S.sayac = setInterval(function(){
+      S.kalan--; 
+      var e = document.getElementById('dnSayac');
+      if(e){ e.textContent = saatBicim(S.kalan); e.classList.toggle('az', S.kalan <= 300); }
+      if(S.kalan <= 0) bitir();
+    }, 1000);
+    ciz(document.querySelector('#icerik'));
+  };
+  inp.oninput = function(){ inp.classList.remove('hata'); };
+  kutu.appendChild(inp); kutu.appendChild(btn);
+  m.appendChild(kutu);
+
+  m.appendChild(yarisPanel());
+}
+
+function saatBicim(sn){
+  if(sn < 0) sn = 0;
+  return String(Math.floor(sn/60)).padStart(2,'0') + ':' + String(sn%60).padStart(2,'0');
+}
+
+/* -- sinav ekrani -- */
+function sinav(m){
+  var s = S.sorular[S.i];
+
+  var bar = h('div','dnBar');
+  bar.appendChild(H('div','dnSol','<b>' + (S.i+1) + '</b> / ' + S.sorular.length));
+  var t = h('div','dnSayac', saatBicim(S.kalan)); t.id = 'dnSayac';
+  if(S.kalan <= 300) t.classList.add('az');
+  bar.appendChild(t);
+  var bit = h('button','dnBitir','S\u0131nav\u0131 Bitir'); bit.onclick = function(){ if(confirm('S\u0131nav\u0131 bitirmek istedi\u011fine emin misin?')) bitir(); };
+  bar.appendChild(bit);
+  m.appendChild(bar);
+
+  var grid = h('div','dnIzgara');
+  S.sorular.forEach(function(x, i){
+    var b = h('button','dnHucre' + (i === S.i ? ' aktif' : '') + (S.cevap[i] != null ? ' dolu' : ''), String(i+1));
+    b.onclick = function(){ S.i = i; ciz(m.parentNode ? document.querySelector('#icerik') : m); };
+    grid.appendChild(b);
+  });
+  m.appendChild(grid);
+
+  var kart = h('div','dnSoru');
+  kart.appendChild(H('div','dnEtiket','<span class="dnDers" style="--dc:var(--c-' + s.renk + ')">' + s.dersAd + '</span><span class="dnKonu">' + s.konuAd + '</span><span class="dnPuan">' + s.puan + ' puan</span>'));
+  kart.appendChild(H('div','dnMetin', md(s.q)));
+  s.c.forEach(function(sik, ci){
+    var b = h('button','dnSik' + (S.cevap[S.i] === ci ? ' secili' : ''));
+    b.innerHTML = '<span class="lt">' + 'ABCDE'[ci] + ')</span>' + md(sik);
+    b.onclick = function(){
+      S.cevap[S.i] = (S.cevap[S.i] === ci ? null : ci);
+      if(S.cevap[S.i] == null) delete S.cevap[S.i];
+      ciz(document.querySelector('#icerik'));
+    };
+    kart.appendChild(b);
+  });
+  m.appendChild(kart);
+
+  var nav = h('div','dnNav');
+  if(S.i > 0){ var p = h('button','dnGez','\u2190 \u00d6nceki'); p.onclick = function(){ S.i--; ciz(document.querySelector('#icerik')); }; nav.appendChild(p); }
+  if(S.i < S.sorular.length - 1){ var n = h('button','dnGez nx','Sonraki \u2192'); n.onclick = function(){ S.i++; ciz(document.querySelector('#icerik')); }; nav.appendChild(n); }
+  m.appendChild(nav);
+}
+
+function bitir(){
+  if(!S || S.bitti) return;
+  clearInterval(S.sayac);
+  S.bitti = true;
+  var puan = 0, dogru = 0, yanlis = 0, bos = 0, dersler = {};
+  S.sorular.forEach(function(s, i){
+    var c = S.cevap[i];
+    var d = dersler[s.dersAd] = dersler[s.dersAd] || { ad:s.dersAd, renk:s.renk, dogru:0, yanlis:0, bos:0, adet:0, puan:0 };
+    d.adet++;
+    if(c == null){ bos++; d.bos++; }
+    else if(c === s.d){ dogru++; d.dogru++; puan += s.puan; d.puan += s.puan; }
+    else { yanlis++; d.yanlis++; }
+  });
+  S.sonuc = { puan:puan, dogru:dogru, yanlis:yanlis, bos:bos, dersler:dersler,
+              sure:Math.min(SURE, Math.round((Date.now() - S.baslangic)/1000)) };
+  var kayit = { ad:S.ad, gun:bugun(), puan:puan, dogru:dogru, sure:S.sonuc.sure, zaman:Date.now() };
+  S.kayitDurum = 'bekliyor';
+  sonucKaydet(kayit).then(function(nerede){
+    if(!S) return;                      /* kullanici yeni denemeye gecmis olabilir */
+    S.kayitDurum = nerede;
+    var e = document.getElementById('dnKayitDurum');
+    if(e) e.textContent = nerede === 'oda' ? 'Sonu\u00e7 yar\u0131\u015fma odas\u0131na kaydedildi.' : 'Sonu\u00e7 bu cihaza kaydedildi.';
+    var p = document.getElementById('dnYaris');
+    if(p) tabloDoldur(p);
+  });
+  if(location.hash.indexOf('deneme') >= 0) ciz(document.querySelector('#icerik'));
+}
+
+/* -- sonuc ekrani -- */
+function sonuc(m){
+  var r = S.sonuc;
+  var hd = h('div','dhead');
+  hd.appendChild(H('div','crumb','<a href="#/">Ana sayfa</a> \u00b7 Deneme \u00b7 Sonu\u00e7'));
+  hd.appendChild(h('h1', null, 'S\u0131nav Sonucu'));
+  m.appendChild(hd);
+
+  var oz = h('div','dnSonuc');
+  oz.appendChild(H('div','dnBuyuk','<b>' + r.puan + '</b><span>/ ' + TOPLAM_PUAN + ' puan</span>'));
+  var say = h('div','dnSayim');
+  [['Do\u011fru', r.dogru, 'ova'], ['Yanl\u0131\u015f', r.yanlis, 'sinir'], ['Bo\u015f', r.bos, 'ink3'], ['S\u00fcre', saatBicim(r.sure), 'akarsu']].forEach(function(x){
+    var c = h('div','dnSay'); c.style.setProperty('--dc','var(--' + x[2] + ')');
+    c.appendChild(h('b', null, String(x[1]))); c.appendChild(h('span', null, x[0])); say.appendChild(c);
+  });
+  oz.appendChild(say);
+  m.appendChild(oz);
+
+  var tw = h('div','tw'), tb = document.createElement('table');
+  var tr = h('tr'); ['Ders','Do\u011fru','Yanl\u0131\u015f','Bo\u015f','Puan'].forEach(function(x){ tr.appendChild(h('th', null, x)); });
+  tb.appendChild(h('thead')).appendChild(tr);
+  var body = h('tbody');
+  Object.keys(r.dersler).forEach(function(k){
+    var d = r.dersler[k], row = h('tr');
+    [d.ad, d.dogru, d.yanlis, d.bos, d.puan].forEach(function(v, i){
+      row.appendChild(h('td', null, String(v)));
+    });
+    body.appendChild(row);
+  });
+  tb.appendChild(body); tw.appendChild(tb); m.appendChild(tw);
+  m.appendChild(H('div','dnNot','<span id="dnKayitDurum">Sonu\u00e7 kaydediliyor\u2026</span>'));
+
+  var dg = h('div','dnDugmeler');
+  var yeni = h('button','dnBtn','Yeni Deneme');
+  yeni.onclick = function(){ S = null; ciz(document.querySelector('#icerik')); };
+  var incele = h('button','dnBtn ikincil','Cevaplar\u0131 \u0130ncele');
+  incele.onclick = function(){ S.inceleme = !S.inceleme; ciz(document.querySelector('#icerik')); };
+  dg.appendChild(yeni); dg.appendChild(incele);
+  m.appendChild(dg);
+
+  m.appendChild(yarisPanel());
+
+  if(S.inceleme){
+    var inc = h('div','dnInceleme');
+    inc.appendChild(h('div','blk-h','Cevap anahtar\u0131'));
+    S.sorular.forEach(function(s, i){
+      var c = S.cevap[i], durum = c == null ? 'bos' : (c === s.d ? 'dogru' : 'yanlis');
+      var k = h('div','dnIncKart ' + durum);
+      k.appendChild(H('div','dnEtiket','<span class="dnDers" style="--dc:var(--c-' + s.renk + ')">' + s.dersAd + '</span><span class="dnKonu">' + s.konuAd + '</span>'));
+      k.appendChild(H('div','dnMetin', (i+1) + '. ' + md(s.q)));
+      k.appendChild(H('div','dnCevapSatir','Do\u011fru: <b>' + 'ABCDE'[s.d] + ') ' + md(s.c[s.d]) + '</b>' +
+        (c == null ? ' \u00b7 <i>bo\u015f b\u0131rakt\u0131n</i>' : (c === s.d ? ' \u00b7 <i>do\u011fru</i>' : ' \u00b7 <i>senin cevab\u0131n: ' + 'ABCDE'[c] + '</i>'))));
+      if(s.a) k.appendChild(H('div','dnAcik', md(s.a)));
+      inc.appendChild(k);
+    });
+    m.appendChild(inc);
+  }
+}
+
+/* -- yarisma paneli -- */
+function yarisPanel(){
+  var p = h('div','dnYaris'); p.id = 'dnYaris';
+  tabloDoldur(p);
+  return p;
+}
+
+function tabloDoldur(p){
+  p.textContent = '';
+  p.appendChild(h('div','blk-h','Yar\u0131\u015fma tablosu'));
+
+  var kod = odaKodu();
+  if(!kod){
+    p.appendChild(H('div','dnNot','Arkada\u015f\u0131nla yar\u0131\u015fmak i\u00e7in bir <b>yar\u0131\u015fma odas\u0131</b> gerekiyor. Biriniz oda kurar, kodu di\u011ferine g\u00f6nderir. Oda kurmazsan sonu\u00e7lar\u0131n yaln\u0131z bu cihazda saklan\u0131r.'));
+    var kur = h('div','dnOda');
+    var b1 = h('button','dnBtn ikincil','Yeni oda kur');
+    b1.onclick = function(){
+      b1.disabled = true; b1.textContent = 'Kuruluyor\u2026';
+      odaOlustur().then(function(k){
+        if(k) tabloDoldur(p);
+        else { b1.disabled = false; b1.textContent = 'Yeni oda kur'; alert('Oda kurulamad\u0131. \u0130nternet ba\u011flant\u0131n\u0131 kontrol et.'); }
+      });
+    };
+    var inp = document.createElement('input');
+    inp.type='text'; inp.placeholder='Arkada\u015f\u0131n\u0131n oda kodu'; inp.className='dnAd';
+    var b2 = h('button','dnBtn ikincil','Odaya kat\u0131l');
+    b2.onclick = function(){ var v = inp.value.trim(); if(!v) return; ss('oda', v); tabloDoldur(p); };
+    kur.appendChild(b1); kur.appendChild(inp); kur.appendChild(b2);
+    p.appendChild(kur);
+    yerelTablo(p);
+    return;
+  }
+
+  var bilgi = h('div','dnKod');
+  bilgi.appendChild(H('span', null, 'Oda kodu: <b>' + kod + '</b>'));
+  var kopya = h('button','dnMini','Kopyala');
+  kopya.onclick = function(){
+    try{ navigator.clipboard.writeText(kod); kopya.textContent = 'Kopyaland\u0131'; setTimeout(function(){ kopya.textContent='Kopyala'; }, 1500); }
+    catch(e){ prompt('Kodu kopyala:', kod); }
+  };
+  var cik = h('button','dnMini','Odadan \u00e7\u0131k');
+  cik.onclick = function(){ if(confirm('Odadan \u00e7\u0131k\u0131ls\u0131n m\u0131? Kodu kaybetme.')){ ss('oda', null); try{ localStorage.removeItem('kpss_oda'); }catch(e){} tabloDoldur(p); } };
+  bilgi.appendChild(kopya); bilgi.appendChild(cik);
+  p.appendChild(bilgi);
+
+  var yukleniyor = h('div','dnNot','Tablo y\u00fckleniyor\u2026');
+  p.appendChild(yukleniyor);
+
+  odaOku().then(function(veri){
+    yukleniyor.remove();
+    if(!veri || !veri.kayitlar){ p.appendChild(H('div','dnNot','Odaya ula\u015f\u0131lamad\u0131. A\u015fa\u011f\u0131da bu cihazdaki sonu\u00e7lar g\u00f6steriliyor.')); yerelTablo(p); return; }
+    var sira = tabloHesapla(veri.kayitlar);
+    if(!sira.length){ p.appendChild(H('div','dnNot','Hen\u00fcz kay\u0131t yok. \u0130lk denemeyi \u00e7\u00f6z, tabloyu sen ba\u015flat.')); return; }
+    tabloCiz(p, sira, 'Bug\u00fcn: ' + bugun());
+  });
+}
+
+function yerelTablo(p){
+  var kayitlar = ss('sonuclar') || [];
+  if(!kayitlar.length) return;
+  var sira = tabloHesapla(kayitlar);
+  tabloCiz(p, sira, 'Bu cihazdaki sonu\u00e7lar');
+}
+
+function tabloCiz(p, sira, baslik){
+  p.appendChild(H('div','dnAltBaslik', baslik));
+  var tw = h('div','tw'), tb = document.createElement('table');
+  var tr = h('tr');
+  ['#','Kullan\u0131c\u0131','G\u00fcnl\u00fck birincilik','Bug\u00fcnk\u00fc puan','En iyi','Toplam','Deneme'].forEach(function(x){ tr.appendChild(h('th', null, x)); });
+  tb.appendChild(h('thead')).appendChild(tr);
+  var body = h('tbody'), ben = ss('kullanici');
+  sira.forEach(function(k, i){
+    var row = h('tr'); if(k.ad === ben) row.className = 'ben';
+    [String(i+1), k.ad, String(k.birincilik), k.bugun ? String(k.bugun) : '\u2014', String(k.enIyi), String(k.toplam), String(k.deneme)]
+      .forEach(function(v){ row.appendChild(h('td', null, v)); });
+    body.appendChild(row);
+  });
+  tb.appendChild(body); tw.appendChild(tb); p.appendChild(tw);
+  if(sira.length > 1){
+    var a = sira[0], b = sira[1];
+    var fark = a.birincilik === b.birincilik
+      ? ('<b>' + a.ad + '</b> ve <b>' + b.ad + '</b> g\u00fcnl\u00fck birincilikte ba\u015fa ba\u015f \u2014 toplam puanda fark ' + Math.abs(a.toplam - b.toplam) + '.')
+      : ('<b>' + a.ad + '</b> \u00f6nde: ' + (a.birincilik - b.birincilik) + ' g\u00fcnl\u00fck birincilik fark\u0131 var.');
+    p.appendChild(H('div','dnNot', fark));
+  }
+}
+
+window.Deneme = { ciz: ciz, sifirla: function(){ if(S && S.sayac) clearInterval(S.sayac); S = null; } };
+
+})();
+
 /* ===== app.js ===== */
 /* ===========================================================
    KPSS On Lisans -- Tekrar Atlasi - uygulama kabugu
@@ -7781,6 +8329,12 @@ function blokCiz(b){
 /* =========== YAN MENU =========== */
 function menuKur(){
   var nav = q('#nav'); nav.textContent = '';
+  var dnBox = h('div','nav-ders dnMenu');
+  var dnA = h('a','nav-t'); dnA.href = '#/deneme';
+  var dnDot = h('span','dot'); dnDot.style.background = 'var(--acc)';
+  dnA.appendChild(dnDot); dnA.appendChild(document.createTextNode('Deneme Sinavi'));
+  dnA.appendChild(h('span','cnt','30 soru'));
+  dnBox.appendChild(dnA); nav.appendChild(dnBox);
   DERSLER.forEach(function(d){
     var box = h('div','nav-ders'); box.dataset.d = d.id;
     var t = h('button','nav-t');
@@ -7959,6 +8513,15 @@ function ara(s){
 /* =========== YONLENDIRICI =========== */
 function yonlendir(){
   var p = location.hash.replace(/^#\/?/,'').split('/').filter(Boolean);
+  if(p[0] === 'deneme'){
+    window.Deneme.ciz(q('#icerik'));
+    document.querySelectorAll('#nav a').forEach(function(a){ a.classList.remove('on'); });
+    var da = document.querySelector('#nav a[href="#/deneme"]'); if(da) da.classList.add('on');
+    document.title = 'Deneme Sinavi';
+    window.scrollTo(0,0);
+    q('#side').classList.remove('acik'); q('#scrim').classList.remove('acik');
+    return;
+  }
   var d = byId[p[0]];
   if(!d) anasayfa();
   else {
