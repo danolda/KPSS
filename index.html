@@ -7797,6 +7797,7 @@ window.Harita = { olustur: olustur, bolgeKatmani: bolgeKatmani };
 var PANTRY_ID = '41e0725c-beab-4cea-9de2-ed320c7b115a';
 var KOVA      = 'KpssLiderlikTablosu';
 var API       = 'https://getpantry.cloud/apiv1/pantry/' + PANTRY_ID + '/basket/' + KOVA;
+var API_KOK   = 'https://getpantry.cloud/apiv1/pantry/' + PANTRY_ID;
 
 var PLAN = [
   { ders:'turkce',      ad:'T\u00fcrk\u00e7e',      adet:7, puan:100 },
@@ -7898,11 +7899,16 @@ function sinavKur(){ var t=[]; PLAN.forEach(function(p){ t = t.concat(dersSorula
 
 /* -- SUNUCU -- */
 var sonHata = '';
+function ortamSorunu(){
+  /* file:// ile acilan sayfalarda origin 'null' olur ve sunucular istegi reddeder */
+  if(location.protocol === 'file:') return 'dosya';
+  return '';
+}
 function bekle(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
 
 function tabloOku(deneme){
   deneme = deneme || 0;
-  return fetch(API, { method:'GET', headers:{'Content-Type':'application/json'}, cache:'no-store' })
+  return fetch(API, { method:'GET', cache:'no-store' })   /* basit istek: on-kontrol yok */
     .then(function(r){
       if(r.ok){
         return r.json().then(function(j){ sonHata=''; return (j && j.oyuncular) ? j : { oyuncular:[] }; },
@@ -8318,11 +8324,21 @@ function avatarYukle(e, kart){
 function tabloDoldur(p){
   p.textContent = '';
   p.appendChild(h('div','blk-h','S\u0131ralama'));
+  if(ortamSorunu() === 'dosya'){        /* bosuna beklemesin */
+    p.appendChild(H('div','dnNot','S\u0131ralama y\u00fcklenemedi: sayfa <b>dosyadan</b> a\u00e7\u0131lm\u0131\u015f. ' +
+      'Lider tablosu i\u00e7in siteyi <b>GitHub Pages adresinden</b> a\u00e7man gerekiyor.'));
+    return;
+  }
   var yuk = h('div','dnNot','Tablo y\u00fckleniyor\u2026'); p.appendChild(yuk);
 
   tabloOku().then(function(v){
     yuk.remove();
-    if(!v){ p.appendChild(H('div','dnNot','Sunucuya ula\u015f\u0131lamad\u0131. \u0130nternet ba\u011flant\u0131n\u0131 kontrol et; sonu\u00e7lar\u0131n cihaz\u0131nda saklanmaya devam ediyor.')); return; }
+    if(!v){
+      p.appendChild(H('div','dnNot', ortamSorunu()==='dosya'
+        ? 'S\u0131ralama y\u00fcklenemedi: sayfa <b>dosyadan</b> a\u00e7\u0131lm\u0131\u015f. Siteyi GitHub Pages adresinden a\u00e7man gerekiyor.'
+        : 'S\u0131ralama y\u00fcklenemedi. A\u015fa\u011f\u0131daki <b>Sunucu durumu</b> b\u00f6l\u00fcm\u00fc nedenini s\u00f6yl\u00fcyor.'));
+      return;
+    }
     var sira = siralamaYap(v.oyuncular);
     var benK = sira.filter(function(x){ return x.ad===benimAd(); })[0];
     if(benK){
@@ -8375,24 +8391,53 @@ function taniPaneli(){
   p.appendChild(h('div','blk-h','Sunucu durumu'));
   var d = h('div','dnNot','Kontrol ediliyor\u2026'); d.id = 'dnTaniMetin'; p.appendChild(d);
   var btn = h('button','dnBtn ikincil','Yeniden dene');
-  btn.onclick = function(){ taniCalistir(); };
+  btn.onclick = function(){ taniCalistir(d); };
   p.appendChild(btn);
-  taniCalistir();
+  taniCalistir(d);
   return p;
 }
-function taniCalistir(){
-  var d = document.getElementById('dnTaniMetin');
-  if(d) d.textContent = 'Kontrol ediliyor\u2026';
+function taniCalistir(el){
+  var d = el || document.getElementById('dnTaniMetin');
+  if(!d) return;
+
+  if(ortamSorunu() === 'dosya'){
+    d.innerHTML = '\u2717 Sayfa <b>dosyadan</b> a\u00e7\u0131lm\u0131\u015f (file://). Taray\u0131c\u0131 bu durumda ' +
+      'd\u0131\u015f sunuculara istek g\u00f6ndermeyi engeller. Lider tablosunun \u00e7al\u0131\u015fmas\u0131 i\u00e7in siteyi ' +
+      '<b>GitHub Pages adresinden</b> (https://... ile ba\u015flayan) a\u00e7man gerekiyor. ' +
+      'Puanlar\u0131n bu arada cihaz\u0131nda birikmeye devam ediyor.';
+    return;
+  }
+
+  d.textContent = 'Kontrol ediliyor\u2026';
   tabloOku().then(function(v){
-    d = document.getElementById('dnTaniMetin'); if(!d) return;
+    d = el || document.getElementById('dnTaniMetin'); if(!d) return;
     if(v){
       var n = (v.oyuncular||[]).length;
       d.innerHTML = '\u2713 Sunucuya ba\u011fland\u0131. Tabloda <b>' + n + '</b> oyuncu kay\u0131tl\u0131.' +
-        (ss('bekleyen') ? ' G\u00f6nderilmeyi bekleyen <b>' + sayiBicim(ss('bekleyen')) + ' XP</b> var; bir sonraki denemede eklenecek.' : '');
-    } else {
-      d.innerHTML = '\u2717 Sunucuya ula\u015f\u0131lam\u0131yor' + (sonHata ? ' (' + sonHata + ')' : '') +
-        '. Puanlar\u0131n cihaz\u0131nda birikiyor, ba\u011flant\u0131 gelince tabloya y\u00fcklenecek.';
+        (ss('bekleyen') ? ' G\u00f6nderilmeyi bekleyen <b>' + sayiBicim(ss('bekleyen')) +
+          ' XP</b> var; bir sonraki denemede eklenecek.' : '');
+      return;
     }
+    /* kova okunamadi: pantry hesabinin kendisi ayakta mi? */
+    fetch(API_KOK, { cache:'no-store' })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(j){
+        d = el || document.getElementById('dnTaniMetin'); if(!d) return;
+        if(j){
+          d.innerHTML = '\u26a0 Pantry hesab\u0131na ula\u015f\u0131l\u0131yor ama <b>' + KOVA +
+            '</b> kovas\u0131 okunam\u0131yor' + (sonHata ? ' (' + sonHata + ')' : '') +
+            '. \u0130lk denemeyi \u00e7\u00f6zd\u00fc\u011f\u00fcnde kova kendili\u011finden olu\u015facak.';
+        } else {
+          d.innerHTML = '\u2717 Pantry sunucusuna hi\u00e7 ula\u015f\u0131lam\u0131yor' + (sonHata ? ' (' + sonHata + ')' : '') +
+            '. \u0130nterneti, VPN\u2019i veya reklam engelleyiciyi kontrol et. ' +
+            'Puanlar\u0131n cihaz\u0131nda birikiyor, ba\u011flant\u0131 gelince y\u00fcklenecek.';
+        }
+      })
+      .catch(function(){
+        d = el || document.getElementById('dnTaniMetin'); if(!d) return;
+        d.innerHTML = '\u2717 Pantry sunucusuna hi\u00e7 ula\u015f\u0131lam\u0131yor. \u0130nterneti, VPN\u2019i veya ' +
+          'reklam engelleyiciyi kontrol et. Puanlar\u0131n cihaz\u0131nda birikiyor.';
+      });
   });
 }
 function seviyeTablosu(){
