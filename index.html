@@ -7805,7 +7805,7 @@ var PLAN = [
   { ders:'cografya',    ad:'Co\u011frafya',    adet:5, puan:50  },
   { ders:'vatandaslik', ad:'Vatanda\u015fl\u0131k', adet:3, puan:50  }
 ];
-var SURE = 40 * 60, TOPLAM_PUAN = 3400, SEV_TABAN = 3400, SEV_ARTIS = 100;
+var SURE = 40 * 60, TOPLAM_PUAN = 3400, SEV_TABAN = 1000, SEV_ARTIS = 100;
 
 var RUTBELER = [
   { lv:1,   ad:'NPC',       renk:'#7f8c8d' },
@@ -8322,8 +8322,8 @@ function tabloDoldur(p){
 function seviyeTablosu(){
   var s = h('div','dnSevTablo');
   s.appendChild(h('div','blk-h','R\u00fctbe merdiveni'));
-  s.appendChild(H('div','dnNot','R\u00fctbe <b>her 10 seviyede bir</b> de\u011fi\u015fir. Bir denemenin tamam\u0131 <b>' +
-    TOPLAM_PUAN + ' puan</b>; ilk seviye atlamas\u0131 tam bir deneme kadar XP ister, sonraki her seviyede istem <b>+' +
+  s.appendChild(H('div','dnNot','R\u00fctbe <b>her 10 seviyede bir</b> de\u011fi\u015fir. Bir denemenin tamam\u0131 <b>' + TOPLAM_PUAN +
+    ' puan</b>. \u0130lk seviye atlamas\u0131 <b>' + SEV_TABAN + ' XP</b> ister; sonraki her seviyede istem <b>+' +
     SEV_ARTIS + '</b> artar.'));
 
   var tw = h('div','tw'), tb = document.createElement('table');
