@@ -3573,7 +3573,7 @@ function olustur(host, opt){
         gr.appendChild(yol);
       }
       gr.appendChild(el('path', { d:yolD(pts), 'class':'riv-hit' }));
-      gr.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + c.n + '</b>' + c.bilgi); });
+      gr.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + c.n + '</b>' + md(c.bilgi || '')); });
       gr.addEventListener('mouseleave', tipGizle);
       gr.onclick = function(ev){ ev.stopPropagation(); secili = { cizgi:ci }; ciz(); yan(true); };
       gCizgi.appendChild(gr);
@@ -3584,7 +3584,7 @@ function olustur(host, opt){
     if(kat.siralar) kat.siralar.forEach(function(sr, si){
       var pts = noktalar(sr.yol);
       var yol = el('path', { d:yolD(pts), 'class':'sira' });
-      yol.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + sr.ad + '</b>' + (sr.bilgi||'')); });
+      yol.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + sr.ad + '</b>' + md(sr.bilgi || '')); });
       yol.addEventListener('mouseleave', tipGizle);
       gCizgi.appendChild(yol);
       egriAd(pts, sr.ad.replace(/\s*\(.*\)/, '').toLocaleUpperCase('tr'), uid + 's' + si, 'sira-ad', 2.6, 0, 1);
@@ -3655,7 +3655,7 @@ function olustur(host, opt){
           t2.setAttribute('text-anchor','middle'); t2.textContent = n.n;
           gr.appendChild(t2);
         }
-        gr.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + n.n + '</b>' + (n.i||'')); });
+        gr.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + n.n + '</b>' + md(n.i || '')); });
         gr.addEventListener('mouseleave', tipGizle);
         gr.onclick = function(ev){ ev.stopPropagation(); sec(gi, ni); };
         (isSec ? gSecili : gIsaret).appendChild(gr);
@@ -3676,7 +3676,7 @@ function olustur(host, opt){
         var c = el('circle', { cx:p[0].toFixed(1), cy:p[1].toFixed(1), r:isSec ? 2.4 : 1.7, 'class':'hat-uc' }); c.style.fill = renk; gr.appendChild(c);
       });
       gr.appendChild(el('path', { d:d, 'class':'hat-hit' }));
-      gr.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + n.n + '</b>' + (n.i||'')); });
+      gr.addEventListener('mousemove', function(e){ tipGoster(e, '<b>' + n.n + '</b>' + md(n.i || '')); });
       gr.addEventListener('mouseleave', tipGizle);
       gr.onclick = function(ev){ ev.stopPropagation(); sec(gi, ni); };
       (isSec ? gSecili : gCizgi).appendChild(gr);
