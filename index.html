@@ -3442,8 +3442,9 @@ function olustur(host, opt){
   var side = h('div','mside');
   var foot = h('div','mfoot');
   var tip  = h('div','mtip');
-  body.appendChild(stage); body.appendChild(side);
-  wrap.appendChild(top); wrap.appendChild(body); wrap.appendChild(foot);
+  /* sira: harita -> alt bilgi / sinav sorusu -> liste (soru haritanin hemen altinda kalsin) */
+  body.appendChild(stage);
+  wrap.appendChild(top); wrap.appendChild(body); wrap.appendChild(foot); wrap.appendChild(side);
   stage.appendChild(tip);
   host.appendChild(wrap);
 
